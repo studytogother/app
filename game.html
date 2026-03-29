@@ -11,6 +11,10 @@
             --glass-bg: rgba(255, 255, 255, 0.75); --glass-border: rgba(255, 255, 255, 0.9);
             --text-main: #58504A; --text-light: #968E86;
             --accent-gold: #CBA37A; --accent-jade: #82968C; --accent-rose: #CFA4A4;
+            /* 雲朵插畫用色 */
+            --cloud-top: #E1F5FE;
+            --cloud-bottom: #B3E5FC;
+            --cloud-melt: #81D4FA; /* 融化後的顏色 */
         }
         * { box-sizing: border-box; touch-action: manipulation; }
         html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
@@ -24,7 +28,7 @@
         .lock-banner { background: rgba(207, 164, 164, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); padding: 12px 20px; border-radius: 12px; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 20px; display: none; width: 100%; max-width: 500px;}
         .section-title { width: 100%; max-width: 500px; font-size: 1.1rem; color: var(--accent-jade); border-bottom: 2px solid rgba(130, 150, 140, 0.2); padding-bottom: 8px; margin: 15px 0; font-weight: bold; }
         .grid-container { width: 100%; max-width: 500px; display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .group-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 18px 20px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; text-align: left; }
+        .group-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 18px 20px; border-radius: 166px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; text-align: left; }
         .group-btn:active { transform: scale(0.97); }
         .group-btn.locked { opacity: 0.5; pointer-events: none; filter: grayscale(100%); }
         .g-title { font-size: 1.05rem; font-weight: bold; color: var(--text-main); }
@@ -39,28 +43,50 @@
         .absorb-root { font-size: 0.8rem; color: var(--accent-gold); }
         .audio-btn { padding: 6px 12px; border-radius: 12px; border: 1px solid rgba(203,163,122,0.4); background: rgba(203,163,122,0.1); color: var(--accent-gold); font-weight: bold; cursor: pointer; }
 
-        /* --- 階段二：測驗畫面 (雲朵化) --- */
+        /* --- 階段二：測驗畫面 (插畫雲朵 & 完整動畫) --- */
         #test-screen { flex: 1; display: none; flex-direction: column; align-items: center; position: relative; width: 100%; overflow: hidden; }
         .spirit-stage { height: 230px; display: flex; justify-content: center; align-items: center; position: relative; width: 100%; margin-top: 10px; }
-        #stickman-svg { width: 180px; height: 220px; transition: 0.5s; z-index: 5; animation: float 4s infinite ease-in-out;}
+        
+        /* 基礎漂浮 */
+        #spirit-character { width: 180px; height: 220px; transition: 0.3s ease-out; z-index: 5; animation: float 4s infinite ease-in-out; transform-origin: center bottom; }
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
         
-        .s-line { fill: none; stroke: var(--text-main); stroke-width: 4; stroke-linecap: round; }
-        .s-fill { fill: #fff; stroke: var(--text-main); stroke-width: 4; }
-        .part { opacity: 0; transition: 0.5s; } .visible { opacity: 1 !important; }
-        
-        /* 升空與融化動畫 */
-        #rocket { opacity: 0; transition: 0.8s; } 
-        .rocket-active #rocket { opacity: 1; transform: translateY(-20px); }
-        .liftoff { animation: liftoffAnim 1.5s forwards cubic-bezier(0.4, 0, 1, 1); }
-        @keyframes liftoffAnim { 0% { transform: translateY(0); } 100% { transform: translateY(-1000px); } }
-        
-        .melt { animation: meltAnim 1.5s forwards; }
-        @keyframes meltAnim {
-            0% { transform: scaleY(1); opacity: 1; }
-            50% { transform: scaleY(0.2) translateY(150px); opacity: 0.8; }
-            100% { transform: scaleY(0.1) translateY(300px); opacity: 0; }
+        /* 動態反饋 class */
+        .bounce-correct { animation: bounceCorrectAnim 0.6s ease-out !important; }
+        @keyframes bounceCorrectAnim {
+            0% { transform: scaleY(1); }
+            30% { transform: scaleY(0.7) scaleX(1.1); }
+            50% { transform: scaleY(1.3) scaleX(0.9) translateY(-20px); }
+            70% { transform: scaleY(0.9) scaleX(1.05); }
+            100% { transform: scaleY(1); }
         }
+        
+        .shake-wrong { animation: shakeWrongAnim 0.4s linear !important; }
+        @keyframes shakeWrongAnim {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px) rotate(-2deg); }
+            40%, 80% { transform: translateX(10px) rotate(2deg); }
+        }
+        
+        /* 失敗融化動畫 (.melt) */
+        .melt { animation: meltAnim 1.8s forwards ease-in !important; }
+        @keyframes meltAnim {
+            0% { transform: scaleY(1) translateY(0); opacity: 1; }
+            30% { transform: scaleY(0.6) scaleX(1.1) translateY(50px); }
+            60% { transform: scaleY(0.1) scaleX(1.5) translateY(180px); opacity: 1; }
+            100% { transform: scaleY(0.05) scaleX(1.8) translateY(200px); opacity: 0; }
+        }
+
+        /* 成功升空動畫 */
+        .liftoff-stage { animation: liftoffStageAnim 1.5s forwards cubic-bezier(0.4, 0, 1, 1); }
+        @keyframes liftoffStageAnim { 0% { transform: translateY(0); } 100% { transform: translateY(-1000px); } }
+
+        /* SVG 內部部件控制 */
+        .part { opacity: 0; transition: 0.3s; } .visible { opacity: 1 !important; }
+        #rocket { opacity: 0; transition: 0.5s; transform-origin: center; } 
+        .rocket-active #rocket { opacity: 1; transform: scale(1); }
+        #s-mouth-pout { opacity: 1; } /* 初始嘴巴 */
+        #s-mouth-surprise, #s-mouth-dead { opacity: 0; }
 
         .wisdom-eye-btn { position: absolute; top: 10px; right: 20px; background: rgba(203,163,122,0.15); border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 5px; z-index: 20;}
         #cheat-overlay { position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: var(--accent-gold); padding: 10px 30px; border-radius: 15px; font-size: 2rem; font-weight: bold; z-index: 50; display: none; letter-spacing: 3px; }
@@ -110,20 +136,30 @@
     <div id="cheat-overlay"></div>
 
     <div class="spirit-stage" id="spirit-stage">
-        <svg id="stickman-svg" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
-            <path id="s-body" class="part s-fill" d="M50,130 Q30,130 30,110 Q30,80 60,80 Q60,50 100,50 Q140,50 140,80 Q170,80 170,110 Q170,130 150,130 Z" />
+        <svg id="spirit-character" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
+            <defs>
+                <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--cloud-top);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:var(--cloud-bottom);stop-opacity:1" />
+                </linearGradient>
+            </defs>
             
-            <g id="s-head" class="part">
-                <line x1="80" y1="95" x2="100" y2="95" stroke="#333" stroke-width="3" />
-                <line x1="110" y1="95" x2="130" y2="95" stroke="#333" stroke-width="3" />
+            <g id="rocket" transform="scale(0)">
+                <path d="M100 130 L90 160 L110 160 Z" fill="var(--accent-rose)" />
+                <rect x="92" y="160" width="16" height="20" rx="3" fill="var(--accent-gold)" />
             </g>
 
-            <line id="s-arms" x1="85" y1="130" x2="85" y2="190" class="part s-line" />
-            <line id="s-legs" x1="125" y1="130" x2="125" y2="190" class="part s-line" />
+            <path id="s-body" class="part" fill="url(#cloudGradient)" d="M50,130 Q30,130 30,110 Q30,80 60,80 Q60,50 100,50 Q140,50 140,80 Q170,80 170,110 Q170,130 150,130 Z" stroke="#888" stroke-width="2" opacity="0.8" />
+            
+            <g id="s-head" class="part">
+                <line x1="80" y1="95" x2="100" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
+                <line x1="110" y1="95" x2="130" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
+                
+                <path id="s-mouth-pout" d="M95 110 Q105 105 115 110" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" /> <circle id="s-mouth-surprise" cx="105" cy="115" r="8" stroke="#333" stroke-width="3" fill="none" /> <path id="s-mouth-dead" d="M95 115 L115 115" stroke="#333" stroke-width="3" stroke-linecap="round" opacity="0"/> </g>
 
-            <g id="rocket">
-                <path d="M100 130 L90 160 L110 160 Z" fill="var(--accent-gold)" />
-                <rect x="95" y="160" width="10" height="15" fill="var(--accent-gold)" opacity="0.6"/>
+            <g id="s-legs" class="part">
+                <line x1="85" y1="130" x2="85" y2="190" stroke="#888" stroke-width="4" stroke-linecap="round" />
+                <line x1="125" y1="130" x2="125" y2="190" stroke="#888" stroke-width="4" stroke-linecap="round" />
             </g>
         </svg>
     </div>
@@ -146,6 +182,13 @@ window.sysUtterances = [];
 let currentWords = []; let currentStep = -1; let testIndex = 0; 
 let mistakes = 0; let guessedLetters = new Set(); let correctCount = 0; let usedCheat = false;
 let globalTimerInterval;
+
+// 嘴巴控制
+function setMouthStyle(style) {
+    document.getElementById('s-mouth-pout').style.opacity = (style === 'pout') ? 1 : 0;
+    document.getElementById('s-mouth-surprise').style.opacity = (style === 'surprise') ? 1 : 0;
+    document.getElementById('s-mouth-dead').style.opacity = (style === 'dead') ? 1 : 0;
+}
 
 function initLevelSelect() {
     currentStep = -1;
@@ -225,11 +268,11 @@ function loadWordTest() {
     if (testIndex >= currentWords.length) { showFinalResult(); return; }
     guessedLetters.clear(); mistakes = 0; usedCheat = false;
     
-    // 重置雲朵狀態
-    const svg = document.getElementById('stickman-svg');
-    svg.classList.remove('melt');
+    // 重置雲朵狀態和嘴巴
+    const character = document.getElementById('spirit-character');
+    character.className = ""; // 清除融化或升空 class
+    setMouthStyle('pout');
     document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
-    document.getElementById('spirit-stage').classList.remove('rocket-active', 'liftoff');
     
     const wordObj = currentWords[testIndex];
     document.getElementById('letter-row').innerHTML = wordObj.word.split('').map(() => `<div class="letter-dash"></div>`).join('');
@@ -249,14 +292,20 @@ function useCheatEye() {
 
 function handleGuess(letter, btn) {
     const word = currentWords[testIndex].word.toUpperCase();
-    const svg = document.getElementById('stickman-svg');
+    const character = document.getElementById('spirit-character');
     
+    // 清除舊動畫 class
+    character.classList.remove('bounce-correct', 'shake-wrong');
+    void character.offsetWidth; // 強制重繪以觸發動畫
+
     if (word.includes(letter)) {
         guessedLetters.add(letter); btn.classList.add('correct');
-        updateDashes(); updateStickman();
-        // 答對抖動 (驚訝)
-        svg.style.transform = "scale(1.1)";
-        setTimeout(() => svg.style.transform = "scale(1)", 150);
+        updateDashes(); updateSpiritVisual();
+        
+        // 答對：「彈跳」反饋 & 驚訝嘴巴
+        character.classList.add('bounce-correct');
+        setMouthStyle('surprise');
+        setTimeout(() => { if (currentStep === 1) setMouthStyle('pout'); }, 600);
         
         if (word.split('').every(l => guessedLetters.has(l))) {
             if(!usedCheat) correctCount++; 
@@ -264,9 +313,9 @@ function handleGuess(letter, btn) {
         }
     } else {
         mistakes++; btn.classList.add('wrong');
-        // 答錯左右搖晃 (嫌棄)
-        svg.style.transform = "translateX(15px) rotate(5deg)";
-        setTimeout(() => svg.style.transform = "translateX(0) rotate(0deg)", 200);
+        // 答錯：「搖晃」嫌棄反饋
+        character.classList.add('shake-wrong');
+        
         if (mistakes >= 5) revealAnswer();
     }
 }
@@ -277,37 +326,40 @@ function updateDashes() {
     word.split('').forEach((char, i) => { if (guessedLetters.has(char)) dashes[i].innerText = char; });
 }
 
-function updateStickman() {
+function updateSpiritVisual() {
     const progress = guessedLetters.size / new Set(currentWords[testIndex].word.toUpperCase().split('')).size;
-    // 依序顯示雲朵部件
+    // 依序顯示部件
     if (progress > 0) document.getElementById('s-body').classList.add('visible');
-    if (progress > 0.3) document.getElementById('s-head').classList.add('visible');
-    if (progress > 0.6) document.getElementById('s-arms').classList.add('visible');
+    if (progress > 0.4) document.getElementById('s-head').classList.add('visible');
     if (progress > 0.8) document.getElementById('s-legs').classList.add('visible');
 }
 
 function triggerWin() {
+    // 成功：部件全顯，升空嘴巴
     document.querySelectorAll('.part').forEach(p => p.classList.add('visible'));
     document.getElementById('keyboard').style.pointerEvents = 'none';
+    setMouthStyle('surprise');
     
-    // 勝利動畫：先縮小再彈起升空
+    // 激活升空 class
     const stage = document.getElementById('spirit-stage');
-    stage.classList.add('rocket-active');
+    stage.classList.add('rocket-active'); // 顯示火箭
     
     setTimeout(() => { 
-        stage.classList.add('liftoff'); 
+        stage.classList.add('liftoff-stage'); // 整體移出
         playCurrentWordAudio(); 
-        setTimeout(() => { testIndex++; loadWordTest(); }, 1800); 
-    }, 800);
+        setTimeout(() => { stage.classList.remove('rocket-active', 'liftoff-stage'); testIndex++; loadWordTest(); }, 1600); 
+    }, 600);
 }
 
 function revealAnswer() {
     const word = currentWords[testIndex].word.toUpperCase();
     const dashes = document.querySelectorAll('.letter-dash');
+    const character = document.getElementById('spirit-character');
     document.getElementById('keyboard').style.pointerEvents = 'none';
     
-    // 失敗動畫：融化
-    document.getElementById('stickman-svg').classList.add('melt');
+    // 失敗：「融化」動畫 (.melt) & 融化嘴巴
+    setMouthStyle('dead');
+    character.classList.add('melt');
     
     word.split('').forEach((char, i) => { 
         if (!guessedLetters.has(char)) { 
