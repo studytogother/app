@@ -56,7 +56,17 @@
         @keyframes condenseAnim { 0% { opacity: 0; transform: scale(0.2); } 100% { opacity: 1; transform: scale(1); } }
         
         .melt { animation: meltAnim 1.6s forwards ease-in; }
-        @keyframes meltAnim { 0% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0.1) translateY(450px); opacity: 0; } }
+        @keyframes meltAnim {
+    0% { 
+        transform: scaleY(1) scaleX(1) translateY(0); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: scaleY(0.05) scaleX(2.5) translateY(100px); 
+        opacity: 0; 
+    }
+}
+
         
         #rocket { opacity: 0; transition: 0.6s; }
         .rocket-active #rocket { opacity: 1; transform: translateY(-10px); }
@@ -279,7 +289,7 @@ function handleGuess(letter, btn) {
         mistakes++; btn.classList.add('wrong');
         svg.style.transform = "translateX(15px) rotate(5deg)";
         setTimeout(() => svg.style.transform = "translateX(0) rotate(0deg)", 200);
-        if (mistakes >= 5) revealAnswer();
+        if (mistakes >= 3) revealAnswer();
     }
 }
 
