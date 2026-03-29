@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>般若模擬考場 - Study Together</title>
+    <title>般若學習系統 - Study Together</title>
     
-    <script src="question_bank.js"></script>
-
     <style>
         :root {
+            /* 淨息流主色系 */
             --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
             --glass-bg: rgba(255, 255, 255, 0.65);
             --glass-border: rgba(255, 255, 255, 0.9);
@@ -23,393 +22,118 @@
 
         * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
-        html, body {
+        html, body { 
             margin: 0; padding: 0; width: 100%; height: 100dvh; 
             background: var(--bg-gradient); color: var(--text-main); 
             font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
-            overflow: hidden; display: flex; flex-direction: column; 
+            overflow: hidden; display: flex; flex-direction: column; align-items: center; 
         }
 
-        header {
-            background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: max(15px, env(safe-area-inset-top)) 25px 15px;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--glass-border); z-index: 1000;
+        /* --- 大廳核心區 --- */
+        .hero-section { 
+            flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            width: 100%; max-width: 720px; padding: 0 25px; animation: fadeIn 0.8s ease-out; 
         }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        #sectionTitle { font-weight: 500; color: var(--text-main); font-size: 1.1rem; letter-spacing: 2px; }
-        .timer { font-size: 1.1rem; font-weight: 500; color: var(--accent-jade); background: var(--glass-bg); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); letter-spacing: 1px; }
-
-        .main-layout { display: flex; flex: 1; overflow: hidden; max-width: 1200px; margin: 0 auto; width: 100%; }
-        .content-panel { flex: 1; padding: 30px; overflow-y: auto; background: transparent; border-right: 1px solid rgba(193, 165, 131, 0.2); display: none; }
-        .question-panel { flex: 1; padding: 30px; overflow-y: auto; background: transparent; }
-
-        @media (max-width: 768px) {
-            .main-layout { flex-direction: column; }
-            .content-panel { display: none; }
-            .content-panel.active { flex: none; height: 38dvh; border-right: none; border-bottom: 1px solid rgba(193, 165, 131, 0.3); display: block !important; padding: 20px; background: rgba(255,255,255,0.3); }
-            .question-panel { flex: 1; padding: 20px; }
+        /* 呼吸發光太極蓮花圖騰 */
+        .taichi-logo { 
+            width: 130px; height: 130px; border-radius: 50%; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4)); 
+            border: 1px solid var(--glass-border); 
+            box-shadow: 0 15px 45px rgba(203, 163, 122, 0.15), inset 0 0 20px rgba(203, 163, 122, 0.05); 
+            display: flex; justify-content: center; align-items: center; position: relative; 
+            margin-bottom: 35px; animation: floatLogo 4s infinite ease-in-out; 
         }
-
-        .section-tag { display: inline-block; padding: 6px 14px; background: var(--accent-jade); color: #fff; border-radius: 12px; font-size: 0.8rem; margin-bottom: 15px; letter-spacing: 1px; }
-        .question-block { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px dashed rgba(203, 163, 122, 0.3); }
-        .question-text { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; color: var(--text-main); font-weight: 500; }
+        @keyframes floatLogo { 0%, 100% { transform: translateY(0); box-shadow: 0 15px 45px rgba(203, 163, 122, 0.15); } 50% { transform: translateY(-10px); box-shadow: 0 25px 55px rgba(203, 163, 122, 0.25); } }
         
-        .option-label { 
-            display: block; padding: 15px 20px; margin: 10px 0; 
-            background: var(--glass-bg); backdrop-filter: blur(10px);
-            border-radius: 16px; border: 1px solid var(--glass-border); 
-            cursor: pointer; transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(160, 155, 150, 0.05); color: var(--text-main);
+        .taichi-logo::after { 
+            content: ''; position: absolute; width: 80px; height: 80px; 
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 90 C 110 70, 100 20, 70 45 C 60 50, 50 65, 50 90' stroke='%23CBA37A' fill='none' stroke-width='1.5'/%3E%3Cpath d='M50 90 C -10 70, 0 20, 30 45 C 40 50, 50 65, 50 90' stroke='%23CBA37A' fill='none' stroke-width='1.5'/%3E%3Cpath d='M50 85 C 80 50, 70 10, 55 30 C 52 40, 50 55, 50 85' stroke='%2382968C' fill='none' stroke-width='2'/%3E%3Cpath d='M50 85 C 20 50, 30 10, 45 30 C 48 40, 50 55, 50 85' stroke='%2382968C' fill='none' stroke-width='2'/%3E%3Cpath d='M50 85 C 65 45, 60 5, 50 20 C 40 5, 35 45, 50 85' stroke='%23CFA4A4' fill='none' stroke-width='2.5'/%3E%3C/svg%3E"); 
+            background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.9; 
         }
-        .option-label:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(203, 163, 122, 0.15); }
-        .option-label.checked { border-color: var(--accent-gold); background: rgba(203, 163, 122, 0.1); font-weight: bold; }
-        .option-label.disabled { cursor: not-allowed; opacity: 0.6; transform: none; }
 
-        .inline-options { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
-        .inline-options .option-label { flex: 1; min-width: 45px; text-align: center; margin: 0; padding: 12px; }
+        .sys-title { font-size: 2rem; font-weight: 300; letter-spacing: 5px; color: var(--text-main); margin-bottom: 12px; }
+        .sys-subtitle { font-size: 0.95rem; color: var(--text-light); letter-spacing: 2px; font-weight: 300; margin-bottom: 40px; text-align: center; line-height: 1.6; }
 
-        textarea { 
-            width: 100%; padding: 20px; background: rgba(255,255,255,0.7); backdrop-filter: blur(10px);
-            border: 1px solid rgba(203, 163, 122, 0.3); border-radius: 16px; 
-            font-size: 1.05rem; box-sizing: border-box; font-family: inherit; 
-            height: 180px; line-height: 1.8; resize: vertical; color: var(--text-main);
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); transition: all 0.3s;
+        /* --- 學習模組傳送門 --- */
+        .portal-container { width: 100%; display: flex; flex-direction: column; gap: 20px; }
+        
+        .portal-btn { 
+            width: 100%; text-decoration: none;
+            background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
+            border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); border-radius: 24px; 
+            padding: 25px 25px; display: flex; align-items: center; gap: 20px; 
+            cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; 
         }
-        textarea:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 15px rgba(203, 163, 122, 0.2); background: #fff; }
-        textarea:disabled { background-color: rgba(245, 242, 239, 0.5); cursor: not-allowed; }
+        .portal-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.8), transparent); opacity: 0; transition: opacity 0.3s; }
+        .portal-btn:active { transform: scale(0.97); }
+        .portal-btn:active::before { opacity: 1; }
 
-        .review-box { margin-top: 20px; padding: 20px; border-radius: 16px; line-height: 1.8; display: none; background: rgba(255,255,255,0.8); border: 1px solid; box-shadow: var(--shadow-soft); }
-        .review-box.correct { border-color: var(--accent-jade); background: rgba(130, 150, 140, 0.05); }
-        .review-box.wrong { border-color: var(--accent-rose); background: rgba(207, 164, 164, 0.05); }
-        .review-box.analysis { border-color: var(--accent-gold); }
-        .report-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(203, 163, 122, 0.15); }
-        .report-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-        .nav-footer { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(15px); padding: 15px 25px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
-        .nav-btn-small { padding: 10px 20px; background: var(--glass-bg); color: var(--text-main); border: 1px solid var(--glass-border); border-radius: 20px; cursor: pointer; font-size: 0.95rem; letter-spacing: 1px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .nav-btn-small:hover { background: #fff; border-color: var(--accent-jade); }
-        .nav-btn-small:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .vajra-submit {
-            padding: 12px 30px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(193, 165, 131, 0.2));
-            border: 1px solid rgba(193, 165, 131, 0.4); border-radius: 24px; cursor: pointer; position: relative; overflow: hidden;
-            color: var(--text-main); font-weight: 500; letter-spacing: 2px; font-size: 1rem; transition: all 0.4s ease; box-shadow: var(--shadow-soft);
-            animation: vajra-breathe 4s infinite ease-in-out;
+        .portal-icon-box { 
+            width: 50px; height: 50px; border-radius: 16px; display: flex; justify-content: center; align-items: center; 
+            background: rgba(255,255,255,0.8); box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
-        @keyframes vajra-breathe {
-            0% { box-shadow: 0 5px 20px rgba(193, 165, 131, 0.1); border-color: rgba(193, 165, 131, 0.2); }
-            50% { box-shadow: 0 10px 30px rgba(193, 165, 131, 0.3); border-color: rgba(193, 165, 131, 0.6); }
-            100% { box-shadow: 0 5px 20px rgba(193, 165, 131, 0.1); border-color: rgba(193, 165, 131, 0.2); }
-        }
-        .vajra-submit::before {
-            content: ''; position: absolute; top: 0; left: -150%; width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transform: skewX(-25deg); z-index: 1; animation: sweep 6s infinite ease-in-out;
-        }
-        @keyframes sweep { 0% { left: -150%; } 20% { left: 150%; } 100% { left: 150%; } }
-        .vajra-submit:active { transform: scale(0.96); }
+        .portal-icon { width: 24px; height: 24px; fill: none; stroke-width: 1.5; stroke: currentColor; }
+        
+        .portal-text-group { display: flex; flex-direction: column; gap: 6px; }
+        .portal-name { font-size: 1.15rem; font-weight: 500; letter-spacing: 2px; color: var(--text-main); }
+        .portal-desc { font-size: 0.85rem; color: var(--text-light); letter-spacing: 1px; }
 
-        .active { display: block !important; }
-        .full-width { flex: 2 !important; max-width: 900px; margin: 0 auto; }
+        /* 專屬高亮色 */
+        .btn-exam .portal-icon-box { color: var(--accent-jade); border: 1px solid rgba(130, 150, 140, 0.2); }
+        .btn-exam:hover { border-color: var(--accent-jade); box-shadow: 0 8px 25px rgba(130, 150, 140, 0.15); }
+        
+        .btn-game .portal-icon-box { color: var(--accent-gold); border: 1px solid rgba(203, 163, 122, 0.2); }
+        .btn-game:hover { border-color: var(--accent-gold); box-shadow: 0 8px 25px rgba(203, 163, 122, 0.15); }
+
+        /* --- 底部靜默連結 --- */
+        .footer-link { margin-top: auto; padding-bottom: max(30px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .footer-text { font-size: 0.8rem; color: var(--text-light); letter-spacing: 3px; text-decoration: none; transition: color 0.3s; }
+        .footer-text:hover { color: var(--accent-gold); }
     </style>
 </head>
 <body>
 
-<header>
-    <div id="sectionTitle">般若系統讀取中...</div>
-    <div id="totalScoreDisplay" style="font-weight:bold; color:var(--accent-jade); display:none; font-size:1.1rem;"></div>
-    <div class="timer" id="timer">100:00</div>
-</header>
+    <div class="hero-section">
+        <div class="taichi-logo"></div>
+        <div class="sys-title">般若學習系統</div>
+        <div class="sys-subtitle">清淨無礙的語言法界<br>為心靈尋找安定的依歸</div>
 
-<div class="main-layout" id="mainLayout">
-    <div class="content-panel" id="leftPanel"></div>
-    <div class="question-panel" id="rightPanel">
-        <div id="sectionContent"></div>
+        <div class="portal-container">
+            <a href="exam.html" class="portal-btn btn-exam">
+                <div class="portal-icon-box">
+                    <svg class="portal-icon" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="portal-text-group">
+                    <div class="portal-name">全真模擬考場</div>
+                    <div class="portal-desc">客觀檢視，沉穩應戰</div>
+                </div>
+            </a>
+
+            <a href="game.html" class="portal-btn btn-game">
+                <div class="portal-icon-box">
+                    <svg class="portal-icon" viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="portal-text-group">
+                    <div class="portal-name">化生單字測驗</div>
+                    <div class="portal-desc">凝聚光芒，飛躍成長</div>
+                </div>
+            </a>
+        </div>
     </div>
-</div>
 
-<div class="nav-footer">
-    <button class="nav-btn-small" id="prevBtn" onclick="changeSection(-1)">上一大題</button>
-    <div id="progressInfo" style="font-size: 0.95rem; color: var(--text-light); font-weight:300; letter-spacing: 1px;">準備中</div>
-    <button class="nav-btn-small" id="nextBtn" onclick="changeSection(1)">下一大題</button>
-    <button class="vajra-submit" id="submitBtn" style="display:none;" onclick="finalizeExam()">
-        <span style="position:relative; z-index:2;">交卷並結算</span>
-    </button>
-</div>
+    <div class="footer-link">
+        <a href="https://namoamitabhapureland.github.io/bodhicitta/index.html" target="_blank" class="footer-text">前往彌陀淨土系統</a>
+    </div>
 
-<script>
-// 洗牌演算法
-function shuffleArray(array) {
-    let shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-}
-
-// 從 question_bank.js 隨機抽題並組裝考卷
-function generateRandomExam() {
-    let qb = QuestionBank;
-    let globalNum = 1;
-
-    function formatQuestions(questions) {
-        let formatted = JSON.parse(JSON.stringify(questions));
-        formatted.forEach(q => {
-            if(q.type !== 'translation' && q.type !== 'composition') {
-                q.text = q.text.replace(/^\d+\.\s*/, `${globalNum}. `);
-                globalNum++;
-            }
-        });
-        return formatted;
-    }
-
-    let vocabQ = formatQuestions(shuffleArray(qb.vocabulary.senior).slice(0, 15));
-    let clozeData = shuffleArray(qb.cloze.senior)[0];
-    let clozeQ = formatQuestions(clozeData.questions);
-    let blankData = shuffleArray(qb.blank_filling.senior)[0];
-    let blankQ = formatQuestions(blankData.questions);
-    let discourseData = shuffleArray(qb.discourse.senior)[0];
-    let discourseQ = formatQuestions(discourseData.questions);
-    let readingData = shuffleArray(qb.reading.senior)[0];
-    let readingQ = formatQuestions(readingData.questions);
-    let essayData = shuffleArray(qb.essay.senior)[0];
-
-    return {
-        totalTime: 6000,
-        sections: [
-            { id: 1, name: "第一部分：詞彙題 (Vocabulary)", type: "mcq", article: null, questions: vocabQ },
-            { id: 2, name: "第二部分：綜合測驗 (Cloze Test)", type: "mcq", article: clozeData.article, questions: clozeQ },
-            { id: 3, name: "第三部分：文意選填 (Blank Filling)", type: "inline_select", article: blankData.article, optionsList: blankData.optionsList, questions: blankQ },
-            { id: 4, name: "第四部分：篇章結構 (Discourse Structure)", type: "inline_select", article: discourseData.article, optionsList: discourseData.optionsList, questions: discourseQ },
-            { id: 5, name: "第五部分：閱讀測驗 (Reading Comprehension)", type: "mcq", article: readingData.article, questions: readingQ },
-            { id: 6, name: "第六部分：非選擇題 (Translation & Essay)", type: "essay", article: null, questions: essayData.questions }
-        ]
-    };
-}
-
-let examData;
-let currentSectionIndex = 0;
-const userAnswers = {};
-let examSubmitted = false;
-let timerInterval;
-
-window.onload = () => {
-    try {
-        examData = generateRandomExam();
-        renderCurrentSection();
-        startTimer();
-    } catch (e) {
-        document.getElementById('sectionTitle').innerText = "讀取題庫失敗，請確認 question_bank.js 是否存在。";
-    }
-};
-
-function renderCurrentSection() {
-    const section = examData.sections[currentSectionIndex];
-    const leftPanel = document.getElementById('leftPanel');
-    const rightPanel = document.getElementById('rightPanel');
-    const sectionContent = document.getElementById('sectionContent');
-    
-    document.getElementById('sectionTitle').innerText = section.name;
-    document.getElementById('progressInfo').innerText = `大題 ${currentSectionIndex + 1} / ${examData.sections.length}`;
-
-    if (section.article) {
-        leftPanel.innerHTML = `<div class="section-tag">閱讀材料</div><div style="line-height:2; font-size:1.1rem; color:var(--text-main);">${section.article}</div>`;
-        leftPanel.classList.add('active');
-        rightPanel.classList.remove('full-width');
-    } else {
-        leftPanel.classList.remove('active');
-        rightPanel.classList.add('full-width');
-    }
-
-    let html = '';
-    section.questions.forEach(q => {
-        html += `<div class="question-block"><div class="question-text">${q.text}</div>`;
-        const currentAns = userAnswers[q.id] || '';
-        const disabledClass = examSubmitted ? 'disabled' : '';
-
-        if (section.type === "mcq") {
-            for (let [k, v] of Object.entries(q.options)) {
-                const checkedClass = currentAns === k ? 'checked' : '';
-                html += `<label class="option-label ${checkedClass} ${disabledClass}">
-                    <input type="radio" style="display:none;" name="${q.id}" value="${k}" ${examSubmitted ? 'disabled' : ''} onchange="saveAnswer('${q.id}', '${k}')"> 
-                    <span style="font-weight:bold; color:var(--accent-gold); margin-right:8px;">(${k})</span> ${v}
-                </label>`;
-            }
-        } 
-        else if (section.type === "inline_select") {
-            html += `<div class="inline-options">`;
-            section.optionsList.forEach(opt => {
-                const checkedClass = currentAns === opt ? 'checked' : '';
-                html += `<label class="option-label ${checkedClass} ${disabledClass}">
-                    <input type="radio" style="display:none;" name="${q.id}" value="${opt}" ${examSubmitted ? 'disabled' : ''} onchange="saveAnswer('${q.id}', '${opt}')"> ${opt}
-                </label>`;
-            });
-            html += `</div>`;
-        } 
-        else if (section.type === "essay") {
-            html += `<textarea id="${q.id}" ${examSubmitted ? 'disabled' : ''} placeholder="請在此輸入英文內容..." oninput="saveAnswerText('${q.id}', this.value)">${currentAns}</textarea>`;
-        }
-
-        if (examSubmitted) {
-            if (section.type === "mcq" || section.type === "inline_select") {
-                const isCorrect = currentAns === q.answer;
-                const boxClass = isCorrect ? 'correct' : 'wrong';
-                const statusText = isCorrect ? `<span style="font-weight:bold; color:var(--accent-jade);">答對了！</span>` : `<span style="font-weight:bold; color:var(--accent-rose);">答錯了。您的答案：${currentAns || '未作答'}</span>`;
-                html += `<div class="review-box ${boxClass}" style="display:block;">${statusText}<br><span style="color:var(--text-main);">正確解答：${q.answer}</span></div>`;
-            } else if (section.type === "essay") {
-                const report = generateEssayReport(q, currentAns);
-                html += `<div class="review-box analysis" style="display:block;">
-                            <div style="font-weight:bold; font-size:1.1rem; border-bottom:2px solid var(--accent-gold); padding-bottom:8px; margin-bottom:12px;">系統客觀評估報告</div>
-                            ${report}
-                            <div style="margin-top:15px; font-size:0.9rem; color:var(--text-light);">官方參考解答：<br>${q.answer}</div>
-                         </div>`;
-            }
-        }
-        html += `</div>`;
-    });
-    
-    sectionContent.innerHTML = html;
-
-    document.getElementById('prevBtn').disabled = (currentSectionIndex === 0);
-    if (currentSectionIndex === examData.sections.length - 1) {
-        document.getElementById('nextBtn').style.display = 'none';
-        if (!examSubmitted) document.getElementById('submitBtn').style.display = 'block';
-    } else {
-        document.getElementById('nextBtn').style.display = 'block';
-        document.getElementById('submitBtn').style.display = 'none';
-    }
-}
-
-function saveAnswer(qId, val) {
-    if(!examSubmitted) {
-        userAnswers[qId] = val;
-        renderCurrentSection();
-    }
-}
-
-function saveAnswerText(qId, val) {
-    if(!examSubmitted) userAnswers[qId] = val; 
-}
-
-function changeSection(direction) {
-    currentSectionIndex += direction;
-    renderCurrentSection();
-    document.getElementById('rightPanel').scrollTop = 0; 
-    document.getElementById('leftPanel').scrollTop = 0;
-}
-
-function generateEssayReport(questionData, userInput) {
-    if (!userInput || userInput.trim() === '') return `<div class="report-item" style="color:var(--accent-rose);">未作答，本題 0 分。</div>`;
-    
-    let text = userInput.trim();
-    let words = text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(w => w.length > 0);
-    let htmlReport = '';
-    let estimatedScore = 0;
-
-    if (questionData.type === 'translation') {
-        let missingKeywords = [];
-        estimatedScore = questionData.points;
-        if(questionData.keywords) {
-            questionData.keywords.forEach(kw => {
-                if (!text.toLowerCase().includes(kw)) {
-                    missingKeywords.push(kw);
-                    estimatedScore -= 2; 
-                }
-            });
-        }
-        estimatedScore = Math.max(0, estimatedScore);
-        
-        htmlReport += `<div class="report-item"><b>預估得分：</b> <span style="font-size:1.2rem; color:var(--accent-jade);">${estimatedScore} / ${questionData.points}</span></div>`;
-        if (missingKeywords.length === 0) {
-            htmlReport += `<div class="report-item" style="color:var(--accent-jade);">核心關鍵字皆已涵蓋，結構完整。</div>`;
-        } else {
-            htmlReport += `<div class="report-item" style="color:var(--accent-rose);"><b>扣分建議：</b> 漏譯核心片語 [ ${missingKeywords.join(', ')} ]。</div>`;
-        }
-    } 
-    else if (questionData.type === 'composition') {
-        let wordCount = words.length;
-        let baseScore = 10; 
-        
-        let lengthStr = '';
-        if (wordCount >= 100 && wordCount <= 160) {
-            baseScore += 4;
-            lengthStr = `<span style="color:var(--accent-jade);">符合標準 (${wordCount} 字)</span>`;
-        } else if (wordCount < 100) {
-            lengthStr = `<span style="color:var(--accent-rose);">字數偏少 (${wordCount} 字)，建議擴充</span>`;
-        } else {
-            lengthStr = `<span style="color:var(--accent-gold);">字數略多 (${wordCount} 字)</span>`;
-        }
-        htmlReport += `<div class="report-item"><b>字數檢測：</b> ${lengthStr}</div>`;
-
-        const transitions = ['however', 'therefore', 'moreover', 'furthermore', 'in addition', 'for example', 'on the other hand', 'in conclusion', 'because', 'although', 'instead'];
-        let foundTransitions = transitions.filter(t => text.toLowerCase().includes(t));
-        if (foundTransitions.length >= 2) {
-            baseScore += 3;
-            htmlReport += `<div class="report-item"><b>邏輯連貫：</b> <span style="color:var(--accent-jade);">佳。使用轉折詞 (${foundTransitions.join(', ')})</span></div>`;
-        } else {
-            htmlReport += `<div class="report-item"><b>邏輯連貫：</b> <span style="color:var(--accent-rose);">偏弱。建議加入轉折詞強化銜接。</span></div>`;
-        }
-
-        let totalChars = words.reduce((sum, w) => sum + w.length, 0);
-        let avgWordLength = (totalChars / wordCount).toFixed(1);
-        if (avgWordLength > 4.5) {
-            baseScore += 3;
-            htmlReport += `<div class="report-item"><b>詞彙深度：</b> <span style="color:var(--accent-jade);">良好。平均字母數達 ${avgWordLength}。</span></div>`;
-        } else {
-            htmlReport += `<div class="report-item"><b>詞彙深度：</b> <span style="color:var(--accent-gold);">基礎。建議替換部分簡單詞彙。</span></div>`;
-        }
-
-        htmlReport = `<div class="report-item"><b>客觀結構預估：</b> <span style="font-size:1.2rem; color:var(--accent-jade);">${Math.min(20, baseScore)} / ${questionData.points}</span></div>` + htmlReport;
-    }
-    return htmlReport;
-}
-
-function finalizeExam() {
-    if(!confirm("確定要交卷嗎？交卷後將啟動系統自動評分，並顯示所有解析。")) return;
-    
-    examSubmitted = true;
-    clearInterval(timerInterval);
-    document.getElementById('timer').innerText = "測驗結束";
-    document.getElementById('timer').style.background = "transparent";
-    document.getElementById('timer').style.boxShadow = "none";
-    
-    let objScore = 0;
-    let maxObjScore = 0;
-    
-    examData.sections.forEach(sec => {
-        if (sec.type === "mcq" || sec.type === "inline_select") {
-            sec.questions.forEach(q => {
-                maxObjScore += q.points;
-                if (userAnswers[q.id] === q.answer) objScore += q.points;
-            });
-        }
-    });
-
-    const scoreDisplay = document.getElementById('totalScoreDisplay');
-    scoreDisplay.innerText = `客觀題得分：${objScore} / ${maxObjScore}`;
-    scoreDisplay.style.display = 'block';
-    document.getElementById('submitBtn').style.display = 'none';
-
-    currentSectionIndex = 0;
-    renderCurrentSection();
-    window.scrollTo(0, 0);
-}
-
-function startTimer() {
-    let timeLeft = examData.totalTime;
-    timerInterval = setInterval(() => {
-        if(timeLeft <= 0) {
-            finalizeExam();
-            return;
-        }
-        timeLeft--;
-        let m = Math.floor(timeLeft / 60);
-        let s = timeLeft % 60;
-        document.getElementById('timer').innerText = `${m}:${s < 10 ? '0' + s : s}`;
-    }, 1000);
-}
-</script>
 </body>
 </html>
