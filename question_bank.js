@@ -108,25 +108,46 @@ const QuestionBank = {
         ]
     },
 
-    // ==========================================
-    // 第二部分：單字遊戲專用字根字首群組
-    // ==========================================
-    clusters: [
+    // question_bank.js
+// 般若系統 - 智慧單字庫 (字根字首群組版)
+
+const QuestionBank = {
+    // 高中 7000 單字區
+    senior: [
         {
-            id: "prefix_re",
-            title: "Re- 群組 (重複、回退)",
-            description: "字首 re- 通常代表「再一次」或「往回」的意思。",
+            id: "senior_A1",
+            title: "高中 7000 單字 (A組 - 1)",
             words: [
-                { word: "recycle", meaning: "v. 回收利用", root: "re (再) + cycle (循環)", phonetic: "/ˌriːˈsaɪ.kəl/" },
-                { word: "recover", meaning: "v. 恢復；找回", root: "re (回) + cover (覆蓋)", phonetic: "/rɪˈkʌv.ər/" },
-                { word: "reject", meaning: "v. 拒絕；駁回", root: "re (回) + ject (丟)", phonetic: "/rɪˈdʒekt/" },
+                { word: "abandon", meaning: "v. 放棄；遺棄", root: "a (不) + band (約束)", phonetic: "/əˈbæn.dən/" },
+                { word: "absolute", meaning: "adj. 絕對的", root: "ab (離開) + solve (解開) -> 絕對", phonetic: "/ˈæb.sə.luːt/" },
+                { word: "absorb", meaning: "v. 吸收；理解", root: "ab (離開) + sorb (吸)", phonetic: "/əbˈzɔːrb/" },
+                { word: "abstract", meaning: "adj. 抽象的", root: "abs (離開) + tract (拉)", phonetic: "/ˈæb.strækt/" },
+                { word: "abundant", meaning: "adj. 豐富的；大量的", root: "ab (加強) + und (波浪)", phonetic: "/əˈbʌn.dənt/" },
+                { word: "abuse", meaning: "v. 濫用；虐待", root: "ab (壞) + use (使用)", phonetic: "/əˈbjuːz/" },
+                { word: "academic", meaning: "adj. 學術的", root: "academy (學院) + ic", phonetic: "/ˌæk.əˈdem.ɪk/" },
+                { word: "accelerate", meaning: "v. 加速", root: "ac (向) + celer (速度)", phonetic: "/əkˈsel.ə.reɪt/" },
+                { word: "accent", meaning: "n. 口音；重音", root: "ac (向) + cent (唱)", phonetic: "/ˈæk.sənt/" },
+                { word: "accept", meaning: "v. 接受；答應", root: "ac (向) + cept (拿)", phonetic: "/əkˈsept/" }
+            ]
+        }
+        // 未來可以在這裡接續增加 senior_A2, senior_B1...
+    ],
+    // 托福單字區
+    toefl: [
+        {
+            id: "toefl_1",
+            title: "托福核心 (慈悲與智慧)",
+            words: [
+                { word: "compassion", meaning: "n. 慈悲；同情", root: "com (共同) + pass (感情)", phonetic: "/kəmˈpæʃ.ən/" },
+                { word: "profound", meaning: "adj. 深刻的", root: "pro (向前) + found (底)", phonetic: "/prəˈfaʊnd/" },
+                { word: "essential", meaning: "adj. 必要的", root: "esse (存在) + ntial", phonetic: "/ɪˈsen.ʃəl/" },
+                { word: "humble", meaning: "adj. 謙卑的", root: "hum (泥土) + ble", phonetic: "/ˈhʌm.bəl/" },
+                { word: "wisdom", meaning: "n. 智慧", root: "wise (明智) + dom (狀態)", phonetic: "/ˈwɪz.dəm/" },
                 { word: "resilient", meaning: "adj. 有韌性的", root: "re (回) + sili (跳)", phonetic: "/rɪˈzɪl.jənt/" },
-                { word: "react", meaning: "v. 反應", root: "re (再) + act (行動)", phonetic: "/riˈækt/" },
-                { word: "reform", meaning: "v. 改革", root: "re (再) + form (形狀)", phonetic: "/rɪˈfɔːrm/" },
-                { word: "remind", meaning: "v. 提醒", root: "re (再) + mind (心)", phonetic: "/rɪˈmaɪnd/" },
-                { word: "restore", meaning: "v. 修復", root: "re (再) + store (放置)", phonetic: "/rɪˈstɔːr/" },
-                { word: "reveal", meaning: "v. 揭露", root: "re (回) + veal (蓋住)", phonetic: "/rɪˈviːl/" },
-                { word: "reverse", meaning: "v. 逆轉", root: "re (回) + verse (轉)", phonetic: "/rɪˈvɜːrs/" }
+                { word: "harmony", meaning: "n. 和諧", root: "harm (連接) + ony", phonetic: "/ˈhɑːr.mə.ni/" },
+                { word: "altruism", meaning: "n. 利他主義", root: "alter (其他) + ism", phonetic: "/ˈæl.tru.ɪ.zəm/" },
+                { word: "empathy", meaning: "n. 同理心", root: "em (進入) + pathy (感情)", phonetic: "/ˈem.pə.θi/" },
+                { word: "mindful", meaning: "adj. 覺察的；留心的", root: "mind (心) + ful (充滿)", phonetic: "/ˈmaɪnd.fəl/" }
             ]
         }
     ]
