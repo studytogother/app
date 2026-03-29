@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>般若托福適性考場 - Study Together</title>
+    <script src="question_bank.js?v=6"></script>
+    <style>
+        /* 沿用淨息流美學，加入高階金屬質感 */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #F8F9FA, #E9ECEF);
+            --glass-bg: rgba(255, 255, 255, 0.8); --glass-border: rgba(203, 163, 122, 0.5);
+            --text-main: #343A40; --text-light: #6C757D;
+            --accent-gold: #CBA37A; --accent-jade: #82968C; --accent-blue: #5B7C99;
+        }
+        * { box-sizing: border-box; touch-action: manipulation; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+
+        header { padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: blur(10px); z-index: 10;}
+        #sectionTitle { font-weight: bold; color: var(--accent-blue); font-size: 1.2rem; letter-spacing: 1px; }
+        .score-badge { font-weight: bold; color: var(--accent-gold); background: rgba(203,163,122,0.1); padding: 5px 15px; border-radius: 15px; border: 1px solid var(--accent-gold); display: none;}
+
+        .main-layout { display: flex; flex: 1; overflow: hidden; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .content-panel { flex: 1.2; padding: 30px; overflow-y: auto; border-right: 1px solid rgba(203, 163, 122, 0.2); display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .question-panel { flex: 1; padding: 30px; overflow-y: auto; }
+
+        @media (max-width: 768px) {
+            .main-layout { flex-direction: column; }
+            .content-panel { flex: none; height: 35dvh; border-right: none; border-bottom: 1px solid rgba(203, 163, 122, 0.2); }
+        }
+
+        .section-tag { display: inline-block; padding: 6px 14px; background: var(--accent-blue); color: #fff; border-radius: 12px; font-size: 0.85rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .question-block { margin-bottom: 30px; }
+        .question-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 15px; font-weight: 500; }
+        
+        .option-label { display: block; padding: 15px; margin: 10px 0; background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border); cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .option-label:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+        .option-label.checked { border-color: var(--accent-blue); background: rgba(91, 124, 153, 0.1); font-weight: bold; }
+
+        textarea { width: 100%; height: 200px; padding: 20px; border-radius: 12px; border: 1px solid var(--glass-border); font-size: 1.05rem; resize: vertical; background: rgba(255,255,255,0.9); line-height: 1.6;}
+        textarea:focus { outline: none; border-color: var(--accent-blue); box-shadow: 0 0 15px rgba(91, 124, 153, 0.2); }
+
+        .nav-footer { padding: 15px 25px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; background: var(--glass-bg); }
+        .vajra-btn { padding: 12px 30px; background: var(--accent-blue); color: white; border: none; border-radius: 20px; font-size: 1rem; font-weight: bold; letter-spacing: 1px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(91, 124, 153, 0.3); }
+        .vajra-btn:active { transform: scale(0.95); }
+
+        /* 多媒體播放按鈕 */
+        .audio-player-btn { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-gold), #b38b62); border: none; color: white; font-size: 2.5rem; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(203,163,122,0.4); transition: 0.3s; }
+        .audio-player-btn:active { transform: scale(0.9); box-shadow: 0 5px 15px rgba(203,163,122,0.3); }
+        .audio-pulse { animation: pulseGlow 2s infinite; }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(203,163,122,0.7); } 70% { box-shadow: 0 0 0 20px rgba(203,163,122,0); } 100% { box-shadow: 0 0 0 0 rgba(203,163,122,0); } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div id="sectionTitle">適性載入中...</div>
+    <div id="finalScore" class="score-badge"></div>
+</header>
+
+<div class="main-layout" id="mainLayout">
+    <div class="content-panel" id="leftPanel"></div>
+    <div class="question-panel" id="rightPanel">
+        <div id="sectionContent"></div>
+    </div>
+</div>
+
+<div class="nav-footer">
+    <div id="progressInfo" style="color:var(--text-light); font-weight:bold;">Part 1 / 4</div>
+    <button class="vajra-btn" id="nextBtn" onclick="nextStage()">提交並進入下一關</button>
+</div>
+
+<script>
+window.sysUtterances = [];
+let toeflData = null;
+let currentStage = 0; // 0:Reading, 1:Listening, 2:Speaking, 3:Writing, 4:Result
+let userAnswers = {};
+let accumulatedScore = 0;
+let isHardMode = false; // 適性分軌標記
+
+// 初始化考場
+window.onload = () => {
+    try {
+        toeflData = QuestionBank.toefl_adaptive;
+        renderStage();
+    } catch(e) {
+        document.getElementById('sectionTitle').innerText = "題庫讀取失敗";
+    }
+};
+
+// 適性演算法核心：算分與推進
+function nextStage() {
+    // 1. 先計算當前關卡的分數
+    calculateCurrentStageScore();
+
+    // 2. 適性判斷 (如果是第一關閱讀交卷)
+    if (currentStage === 0) {
+        // 假設閱讀滿分 30，如果拿到 25 分以上 (約 80%)，啟動 Hard 模式
+        if (accumulatedScore >= 25) {
+            isHardMode = true;
+            console.log("適性判定：高手，載入 Hard 聽力");
+        } else {
+            isHardMode = false;
+            console.log("適性判定：基礎，載入 Easy 聽力");
+        }
+    }
+
+    // 3. 推進關卡
+    currentStage++;
+    
+    if (currentStage >= 4) {
+        showFinalResult();
+    } else {
+        renderStage();
+    }
+}
+
+// 畫面渲染引擎
+function renderStage() {
+    const leftPanel = document.getElementById('leftPanel');
+    const rightPanel = document.getElementById('rightPanel');
+    let currentData = null;
+    let stageName = "";
+
+    // 依據進度取出對應資料
+    if (currentStage === 0) {
+        stageName = "第一部分：閱讀 (Reading)";
+        currentData = toeflData.reading;
+    } else if (currentStage === 1) {
+        stageName = isHardMode ? "第二部分：聽力 (Listening - Advanced)" : "第二部分：聽力 (Listening - Foundation)";
+        currentData = isHardMode ? toeflData.listening_hard : toeflData.listening_easy;
+    } else if (currentStage === 2) {
+        stageName = "第三部分：口說跟讀 (Speaking)";
+        currentData = toeflData.speaking;
+    } else if (currentStage === 3) {
+        stageName = "第四部分：實用寫作 (Writing)";
+        currentData = toeflData.writing;
+    }
+
+    document.getElementById('sectionTitle').innerText = stageName;
+    document.getElementById('progressInfo').innerText = `Part ${currentStage + 1} / 4`;
+
+    // 渲染左側 (多媒體/文章)
+    let leftHTML = '';
+    if (currentData.article && !currentData.audioScript) {
+        // 純文章
+        leftHTML = `<div class="section-tag" style="align-self:flex-start;">閱讀文本</div>
+                    <div style="line-height:1.8; font-size:1.1rem; text-align:justify;">${currentData.article}</div>`;
+    } else if (currentData.audioScript) {
+        // 聽力/口說 (顯示播放器，隱藏文字)
+        leftHTML = `<div class="section-tag" style="background:var(--accent-gold); align-self:flex-start;">音訊播放</div>
+                    <button class="audio-player-btn audio-pulse" onclick="playAudio('${currentData.audioScript.replace(/'/g, "\\'")}')">▶</button>
+                    <p style="margin-top:20px; color:var(--text-light); text-align:center;">點擊聆聽，考驗即將開始</p>`;
+        if(currentData.article) {
+             // 口說會有提示文字
+             leftHTML += `<div style="margin-top:20px; line-height:1.6; text-align:center;">${currentData.article.replace(/\n/g, '<br>')}</div>`;
+        }
+    } else {
+        // 寫作 (無左側內容)
+        leftHTML = `<div style="text-align:center; color:var(--text-light);">請直接於右側作答</div>`;
+    }
+    leftPanel.innerHTML = leftHTML;
+
+    // 渲染右側 (考題)
+    let rightHTML = '';
+    currentData.questions.forEach(q => {
+        rightHTML += `<div class="question-block"><div class="question-text">${q.text}</div>`;
+        
+        if (q.type === "composition") {
+            rightHTML += `<textarea id="${q.id}" placeholder="Please write your email here..." oninput="saveAnswer('${q.id}', this.value)"></textarea>`;
+        } else {
+            // 選擇題
+            for (let [k, v] of Object.entries(q.options)) {
+                const isChecked = userAnswers[q.id] === k ? 'checked' : '';
+                rightHTML += `
+                <label class="option-label ${isChecked}" onclick="selectOption(this, '${q.id}', '${k}')">
+                    <span style="color:var(--accent-blue); font-weight:bold; margin-right:10px;">(${k})</span> ${v}
+                </label>`;
+            }
+        }
+        rightHTML += `</div>`;
+    });
+    
+    document.getElementById('sectionContent').innerHTML = rightHTML;
+    document.getElementById('rightPanel').scrollTop = 0;
+}
+
+// 選擇題互動與儲存
+function selectOption(labelElement, questionId, value) {
+    userAnswers[questionId] = value;
+    // 移除同題目的其他高亮
+    const labels = labelElement.parentElement.querySelectorAll('.option-label');
+    labels.forEach(l => l.classList.remove('checked'));
+    labelElement.classList.add('checked');
+}
+
+function saveAnswer(questionId, value) {
+    userAnswers[questionId] = value;
+}
+
+// 階段算分引擎 (背景執行)
+function calculateCurrentStageScore() {
+    let currentData = null;
+    if (currentStage === 0) currentData = toeflData.reading;
+    else if (currentStage === 1) currentData = isHardMode ? toeflData.listening_hard : toeflData.listening_easy;
+    else if (currentStage === 2) currentData = toeflData.speaking;
+    else if (currentStage === 3) currentData = toeflData.writing;
+
+    currentData.questions.forEach(q => {
+        if (q.type !== "composition") {
+            // 客觀題算分
+            if (userAnswers[q.id] === q.answer) {
+                accumulatedScore += q.points;
+            }
+        } else {
+            // 作文簡易評分演算法 (依字數給分)
+            const text = userAnswers[q.id] || "";
+            const wordCount = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+            if (wordCount >= 80) accumulatedScore += 30; // 滿分
+            else if (wordCount >= 40) accumulatedScore += 15;
+            else if (wordCount > 0) accumulatedScore += 5;
+        }
+    });
+}
+
+// 總結算
+function showFinalResult() {
+    document.getElementById('leftPanel').style.display = 'none';
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('progressInfo').innerText = "測驗結束";
+    
+    // 托福滿分 120 (我們題庫設計目前總分約 120)
+    const finalScorePanel = document.getElementById('finalScore');
+    finalScorePanel.innerText = `Total Score: ${accumulatedScore} / 120`;
+    finalScorePanel.style.display = 'block';
+
+    let resultMsg = "";
+    if (accumulatedScore >= 100) resultMsg = "無礙解脫！您的英語實力已達國際頂尖水準。";
+    else if (accumulatedScore >= 70) resultMsg = "穩健前行。具備良好的基礎，持續修煉必能大成。";
+    else resultMsg = "道阻且長，行則將至。請多利用大廳的聽音化生系統補強單字。";
+
+    document.getElementById('sectionContent').innerHTML = `
+        <div style="text-align:center; padding: 50px 20px;">
+            <h1 style="color:var(--accent-blue); font-size:2.5rem; margin-bottom:20px;">測驗圓滿</h1>
+            <p style="font-size:1.2rem; color:var(--text-main); line-height:1.8;">${resultMsg}</p>
+            <p style="font-size:1rem; color:var(--text-light); margin-top:20px;">(備註：適性演算法已為您量身調整聽力難度)</p>
+            <button class="vajra-btn" style="margin-top:40px;" onclick="window.location.href='index.html'">返回法界大廳</button>
+        </div>
+    `;
+}
+
+// 語音朗讀引擎 (防漏音)
+function playAudio(text) {
+    if (!window.speechSynthesis) return alert("您的設備不支援語音功能");
+    window.speechSynthesis.cancel();
+    
+    let msg = new SpeechSynthesisUtterance(text);
+    msg.lang = 'en-US'; msg.rate = 0.85; 
+    
+    let isAndroid = /Android/i.test(navigator.userAgent);
+    if (isAndroid) {
+        window.sysUtterances.push(msg);
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            let enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || voices.find(v => v.lang.includes('en'));
+            if (enVoice) msg.voice = enVoice;
+        }
+    }
+    msg.onend = () => { if(isAndroid) window.sysUtterances = window.sysUtterances.filter(u => u !== msg); };
+    setTimeout(() => { window.speechSynthesis.speak(msg); }, isAndroid ? 150 : 50);
+}
+</script>
+</body>
+</html>
