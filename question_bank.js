@@ -128,3 +128,29 @@ const QuestionBank = {
         ]
     }
 };
+
+
+// question_bank.js
+const QuestionBank = {
+    // 依據字根字首分類的任務群組
+    clusters: [
+        {
+            id: "prefix_re",
+            title: "Re- 群組 (重複、回退)",
+            description: "字首 re- 通常代表「再一次」或「往回」的意思。",
+            words: [
+                { word: "recycle", meaning: "v. 回收利用", root: "re (再) + cycle (循環)", phonetic: "/ˌriːˈsaɪ.kəl/" },
+                { word: "recover", meaning: "v. 恢復；找回", root: "re (回) + cover (覆蓋)", phonetic: "/rɪˈkʌv.ər/" },
+                { word: "reject", meaning: "v. 拒絕；駁回", root: "re (回) + ject (丟)", phonetic: "/rɪˈdʒekt/" },
+                { word: "resilient", meaning: "adj. 有韌性的", root: "re (回) + sili (跳)", phonetic: "/rɪˈzɪl.jənt/" },
+                { word: "react", meaning: "v. 反應", root: "re (再) + act (行動)", phonetic: "/riˈækt/" },
+                { word: "reform", meaning: "v. 改革", root: "re (再) + form (形狀)", phonetic: "/rɪˈfɔːrm/" },
+                { word: "remind", meaning: "v. 提醒", root: "re (再) + mind (心)", phonetic: "/rɪˈmaɪnd/" },
+                { word: "restore", meaning: "v. 修復", root: "re (再) + store (放置)", phonetic: "/rɪˈstɔːr/" },
+                { word: "reveal", meaning: "v. 揭露", root: "re (回) + veal (蓋住)", phonetic: "/rɪˈviːl/" },
+                { word: "reverse", meaning: "v. 逆轉", root: "re (回) + verse (轉)", phonetic: "/rɪˈvɜːrs/" }
+            ]
+        }
+        // 未來可擴充 Pre-, Con-, -tion 等群組
+    ]
+};
