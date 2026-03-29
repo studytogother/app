@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>般若模擬考場 - 全真量化評分系統</title>
+    <style>
+         :root {
+            /* 淨息流主色系完全導入 */
+            --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-main: #58504A; 
+            --text-light: #968E86;
+            --accent-gold: #CBA37A; 
+            --accent-jade: #82968C; 
+            --accent-rose: #CFA4A4; 
+            --accent-amber: #C1A583;
+            --shadow-soft: 0 10px 40px rgba(160, 155, 150, 0.12);
+        }
+
+        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100dvh; 
+            background: var(--bg-gradient); 
+            color: var(--text-main); 
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
+            overflow: hidden; 
+            display: flex; flex-direction: column; 
+        }
+
+        /* --- 頂部導航 --- */
+        header {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: max(15px, env(safe-area-inset-top)) 25px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        #sectionTitle { font-weight: 300; color: var(--text-main); font-size: 1.2rem; letter-spacing: 2px; }
+        .timer { font-size: 1.1rem; font-weight: 500; color: var(--accent-jade); background: var(--glass-bg); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); letter-spacing: 1px; }
+
+        /* --- 主佈局 --- */
+        .main-layout { display: flex; flex: 1; overflow: hidden; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+        .content-panel { flex: 1; padding: 30px; overflow-y: auto; background: transparent; border-right: 1px solid rgba(193, 165, 131, 0.2); display: none; }
+        .question-panel { flex: 1; padding: 30px; overflow-y: auto; background: transparent; }
+
+        @media (max-width: 768px) {
+            .main-layout { flex-direction: column; }
+            .content-panel { display: none; }
+            .content-panel.active { flex: none; height: 38dvh; border-right: none; border-bottom: 1px solid rgba(193, 165, 131, 0.3); display: block !important; padding: 20px; background: rgba(255,255,255,0.3); }
+            .question-panel { flex: 1; padding: 20px; }
+        }
+
+        /* --- 題目與按鈕 --- */
+        .section-tag { display: inline-block; padding: 6px 14px; background: var(--accent-jade); color: #fff; border-radius: 12px; font-size: 0.8rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .question-block { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px dashed rgba(203, 163, 122, 0.3); }
+        .question-text { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; color: var(--text-main); font-weight: 500; }
+        
+        .option-label { 
+            display: block; padding: 15px 20px; margin: 10px 0; 
+            background: var(--glass-bg); backdrop-filter: blur(10px);
+            border-radius: 16px; border: 1px solid var(--glass-border); 
+            cursor: pointer; transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(160, 155, 150, 0.05);
+            color: var(--text-main);
+        }
+        .option-label:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(203, 163, 122, 0.15); }
+        .option-label.checked { border-color: var(--accent-gold); background: rgba(203, 163, 122, 0.1); font-weight: bold; }
+        .option-label.disabled { cursor: not-allowed; opacity: 0.6; transform: none; }
+
+        .inline-options { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .inline-options .option-label { flex: 1; min-width: 45px; text-align: center; margin: 0; padding: 12px; }
+
+        textarea { 
+            width: 100%; padding: 20px; 
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(10px);
+            border: 1px solid rgba(203, 163, 122, 0.3); border-radius: 16px; 
+            font-size: 1.05rem; box-sizing: border-box; font-family: inherit; 
+            height: 180px; line-height: 1.8; resize: vertical; color: var(--text-main);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); transition: all 0.3s;
+        }
+        textarea:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 15px rgba(203, 163, 122, 0.2); background: #fff; }
+        textarea:disabled { background-color: rgba(245, 242, 239, 0.5); cursor: not-allowed; }
+
+        /* --- 解析報告 --- */
+        .review-box { margin-top: 20px; padding: 20px; border-radius: 16px; line-height: 1.8; display: none; background: rgba(255,255,255,0.8); border: 1px solid; box-shadow: var(--shadow-soft); }
+        .review-box.correct { border-color: var(--accent-jade); background: rgba(130, 150, 140, 0.05); }
+        .review-box.wrong { border-color: var(--accent-rose); background: rgba(207, 164, 164, 0.05); }
+        .review-box.analysis { border-color: var(--accent-gold); }
+        .report-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(203, 163, 122, 0.15); }
+        .report-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+        /* --- 底部控制列 --- */
+        .nav-footer { background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(15px); padding: 15px 25px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+        
+        .nav-btn-small { padding: 10px 20px; background: var(--glass-bg); color: var(--text-main); border: 1px solid var(--glass-border); border-radius: 20px; cursor: pointer; font-size: 0.95rem; letter-spacing: 1px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .nav-btn-small:hover { background: #fff; border-color: var(--accent-jade); }
+        .nav-btn-small:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* 導入妳的金剛長方形交卷按鈕 */
+        .vajra-submit {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(193, 165, 131, 0.2));
+            border: 1px solid rgba(193, 165, 131, 0.4);
+            border-radius: 24px; cursor: pointer; position: relative; overflow: hidden;
+            color: var(--text-main); font-weight: 500; letter-spacing: 2px; font-size: 1rem;
+            transition: all 0.4s ease; box-shadow: var(--shadow-soft);
+            animation: vajra-breathe 4s infinite ease-in-out;
+        }
+        @keyframes vajra-breathe {
+            0% { box-shadow: 0 5px 20px rgba(193, 165, 131, 0.1); border-color: rgba(193, 165, 131, 0.2); }
+            50% { box-shadow: 0 10px 30px rgba(193, 165, 131, 0.3); border-color: rgba(193, 165, 131, 0.6); }
+            100% { box-shadow: 0 5px 20px rgba(193, 165, 131, 0.1); border-color: rgba(193, 165, 131, 0.2); }
+        }
+        .vajra-submit::before {
+            content: ''; position: absolute; top: 0; left: -150%; width: 60%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-25deg); z-index: 1; animation: sweep 6s infinite ease-in-out;
+        }
+        @keyframes sweep { 0% { left: -150%; } 20% { left: 150%; } 100% { left: 150%; } }
+        .vajra-submit:active { transform: scale(0.96); }
+
+        .active { display: block !important; }
+        .full-width { flex: 2 !important; max-width: 900px; margin: 0 auto; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div id="sectionTitle" style="font-weight:bold; color:var(--accent-color); font-size:1.2rem;">系統啟動中...</div>
+    <div id="totalScoreDisplay" style="font-weight:bold; color:var(--accent-color); display:none; font-size:1.1rem;"></div>
+    <div class="timer" id="timer">100:00</div>
+</header>
+
+<div class="main-layout" id="mainLayout">
+    <div class="content-panel" id="leftPanel"></div>
+    <div class="question-panel" id="rightPanel">
+        <div id="sectionContent"></div>
+    </div>
+</div>
+
+<div class="nav-footer">
+    <button class="nav-btn-small" id="prevBtn" onclick="changeSection(-1)">上一大題</button>
+    <div id="progressInfo" style="font-size: 0.95rem; color: var(--text-light); font-weight:300; letter-spacing: 1px;">大題 1 / 6</div>
+    <button class="nav-btn-small" id="nextBtn" onclick="changeSection(1)">下一大題</button>
+    <button class="vajra-submit" id="submitBtn" style="display:none;" onclick="finalizeExam()">
+        <span style="position:relative; z-index:2;">交卷並啟動模擬評分</span>
+    </button>
+</div>
+
+
+<script>
+// 全題型資料庫與評分標準設定
+const examData = {
+    totalTime: 6000,
+    sections: [
+        {
+            id: 1, name: "第一部分：詞彙題 (Vocabulary)", type: "mcq", article: null,
+            questions: [
+                { id: "q1", text: "1. The scientist made a _____ discovery that completely changed our understanding of the universe.", options: {A:"profound", B:"superficial", C:"clumsy", D:"arrogant"}, answer: "A", points: 2 }
+            ]
+        },
+        {
+            id: 2, name: "第二部分：綜合測驗 (Cloze Test)", type: "mcq",
+            article: "Have you ever noticed how a simple smile can change someone's day? Studies show that smiling is contagious. __2__ you smile at a stranger, they are highly likely to smile back.",
+            questions: [
+                { id: "q2", text: "2.", options: {A:"Before", B:"When", C:"Although", D:"Unless"}, answer: "B", points: 2 }
+            ]
+        },
+        {
+            id: 3, name: "第三部分：文意選填 (Blank Filling)", type: "inline_select",
+            article: "Option Pool: (A) essential  (B) exhausted  (C) nutrients  (D) temporarily<br><br>Getting enough sleep is __3__ for both physical and mental health. If you stay up late, you will feel __4__.",
+            optionsList: ['A', 'B', 'C', 'D'],
+            questions: [
+                { id: "q3", text: "3. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "q4", text: "4. 請選擇正確選項：", answer: "B", points: 2 }
+            ]
+        },
+        {
+            id: 6, name: "第六部分：非選擇題 (Translation & Essay)", type: "essay", article: null,
+            questions: [
+                { 
+                    id: "q_trans", text: "中譯英：保持謙卑是獲得真智慧的第一步。(8分)", type: "translation",
+                    answer: "Remaining humble is the first step to gaining true wisdom.", points: 8,
+                    keywords: ["humble", "first step", "wisdom"] // 扣分演算法的核對關鍵字
+                },
+                { 
+                    id: "q_essay", text: "英文作文：請寫一篇約 120 字的文章，描述你如何克服生活中的一個困難。(20分)", type: "composition",
+                    answer: "評分將基於：1. 字數是否達標(100-150字)。 2. 轉折詞運用(如 however, therefore)。 3. 詞彙平均長度。", points: 20
+                }
+            ]
+        }
+    ]
+};
+
+let currentSectionIndex = 0;
+const userAnswers = {};
+let examSubmitted = false;
+let timerInterval;
+
+function renderCurrentSection() {
+    const section = examData.sections[currentSectionIndex];
+    const leftPanel = document.getElementById('leftPanel');
+    const rightPanel = document.getElementById('rightPanel');
+    const sectionContent = document.getElementById('sectionContent');
+    
+    document.getElementById('sectionTitle').innerText = section.name;
+    document.getElementById('progressInfo').innerText = `大題 ${currentSectionIndex + 1} / ${examData.sections.length}`;
+
+    if (section.article) {
+        leftPanel.innerHTML = `<div class="section-tag">閱讀材料</div><div style="line-height:2; font-size:1.1rem; color:#444;">${section.article}</div>`;
+        leftPanel.classList.add('active');
+        rightPanel.classList.remove('full-width');
+    } else {
+        leftPanel.classList.remove('active');
+        rightPanel.classList.add('full-width');
+    }
+
+    let html = '';
+    section.questions.forEach(q => {
+        html += `<div class="question-block"><div class="question-text">${q.text}</div>`;
+        const currentAns = userAnswers[q.id] || '';
+        const disabledClass = examSubmitted ? 'disabled' : '';
+
+        // 題型 1 & 2: 傳統單選
+        if (section.type === "mcq") {
+            for (let [k, v] of Object.entries(q.options)) {
+                const checkedClass = currentAns === k ? 'checked' : '';
+                html += `<label class="option-label ${checkedClass} ${disabledClass}">
+                    <input type="radio" style="display:none;" name="${q.id}" value="${k}" ${examSubmitted ? 'disabled' : ''} onchange="saveAnswer('${q.id}', '${k}')"> 
+                    <span style="font-weight:bold; color:var(--accent-color); margin-right:8px;">(${k})</span> ${v}
+                </label>`;
+            }
+        } 
+        // 題型 3 & 4: 直覺點選按鈕 (解決手機打字痛點)
+        else if (section.type === "inline_select") {
+            html += `<div class="inline-options">`;
+            section.optionsList.forEach(opt => {
+                const checkedClass = currentAns === opt ? 'checked' : '';
+                html += `<label class="option-label ${checkedClass} ${disabledClass}">
+                    <input type="radio" style="display:none;" name="${q.id}" value="${opt}" ${examSubmitted ? 'disabled' : ''} onchange="saveAnswer('${q.id}', '${opt}')"> ${opt}
+                </label>`;
+            });
+            html += `</div>`;
+        } 
+        // 題型 6: 非選擇題 (翻譯與作文)
+        else if (section.type === "essay") {
+            html += `<textarea id="${q.id}" ${examSubmitted ? 'disabled' : ''} placeholder="請在此輸入英文內容..." oninput="saveAnswerText('${q.id}', this.value)">${currentAns}</textarea>`;
+        }
+
+        // 交卷後的分析與解答區塊
+        if (examSubmitted) {
+            if (section.type === "mcq" || section.type === "inline_select") {
+                const isCorrect = currentAns === q.answer;
+                const boxClass = isCorrect ? 'correct' : 'wrong';
+                const statusText = isCorrect ? `<span style="font-weight:bold; color:var(--success-color);">答對了！</span>` : `<span style="font-weight:bold; color:var(--error-color);">答錯了。您的答案：${currentAns || '未作答'}</span>`;
+                html += `<div class="review-box ${boxClass}" style="display:block;">${statusText}<br><span style="color:#555;">正確解答：${q.answer}</span></div>`;
+            } else if (section.type === "essay") {
+                // 呼叫量化評分引擎
+                const report = generateEssayReport(q, currentAns);
+                html += `<div class="review-box analysis" style="display:block;">
+                            <div style="font-weight:bold; font-size:1.1rem; border-bottom:2px solid var(--accent-color); padding-bottom:8px; margin-bottom:12px;">系統客觀評估報告</div>
+                            ${report}
+                            <div style="margin-top:15px; font-size:0.9rem; color:#666;">官方參考解答：<br>${q.answer}</div>
+                         </div>`;
+            }
+        }
+
+        html += `</div>`;
+    });
+    
+    sectionContent.innerHTML = html;
+
+    // 按鈕控制
+    document.getElementById('prevBtn').disabled = (currentSectionIndex === 0);
+    if (currentSectionIndex === examData.sections.length - 1) {
+        document.getElementById('nextBtn').style.display = 'none';
+        if (!examSubmitted) document.getElementById('submitBtn').style.display = 'block';
+    } else {
+        document.getElementById('nextBtn').style.display = 'block';
+        document.getElementById('submitBtn').style.display = 'none';
+    }
+}
+
+function saveAnswer(qId, val) {
+    if(!examSubmitted) {
+        userAnswers[qId] = val;
+        renderCurrentSection(); // 重新渲染以更新按鈕高亮狀態
+    }
+}
+
+function saveAnswerText(qId, val) {
+    if(!examSubmitted) userAnswers[qId] = val; // 避免文字框打字時不斷重新渲染
+}
+
+function changeSection(direction) {
+    currentSectionIndex += direction;
+    renderCurrentSection();
+    document.getElementById('rightPanel').scrollTop = 0; 
+    document.getElementById('leftPanel').scrollTop = 0;
+}
+
+// 非選擇題量化評分引擎 (純前端)
+function generateEssayReport(questionData, userInput) {
+    if (!userInput || userInput.trim() === '') return `<div class="report-item" style="color:var(--error-color);">未作答，本題 0 分。</div>`;
+    
+    let text = userInput.trim();
+    let words = text.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(w => w.length > 0);
+    let htmlReport = '';
+    let estimatedScore = 0;
+
+    if (questionData.type === 'translation') {
+        // 中譯英：關鍵字比對扣分邏輯
+        let missingKeywords = [];
+        estimatedScore = questionData.points;
+        questionData.keywords.forEach(kw => {
+            if (!text.toLowerCase().includes(kw)) {
+                missingKeywords.push(kw);
+                estimatedScore -= 2; // 每個缺失關鍵字扣 2 分
+            }
+        });
+        estimatedScore = Math.max(0, estimatedScore);
+        
+        htmlReport += `<div class="report-item"><b>系統預估得分：</b> <span style="font-size:1.2rem; color:var(--accent-color);">${estimatedScore} / ${questionData.points}</span></div>`;
+        if (missingKeywords.length === 0) {
+            htmlReport += `<div class="report-item" style="color:var(--success-color);">核心關鍵字皆已涵蓋，結構完整。</div>`;
+        } else {
+            htmlReport += `<div class="report-item" style="color:var(--error-color);"><b>扣分建議：</b> 未偵測到核心片語 [ ${missingKeywords.join(', ')} ]。</div>`;
+        }
+    } 
+    else if (questionData.type === 'composition') {
+        // 英文作文：結構體檢邏輯
+        let wordCount = words.length;
+        let baseScore = 10; // 基礎分
+        
+        // 1. 字數檢測
+        let lengthStr = '';
+        if (wordCount >= 100 && wordCount <= 160) {
+            baseScore += 4;
+            lengthStr = `<span style="color:var(--success-color);">符合標準 (${wordCount} 字)</span>`;
+        } else if (wordCount < 100) {
+            lengthStr = `<span style="color:var(--error-color);">字數偏少 (${wordCount} 字)，建議擴充細節</span>`;
+        } else {
+            lengthStr = `<span style="color:var(--accent-color);">字數略多 (${wordCount} 字)，請注意作答時間</span>`;
+        }
+        htmlReport += `<div class="report-item"><b>字數檢測：</b> ${lengthStr}</div>`;
+
+        // 2. 邏輯連貫性 (轉折詞掃描)
+        const transitions = ['however', 'therefore', 'moreover', 'furthermore', 'in addition', 'for example', 'on the other hand', 'in conclusion', 'because', 'although'];
+        let foundTransitions = transitions.filter(t => text.toLowerCase().includes(t));
+        if (foundTransitions.length >= 2) {
+            baseScore += 3;
+            htmlReport += `<div class="report-item"><b>邏輯連貫：</b> <span style="color:var(--success-color);">佳。偵測到轉折詞 (${foundTransitions.join(', ')})</span></div>`;
+        } else {
+            htmlReport += `<div class="report-item"><b>邏輯連貫：</b> <span style="color:var(--error-color);">偏弱。建議加入轉折詞 (如 however, therefore) 以強化語氣銜接。</span></div>`;
+        }
+
+        // 3. 詞彙豐富度模擬 (計算平均單字長度)
+        let totalChars = words.reduce((sum, w) => sum + w.length, 0);
+        let avgWordLength = (totalChars / wordCount).toFixed(1);
+        if (avgWordLength > 4.5) {
+            baseScore += 3;
+            htmlReport += `<div class="report-item"><b>詞彙深度：</b> <span style="color:var(--success-color);">良好。平均字母數達 ${avgWordLength}，顯示具備進階單字能力。</span></div>`;
+        } else {
+            htmlReport += `<div class="report-item"><b>詞彙深度：</b> <span style="color:var(--accent-color);">基礎。平均字母數 ${avgWordLength}，建議適度替換為 7000 單字表的高級詞彙。</span></div>`;
+        }
+
+        htmlReport = `<div class="report-item"><b>客觀結構預估：</b> <span style="font-size:1.2rem; color:var(--accent-color);">${Math.min(20, baseScore)} / ${questionData.points}</span></div>` + htmlReport;
+    }
+    return htmlReport;
+}
+
+function finalizeExam() {
+    if(!confirm("確定要交卷嗎？交卷後將啟動系統自動評分，並顯示所有解析。")) return;
+    
+    examSubmitted = true;
+    clearInterval(timerInterval);
+    document.getElementById('timer').innerText = "測驗結束";
+    document.getElementById('timer').style.background = "#f5f5f5";
+    document.getElementById('timer').style.color = "#999";
+    
+    let objScore = 0;
+    let maxObjScore = 0;
+    
+    examData.sections.forEach(sec => {
+        if (sec.type === "mcq" || sec.type === "inline_select") {
+            sec.questions.forEach(q => {
+                maxObjScore += q.points;
+                if (userAnswers[q.id] === q.answer) objScore += q.points;
+            });
+        }
+    });
+
+    const scoreDisplay = document.getElementById('totalScoreDisplay');
+    scoreDisplay.innerText = `客觀題得分：${objScore} / ${maxObjScore} (非選結構分析請見卷末)`;
+    scoreDisplay.style.display = 'block';
+    document.getElementById('submitBtn').style.display = 'none';
+
+    currentSectionIndex = 0;
+    renderCurrentSection();
+    alert("評分完成！系統已產生非選擇題的客觀體檢報告，請逐一大題檢視。");
+}
+
+let timeLeft = examData.totalTime;
+timerInterval = setInterval(() => {
+    if(timeLeft <= 0) {
+        finalizeExam();
+        return;
+    }
+    timeLeft--;
+    let m = Math.floor(timeLeft / 60);
+    let s = timeLeft % 60;
+    document.getElementById('timer').innerText = `${m}:${s < 10 ? '0' + s : s}`;
+}, 1000);
+
+window.onload = renderCurrentSection;
+</script>
+</body>
+</html>
