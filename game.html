@@ -98,15 +98,27 @@
     </button>
     <div id="cheat-overlay"></div>
 
-    <div class="spirit-stage" id="spirit-stage">
-        <svg id="stickman-svg" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
-            <g id="rocket"><path d="M100 150 L80 190 L120 190 Z" fill="#fff" stroke="var(--accent-gold)" stroke-width="4"/><rect x="85" y="190" width="30" height="20" fill="var(--accent-gold)"/></g>
-            <g id="s-body" class="part"><rect x="85" y="100" width="30" height="50" rx="5" class="s-fill"/></g>
-            <g id="s-head" class="part"><rect x="75" y="40" width="50" height="50" rx="10" class="s-fill"/><circle cx="90" cy="60" r="3" fill="#333"/><circle cx="110" cy="60" r="3" fill="#333"/><path d="M 90 75 Q 100 85 110 75" fill="none" stroke="#333" stroke-width="2" id="s-mouth"/></g>
-            <g id="s-arms" class="part"><path d="M85 110 L60 130 M115 110 L140 130" class="s-line"/></g>
-            <g id="s-legs" class="part"><path d="M90 150 L80 180 M110 150 L120 180" class="s-line"/></g>
-        </svg>
-    </div>
+   <svg id="stickman-svg" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
+    <circle cx="100" cy="110" r="80" fill="none" stroke="var(--accent-gold)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+    
+    <g id="spirit-core">
+        <path id="s-body" class="part s-line" d="M100,50 A60,60 0 1,1 99.9,50" style="stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 0.8s;"/>
+        
+        <circle id="s-head" class="part" cx="100" cy="110" r="15" fill="var(--accent-jade)" />
+        
+        <g id="s-arms" class="part">
+            <path d="M60,110 L20,100" class="s-line" stroke-width="2"/>
+            <path d="M140,110 L180,100" class="s-line" stroke-width="2"/>
+        </g>
+        
+        <path id="s-legs" class="part s-line" d="M80,160 Q100,180 120,160" stroke-width="3"/>
+    </g>
+
+    <g id="rocket" opacity="0">
+        <rect x="98" y="150" width="4" height="60" fill="var(--accent-gold)"/>
+    </g>
+</svg>
+
     
     <div class="word-test-area">
         <div style="color:var(--accent-gold); margin-bottom:5px; font-size:0.8rem;">(點擊火柴人可再次聆聽發音)</div>
