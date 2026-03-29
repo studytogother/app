@@ -1,9 +1,10 @@
 // question_bank.js
-// 般若系統 - 全域核心題庫 (包含模擬考與單字遊戲)
+// 般若系統 - 全域智慧大腦 (包含模擬考與化生單字)
 
 const QuestionBank = {
+
     // ==========================================
-    // 第一部分：模擬考場專用題庫
+    // 模組一：全真模擬考場專用 (供 exam.html 讀取)
     // ==========================================
     vocabulary: {
         senior: [
@@ -108,11 +109,9 @@ const QuestionBank = {
         ]
     },
 
-    // question_bank.js
-// 般若系統 - 智慧單字庫 (字根字首群組版)
-
-const QuestionBank = {
-    // 高中 7000 單字區
+    // ==========================================
+    // 模組二：化生單字遊戲群組 (供 game.html 讀取)
+    // ==========================================
     senior: [
         {
             id: "senior_A1",
@@ -130,9 +129,8 @@ const QuestionBank = {
                 { word: "accept", meaning: "v. 接受；答應", root: "ac (向) + cept (拿)", phonetic: "/əkˈsept/" }
             ]
         }
-        // 未來可以在這裡接續增加 senior_A2, senior_B1...
     ],
-    // 托福單字區
+    
     toefl: [
         {
             id: "toefl_1",
