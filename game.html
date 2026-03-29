@@ -39,17 +39,28 @@
         .absorb-root { font-size: 0.8rem; color: var(--accent-gold); }
         .audio-btn { padding: 6px 12px; border-radius: 12px; border: 1px solid rgba(203,163,122,0.4); background: rgba(203,163,122,0.1); color: var(--accent-gold); font-weight: bold; cursor: pointer; }
 
-        /* --- 階段二：測驗畫面 --- */
+        /* --- 階段二：測驗畫面 (雲朵化) --- */
         #test-screen { flex: 1; display: none; flex-direction: column; align-items: center; position: relative; width: 100%; overflow: hidden; }
         .spirit-stage { height: 230px; display: flex; justify-content: center; align-items: center; position: relative; width: 100%; margin-top: 10px; }
-        #stickman-svg { width: 180px; height: 220px; transition: 0.5s; z-index: 5; animation: float 3s infinite ease-in-out;}
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        .s-line { fill: none; stroke: var(--accent-jade); stroke-width: 5; stroke-linecap: round; }
-        .s-fill { fill: #fff; stroke: var(--accent-jade); stroke-width: 5; }
+        #stickman-svg { width: 180px; height: 220px; transition: 0.5s; z-index: 5; animation: float 4s infinite ease-in-out;}
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+        
+        .s-line { fill: none; stroke: var(--text-main); stroke-width: 4; stroke-linecap: round; }
+        .s-fill { fill: #fff; stroke: var(--text-main); stroke-width: 4; }
         .part { opacity: 0; transition: 0.5s; } .visible { opacity: 1 !important; }
-        #rocket { opacity: 0; transition: 0.8s; } .rocket-active #rocket { opacity: 1; transform: translateY(-50px); }
-        .liftoff { animation: liftoffAnim 2s forwards cubic-bezier(0.4, 0, 1, 1); }
+        
+        /* 升空與融化動畫 */
+        #rocket { opacity: 0; transition: 0.8s; } 
+        .rocket-active #rocket { opacity: 1; transform: translateY(-20px); }
+        .liftoff { animation: liftoffAnim 1.5s forwards cubic-bezier(0.4, 0, 1, 1); }
         @keyframes liftoffAnim { 0% { transform: translateY(0); } 100% { transform: translateY(-1000px); } }
+        
+        .melt { animation: meltAnim 1.5s forwards; }
+        @keyframes meltAnim {
+            0% { transform: scaleY(1); opacity: 1; }
+            50% { transform: scaleY(0.2) translateY(150px); opacity: 0.8; }
+            100% { transform: scaleY(0.1) translateY(300px); opacity: 0; }
+        }
 
         .wisdom-eye-btn { position: absolute; top: 10px; right: 20px; background: rgba(203,163,122,0.15); border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 5px 10px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; display: flex; align-items: center; gap: 5px; z-index: 20;}
         #cheat-overlay { position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: var(--accent-gold); padding: 10px 30px; border-radius: 15px; font-size: 2rem; font-weight: bold; z-index: 50; display: none; letter-spacing: 3px; }
@@ -98,30 +109,27 @@
     </button>
     <div id="cheat-overlay"></div>
 
-   <svg id="stickman-svg" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
-    <circle cx="100" cy="110" r="80" fill="none" stroke="var(--accent-gold)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
-    
-    <g id="spirit-core">
-        <path id="s-body" class="part s-line" d="M100,50 A60,60 0 1,1 99.9,50" style="stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 0.8s;"/>
-        
-        <circle id="s-head" class="part" cx="100" cy="110" r="15" fill="var(--accent-jade)" />
-        
-        <g id="s-arms" class="part">
-            <path d="M60,110 L20,100" class="s-line" stroke-width="2"/>
-            <path d="M140,110 L180,100" class="s-line" stroke-width="2"/>
-        </g>
-        
-        <path id="s-legs" class="part s-line" d="M80,160 Q100,180 120,160" stroke-width="3"/>
-    </g>
+    <div class="spirit-stage" id="spirit-stage">
+        <svg id="stickman-svg" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
+            <path id="s-body" class="part s-fill" d="M50,130 Q30,130 30,110 Q30,80 60,80 Q60,50 100,50 Q140,50 140,80 Q170,80 170,110 Q170,130 150,130 Z" />
+            
+            <g id="s-head" class="part">
+                <line x1="80" y1="95" x2="100" y2="95" stroke="#333" stroke-width="3" />
+                <line x1="110" y1="95" x2="130" y2="95" stroke="#333" stroke-width="3" />
+            </g>
 
-    <g id="rocket" opacity="0">
-        <rect x="98" y="150" width="4" height="60" fill="var(--accent-gold)"/>
-    </g>
-</svg>
+            <line id="s-arms" x1="85" y1="130" x2="85" y2="190" class="part s-line" />
+            <line id="s-legs" x1="125" y1="130" x2="125" y2="190" class="part s-line" />
 
+            <g id="rocket">
+                <path d="M100 130 L90 160 L110 160 Z" fill="var(--accent-gold)" />
+                <rect x="95" y="160" width="10" height="15" fill="var(--accent-gold)" opacity="0.6"/>
+            </g>
+        </svg>
+    </div>
     
     <div class="word-test-area">
-        <div style="color:var(--accent-gold); margin-bottom:5px; font-size:0.8rem;">(點擊火柴人可再次聆聽發音)</div>
+        <div style="color:var(--accent-gold); margin-bottom:5px; font-size:0.8rem;">(點擊雲朵可再次聆聽發音)</div>
         <div class="letter-row" id="letter-row"></div>
     </div>
     <div class="keyboard" id="keyboard"></div>
@@ -139,7 +147,6 @@ let currentWords = []; let currentStep = -1; let testIndex = 0;
 let mistakes = 0; let guessedLetters = new Set(); let correctCount = 0; let usedCheat = false;
 let globalTimerInterval;
 
-// 初始化選關大廳
 function initLevelSelect() {
     currentStep = -1;
     const d = new Date();
@@ -165,11 +172,9 @@ function initLevelSelect() {
     renderGrid('toefl-grid', 'toefl');
 }
 
-// 頂部返回按鈕邏輯
 function goBackOrExit() {
-    if (currentStep === -1 || currentStep === 2) window.location.href = 'index.html'; // 在選單或結算，回首頁
+    if (currentStep === -1 || currentStep === 2) window.location.href = 'index.html';
     else {
-        // 在吸收或測驗中，退回選單
         clearInterval(globalTimerInterval);
         document.getElementById('absorb-screen').style.display = 'none';
         document.getElementById('test-screen').style.display = 'none';
@@ -212,7 +217,6 @@ function startTest() {
     document.getElementById('absorb-screen').style.display = 'none';
     document.getElementById('test-screen').style.display = 'flex';
     document.getElementById('header-title').innerText = "天籟盲測";
-    document.getElementById('global-timer').innerText = "";
     testIndex = 0; correctCount = 0;
     loadWordTest();
 }
@@ -220,6 +224,10 @@ function startTest() {
 function loadWordTest() {
     if (testIndex >= currentWords.length) { showFinalResult(); return; }
     guessedLetters.clear(); mistakes = 0; usedCheat = false;
+    
+    // 重置雲朵狀態
+    const svg = document.getElementById('stickman-svg');
+    svg.classList.remove('melt');
     document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
     document.getElementById('spirit-stage').classList.remove('rocket-active', 'liftoff');
     
@@ -241,17 +249,24 @@ function useCheatEye() {
 
 function handleGuess(letter, btn) {
     const word = currentWords[testIndex].word.toUpperCase();
+    const svg = document.getElementById('stickman-svg');
+    
     if (word.includes(letter)) {
         guessedLetters.add(letter); btn.classList.add('correct');
         updateDashes(); updateStickman();
+        // 答對抖動 (驚訝)
+        svg.style.transform = "scale(1.1)";
+        setTimeout(() => svg.style.transform = "scale(1)", 150);
+        
         if (word.split('').every(l => guessedLetters.has(l))) {
             if(!usedCheat) correctCount++; 
             triggerWin();
         }
     } else {
         mistakes++; btn.classList.add('wrong');
-        document.getElementById('stickman-svg').style.transform = "translateX(10px)";
-        setTimeout(() => document.getElementById('stickman-svg').style.transform = "translateX(0)", 200);
+        // 答錯左右搖晃 (嫌棄)
+        svg.style.transform = "translateX(15px) rotate(5deg)";
+        setTimeout(() => svg.style.transform = "translateX(0) rotate(0deg)", 200);
         if (mistakes >= 5) revealAnswer();
     }
 }
@@ -264,6 +279,7 @@ function updateDashes() {
 
 function updateStickman() {
     const progress = guessedLetters.size / new Set(currentWords[testIndex].word.toUpperCase().split('')).size;
+    // 依序顯示雲朵部件
     if (progress > 0) document.getElementById('s-body').classList.add('visible');
     if (progress > 0.3) document.getElementById('s-head').classList.add('visible');
     if (progress > 0.6) document.getElementById('s-arms').classList.add('visible');
@@ -273,20 +289,34 @@ function updateStickman() {
 function triggerWin() {
     document.querySelectorAll('.part').forEach(p => p.classList.add('visible'));
     document.getElementById('keyboard').style.pointerEvents = 'none';
-    if(!usedCheat) {
-        document.getElementById('spirit-stage').classList.add('rocket-active');
-        setTimeout(() => { document.getElementById('spirit-stage').classList.add('liftoff'); playCurrentWordAudio(); setTimeout(() => { testIndex++; loadWordTest(); }, 1800); }, 800);
-    } else {
-        playCurrentWordAudio(); setTimeout(() => { testIndex++; loadWordTest(); }, 1200);
-    }
+    
+    // 勝利動畫：先縮小再彈起升空
+    const stage = document.getElementById('spirit-stage');
+    stage.classList.add('rocket-active');
+    
+    setTimeout(() => { 
+        stage.classList.add('liftoff'); 
+        playCurrentWordAudio(); 
+        setTimeout(() => { testIndex++; loadWordTest(); }, 1800); 
+    }, 800);
 }
 
 function revealAnswer() {
     const word = currentWords[testIndex].word.toUpperCase();
     const dashes = document.querySelectorAll('.letter-dash');
     document.getElementById('keyboard').style.pointerEvents = 'none';
-    word.split('').forEach((char, i) => { if (!guessedLetters.has(char)) { dashes[i].innerText = char; dashes[i].classList.add('error-reveal'); } });
-    playCurrentWordAudio(); setTimeout(() => { testIndex++; loadWordTest(); }, 2000);
+    
+    // 失敗動畫：融化
+    document.getElementById('stickman-svg').classList.add('melt');
+    
+    word.split('').forEach((char, i) => { 
+        if (!guessedLetters.has(char)) { 
+            dashes[i].innerText = char; 
+            dashes[i].classList.add('error-reveal'); 
+        } 
+    });
+    
+    setTimeout(() => { testIndex++; loadWordTest(); }, 2000);
 }
 
 function showFinalResult() {
@@ -294,7 +324,7 @@ function showFinalResult() {
     document.getElementById('test-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'flex';
     document.getElementById('header-title').innerText = "結算";
-    document.getElementById('result-desc').innerHTML = `恭喜完成！<br>真實化生升空數：<b style="color:var(--accent-jade);">${correctCount}</b> / ${currentWords.length}`;
+    document.getElementById('result-desc').innerHTML = `恭喜完成修煉！<br>成功化生升空數：<b style="color:var(--accent-jade);">${correctCount}</b> / ${currentWords.length}`;
     
     const d = new Date();
     localStorage.setItem('prajna_last_completed_date', `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`);
@@ -309,7 +339,10 @@ function speak(text) {
     if (isAndroid) {
         window.sysUtterances.push(msg);
         let voices = window.speechSynthesis.getVoices();
-        if (voices.length > 0) { let enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || voices.find(v => v.lang.includes('en')); if (enVoice) msg.voice = enVoice; }
+        if (voices.length > 0) { 
+            let enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || voices.find(v => v.lang.includes('en')); 
+            if (enVoice) msg.voice = enVoice; 
+        }
     }
     msg.onend = () => { if(isAndroid) window.sysUtterances = window.sysUtterances.filter(u => u !== msg); };
     setTimeout(() => { window.speechSynthesis.speak(msg); }, isAndroid ? 150 : 50);
@@ -321,7 +354,9 @@ function initKeyboard() {
     kb.style.pointerEvents = 'auto';
 }
 
-if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) { speechSynthesis.onvoiceschanged = function() { speechSynthesis.getVoices(); }; }
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) { 
+    speechSynthesis.onvoiceschanged = function() { speechSynthesis.getVoices(); }; 
+}
 
 window.onload = initLevelSelect;
 </script>
