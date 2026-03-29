@@ -4,111 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>化生單字測驗 - 般若學習系統</title>
-    <script src="question_bank.js?v=7"></script>
+    <script src="question_bank.js?v=9"></script>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
             --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.9);
             --text-main: #58504A;
             --accent-gold: #CBA37A;
             --accent-jade: #82968C;
             --accent-rose: #CFA4A4;
-            /* 雲朵插畫色 */
             --cloud-top: #E1F5FE;
             --cloud-bottom: #B3E5FC;
         }
         * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
         html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); background: rgba(255,255,255,0.4); z-index: 100; }
-        .timer-badge { font-weight: bold; color: var(--accent-gold); font-size: 1.1rem; }
-        .back-btn { display: flex; align-items: center; gap: 6px; color: var(--accent-jade); font-size: 0.95rem; background: var(--glass-bg); padding: 8px 18px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 4px 10px rgba(0,0,0,0.03); cursor: pointer; font-weight: bold; }
+        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.4); z-index: 100; }
+        .back-btn { font-weight: bold; color: var(--accent-jade); background: var(--glass-bg); padding: 8px 18px; border-radius: 20px; border: 1px solid white; cursor: pointer; }
 
-        /* --- 階段：選關畫面 --- */
+        /* 選關畫面 */
         #level-select-screen { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .section-title { width: 100%; max-width: 500px; font-size: 1.1rem; color: var(--accent-jade); border-bottom: 2px solid rgba(130, 150, 140, 0.2); padding-bottom: 8px; margin: 20px 0 10px; font-weight: bold; }
-        .grid-container { width: 100%; max-width: 500px; display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
-        .group-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 22px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
-        
-        /* --- 階段：定心吸收 --- */
-        #absorb-screen { flex: 1; padding: 20px; overflow-y: auto; display: none; flex-direction: column; align-items: center; }
-        .word-list-card { width: 100%; max-width: 500px; background: var(--glass-bg); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; border: 1px solid var(--glass-border); }
-        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(203,163,122,0.15); }
-        
-        /* --- 階段：測驗畫面 --- */
+        .grid-container { width: 100%; max-width: 500px; display: grid; gap: 12px; }
+        .group-btn { background: var(--glass-bg); padding: 22px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+
+        /* 測驗舞台 */
         #test-screen { flex: 1; display: none; flex-direction: column; align-items: center; position: relative; width: 100%; overflow: hidden; }
         .spirit-stage { height: 320px; display: flex; justify-content: center; align-items: center; position: relative; width: 100%; }
         
-        /* 雲朵大尺寸與動畫 */
-        #spirit-container { width: 280px; height: 320px; transition: 0.5s; z-index: 5; animation: float 4s infinite ease-in-out; transform-origin: center bottom; position: relative; }
+        #spirit-wrapper { width: 280px; height: 320px; position: relative; display: flex; justify-content: center; align-items: center; cursor: pointer;}
+        #cloud-svg { width: 100%; height: 100%; transition: 0.5s; animation: float 4s infinite ease-in-out; transform-origin: center bottom; }
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(1deg); } }
         
-        .part { opacity: 0; transition: 0.4s; } .visible { opacity: 1 !important; }
+        /* 金色大手：神聖強擄 */
+        #divine-hand { position: absolute; top: -350px; left: 50%; transform: translateX(-50%); width: 150px; transition: 0.7s cubic-bezier(0.17, 0.67, 0.83, 0.67); z-index: 20; pointer-events: none; }
+        .hand-grab { top: 10px !important; } 
+        .hand-yank { transition: 1s cubic-bezier(0.6, 0.04, 0.98, 0.34) !important; transform: translate(-50%, -1500px) !important; }
 
-        /* 金色大手動畫 */
-        #divine-hand { position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 120px; height: 200px; transition: 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); z-index: 10; pointer-events: none; }
-        .hand-descend { top: 40px !important; }
-        .yank-up { transition: 1s cubic-bezier(0.4, 0, 1, 1) !important; transform: translate(-50%, -1200px) !important; }
-
-        /* 融化與凝聚 */
+        /* 泥水融化效果 */
+        .melt { animation: meltAnim 1.5s forwards ease-in !important; }
+        @keyframes meltAnim { 
+            0% { transform: scaleY(1) scaleX(1); opacity: 1; } 
+            100% { transform: scaleY(0.04) scaleX(3) translateY(600px); opacity: 0.8; } 
+        }
         .condense { animation: condenseAnim 0.8s forwards ease-out; }
         @keyframes condenseAnim { 0% { opacity: 0; transform: scale(0.2); } 100% { opacity: 1; transform: scale(1); } }
-        .melt { animation: meltAnim 1.6s forwards ease-in; }
-        @keyframes meltAnim { 0% { transform: scaleY(1) scaleX(1); opacity: 1; } 100% { transform: scaleY(0.05) scaleX(2.5) translateY(400px); opacity: 0; } }
 
-        /* 單字區 */
-        .word-test-area { margin-bottom: 20px; text-align: center; flex-shrink: 0; width: 100%; }
+        .part { opacity: 0; transition: 0.4s; } .visible { opacity: 1 !important; }
+
+        /* 單字欄位 */
+        .word-test-area { margin-bottom: 20px; text-align: center; width: 100%; }
         .letter-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 0 15px;}
         .letter-dash { width: 36px; height: 48px; border-bottom: 4px solid var(--accent-gold); font-size: 1.9rem; font-weight: bold; display: flex; align-items: flex-end; justify-content: center; color: var(--text-main); }
         .letter-dash.error-reveal { color: var(--accent-rose); border-bottom-color: var(--accent-rose); }
 
-        /* 三排大鍵盤 */
+        /* 果凍大鍵盤 */
         .keyboard-container { width: 100%; background: rgba(255,255,255,0.4); padding: 12px 8px env(safe-area-inset-bottom); border-top-left-radius: 25px; border-top-right-radius: 25px; }
         .kb-row { display: flex; justify-content: center; gap: 6px; margin-bottom: 8px; }
-        .key { flex: 1; max-width: 46px; height: 56px; background: #fff; border: none; border-radius: 12px; font-size: 1.3rem; font-weight: bold; box-shadow: 0 4px 0 #D1D9E6; cursor: pointer; transition: 0.1s; display: flex; justify-content: center; align-items: center; }
+        .key { flex: 1; max-width: 48px; height: 58px; background: #fff; border: none; border-radius: 12px; font-size: 1.4rem; font-weight: bold; box-shadow: 0 4px 0 #D1D9E6; cursor: pointer; transition: 0.1s; display: flex; justify-content: center; align-items: center; }
         .key:active { transform: translateY(3px); box-shadow: 0 1px 0 #D1D9E6; }
         .key.correct { background: var(--accent-jade); color: white; box-shadow: 0 4px 0 #6A7D74; pointer-events: none; }
         .key.wrong { background: var(--accent-rose); color: white; box-shadow: 0 4px 0 #A57C7C; opacity: 0.5; pointer-events: none; }
 
-        .wisdom-eye-btn { position: absolute; top: 15px; right: 20px; background: var(--glass-bg); border: 2px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: bold; z-index: 20; }
-        #cheat-overlay { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.85); color: var(--accent-gold); padding: 15px 35px; border-radius: 20px; font-size: 2.6rem; font-weight: bold; z-index: 50; display: none; letter-spacing: 5px; }
-        .vajra-btn { width: 90%; max-width: 320px; padding: 20px; background: var(--accent-gold); color: white; border: none; border-radius: 25px; font-size: 1.2rem; font-weight: bold; margin: 20px 0; box-shadow: 0 6px 0 #A68563; cursor: pointer; }
+        .wisdom-eye-btn { position: absolute; top: 15px; right: 20px; background: var(--glass-bg); border: 2px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 16px; border-radius: 20px; font-weight: bold; z-index: 50; }
+        #tap-to-continue { position: absolute; top: 50%; color: var(--accent-rose); font-weight: bold; display: none; z-index: 60; background: white; padding: 10px 20px; border-radius: 20px; border: 2px solid var(--accent-rose); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="back-btn" onclick="goBackOrExit()">返回</div>
-    <div id="header-title" style="font-weight:bold;">修煉場</div>
+    <div class="back-btn" onclick="location.reload()">返回</div>
+    <div id="header-title" style="font-weight:bold;">妙依修煉場</div>
     <div class="timer-badge" id="global-timer"></div>
 </header>
 
 <div id="level-select-screen">
-    <div class="section-title">高中 7000 單字修煉</div>
     <div class="grid-container" id="senior-grid"></div>
-    <div class="section-title">托福高階無礙</div>
-    <div class="grid-container" id="toefl-grid"></div>
 </div>
 
-<div id="absorb-screen">
-    <div class="word-list-card" id="word-list-container"></div>
-    <button class="vajra-btn" onclick="startTest()">開始天籟盲測</button>
+<div id="absorb-screen" style="display:none; padding:20px; flex-direction:column; align-items:center;">
+    <div id="word-list-container" style="width:100%; max-width:500px; background:white; border-radius:20px; padding:20px;"></div>
+    <button class="vajra-btn" style="width:90%; max-width:320px; padding:20px; background:var(--accent-gold); color:white; border-radius:25px; border:none; margin:20px; font-weight:bold; font-size:1.2rem;" onclick="startTest()">開始修煉</button>
 </div>
 
 <div id="test-screen">
     <button class="wisdom-eye-btn" onclick="useCheatEye()">慧眼</button>
-    <div id="cheat-overlay"></div>
+    <div id="tap-to-continue" onclick="loadWordTest()">化生失敗，點擊泥水重凝</div>
 
-    <svg id="divine-hand" viewBox="0 0 100 150">
-        <path d="M20,0 L20,80 Q20,100 40,100 L60,100 Q80,100 80,80 L80,0" fill="none" stroke="var(--accent-gold)" stroke-width="4" stroke-linecap="round"/>
-        <path d="M30,100 Q30,130 50,135 Q70,130 70,100" fill="none" stroke="var(--accent-gold)" stroke-width="6" stroke-linecap="round"/>
-        <circle cx="50" cy="115" r="5" fill="var(--accent-gold)" opacity="0.6"/>
-    </svg>
+    <div class="spirit-stage">
+        <svg id="divine-hand" viewBox="0 0 100 150">
+            <path d="M20,0 L20,80 Q20,100 40,100 L60,100 Q80,100 80,80 L80,0" fill="none" stroke="#FFD700" stroke-width="6" stroke-linecap="round"/>
+            <path d="M30,100 Q30,130 50,140 Q70,130 70,100" fill="none" stroke="#FFD700" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="50" cy="118" r="6" fill="#FFD700" opacity="0.8"/>
+        </svg>
 
-    <div class="spirit-stage" id="spirit-stage">
-        <div id="spirit-container">
-            <svg width="100%" height="100%" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
+        <div id="spirit-wrapper" onclick="handlePuddleClick()">
+            <svg id="cloud-svg" viewBox="0 0 200 240">
                 <defs>
                     <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" style="stop-color:var(--cloud-top);stop-opacity:1" />
@@ -119,7 +109,7 @@
                 <g id="s-head" class="part">
                     <line x1="80" y1="95" x2="100" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
                     <line x1="110" y1="95" x2="130" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
-                    <path d="M95 112 Q105 108 115 112" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" />
+                    <path id="s-mouth" d="M95 112 Q105 108 115 112" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" />
                 </g>
                 <g id="s-legs" class="part">
                     <line x1="85" y1="130" x2="85" y2="210" stroke="#90A4AE" stroke-width="5" stroke-linecap="round" />
@@ -135,92 +125,75 @@
     <div class="keyboard-container" id="keyboard"></div>
 </div>
 
-<div id="result-screen" style="display:none; text-align:center; padding: 50px 20px;">
-    <h1 style="color:var(--accent-jade);">修煉圓滿</h1>
-    <div id="result-desc" style="font-size:1.3rem; margin-bottom:30px;"></div>
-    <button class="vajra-btn" onclick="location.reload()">返回大廳</button>
-</div>
-
 <script>
-// 單字庫安全檢查
-if (typeof QuestionBank === 'undefined') {
-    window.QuestionBank = { senior: [{title: "基礎修煉", words: [{word:"WISDOM", meaning:"智慧"}]}], toefl: [] };
-}
+if (typeof QuestionBank === 'undefined') { window.QuestionBank = { senior: [{title: "智慧修煉", words: [{word:"PEACE", meaning:"和平"}]}] }; }
 
-let currentWords = []; let currentStep = -1; let testIndex = 0; 
-let mistakes = 0; let guessedLetters = new Set(); let correctCount = 0; let usedCheat = false;
-let globalTimerInterval;
+let currentWords = []; let testIndex = 0; let mistakes = 0; 
+let guessedLetters = new Set(); let correctCount = 0; let usedCheat = false;
+let isMelted = false;
+
+// 失敗次數設定 (妳可以改成 1 或 3)
+const MAX_MISTAKES = 3; 
 
 function initLevelSelect() {
-    currentStep = -1;
-    function renderGrid(containerId, category) {
-        const grid = document.getElementById(containerId); if(!grid) return;
-        grid.innerHTML = (QuestionBank[category] || []).map(group => `
-            <div class="group-btn" onclick="selectGroup('${category}', '${group.title}')">
-                <span class="g-title">${group.title}</span><span class="g-status">任務</span>
-            </div>
-        `).join('');
-    }
-    renderGrid('senior-grid', 'senior'); renderGrid('toefl-grid', 'toefl');
-}
-
-function selectGroup(cat, title) {
-    const group = QuestionBank[cat].find(g => g.title === title);
-    currentWords = group.words; initAbsorb();
-}
-
-function goBackOrExit() { location.reload(); }
-
-function initAbsorb() {
-    currentStep = 0;
-    document.getElementById('level-select-screen').style.display = 'none';
-    document.getElementById('absorb-screen').style.display = 'flex';
-    document.getElementById('header-title').innerText = "定心吸收";
-    document.getElementById('word-list-container').innerHTML = currentWords.map(w => `
-        <div class="absorb-item">
-            <div><b>${w.word}</b><br><small>${w.meaning}</small></div>
-            <button class="audio-btn" onclick="speak('${w.word}')">聽</button>
-        </div>
+    const grid = document.getElementById('senior-grid');
+    grid.innerHTML = (QuestionBank.senior || []).map(g => `
+        <div class="group-btn" onclick="selectGroup('${g.title}')"><b>${g.title}</b><span>修煉</span></div>
     `).join('');
 }
 
+function selectGroup(title) {
+    const group = QuestionBank.senior.find(g => g.title === title);
+    currentWords = group.words;
+    document.getElementById('level-select-screen').style.display = 'none';
+    document.getElementById('absorb-screen').style.display = 'flex';
+    document.getElementById('word-list-container').innerHTML = currentWords.map(w => `<div style="padding:15px; border-bottom:1px solid #eee;"><b>${w.word}</b> - ${w.meaning}</div>`).join('');
+}
+
 function startTest() {
-    currentStep = 1; document.getElementById('absorb-screen').style.display = 'none';
+    document.getElementById('absorb-screen').style.display = 'none';
     document.getElementById('test-screen').style.display = 'flex';
-    document.getElementById('header-title').innerText = "天籟盲測";
     testIndex = 0; correctCount = 0; loadWordTest();
 }
 
 function loadWordTest() {
-    if (testIndex >= currentWords.length) { showFinalResult(); return; }
-    guessedLetters.clear(); mistakes = 0; usedCheat = false;
+    if (testIndex >= currentWords.length) { alert("修煉圓滿，升空數：" + correctCount); location.reload(); return; }
+    guessedLetters.clear(); mistakes = 0; usedCheat = false; isMelted = false;
     
-    const container = document.getElementById('spirit-container');
+    const wrapper = document.getElementById('spirit-wrapper');
+    const cloud = document.getElementById('cloud-svg');
     const hand = document.getElementById('divine-hand');
-    container.className = "condense"; hand.className = "";
+    const tip = document.getElementById('tap-to-continue');
+    
+    wrapper.className = "condense"; 
+    cloud.classList.remove('melt');
+    hand.classList.remove('hand-grab', 'hand-yank');
+    tip.style.display = 'none';
     document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
     
     document.getElementById('letter-row').innerHTML = currentWords[testIndex].word.split('').map(() => `<div class="letter-dash"></div>`).join('');
     initKeyboard();
-    setTimeout(() => { container.classList.remove('condense'); playCurrentWordAudio(); }, 800);
+    setTimeout(() => { wrapper.classList.remove('condense'); playCurrentWordAudio(); }, 800);
 }
 
 function handleGuess(letter, btn) {
+    if(isMelted) return;
     const word = currentWords[testIndex].word.toUpperCase();
-    const container = document.getElementById('spirit-container');
+    const cloud = document.getElementById('cloud-svg');
+    
     if (word.includes(letter)) {
         guessedLetters.add(letter); btn.classList.add('correct');
         updateDashes(); updateSpirit();
-        container.style.transform = "scale(1.15)";
-        setTimeout(() => container.style.transform = "scale(1)", 150);
+        cloud.style.transform = "scale(1.15)";
+        setTimeout(() => cloud.style.transform = "scale(1)", 150);
         if (word.split('').every(l => guessedLetters.has(l))) {
             if(!usedCheat) correctCount++; triggerWin();
         }
     } else {
         mistakes++; btn.classList.add('wrong');
-        container.style.transform = "translateX(15px) rotate(5deg)";
-        setTimeout(() => container.style.transform = "translateX(0) rotate(0deg)", 200);
-        if (mistakes >= 1) revealAnswer(); // 改為 3 次失敗
+        cloud.style.transform = "translateX(15px) rotate(5deg)";
+        setTimeout(() => cloud.style.transform = "translateX(0) rotate(0deg)", 200);
+        if (mistakes >= MAX_MISTAKES) revealFailure(); 
     }
 }
 
@@ -240,29 +213,33 @@ function updateSpirit() {
 function triggerWin() {
     document.getElementById('keyboard').style.pointerEvents = 'none';
     const hand = document.getElementById('divine-hand');
-    const container = document.getElementById('spirit-container');
-    
-    // 大手降下抓走
-    hand.classList.add('hand-descend');
+    const wrapper = document.getElementById('spirit-wrapper');
     setTimeout(() => {
-        hand.classList.add('yank-up');
-        container.classList.add('yank-up');
-        playCurrentWordAudio();
-        setTimeout(() => { testIndex++; loadWordTest(); }, 1600);
-    }, 800);
+        hand.classList.add('hand-grab');
+        setTimeout(() => {
+            hand.classList.add('hand-yank');
+            wrapper.classList.add('hand-yank');
+            playCurrentWordAudio();
+            setTimeout(() => { testIndex++; loadWordTest(); }, 1600);
+        }, 700);
+    }, 300);
 }
 
-function revealAnswer() {
+function revealFailure() {
+    isMelted = true;
     document.getElementById('keyboard').style.pointerEvents = 'none';
-    const container = document.getElementById('spirit-container');
-    container.classList.add('melt');
+    document.getElementById('cloud-svg').classList.add('melt');
+    document.getElementById('tap-to-continue').style.display = 'block';
+    
+    // 顯示紅色正確答案
     const word = currentWords[testIndex].word.toUpperCase();
     const dashes = document.querySelectorAll('.letter-dash');
     word.split('').forEach((char, i) => { 
         if (!guessedLetters.has(char)) { dashes[i].innerText = char; dashes[i].classList.add('error-reveal'); }
     });
-    setTimeout(() => { testIndex++; loadWordTest(); }, 2000);
 }
+
+function handlePuddleClick() { if(isMelted) { testIndex++; loadWordTest(); } }
 
 function useCheatEye() {
     if(usedCheat) return; usedCheat = true;
@@ -270,12 +247,6 @@ function useCheatEye() {
     overlay.innerText = currentWords[testIndex].word.toUpperCase();
     overlay.style.display = 'block';
     setTimeout(() => { overlay.style.display = 'none'; }, 900);
-}
-
-function showFinalResult() {
-    document.getElementById('test-screen').style.display = 'none';
-    document.getElementById('result-screen').style.display = 'block';
-    document.getElementById('result-desc').innerHTML = `成功化生升空：<b>${correctCount}</b> / ${currentWords.length}`;
 }
 
 function speak(t) { window.speechSynthesis.cancel(); let m = new SpeechSynthesisUtterance(t); m.lang = 'en-US'; m.rate = 0.8; window.speechSynthesis.speak(m); }
