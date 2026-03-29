@@ -150,3 +150,57 @@ const QuestionBank = {
         }
     ]
 };
+
+
+    toefl_adaptive: {
+        // 第一關：基準閱讀 (用來判定實力)
+        reading: {
+            id: "t_r_01",
+            article: "Biomimicry involves studying nature's best ideas and imitating them to solve human problems. For example, the design of the famous bullet train in Japan was inspired by the beak of the kingfisher bird, making it 10% faster and much quieter.",
+            questions: [
+                { id: "tr_q1", text: "1. What is biomimicry?", options: {A:"Studying birds", B:"Imitating nature to solve problems", C:"Building faster trains", D:"Protecting the environment"}, answer: "B", points: 15 },
+                { id: "tr_q2", text: "2. How did the kingfisher bird inspire the bullet train?", options: {A:"It made the train fly", B:"It helped reduce noise and increase speed", C:"It changed the train's color", D:"It made the train cheaper"}, answer: "B", points: 15 }
+            ]
+        },
+        
+        // 第二關 (分軌 A)：聽力 (困難版) - 閱讀全對才會進來
+        listening_hard: {
+            id: "t_lh_01",
+            audioScript: "Welcome to Advanced Neuroscience. Today we'll discuss neuroplasticity—the brain's ability to reorganize itself by forming new neural connections throughout life. This challenges the old dogma that the adult brain is entirely hard-wired.",
+            questions: [
+                { id: "tlh_q1", text: "1. What is the main topic of the lecture?", options: {A:"Brain surgery techniques", B:"Neuroplasticity and neural connections", C:"Childhood education", D:"The history of neuroscience"}, answer: "B", points: 15 },
+                { id: "tlh_q2", text: "2. What old dogma does neuroplasticity challenge?", options: {A:"That the brain requires sleep", B:"That the adult brain is entirely hard-wired", C:"That neurons die with age", D:"That the brain is a muscle"}, answer: "B", points: 15 }
+            ]
+        },
+
+        // 第二關 (分軌 B)：聽力 (基礎版) - 閱讀錯太多會進來
+        listening_easy: {
+            id: "t_le_01",
+            audioScript: "Attention students. The library will close at 8 PM tonight for maintenance. It will reopen tomorrow at 8 AM. Please use the student center if you need a place to study late.",
+            questions: [
+                { id: "tle_q1", text: "1. Why is the library closing early?", options: {A:"For a holiday", B:"For maintenance", C:"Staff shortage", D:"Weather emergency"}, answer: "B", points: 10 },
+                { id: "tle_q2", text: "2. When will it reopen?", options: {A:"Tonight at 10 PM", B:"Tomorrow at 8 AM", C:"Next Monday", D:"Tomorrow at noon"}, answer: "B", points: 10 }
+            ] // 基礎版配分較低，滿分天花板下降
+        },
+
+        // 第三關：口說跟讀
+        speaking: {
+            id: "t_s_01",
+            audioScript: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
+            questions: [
+                { id: "ts_q1", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
+            ]
+        },
+
+        // 第四關：Email 寫作
+        writing: {
+            id: "t_w_01",
+            questions: [
+                { 
+                    id: "tw_q1", text: "實用 Email 寫作：\n請寫一封信給教授，說明你週末要參加偏鄉志工服務，請求報告延期兩天繳交。(滿分30分)", type: "composition",
+                    answer: "【評分標準】清楚說明原因、禮貌請求、字數適中。", points: 30
+                }
+            ]
+        }
+    }
+};
