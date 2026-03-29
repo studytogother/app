@@ -220,7 +220,7 @@ function handleGuess(letter, btn) {
         mistakes++; btn.classList.add('wrong');
         container.style.transform = "translateX(15px) rotate(5deg)";
         setTimeout(() => container.style.transform = "translateX(0) rotate(0deg)", 200);
-        if (mistakes >= 3) revealAnswer(); // 改為 3 次失敗
+        if (mistakes >= 1) revealAnswer(); // 改為 3 次失敗
     }
 }
 
