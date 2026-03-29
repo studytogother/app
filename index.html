@@ -3,137 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>般若學習系統 - Study Together</title>
-    
+    <title>般若學習系統 - 大廳</title>
+    <script src="question_bank.js?v=4"></script>
     <style>
         :root {
-            /* 淨息流主色系 */
             --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
             --glass-bg: rgba(255, 255, 255, 0.65);
             --glass-border: rgba(255, 255, 255, 0.9);
-            --text-main: #58504A; 
-            --text-light: #968E86;
-            --accent-gold: #CBA37A; 
-            --accent-jade: #82968C; 
-            --accent-rose: #CFA4A4; 
-            --accent-amber: #C1A583;
-            --shadow-soft: 0 10px 40px rgba(160, 155, 150, 0.12);
+            --text-main: #58504A; --text-light: #968E86;
+            --accent-gold: #CBA37A; --accent-jade: #82968C; --accent-rose: #CFA4A4;
         }
-
-        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-
-        html, body { 
-            margin: 0; padding: 0; width: 100%; height: 100dvh; 
-            background: var(--bg-gradient); color: var(--text-main); 
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
-            overflow: hidden; display: flex; flex-direction: column; align-items: center; 
-        }
-
-        /* --- 大廳核心區 --- */
-        .hero-section { 
-            flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            width: 100%; max-width: 720px; padding: 0 25px; animation: fadeIn 0.8s ease-out; 
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* 呼吸發光太極蓮花圖騰 */
-        .taichi-logo { 
-            width: 130px; height: 130px; border-radius: 50%; 
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4)); 
-            border: 1px solid var(--glass-border); 
-            box-shadow: 0 15px 45px rgba(203, 163, 122, 0.15), inset 0 0 20px rgba(203, 163, 122, 0.05); 
-            display: flex; justify-content: center; align-items: center; position: relative; 
-            margin-bottom: 35px; animation: floatLogo 4s infinite ease-in-out; 
-        }
-        @keyframes floatLogo { 0%, 100% { transform: translateY(0); box-shadow: 0 15px 45px rgba(203, 163, 122, 0.15); } 50% { transform: translateY(-10px); box-shadow: 0 25px 55px rgba(203, 163, 122, 0.25); } }
+        * { box-sizing: border-box; touch-action: manipulation; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; display: flex; flex-direction: column; align-items: center; overflow-y: auto;}
         
-        .taichi-logo::after { 
-            content: ''; position: absolute; width: 80px; height: 80px; 
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 90 C 110 70, 100 20, 70 45 C 60 50, 50 65, 50 90' stroke='%23CBA37A' fill='none' stroke-width='1.5'/%3E%3Cpath d='M50 90 C -10 70, 0 20, 30 45 C 40 50, 50 65, 50 90' stroke='%23CBA37A' fill='none' stroke-width='1.5'/%3E%3Cpath d='M50 85 C 80 50, 70 10, 55 30 C 52 40, 50 55, 50 85' stroke='%2382968C' fill='none' stroke-width='2'/%3E%3Cpath d='M50 85 C 20 50, 30 10, 45 30 C 48 40, 50 55, 50 85' stroke='%2382968C' fill='none' stroke-width='2'/%3E%3Cpath d='M50 85 C 65 45, 60 5, 50 20 C 40 5, 35 45, 50 85' stroke='%23CFA4A4' fill='none' stroke-width='2.5'/%3E%3C/svg%3E"); 
-            background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.9; 
-        }
+        header { width: 100%; max-width: 600px; padding: 30px 20px 10px; text-align: center; }
+        .sys-title { font-size: 1.8rem; font-weight: 300; letter-spacing: 4px; color: var(--text-main); margin-bottom: 5px; }
+        .sys-subtitle { font-size: 0.9rem; color: var(--text-light); letter-spacing: 2px; }
 
-        .sys-title { font-size: 2rem; font-weight: 300; letter-spacing: 5px; color: var(--text-main); margin-bottom: 12px; }
-        .sys-subtitle { font-size: 0.95rem; color: var(--text-light); letter-spacing: 2px; font-weight: 300; margin-bottom: 40px; text-align: center; line-height: 1.6; }
+        .lock-banner { background: rgba(207, 164, 164, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); padding: 12px 20px; border-radius: 12px; font-size: 0.95rem; font-weight: bold; text-align: center; margin: 20px 0; display: none; width: 90%; max-width: 500px;}
 
-        /* --- 學習模組傳送門 --- */
-        .portal-container { width: 100%; display: flex; flex-direction: column; gap: 20px; }
+        .module-section { width: 100%; max-width: 600px; padding: 20px; }
+        .section-title { font-size: 1.1rem; color: var(--accent-jade); border-bottom: 2px solid rgba(130, 150, 140, 0.2); padding-bottom: 8px; margin-bottom: 15px; font-weight: bold; letter-spacing: 1px;}
         
-        .portal-btn { 
-            width: 100%; text-decoration: none;
-            background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
-            border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); border-radius: 24px; 
-            padding: 25px 25px; display: flex; align-items: center; gap: 20px; 
-            cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; 
-        }
-        .portal-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.8), transparent); opacity: 0; transition: opacity 0.3s; }
-        .portal-btn:active { transform: scale(0.97); }
-        .portal-btn:active::before { opacity: 1; }
-
-        .portal-icon-box { 
-            width: 50px; height: 50px; border-radius: 16px; display: flex; justify-content: center; align-items: center; 
-            background: rgba(255,255,255,0.8); box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-        .portal-icon { width: 24px; height: 24px; fill: none; stroke-width: 1.5; stroke: currentColor; }
+        .grid-container { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .group-btn { background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); padding: 18px 20px; border-radius: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
+        .group-btn:active { transform: scale(0.97); }
+        .group-btn:hover { border-color: var(--accent-gold); }
+        .group-btn.locked { opacity: 0.6; pointer-events: none; filter: grayscale(100%); }
         
-        .portal-text-group { display: flex; flex-direction: column; gap: 6px; }
-        .portal-name { font-size: 1.15rem; font-weight: 500; letter-spacing: 2px; color: var(--text-main); }
-        .portal-desc { font-size: 0.85rem; color: var(--text-light); letter-spacing: 1px; }
-
-        /* 專屬高亮色 */
-        .btn-exam .portal-icon-box { color: var(--accent-jade); border: 1px solid rgba(130, 150, 140, 0.2); }
-        .btn-exam:hover { border-color: var(--accent-jade); box-shadow: 0 8px 25px rgba(130, 150, 140, 0.15); }
-        
-        .btn-game .portal-icon-box { color: var(--accent-gold); border: 1px solid rgba(203, 163, 122, 0.2); }
-        .btn-game:hover { border-color: var(--accent-gold); box-shadow: 0 8px 25px rgba(203, 163, 122, 0.15); }
-
-        /* --- 底部靜默連結 --- */
-        .footer-link { margin-top: auto; padding-bottom: max(30px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .footer-text { font-size: 0.8rem; color: var(--text-light); letter-spacing: 3px; text-decoration: none; transition: color 0.3s; }
-        .footer-text:hover { color: var(--accent-gold); }
+        .g-title { font-size: 1.05rem; font-weight: bold; color: var(--text-main); }
+        .g-status { font-size: 0.8rem; background: rgba(203, 163, 122, 0.15); color: var(--accent-gold); padding: 4px 10px; border-radius: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="hero-section">
-        <div class="taichi-logo"></div>
-        <div class="sys-title">般若學習系統</div>
-        <div class="sys-subtitle">清淨無礙的語言法界<br>為心靈尋找安定的依歸</div>
+    <header>
+        <div class="sys-title">般若語言法界</div>
+        <div class="sys-subtitle">每日十分鐘，點亮智慧光芒</div>
+    </header>
 
-        <div class="portal-container">
-            <a href="exam.html" class="portal-btn btn-exam">
-                <div class="portal-icon-box">
-                    <svg class="portal-icon" viewBox="0 0 24 24">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                </div>
-                <div class="portal-text-group">
-                    <div class="portal-name">全真模擬考場</div>
-                    <div class="portal-desc">客觀檢視，沉穩應戰</div>
-                </div>
-            </a>
-
-            <a href="game.html" class="portal-btn btn-game">
-                <div class="portal-icon-box">
-                    <svg class="portal-icon" viewBox="0 0 24 24">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
-                </div>
-                <div class="portal-text-group">
-                    <div class="portal-name">化生單字測驗</div>
-                    <div class="portal-desc">凝聚光芒，飛躍成長</div>
-                </div>
-            </a>
-        </div>
+    <div class="lock-banner" id="lock-banner">
+        今日修煉已圓滿。<br>智慧需時發酵，請明日再來挑戰新單字。
     </div>
 
-    <div class="footer-link">
-        <a href="https://namoamitabhapureland.github.io/bodhicitta/index.html" target="_blank" class="footer-text">前往彌陀淨土系統</a>
+    <div class="module-section">
+        <div class="section-title">高中 7000 單字修煉</div>
+        <div class="grid-container" id="senior-grid"></div>
     </div>
 
+    <div class="module-section">
+        <div class="section-title">托福高階無礙</div>
+        <div class="grid-container" id="toefl-grid"></div>
+    </div>
+
+<script>
+    // 取得今天的日期字串 (YYYY-MM-DD)
+    function getTodayString() {
+        const d = new Date();
+        return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+    }
+
+    function checkDailyLock() {
+        const lastDate = localStorage.getItem('prajna_last_completed_date');
+        const isLocked = (lastDate === getTodayString());
+        
+        if(isLocked) {
+            document.getElementById('lock-banner').style.display = 'block';
+        }
+        return isLocked;
+    }
+
+    function renderGroups() {
+        const isLocked = checkDailyLock();
+        
+        const seniorGrid = document.getElementById('senior-grid');
+        QuestionBank.senior.forEach(group => {
+            const btn = document.createElement('button');
+            btn.className = `group-btn ${isLocked ? 'locked' : ''}`;
+            btn.innerHTML = `<span class="g-title">${group.title}</span><span class="g-status">新任務</span>`;
+            btn.onclick = () => startGame('senior', group.id);
+            seniorGrid.appendChild(btn);
+        });
+
+        const toeflGrid = document.getElementById('toefl-grid');
+        QuestionBank.toefl.forEach(group => {
+            const btn = document.createElement('button');
+            btn.className = `group-btn ${isLocked ? 'locked' : ''}`;
+            btn.innerHTML = `<span class="g-title">${group.title}</span><span class="g-status">挑戰</span>`;
+            btn.onclick = () => startGame('toefl', group.id);
+            toeflGrid.appendChild(btn);
+        });
+    }
+
+    function startGame(category, groupId) {
+        // 記錄玩家選了哪一組，讓 game.html 去讀取
+        localStorage.setItem('prajna_current_category', category);
+        localStorage.setItem('prajna_current_group', groupId);
+        window.location.href = 'game.html';
+    }
+
+    window.onload = renderGroups;
+</script>
 </body>
 </html>
