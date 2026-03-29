@@ -4,338 +4,254 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>化生單字測驗 - 般若學習系統</title>
-    
+    <script src="question_bank.js"></script>
     <style>
         :root {
             --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
-            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.75);
             --glass-border: rgba(255, 255, 255, 0.9);
             --text-main: #58504A; 
-            --text-light: #968E86;
-            --accent-gold: #CBA37A; /* 琥珀金 */
-            --accent-jade: #82968C; /* 琉璃綠 */
-            --accent-rose: #CFA4A4; 
-            --shadow-soft: 0 10px 40px rgba(160, 155, 150, 0.12);
+            --accent-gold: #CBA37A; 
+            --accent-jade: #82968C; 
+            --accent-rose: #CFA4A4;
         }
 
-        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; touch-action: manipulation; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        html, body {
-            margin: 0; padding: 0; width: 100%; height: 100dvh; 
-            background: var(--bg-gradient); color: var(--text-main); 
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
-            overflow: hidden; display: flex; flex-direction: column; align-items: center; 
-        }
+        /* --- 頂部能量與計時 --- */
+        header { width: 100%; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); background: rgba(255,255,255,0.4); }
+        .timer-badge { font-weight: bold; color: var(--accent-gold); font-size: 1.1rem; }
 
-        header {
-            width: 100%; max-width: 600px;
-            padding: max(15px, env(safe-area-inset-top)) 20px 10px;
-            display: flex; justify-content: space-between; align-items: center; z-index: 10;
-        }
-
-        .back-btn {
-            display: flex; align-items: center; gap: 6px;
-            color: var(--accent-jade); text-decoration: none; font-size: 0.95rem;
-            background: var(--glass-bg); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: all 0.3s;
-        }
-
-        .energy-box { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--accent-rose); font-weight:bold; }
-        .energy-dots { display: flex; gap: 5px; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent-rose); transition: all 0.3s; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .dot.lost { background: rgba(207, 164, 164, 0.2); transform: scale(0.8); box-shadow: none; }
-
-        /* --- 拙趣吉祥物 (火柴人) 動畫區 --- */
-        .spirit-container {
-            flex: 1; width: 100%; max-width: 600px; 
-            display: flex; justify-content: center; align-items: center;
-            position: relative; overflow: hidden; /* 防止火箭飛出 */
-        }
-
-        #prajna-stickman {
-            width: 220px; height: 260px; cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: idleFloat 4s infinite ease-in-out;
-            position: relative; z-index: 5;
-        }
-
-        @keyframes idleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        /* --- 階段一：定心吸收 (10分鐘記憶) --- */
+        #absorb-screen { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; align-items: center; }
+        .word-list-card { width: 100%; max-width: 500px; background: var(--glass-bg); border-radius: 20px; padding: 20px; border: 1px solid var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(203,163,122,0.1); }
+        .absorb-word-info { flex: 1; }
+        .absorb-word { font-weight: bold; font-size: 1.2rem; color: var(--accent-jade); }
+        .absorb-root { font-size: 0.8rem; color: var(--accent-gold); margin-top: 4px; }
         
-        /* 答對動作：快樂上下跳 */
-        .jump-joy { animation: jumpJoy 0.5s ease !important; }
-        @keyframes jumpJoy { 0%, 100% { transform: translateY(0); scaleY(1); } 50% { transform: translateY(-30px); scaleY(1.1); } }
+        /* --- 階段二/三：測驗畫面 --- */
+        #test-screen { flex: 1; display: none; flex-direction: column; align-items: center; position: relative; width: 100%; overflow: hidden; }
+        
+        /* 拙趣火柴人與火箭容器 */
+        .spirit-stage { height: 250px; display: flex; justify-content: center; align-items: center; position: relative; width: 100%; margin-top: 20px; }
+        #stickman-svg { width: 200px; height: 240px; transition: 0.5s; z-index: 5; }
+        .s-line { fill: none; stroke: var(--accent-jade); stroke-width: 5; stroke-linecap: round; }
+        .s-fill { fill: #fff; stroke: var(--accent-jade); stroke-width: 5; }
+        .part { opacity: 0; transition: opacity 0.5s; }
+        .visible { opacity: 1 !important; }
 
-        /* 答錯動作：震動 (反差呆滯表情) */
-        .vibrate-error { animation: vibrateError 0.3s linear 2 !important; }
-        @keyframes vibrateError { 0% { transform: translate(0,0); } 25% { transform: translate(4px, 0); } 50% { transform: translate(-4px, 0); } 75% { transform: translate(4px, 0); } 100% { transform: translate(0,0); } }
+        /* 火箭升天動畫 */
+        #rocket { opacity: 0; transition: 0.8s; }
+        .rocket-active #rocket { opacity: 1; transform: translateY(-50px); }
+        .liftoff { animation: liftoffAnim 2.5s forwards cubic-bezier(0.4, 0, 1, 1); }
+        @keyframes liftoffAnim { 0% { transform: translateY(0); } 100% { transform: translateY(-1200px); } }
 
-        /* SVG 拙趣線條樣式 */
-        .s-line { fill: none; stroke: var(--accent-jade); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; transition: all 0.3s; }
-        .s-fill { fill: #fff; stroke: var(--accent-jade); stroke-width: 4; transition: all 0.3s; }
-        .s-eye { fill: var(--text-main); }
-        .s-mouth { fill: none; stroke: var(--text-main); stroke-width: 2; stroke-linecap: round; }
+        /* 單字底線區 */
+        .word-test-area { margin-top: 30px; text-align: center; }
+        .letter-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .letter-dash { width: 30px; height: 40px; border-bottom: 3px solid #ccc; font-size: 1.8rem; font-weight: bold; display: flex; align-items: flex-end; justify-content: center; text-transform: uppercase; }
 
-        /* 部位隱藏邏輯 */
-        .part { opacity: 0; transition: opacity 0.5s ease; }
-        .part.visible { opacity: 1; }
+        /* 鍵盤 */
+        .keyboard { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 0 15px 30px; max-width: 600px; }
+        .key { width: calc(10% - 6px); height: 45px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; font-weight: bold; cursor: pointer; display: flex; justify-content: center; align-items: center; }
+        .key.correct { background: var(--accent-jade); color: white; border-color: var(--accent-jade); }
+        .key.wrong { background: var(--accent-rose); opacity: 0.3; pointer-events: none; }
 
-        /* --- 火箭升空動畫 (🚀) --- */
-        #rocket-group { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-        #rocket-group.prepare { opacity: 1; transform: translateY(0); }
-        .s-rocket { fill: #fff; stroke: var(--accent-amber); stroke-width: 4; }
-        .s-fire { fill: var(--accent-gold); animation: firePulse 0.2s infinite alternate; }
-        @keyframes firePulse { from { transform: scaleY(1); opacity: 0.8; } to { transform: scaleY(1.3); opacity: 1; } }
+        /* 底部巨大按鈕 */
+        .vajra-btn { width: 90%; max-width: 320px; padding: 18px; background: var(--accent-gold); color: white; border: none; border-radius: 20px; font-size: 1.1rem; letter-spacing: 2px; cursor: pointer; box-shadow: 0 10px 20px rgba(203,163,122,0.3); margin: 20px 0; }
+        .vajra-btn:active { transform: scale(0.95); }
 
-        /* 終極升空動畫 */
-        .liftoff {
-            animation: rocketLiftoff 2.5s forwards cubic-bezier(0.4, 0, 1, 1) !important;
-            filter: drop-shadow(0 0 20px rgba(203, 163, 122, 0.6)) !important;
-        }
-        @keyframes rocketLiftoff {
-            0% { transform: translateY(0); }
-            20% { transform: translateY(10px); } /* 稍微下沉點火 */
-            100% { transform: translateY(-1000px); } /* 飛向天際 */
-        }
-
-        /* --- 單字與鍵盤區 (琉璃美學) --- */
-        .word-display { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 25px; padding: 0 20px; }
-        .letter-box {
-            width: 32px; height: 42px; border-bottom: 3px solid var(--text-light);
-            display: flex; justify-content: center; align-items: flex-end;
-            font-size: 1.6rem; font-weight: bold; color: var(--text-main); text-transform: uppercase; padding-bottom: 5px; transition: 0.3s;
-        }
-        .letter-box.revealed { border-bottom-color: var(--accent-jade); color: var(--accent-jade); }
-        .letter-box.missed { border-bottom-color: var(--accent-rose); color: var(--accent-rose); }
-
-        .keyboard { width: 100%; max-width: 600px; padding: 0 12px 25px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-        .key-btn {
-            width: calc(10% - 6px); min-width: 30px; height: 42px;
-            background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border); border-radius: 10px;
-            font-size: 1rem; font-weight: 500; color: var(--text-main);
-            cursor: pointer; transition: all 0.2s; display: flex; justify-content: center; align-items: center;
-        }
-        .key-btn:active { transform: scale(0.9); }
-        .key-btn.correct { background: var(--accent-jade); color: #fff; border-color: var(--accent-jade); pointer-events: none; }
-        .key-btn.wrong { background: rgba(207, 164, 164, 0.2); color: rgba(88, 80, 74, 0.4); border-color: transparent; pointer-events: none; }
-
-        /* --- 解答彈窗 --- */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(245, 242, 239, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
-        .modal-overlay.show { opacity: 1; pointer-events: auto; }
-        .result-card { background: rgba(255, 255, 255, 0.95); width: 85%; max-width: 360px; border-radius: 24px; padding: 30px 25px; text-align: center; box-shadow: 0 15px 40px rgba(203, 163, 122, 0.2); border: 1px solid var(--glass-border); transform: translateY(20px); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .modal-overlay.show .result-card { transform: translateY(0); }
-        .r-word { font-size: 2.2rem; font-weight: bold; color: var(--accent-gold); letter-spacing: 1px; margin-bottom: 5px; text-transform: capitalize; }
-        .r-phonetic { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; }
-        .r-meaning { font-size: 1.1rem; color: var(--text-main); line-height: 1.6; margin-bottom: 25px; padding: 15px; background: rgba(203, 163, 122, 0.05); border-radius: 12px; }
-        .action-btn { width: 100%; padding: 12px 0; border-radius: 16px; font-size: 1rem; font-weight: 500; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; background: var(--accent-jade); color: #fff; border: none; box-shadow: 0 4px 15px rgba(130, 150, 140, 0.3); }
-        .action-btn:active { transform: scale(0.95); }
+        /* --- 結果畫面 --- */
+        #result-screen { flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="back-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            回大廳
-        </a>
-        <div class="energy-box">
-            光之能量
-            <div class="energy-dots" id="energy-container"></div>
-        </div>
-    </header>
+<header>
+    <div id="header-title" style="font-weight:bold; letter-spacing:1px;">定心吸收階段</div>
+    <div class="timer-badge" id="global-timer">10:00</div>
+</header>
 
-    <div class="spirit-container">
-        <svg id="prajna-stickman" viewBox="0 0 220 260" onclick="playPronunciation()">
-            <g id="rocket-group">
-                <path d="M 110 160 Q 80 180, 80 220 L 140 220 Q 140 180, 110 160 Z" class="s-rocket" />
-                <path d="M 80 220 L 70 240 L 85 240 Z" class="s-rocket" /> <path d="M 140 220 L 150 240 L 135 240 Z" class="s-rocket" /> <ellipse cx="110" cy="190" rx="10" ry="15" class="s-line" fill="#e8f0fe" stroke-width="2"/> <path d="M 95 245 Q 110 270, 125 245" class="s-fire" id="rocket-fire" /> </g>
-            
-            <g id="stickman-body-group">
-                <g id="part-body" class="part">
-                    <rect x="85" y="100" width="50" height="70" rx="8" class="s-fill" />
-                </g>
+<div id="absorb-screen">
+    <div style="margin-bottom:20px; text-align:center; color:var(--text-light); font-size:0.9rem;">請在時間內熟悉以下單字，準備接受聽力考驗</div>
+    <div class="word-list-card" id="word-list-container"></div>
+    <button class="vajra-btn" onclick="startTest()">我準備好了，開始測驗</button>
+</div>
 
-                <g id="part-head" class="part">
-                    <rect x="80" y="30" width="60" height="60" rx="10" class="s-fill" />
-                    <circle cx="95" cy="55" r="4" class="s-eye" id="eye-l" />
-                    <circle cx="125" cy="55" r="4" class="s-eye" id="eye-r" />
-                    <path d="M 100 75 Q 110 82, 120 75" class="s-mouth" id="mouth" />
-                </g>
-
-                <g id="part-arms" class="part">
-                    <path d="M 85 110 Q 60 115, 55 140" class="s-line" stroke-width="5" /> <path d="M 135 110 Q 160 115, 165 140" class="s-line" stroke-width="5" /> </g>
-
-                <g id="part-legs" class="part">
-                    <path d="M 95 170 Q 85 190, 85 210" class="s-line" stroke-width="5" /> <path d="M 125 170 Q 135 190, 135 210" class="s-line" stroke-width="5" /> </g>
-            </g>
+<div id="test-screen">
+    <div class="spirit-stage" id="spirit-stage">
+        <svg id="stickman-svg" viewBox="0 0 200 240">
+            <g id="rocket"><path d="M100 150 L80 190 L120 190 Z" fill="#fff" stroke="var(--accent-gold)" stroke-width="4"/><rect x="85" y="190" width="30" height="20" fill="var(--accent-gold)"/></g>
+            <g id="s-body" class="part"><rect x="85" y="100" width="30" height="50" rx="5" class="s-fill"/></g>
+            <g id="s-head" class="part"><rect x="75" y="40" width="50" height="50" rx="10" class="s-fill"/><circle cx="90" cy="60" r="3" fill="#333"/><circle cx="110" cy="60" r="3" fill="#333"/></g>
+            <g id="s-arms" class="part"><path d="M85 110 L60 130 M115 110 L140 130" class="s-line"/></g>
+            <g id="s-legs" class="part"><path d="M90 150 L80 180 M110 150 L120 180" class="s-line"/></g>
         </svg>
     </div>
-
-    <div class="word-display" id="word-display"></div>
-    <div class="keyboard" id="keyboard"></div>
-
-    <div class="modal-overlay" id="result-modal">
-        <div class="result-card">
-            <div id="r-status-text" style="font-size: 0.9rem; font-weight:bold; letter-spacing:2px; margin-bottom:15px; color:var(--accent-gold);">單字智慧</div>
-            <div class="r-word" id="r-word"></div>
-            <div class="r-phonetic" id="r-phonetic"></div>
-            <div class="r-meaning" id="r-meaning"></div>
-            <button class="action-btn" onclick="startNewWord()">挑戰下一個化生</button>
-        </div>
+    
+    <div class="word-test-area">
+        <div id="listen-hint" style="color:var(--accent-gold); margin-bottom:10px; font-weight:bold;">點擊火柴人聆聽單字</div>
+        <div class="letter-row" id="letter-row"></div>
     </div>
 
+    <div class="keyboard" id="keyboard"></div>
+</div>
+
+<div id="result-screen">
+    <h1 id="result-title" style="color:var(--accent-jade);">修煉圓滿</h1>
+    <p id="result-desc"></p>
+    <button class="vajra-btn" onclick="window.location.href='index.html'">返回大廳</button>
+</div>
+
 <script>
-    const vocabList = [
-        { word: "compassion", phonetic: "/kəmˈpæʃ.ən/", meaning: "n. 慈悲；同情；憐憫" },
-        { word: "profound", phonetic: "/prəˈfaʊnd/", meaning: "adj. 深刻的；深奧的" },
-        { word: "essential", phonetic: "/ɪˈsen.ʃəl/", meaning: "adj. 必要的；不可或缺的" },
-        { word: "humble", phonetic: "/ˈhʌm.bəl/", meaning: "adj. 謙卑的；虛心的" },
-        { word: "wisdom", phonetic: "/ˈwɪz.dəm/", meaning: "n. 智慧；明智" }
-    ];
+let currentCluster = QuestionBank.clusters[0]; // 預設讀取第一個群組
+let currentStep = 0; // 0: 吸收, 1: 測驗, 2: 結果
+let testIndex = 0; 
+let mistakes = 0;
+let guessedLetters = new Set();
+let correctCount = 0;
 
-    let currentWordObj = null, targetWord = "", guessedLetters = new Set(), uniqueLetters = new Set(), mistakes = 0;
-    const MAX_MISTAKES = 6;
-    window.sysUtterances = []; 
+// 初始化吸收畫面
+function initAbsorb() {
+    const container = document.getElementById('word-list-container');
+    container.innerHTML = currentCluster.words.map(w => `
+        <div class="absorb-item">
+            <div class="absorb-word-info">
+                <div class="absorb-word">${w.word}</div>
+                <div class="absorb-root">${w.root}</div>
+            </div>
+            <div style="text-align:right;">
+                <div style="font-size:0.9rem;">${w.meaning}</div>
+                <button onclick="speak('${w.word}')" style="background:none; border:none; color:var(--accent-gold); cursor:pointer;">(聽發音)</button>
+            </div>
+        </div>
+    `).join('');
+    startGlobalTimer(600); // 10分鐘
+}
 
-    const stickman = document.getElementById('prajna-stickman');
-    const mouth = document.getElementById('mouth');
+// 全域倒數計時
+function startGlobalTimer(seconds) {
+    let timeLeft = seconds;
+    const timerEl = document.getElementById('global-timer');
+    const interval = setInterval(() => {
+        if (currentStep !== 0) { clearInterval(interval); return; }
+        if (timeLeft <= 0) { clearInterval(interval); startTest(); return; }
+        timeLeft--;
+        let m = Math.floor(timeLeft / 60);
+        let s = timeLeft % 60;
+        timerEl.innerText = `${m}:${s < 10 ? '0' + s : s}`;
+    }, 1000);
+}
 
-    function initKeyboard() {
-        const keyboard = document.getElementById('keyboard'); keyboard.innerHTML = '';
-        "QWERTYUIOPASDFGHJKLZXCVBNM".split('').forEach(letter => {
-            const btn = document.createElement('button'); btn.className = 'key-btn'; btn.innerText = letter;
-            btn.onclick = () => handleGuess(letter, btn); keyboard.appendChild(btn);
-        });
+// 開始測驗模式 (盲盒聽音模式)
+function startTest() {
+    currentStep = 1;
+    document.getElementById('absorb-screen').style.display = 'none';
+    document.getElementById('test-screen').style.display = 'flex';
+    document.getElementById('header-title').innerText = "天籟盲測挑戰";
+    loadWordTest();
+}
+
+function loadWordTest() {
+    if (testIndex >= currentCluster.words.length) {
+        showFinalResult();
+        return;
     }
+    
+    guessedLetters.clear();
+    mistakes = 0;
+    const wordObj = currentCluster.words[testIndex];
+    
+    // 重置火柴人部位
+    document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
+    document.getElementById('spirit-stage').classList.remove('rocket-active', 'liftoff');
+    
+    // 生成空格
+    const row = document.getElementById('letter-row');
+    row.innerHTML = wordObj.word.split('').map(() => `<div class="letter-dash"></div>`).join('');
+    
+    // 生成鍵盤
+    initKeyboard();
+    
+    // 自動播放發音
+    speak(wordObj.word);
+}
 
-    function updateEnergy() {
-        const container = document.getElementById('energy-container'); container.innerHTML = '';
-        for(let i=0; i<MAX_MISTAKES; i++) {
-            const dot = document.createElement('div'); dot.className = `dot ${i < mistakes ? 'lost' : ''}`;
-            container.appendChild(dot);
+function handleGuess(letter, btn) {
+    const word = currentCluster.words[testIndex].word.toUpperCase();
+    if (word.includes(letter)) {
+        guessedLetters.add(letter);
+        btn.classList.add('correct');
+        updateDashes();
+        updateStickman();
+        if (isWordComplete()) {
+            correctCount++;
+            triggerWin();
         }
+    } else {
+        mistakes++;
+        btn.classList.add('wrong');
+        if (mistakes >= 5) revealAnswer();
     }
+}
 
-    function startNewWord() {
-        document.getElementById('result-modal').classList.remove('show');
-        stickman.classList.remove('liftoff');
-        document.getElementById('rocket-group').classList.remove('prepare');
-        
-        currentWordObj = vocabList[Math.floor(Math.random() * vocabList.length)];
-        targetWord = currentWordObj.word.toUpperCase();
-        guessedLetters.clear(); uniqueLetters = new Set(targetWord.split('')); mistakes = 0;
-        
-        updateEnergy(); initKeyboard(); renderWordDisplay();
-        document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
-        mouth.setAttribute('d', 'M 100 75 Q 110 82, 120 75'); // 重置呆滯嘴型
-    }
+function updateDashes() {
+    const word = currentCluster.words[testIndex].word.toUpperCase();
+    const dashes = document.querySelectorAll('.letter-dash');
+    word.split('').forEach((char, i) => {
+        if (guessedLetters.has(char)) dashes[i].innerText = char;
+    });
+}
 
-    function renderWordDisplay() {
-        const display = document.getElementById('word-display'); display.innerHTML = '';
-        targetWord.split('').forEach(char => {
-            const box = document.createElement('div'); box.className = 'letter-box';
-            if (guessedLetters.has(char)) { box.innerText = char; box.classList.add('revealed'); }
-            else if (mistakes >= MAX_MISTAKES) { box.innerText = char; box.classList.add('missed'); }
-            display.appendChild(box);
-        });
-    }
+function updateStickman() {
+    const parts = ['s-body', 's-head', 's-arms', 's-legs'];
+    const word = currentCluster.words[testIndex].word;
+    const progress = guessedLetters.size / new Set(word.toUpperCase().split('')).size;
+    if (progress > 0.2) document.getElementById('s-body').classList.add('visible');
+    if (progress > 0.4) document.getElementById('s-head').classList.add('visible');
+    if (progress > 0.6) document.getElementById('s-arms').classList.add('visible');
+    if (progress > 0.8) document.getElementById('s-legs').classList.add('visible');
+}
 
-    function handleGuess(letter, btnNode) {
-        if (guessedLetters.has(letter) || mistakes >= MAX_MISTAKES) return;
+function triggerWin() {
+    document.getElementById('spirit-stage').classList.add('rocket-active');
+    setTimeout(() => {
+        document.getElementById('spirit-stage').classList.add('liftoff');
+        setTimeout(() => {
+            testIndex++;
+            loadWordTest();
+        }, 1500);
+    }, 800);
+}
 
-        if (uniqueLetters.has(letter)) {
-            guessedLetters.add(letter);
-            btnNode.classList.add('correct');
-            triggerReaction('correct');
-            updateSpiritStage();
-            renderWordDisplay();
-            checkWinStatus();
-        } else {
-            mistakes++;
-            btnNode.classList.add('wrong');
-            triggerReaction('wrong');
-            updateEnergy();
-            checkWinStatus();
-        }
-    }
+function showFinalResult() {
+    document.getElementById('test-screen').style.display = 'none';
+    document.getElementById('result-screen').style.display = 'flex';
+    document.getElementById('result-desc').innerText = `今日修煉完成！\n您成功讓 ${correctCount} 個單字化生升空。`;
+}
 
-    // 拙趣反應邏輯
-    function triggerReaction(type) {
-        // 移除先前的動畫 class
-        stickman.classList.remove('jump-joy', 'vibrate-error');
-        void stickman.offsetWidth; // 觸發 reflow
+// 語音引擎 (TTS)
+function speak(text) {
+    window.speechSynthesis.cancel();
+    let msg = new SpeechSynthesisUtterance(text);
+    msg.lang = 'en-US';
+    msg.rate = 0.8;
+    window.speechSynthesis.speak(msg);
+}
 
-        if (type === 'correct') {
-            stickman.classList.add('jump-joy');
-            mouth.setAttribute('d', 'M 100 70 Q 110 85, 120 70'); // 微笑
-            setTimeout(() => mouth.setAttribute('d', 'M 100 75 Q 110 82, 120 75'), 500); // 恢復呆滯
-        } else {
-            stickman.classList.add('vibrate-error');
-            mouth.setAttribute('d', 'M 100 78 Q 110 70, 120 78'); // 難過 O 型嘴
-            setTimeout(() => mouth.setAttribute('d', 'M 100 75 Q 110 82, 120 75'), 600);
-        }
-    }
+function initKeyboard() {
+    const kb = document.getElementById('keyboard');
+    kb.innerHTML = 'QWERTYUIOPASDFGHJKLZXCVBNM'.split('').map(l => `<button class="key" onclick="handleGuess('${l}', this)">${l}</button>`).join('');
+}
 
-    function updateSpiritStage() {
-        const progress = guessedLetters.size / uniqueLetters.size;
-        // 依序凝聚：身體 -> 頭 -> 手 -> 腳 (調整順序，讓反差更大)
-        if (progress > 0) document.getElementById('part-body').classList.add('visible');
-        if (progress > 0.25) document.getElementById('part-head').classList.add('visible');
-        if (progress > 0.5) document.getElementById('part-arms').classList.add('visible');
-        if (progress > 0.75) document.getElementById('part-legs').classList.add('visible');
-    }
+function isWordComplete() {
+    const word = currentCluster.words[testIndex].word.toUpperCase();
+    return word.split('').every(l => guessedLetters.has(l));
+}
 
-    function checkWinStatus() {
-        if (guessedLetters.size === uniqueLetters.size) {
-            // 獲勝：凝聚所有部位 -> 準備火箭 -> 升空
-            document.querySelectorAll('.part').forEach(p => p.classList.add('visible')); 
-            mouth.setAttribute('d', 'M 100 70 Q 110 85, 120 70'); // 保持微笑
-
-            setTimeout(() => document.getElementById('rocket-group').classList.add('prepare'), 500);
-            
-            setTimeout(() => {
-                stickman.classList.remove('jump-joy', 'idleFloat'); // 停止其他動畫
-                stickman.classList.add('liftoff');
-                playPronunciation(); // 升空時唸出單字
-            }, 1500);
-            
-            setTimeout(() => showResult(), 3800); // 動畫結束後彈窗
-        } else if (mistakes >= MAX_MISTAKES) {
-            renderWordDisplay();
-            setTimeout(() => showResult(), 800);
-        }
-    }
-
-    function showResult() {
-        document.getElementById('r-word').innerText = currentWordObj.word;
-        document.getElementById('r-phonetic').innerText = currentWordObj.phonetic;
-        document.getElementById('r-meaning').innerText = currentWordObj.meaning;
-        document.getElementById('result-modal').classList.add('show');
-    }
-
-    function playPronunciation() {
-        if (!window.speechSynthesis || examSubmitted) return;
-        window.speechSynthesis.cancel();
-        let utterance = new SpeechSynthesisUtterance(currentWordObj.word);
-        utterance.lang = 'en-US'; utterance.rate = 0.85; 
-        let isAndroid = /Android/i.test(navigator.userAgent);
-        if (isAndroid) {
-            window.sysUtterances.push(utterance);
-            let voices = window.speechSynthesis.getVoices();
-            if (voices.length > 0) {
-                let enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || voices.find(v => v.lang.includes('en'));
-                if (enVoice) utterance.voice = enVoice;
-            }
-        }
-        utterance.onend = () => { if(isAndroid) window.sysUtterances = window.sysUtterances.filter(u => u !== utterance); };
-        setTimeout(() => { window.speechSynthesis.speak(utterance); }, isAndroid ? 150 : 50);
-    }
-
-    if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = function() { speechSynthesis.getVoices(); };
-    }
-
-    window.onload = startNewWord;
+window.onload = initAbsorb;
 </script>
 </body>
 </html>
