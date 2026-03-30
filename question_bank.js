@@ -348,3 +348,85 @@ const QuestionBank = {
         }
     }
 };
+
+    // ==========================================
+    // 模組四：多益職場考場專用 (供 exam_toeic.html 讀取)
+    // ==========================================
+    toeic: {
+        // Part 1: 照片描述 (聽力)
+        part1: [
+            {
+                id: "toeic_p1_01",
+                imageDesc: "[圖片情境：一位男士正坐在辦公桌前打字，桌上有一杯咖啡]",
+                audioScript: "(A) He is drinking a cup of coffee. (B) He is typing on a keyboard. (C) He is leaving the office. (D) He is reading a newspaper.",
+                // 多益第一大題，實戰中卷面只有 A B C D 四個選項，沒有文字
+                options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
+                answer: "B", points: 5
+            }
+        ],
+        
+        // Part 2: 應答問題 (聽力)
+        part2: [
+            {
+                id: "toeic_p2_01",
+                audioScript: "When is the project proposal due? \n(A) By next Friday. \n(B) Yes, I did it. \n(C) Mr. Smith is the manager.",
+                // 多益第二大題只有 A B C 三個選項
+                options: {A:"(A)", B:"(B)", C:"(C)"}, 
+                answer: "A", points: 5
+            }
+        ],
+
+        // Part 3: 簡短對話 (聽力)
+        part3: [
+            {
+                id: "toeic_p3_01",
+                audioScript: "W: Hi, I'd like to book a flight to Tokyo for next Monday.\nM: Let me check the schedule. We have a direct flight leaving at 10:00 AM.\nW: That sounds perfect. I'll take it.",
+                questions: [
+                    { id: "tp3_q1", text: "1. Where does the woman want to travel to?", options: {A:"New York", B:"London", C:"Tokyo", D:"Paris"}, answer: "C", points: 5 },
+                    { id: "tp3_q2", text: "2. What time is the flight?", options: {A:"8:00 AM", B:"9:00 AM", C:"10:00 AM", D:"11:00 AM"}, answer: "C", points: 5 }
+                ]
+            }
+        ],
+
+        // Part 4: 簡短獨白 (聽力)
+        part4: [
+            {
+                id: "toeic_p4_01",
+                audioScript: "Attention all passengers. Flight 402 to Taipei is now boarding at Gate 5. Please have your boarding passes and passports ready. We will begin boarding with first-class passengers and those requiring special assistance.",
+                questions: [
+                    { id: "tp4_q1", text: "3. What is the main purpose of the announcement?", options: {A:"To report a lost item", B:"To announce a flight boarding", C:"To delay a train", D:"To change a gate"}, answer: "B", points: 5 },
+                    { id: "tp4_q2", text: "4. Who will board the plane first?", options: {A:"Families with children", B:"Economy class passengers", C:"First-class passengers", D:"Airline staff"}, answer: "C", points: 5 }
+                ]
+            }
+        ],
+
+        // Part 5: 句子填空 (閱讀)
+        part5: [
+            { id: "toeic_p5_01", text: "5. The new marketing strategy was highly _____ in increasing our overall sales last quarter.", options: {A:"effect", B:"effective", C:"effectively", D:"effectiveness"}, answer: "B", points: 5 },
+            { id: "toeic_p5_02", text: "6. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 }
+        ],
+
+        // Part 6: 段落填空 (閱讀)
+        part6: [
+            {
+                id: "toeic_p6_01",
+                article: "Dear Mr. Davis,\nWe are pleased to inform you that your application for the position of Senior Analyst has been __(7)__. Please come to our main office next Monday at 9 AM for the orientation session.\nSincerely,\nHuman Resources",
+                questions: [
+                    { id: "tp6_q1", text: "7.", options: {A:"accept", B:"accepted", C:"accepting", D:"accepts"}, answer: "B", points: 5 }
+                ]
+            }
+        ],
+
+        // Part 7: 閱讀理解 (閱讀)
+        part7: [
+            {
+                id: "toeic_p7_01",
+                article: "Memo\nTo: All Staff\nFrom: Facilities Management\nDate: October 5\nSubject: Break Room Renovation\n\nPlease be informed that the main break room on the 3rd floor will be closed for renovation starting next Wednesday, October 12. The microwave ovens and coffee machines will be temporarily moved to the 2nd-floor lobby. We expect the work to be completed by the end of the month.",
+                questions: [
+                    { id: "tp7_q1", text: "8. What is the purpose of this memo?", options: {A:"To announce a new hire", B:"To explain a renovation schedule", C:"To complain about broken equipment", D:"To change working hours"}, answer: "B", points: 5 },
+                    { id: "tp7_q2", text: "9. Where will the coffee machines be moved?", options: {A:"To the 1st floor", B:"To the 2nd-floor lobby", C:"To the 4th floor", D:"To the manager's office"}, answer: "B", points: 5 }
+                ]
+            }
+        ]
+    }
+
