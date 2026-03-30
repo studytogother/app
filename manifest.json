@@ -1,0 +1,21 @@
+{
+  "name": "般若語言法界 ． 清淨學習",
+  "short_name": "般若語界",
+  "description": "永久免費、無廣告、無版權爭議的清淨語言學習系統。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FDFDFD",
+  "theme_color": "#CBA37A",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
