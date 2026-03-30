@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>WORD SLUGGER - LEGO VECTOR EDITION</title>
+    <title>WORD SLUGGER - LEGO TRANSLUCENT EDITION</title>
     <style>
         :root {
-            --bg-field: #60a3bc; --grass: #78e08f; --dirt: #e67e22; --ui-navy: #0a3d62;
-            --lego-yellow: #feca57; --neon-blue: #00d2d3; --strike-red: #ff6b6b;
+            /* 用 RGBA 定義半透明色彩 */
+            --bg-field: rgba(96, 163, 188, 0.9); --grass: rgba(120, 224, 143, 0.8); --dirt: rgba(230, 126, 34, 0.7); --ui-navy: rgba(10, 61, 98, 0.95);
+            --lego-yellow: rgba(254, 202, 87, 0.9); --neon-blue: rgba(0, 210, 211, 0.95); --strike-red: rgba(255, 107, 107, 0.9);
             --white: #ffffff;
         }
 
         * { box-sizing: border-box; touch-action: manipulation; font-family: 'Segoe UI', Arial, sans-serif; }
-        body, html { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--ui-navy); overflow: hidden; color: var(--white); }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100dvh; background: #0a3d62; overflow: hidden; color: var(--white); }
 
         #game-container { width: 100%; height: 100%; display: flex; flex-direction: column; }
 
         /* --- 頂部計分板 (向量幾何風) --- */
         header { 
-            height: 80px; background: rgba(0,0,0,0.4); display: flex; justify-content: space-around; 
+            height: 80px; background: rgba(0,0,0,0.5); display: flex; justify-content: space-around; 
             align-items: center; border-bottom: 4px solid var(--neon-blue); z-index: 10;
         }
         .stat-box { text-align: center; border: 1px solid rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 8px; }
@@ -32,15 +33,15 @@
         .field-svg { width: 100%; height: 100%; }
 
         /* 樂高人物與打擊動畫 */
-        #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; }
-        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; }
+        #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; fill-opacity: 0.9; }
+        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; fill-opacity: 0.9; }
         .swinging .bat-svg { transform: rotate(100deg); }
 
         /* 壘包指示器 */
-        .base-indicator { position: absolute; top: 10px; right: 10px; width: 70px; height: 70px; }
+        .base-indicator { position: absolute; top: 10px; right: 10px; width: 70px; height: 70px; fill-opacity: 0.8; }
 
         /* --- 題目區 --- */
-        #ui-area { background: var(--ui-navy); padding: 20px; border-top-left-radius: 20px; border-top-right-radius: 20px; }
+        #ui-area { background: var(--ui-navy); padding: 20px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
         .meaning-hint { color: var(--lego-yellow); font-size: 1.2rem; margin-bottom: 12px; font-weight: bold; text-align: center; }
         .word-display { text-align: center; margin-bottom: 20px; letter-spacing: 5px; }
         .letter-slot { 
@@ -51,19 +52,19 @@
         /* 樂高風格鍵盤 */
         .keyboard { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; max-width: 600px; margin: 0 auto; }
         .key { 
-            background: #4b6584; border: none; border-radius: 6px; color: white; height: 48px; 
+            background: rgba(75, 101, 132, 0.9); border: none; border-radius: 6px; color: white; height: 48px; 
             font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.1s;
-            box-shadow: 0 4px 0 #2f3542;
+            box-shadow: 0 4px 0 rgba(47, 53, 66, 0.9);
         }
-        .key:active { transform: translateY(3px); box-shadow: 0 1px 0 #2f3542; }
-        .key.correct { background: #20bf6b; box-shadow: 0 4px 0 #10ac84; }
+        .key:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(47, 53, 66, 0.9); }
+        .key.correct { background: rgba(32, 191, 107, 0.95); box-shadow: 0 4px 0 rgba(16, 172, 132, 0.95); }
         .key.wrong { background: var(--strike-red); opacity: 0.4; }
 
         /* 掃描球 (Scan Ball) */
         #scan-btn { 
             width: 100%; margin-top: 15px; padding: 12px; background: var(--neon-blue); 
             border: none; border-radius: 10px; color: white; font-weight: 900; letter-spacing: 2px;
-            cursor: pointer; box-shadow: 0 4px 0 #0abde3;
+            cursor: pointer; box-shadow: 0 4px 0 rgba(10, 189, 227, 0.9); fill-opacity: 0.95;
         }
 
         /* 效果文字 */
@@ -77,8 +78,8 @@
         /* --- 學習畫面 --- */
         .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; background: var(--ui-navy); }
         .study-list { width: 90%; max-width: 500px; flex: 1; overflow-y: auto; padding: 20px; }
-        .study-card { background: rgba(255,255,255,0.1); border-left: 5px solid var(--lego-yellow); padding: 15px; margin-bottom: 10px; border-radius: 4px; }
-        .btn-start { padding: 15px 60px; font-size: 1.5rem; background: var(--lego-yellow); border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 20px; color: var(--ui-navy); }
+        .study-card { background: rgba(255,255,255,0.05); border-left: 5px solid var(--lego-yellow); padding: 15px; margin-bottom: 10px; border-radius: 4px; }
+        .btn-start { padding: 15px 60px; font-size: 1.5rem; background: var(--lego-yellow); border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 20px; color: var(--ui-navy); fill-opacity: 0.95; }
     </style>
 </head>
 <body>
@@ -95,29 +96,31 @@
 
     <div id="stage">
         <svg class="field-svg" viewBox="0 0 400 400">
-            <rect width="400" height="400" fill="#60a3bc" />
-            <path d="M0 250 L400 250 L400 400 L0 400 Z" fill="#78e08f" /> <path d="M200 250 L400 400 L0 400 Z" fill="#e67e22" opacity="0.4" /> <circle cx="200" cy="270" r="40" fill="#cf6a17" /> <g transform="translate(192, 240) scale(0.4)">
-                <rect x="0" y="20" width="40" height="45" rx="5" fill="#eb4d4b" /> <rect x="7" y="0" width="26" height="20" rx="8" fill="#feca57" /> </g>
+            <rect width="400" height="400" fill="var(--bg-field)" />
+            <path d="M0 250 L400 250 L400 400 L0 400 Z" fill="var(--grass)" /> <path d="M200 250 L400 400 L0 400 Z" fill="rgba(230, 126, 34, 0.3)" /> <circle cx="200" cy="270" r="40" fill="rgba(207, 106, 23, 0.6)" /> <g transform="translate(192, 240) scale(0.4)" fill-opacity="0.8">
+                <rect x="0" y="20" width="40" height="45" rx="5" fill="#eb4d4b" /> <rect x="7" y="0" width="26" height="20" rx="8" fill="#feca57" /> <path d="M7 10 Q7 0 20 0 Q33 0 33 10 Z" fill="#eb4d4b" />
+                <rect x="33" y="7" width="10" height="3" fill="#eb4d4b" rx="1.5" />
+            </g>
 
-            <path d="M185 370 L215 370 L220 385 L200 395 L180 385 Z" fill="white" />
+            <path d="M185 370 L215 370 L220 385 L200 395 L180 385 Z" fill="rgba(255,255,255,0.8)" />
 
-            <g id="batter-group" transform="translate(160, 300)">
+            <g id="batter-group" transform="translate(160, 300)" fill-opacity="0.9">
                 <rect x="30" y="45" width="40" height="50" rx="5" fill="#4b6584" />
                 <rect x="38" y="20" width="24" height="25" rx="8" fill="#feca57" />
                 <path d="M38 25 Q38 15 50 15 Q62 15 62 25 Z" fill="#2f3542" />
-                <rect x="62" y="22" width="12" height="4" fill="#2f3542" />
+                <rect x="62" y="22" width="12" height="4" fill="#2f3542" rx="2" />
                 <g class="bat-svg">
                     <rect x="38" y="-10" width="8" height="75" rx="4" fill="#d35400" />
                 </g>
             </g>
 
-            <circle id="v-ball" cx="200" cy="260" r="5" fill="white" style="display:none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));" />
+            <circle id="v-ball" cx="200" cy="260" r="5" fill="rgba(255,255,255,0.9)" style="display:none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));" />
         </svg>
 
         <svg class="base-indicator" viewBox="0 0 100 100">
-            <rect x="45" y="5" width="10" height="10" transform="rotate(45 50 10)" fill="#333" id="ind-2" />
-            <rect x="85" y="45" width="10" height="10" transform="rotate(45 90 50)" fill="#333" id="ind-1" />
-            <rect x="5" y="45" width="10" height="10" transform="rotate(45 10 50)" fill="#333" id="ind-3" />
+            <rect x="45" y="5" width="10" height="10" transform="rotate(45 50 10)" fill="rgba(51,51,51,0.5)" id="ind-2" />
+            <rect x="85" y="45" width="10" height="10" transform="rotate(45 90 50)" fill="rgba(51,51,51,0.5)" id="ind-1" />
+            <rect x="5" y="45" width="10" height="10" transform="rotate(45 10 50)" fill="rgba(51,51,51,0.5)" id="ind-3" />
         </svg>
 
         <div id="announcer">HOMERUN</div>
@@ -231,11 +234,13 @@ function winStep() {
     const ball = document.getElementById('v-ball');
     batter.classList.add('swinging');
     
+    // 球飛出動畫 (修正)
     ball.style.display = 'block';
+    // 雖然 CSS 定義了，但這裡用 JS animate 控制路徑更準確，且能顯示球飛出去
     ball.animate([
-        { cx: 200, cy: 380, r: 8, opacity: 1 },
-        { cx: Math.random()*400, cy: -50, r: 2, opacity: 0 }
-    ], { duration: 800, fill: 'forwards' });
+        { cx: 200, cy: 375, r: 8, fillOpacity: 1 }, // 起點在本壘板
+        { cx: Math.random()*400, cy: -50, r: 2, fillOpacity: 0.1 } // 飛向遠方外野
+    ], { duration: 800, fill: 'forwards', easing: 'ease-out' });
 
     setTimeout(() => {
         batter.classList.remove('swinging');
@@ -252,9 +257,10 @@ function winStep() {
 }
 
 function updateBases() {
-    document.getElementById('ind-1').setAttribute('fill', onBase[0]?'#feca57':'#333');
-    document.getElementById('ind-2').setAttribute('fill', onBase[1]?'#feca57':'#333');
-    document.getElementById('ind-3').setAttribute('fill', onBase[2]?'#feca57':'#333');
+    // 這裡也加入透明色判斷
+    document.getElementById('ind-1').setAttribute('fill', onBase[0]?'rgba(254, 202, 87, 0.9)':'rgba(51,51,51,0.5)');
+    document.getElementById('ind-2').setAttribute('fill', onBase[1]?'rgba(254, 202, 87, 0.9)':'rgba(51,51,51,0.5)');
+    document.getElementById('ind-3').setAttribute('fill', onBase[2]?'rgba(254, 202, 87, 0.9)':'rgba(51,51,51,0.5)');
 }
 
 function announce(txt, pts) {
