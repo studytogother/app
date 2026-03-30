@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon.png">
     
-    <title>全真多益職場測驗 - 般若學習系統</title>
-    <script src="question_bank.js?v=8"></script>
+    <title>全真多益職場測驗 - 清淨學習</title>
+    <script src="question_bank.js?v=12"></script>
     <style>
         :root {
+            /* 般若主色系：琉璃淨土風 */
             --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(203, 163, 122, 0.4);
-            --text-main: #4A4542; 
-            --text-light: #8C857F;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-main: #58504A; 
+            --text-light: #968E86;
             --accent-gold: #CBA37A; 
             --accent-jade: #82968C; 
-            --accent-navy: #4A6572;
-            --shadow-soft: 0 10px 30px rgba(160, 155, 150, 0.08);
+            --accent-navy: #4A6572; 
+            --accent-amber: #C1A583;
+            --accent-rose: #CFA4A4;
+            --shadow-soft: 0 10px 40px rgba(160, 155, 150, 0.12);
         }
 
         * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
@@ -28,39 +31,42 @@
         html, body {
             margin: 0; padding: 0; width: 100%; height: 100dvh; 
             background: var(--bg-gradient); color: var(--text-main); 
-            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
+            font-family: -apple-system, sans-serif; 
             overflow: hidden; display: flex; flex-direction: column; 
         }
 
-        /* --- 側邊選單與導航按鈕 (統一規格) --- */
-        .nav-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); color: var(--text-main); cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-        .nav-btn:active { transform: scale(0.92); background: rgba(255,255,255,0.9); }
+        /* --- 頂部導航 (統一規格) --- */
+        .top-nav { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; background: var(--glass-bg); backdrop-filter: blur(12px); z-index: 100; flex-shrink: 0; border-bottom: 1px solid rgba(203, 163, 122, 0.2); }
         
+        .nav-side-box { width: 80px; display: flex; align-items: center; }
+        .nav-side-box.right { justify-content: flex-end; }
+
+        .nav-btn { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-main); box-shadow: var(--shadow-soft); cursor: pointer; transition: all 0.2s; }
+        .nav-btn:active { transform: scale(0.92); background: rgba(255,255,255,0.9); }
+        .nav-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+        
+        #sectionTitle { font-weight: 400; color: var(--accent-amber); font-size: 1.15rem; letter-spacing: 2px; text-align: center; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        .timer-badge { font-weight: 500; color: var(--text-main); font-size: 1rem; letter-spacing: 1px; background: rgba(203,163,122,0.1); padding: 5px 12px; border-radius: 15px; border: 1px solid var(--accent-gold);}
+
+        /* --- 側邊選單 --- */
         .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); backdrop-filter: blur(5px); z-index: 9000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
         .side-menu-overlay.open { opacity: 1; pointer-events: auto; }
         .side-menu { position: fixed; top: 0; left: 0; width: 80%; max-width: 320px; height: 100%; background: rgba(252, 251, 249, 0.95); backdrop-filter: blur(20px); border-right: 1px solid var(--glass-border); box-shadow: 10px 0 40px rgba(0,0,0,0.08); transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 9001; display: flex; flex-direction: column; padding-top: max(40px, env(safe-area-inset-top)); }
         .side-menu.open { transform: translateX(0); }
         
-        .menu-profile { padding: 0 25px 25px; border-bottom: 1px solid rgba(203,163,122,0.2); margin-bottom: 15px; flex-shrink: 0; }
-        .menu-title { font-size: 1.4rem; font-weight: 500; letter-spacing: 2px; color: var(--accent-navy); }
+        .menu-profile { padding: 0 25px 25px; border-bottom: 1px solid rgba(203,163,122,0.15); margin-bottom: 15px; flex-shrink: 0; }
+        .menu-title { font-size: 1.4rem; font-weight: 400; letter-spacing: 3px; color: var(--accent-amber); }
+        
         .menu-list { flex: 1; overflow-y: auto; padding: 0 20px 20px; display: flex; flex-direction: column; gap: 12px; }
-        .menu-item { padding: 15px 20px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: 500; cursor: pointer; background: rgba(255,255,255,0.4); color: var(--text-main); text-decoration: none; transition: 0.2s;}
-        .menu-item:active { transform: scale(0.97); background: #fff; }
+        .menu-item { padding: 15px 20px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: 500; cursor: pointer; background: rgba(255,255,255,0.4); color: var(--text-main); text-decoration: none; transition: 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.02);}
+        .menu-item:active { transform: scale(0.97); background: #fff; border-color: var(--accent-amber);}
         .menu-icon-wrap { width: 32px; height: 32px; border-radius: 50%; background: #fff; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.04); flex-shrink: 0; }
+        .menu-item svg { stroke: currentColor; fill: none; stroke-width: 1.8; width: 16px; height: 16px; }
 
-        header {
-            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            padding: max(15px, env(safe-area-inset-top)) 25px 15px;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--glass-border); z-index: 100;
-        }
-
-        #sectionTitle { font-weight: 600; color: var(--accent-navy); font-size: 1.15rem; letter-spacing: 2px; }
-        .timer { font-size: 1.1rem; font-weight: bold; color: var(--accent-navy); background: var(--glass-bg); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); letter-spacing: 1px; }
-
-        .main-layout { display: flex; flex: 1; overflow: hidden; max-width: 1200px; margin: 0 auto; width: 100%; }
-        .content-panel { flex: 1; padding: 40px 30px; overflow-y: auto; background: transparent; border-right: 1px solid rgba(203, 163, 122, 0.2); display: flex; flex-direction: column; align-items: center; justify-content: flex-start;}
-        .question-panel { flex: 1; padding: 40px 30px; overflow-y: auto; background: transparent; }
+        /* --- 主畫面排版 --- */
+        .main-layout { display: flex; flex: 1; overflow: hidden; max-width: 1000px; margin: 0 auto; width: 100%; }
+        .content-panel { flex: 1.2; padding: 25px; overflow-y: auto; border-right: 1px solid rgba(203, 163, 122, 0.2); display: flex; flex-direction: column; align-items: center; justify-content: flex-start;}
+        .question-panel { flex: 1; padding: 25px; overflow-y: auto; background: transparent; }
 
         @media (max-width: 768px) {
             .main-layout { flex-direction: column; }
@@ -68,80 +74,59 @@
             .question-panel { flex: 1; padding: 20px; }
         }
 
-        .section-tag { display: inline-block; padding: 6px 16px; background: var(--accent-navy); color: #fff; border-radius: 12px; font-size: 0.85rem; margin-bottom: 20px; letter-spacing: 1px; }
+        .section-tag { display: inline-block; padding: 6px 16px; background: rgba(193, 165, 131, 0.15); color: var(--accent-amber); border: 1px solid var(--accent-amber); border-radius: 16px; font-size: 0.85rem; margin-bottom: 20px; letter-spacing: 1px; font-weight: 500;}
         
-        .article-box { width: 100%; line-height: 1.8; font-size: 1.05rem; color: var(--text-main); text-align: justify; background: var(--glass-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); }
-        .image-placeholder { width: 100%; max-width: 400px; height: 250px; background: rgba(203,163,122,0.1); border: 1px dashed var(--accent-gold); display: flex; justify-content: center; align-items: center; color: var(--accent-gold); border-radius: 12px; margin-bottom: 20px; font-weight: 500; text-align: center; padding: 20px;}
+        .article-box { width: 100%; line-height: 1.8; font-size: 1.05rem; color: var(--text-main); text-align: justify; background: rgba(255,255,255,0.6); backdrop-filter: blur(10px); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); }
+        .image-placeholder { width: 100%; max-width: 400px; height: 250px; background: rgba(203,163,122,0.1); border: 1px dashed var(--accent-gold); display: flex; justify-content: center; align-items: center; color: var(--accent-gold); border-radius: 16px; margin-bottom: 20px; font-weight: 500; text-align: center; padding: 20px;}
 
         .question-block { margin-bottom: 35px; }
-        .question-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 15px; font-weight: 500; color: var(--text-main); }
+        .question-text { font-size: 1.05rem; line-height: 1.6; margin-bottom: 15px; font-weight: 500; color: var(--accent-navy); letter-spacing: 0.5px;}
         
+        /* 琉璃風選擇題按鈕 */
         .option-label { 
-            display: block; padding: 16px 20px; margin: 10px 0; 
-            background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border); 
-            cursor: pointer; transition: all 0.2s ease; color: var(--text-main); font-size: 1.05rem;
+            display: flex; align-items: flex-start; padding: 16px 20px; margin: 12px 0; 
+            background: var(--glass-bg); backdrop-filter: blur(10px); border-radius: 16px; 
+            border: 1px solid var(--glass-border); cursor: pointer; transition: all 0.3s; 
+            box-shadow: var(--shadow-soft); font-size: 0.95rem; line-height: 1.5; color: var(--text-main);
         }
-        .option-label:hover { border-color: var(--accent-navy); transform: translateX(5px); }
-        .option-label.checked { border-color: var(--accent-navy); background: rgba(74, 101, 114, 0.08); font-weight: bold; }
+        .option-label:active { transform: scale(0.98); }
+        .option-label.checked { border-color: var(--accent-amber); background: rgba(193, 165, 131, 0.1); font-weight: 500; box-shadow: 0 5px 15px rgba(193, 165, 131, 0.15);}
         .option-label.disabled { cursor: not-allowed; opacity: 0.6; transform: none; }
+        .opt-letter { color: var(--accent-amber); font-weight: bold; margin-right: 12px; font-size: 1rem; flex-shrink: 0;}
 
         .review-box { margin-top: 15px; padding: 15px 20px; border-radius: 12px; line-height: 1.6; display: none; background: rgba(255,255,255,0.9); border: 1px solid; }
         .review-box.correct { border-color: var(--accent-jade); color: var(--accent-jade); }
         .review-box.wrong { border-color: var(--accent-rose); color: var(--accent-rose); }
 
-                /* --- 修正後的底部導航容器 --- */
+        /* --- 底部導航 --- */
         .nav-footer { 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
-            /* 關鍵：動態預留 iPhone 底部小白條空間，解決跑位 */
-            padding: 12px 25px calc(12px + env(safe-area-inset-bottom)); 
-            border-top: 1px solid var(--glass-border); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            z-index: 1000;
-            height: auto;
+            background: var(--glass-bg); backdrop-filter: blur(15px); 
+            padding: 15px 25px max(15px, env(safe-area-inset-bottom)); 
+            border-top: 1px solid rgba(203, 163, 122, 0.2); 
+            display: flex; justify-content: space-between; align-items: center; 
+            z-index: 1000; flex-shrink: 0;
         }
 
-        /* --- 修正後的按鈕：解決變胖問題 --- */
         .footer-btn { 
-            padding: 0 15px; 
-            height: 38px;
-            background: transparent; 
-            color: var(--accent-navy); 
-            border: 1px solid var(--accent-navy); 
-            border-radius: 19px; 
-            cursor: pointer; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            transition: 0.3s; 
-            white-space: nowrap; 
-            min-width: 100px; /* 固定最小寬度 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 0 20px; height: 40px; background: rgba(255,255,255,0.7); color: var(--accent-navy); 
+            border: 1px solid var(--accent-navy); border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; 
+            transition: 0.3s; white-space: nowrap; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(74, 101, 114, 0.1); letter-spacing: 1px;
         }
-        .footer-btn:hover { background: var(--accent-navy); color: #fff; }
-        .footer-btn:disabled { opacity: 0.2; cursor: not-allowed; border-color: var(--text-light); color: var(--text-light); }
+        .footer-btn:active { background: var(--accent-navy); color: #fff; transform: scale(0.95);}
+        .footer-btn:disabled { opacity: 0.3; cursor: not-allowed; border-color: var(--text-light); color: var(--text-light); box-shadow: none; background: transparent;}
 
-        /* --- 進度文字置中優化 --- */
-        #progressInfo { 
-            font-size: 0.85rem; 
-            color: var(--text-light); 
-            font-weight: 600; 
-            flex: 1; 
-            text-align: center; 
-        }
+        #progressInfo { font-size: 0.9rem; color: var(--accent-gold); font-weight: 400; flex: 1; text-align: center; letter-spacing: 2px;}
 
-        .submit-btn { padding: 12px 35px; background: var(--accent-gold); color: #fff; border: none; border-radius: 20px; font-size: 1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(203, 163, 122, 0.3); }
+        .submit-btn { padding: 0 25px; height: 40px; background: var(--accent-amber); color: #fff; border: none; border-radius: 20px; font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(193, 165, 131, 0.3); display: flex; align-items: center; justify-content: center;}
         .submit-btn:active { transform: scale(0.95); }
 
-        /* SVG 向量播放按鈕設計 */
-        .svg-audio-btn { width: 80px; height: 80px; background: var(--accent-navy); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: 0.3s; box-shadow: 0 8px 25px rgba(74, 101, 114, 0.3); border: none; outline: none; margin-bottom: 15px; }
-        .svg-audio-btn:active { transform: scale(0.92); box-shadow: 0 4px 15px rgba(74, 101, 114, 0.2); }
-        .svg-icon { width: 30px; height: 30px; fill: #fff; margin-left: 5px; }
-        
+        /* 多媒體播放按鈕 */
+        .svg-audio-btn { width: 80px; height: 80px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--accent-gold); color: var(--accent-gold); display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: var(--shadow-soft); transition: 0.3s; margin: 10px 0 20px;}
+        .svg-audio-btn svg { width: 30px; height: 30px; fill: currentColor; stroke: none; margin-left: 5px;}
+        .svg-audio-btn:active { transform: scale(0.9); background: var(--accent-gold); color: white;}
+        .audio-pulse { animation: pulseGlow 2s infinite; }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(203,163,122,0.4); } 70% { box-shadow: 0 0 0 15px rgba(203,163,122,0); } 100% { box-shadow: 0 0 0 0 rgba(203,163,122,0); } }
+
         .full-width { flex: 2 !important; max-width: 900px; margin: 0 auto; }
         .hide { display: none !important; }
     </style>
@@ -151,24 +136,31 @@
 <div class="side-menu-overlay" id="side-menu-overlay" onclick="toggleMenu()"></div>
 <div class="side-menu" id="side-menu">
     <div class="menu-profile">
-        <div class="menu-title">般若語言法界</div>
-        <div style="font-size: 0.8rem; color: var(--text-light); margin-top:5px; letter-spacing: 1px;">測驗中請專心，也可隨時離開</div>
+        <div class="menu-title">多益職場實戰</div>
+        <div style="font-size: 0.8rem; color: var(--text-light); margin-top:8px; letter-spacing: 1px;">專注當下，亦可隨時離座</div>
     </div>
     <div class="menu-list">
         <a href="index.html" class="menu-item">
-            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>回法界大廳
+            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>回法界大廳
         </a>
         <a href="game.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color:var(--accent-gold);"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>化生單字修煉
+            <div class="menu-icon-wrap" style="color:var(--accent-gold);"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>化生單字修煉
         </a>
         <a href="exam.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color:var(--accent-jade);"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>高中全真模考
+            <div class="menu-icon-wrap" style="color:var(--accent-jade);">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+            </div>高中全真模考
         </a>
         <a href="exam_toefl.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color:var(--accent-blue);"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>托福適性考場
+            <div class="menu-icon-wrap" style="color:var(--accent-navy);"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>托福適性考場
         </a>
         <a href="https://namoamitabhapureland.github.io/bodhicitta/index.html" target="_blank" class="menu-item" style="margin-top: 20px;">
-            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
+            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg></div>
             <div style="display: flex; flex-direction: column; gap: 4px;">
                 <div style="font-size: 0.95rem; font-weight: 500; color: var(--text-main);">彌陀淨土系統</div>
                 <div style="font-size: 0.7rem; color: var(--text-light); font-weight: 400; letter-spacing: 0.5px;">回歸清淨本源</div>
@@ -177,29 +169,32 @@
     </div>
 </div>
 
-<header>
-    <div style="display: flex; align-items: center; gap: 12px;">
+<div class="top-nav">
+    <div class="nav-side-box">
         <div class="nav-btn" onclick="toggleMenu()">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </div>
-        <div id="sectionTitle">讀取中...</div>
     </div>
     
-    <div class="timer" id="timer">120:00</div>
-</header>
+    <div id="sectionTitle">讀取中...</div>
+    
+    <div class="nav-side-box right">
+        <div class="timer-badge" id="timer">120:00</div>
+    </div>
+</div>
 
-<div class="main-layout">
+<div class="main-layout" id="mainLayout">
     <div class="content-panel hide" id="leftPanel"></div>
     <div class="question-panel" id="rightPanel">
         <div id="sectionContent"></div>
     </div>
 </div>
 
-<div class="nav-footer">
-    <button class="footer-btn" id="prevBtn" onclick="changePart(-1)">上一部分</button>
+<div class="nav-footer" id="navFooter">
+    <button class="footer-btn" id="prevBtn" onclick="changePart(-1)">上一區</button>
     <div id="progressInfo">Part 1 / 7</div>
-    <button class="footer-btn" id="nextBtn" onclick="changePart(1)">下一部分</button>
-    <button class="submit-btn hide" id="submitBtn" onclick="finalizeExam()">完成測驗</button>
+    <button class="footer-btn" id="nextBtn" onclick="changePart(1)">下一區</button>
+    <button class="submit-btn hide" id="submitBtn" onclick="finalizeExam()">結算</button>
 </div>
 
 <script>
@@ -221,21 +216,22 @@ let userAnswers = {};
 let examSubmitted = false;
 let timerInterval;
 
-// SVG 播放圖示
-const playIconSVG = `<svg class="svg-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+const playIconSVG = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>`;
 
 window.onload = () => {
     try {
+        if(typeof QuestionBank === 'undefined' || !QuestionBank.toeic) {
+             throw new Error("Data missing");
+        }
         toeicData = QuestionBank.toeic;
-        if(!toeicData) throw new Error("No TOEIC data");
         renderCurrentPart();
-        startTimer(7200); // 120分鐘
+        startTimer(7200); 
     } catch (e) {
-        document.getElementById('sectionTitle').innerText = "系統資料載入失敗，請確認 question_bank.js";
+        document.getElementById('sectionTitle').innerText = "系統提示：檢查題庫";
+        document.getElementById('rightPanel').innerHTML = `<p style="color:var(--accent-rose); text-align:center;">無法讀取到 toeic 模組，請確認資料庫連接。</p>`;
     }
 };
 
-// 側邊選單開關與消音
 function toggleMenu() { 
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     document.getElementById('side-menu').classList.toggle('open'); 
@@ -265,10 +261,11 @@ function renderCurrentPart() {
                 leftHTML += `<div class="image-placeholder">${item.imageDesc}</div>`;
             }
             if (item.audioScript) {
-                leftHTML += `<button class="svg-audio-btn" onclick="playAudio('${item.audioScript.replace(/'/g, "\\'")}')">${playIconSVG}</button>
-                             <div style="color:var(--text-light); font-size:0.9rem; letter-spacing:1px; margin-bottom:10px;">點擊播放聽力音檔</div>`;
+                leftHTML += `<button class="svg-audio-btn audio-pulse" onclick="playAudio('${item.audioScript.replace(/'/g, "\\'")}')">${playIconSVG}</button>
+                             <div style="color:var(--text-light); font-size:0.85rem; letter-spacing:1px; margin-bottom:10px;">點擊播放聽力音檔</div>`;
             }
             if (item.article) {
+                leftHTML += `<div class="section-tag" style="align-self:flex-start;">閱讀文本</div>`;
                 leftHTML += `<div class="article-box">${item.article.replace(/\n/g, '<br>')}</div>`;
             }
             leftHTML += `</div>`;
@@ -278,28 +275,52 @@ function renderCurrentPart() {
         const questionsArray = item.questions ? item.questions : [item];
 
         questionsArray.forEach(q => {
+            // 聽力 Part 1 & 2 不顯示選項文字，只顯示 (A)(B)(C)
             const isNoTextQ = (partKey === 'part1' || partKey === 'part2');
-            const qTextDisplay = isNoTextQ ? `<span style="color:var(--accent-navy);">Question ${q.id.slice(-2)}</span>` : q.text;
+            
+            // 題幹文字處理
+            let qTextDisplay = "";
+            if (q.text) {
+                qTextDisplay = `<div class="question-text">${q.text}</div>`;
+            } else if (isNoTextQ && q.id) {
+                // 如果沒有提供 q.text，但有 id，則自動產生題號
+                const numMatch = q.id.match(/\d+$/);
+                const num = numMatch ? numMatch[0] : "";
+                qTextDisplay = `<div class="question-text">Question ${num}</div>`;
+            }
 
-            rightHTML += `<div class="question-block"><div class="question-text">${qTextDisplay}</div>`;
+            rightHTML += `<div class="question-block">${qTextDisplay}`;
             
             const currentAns = userAnswers[q.id] || '';
             const disabledClass = examSubmitted ? 'disabled' : '';
 
-            for (let [k, v] of Object.entries(q.options)) {
-                const checkedClass = currentAns === k ? 'checked' : '';
-                const optionText = isNoTextQ ? `<span style="font-weight:bold; font-size:1.1rem;">(${k})</span>` : `<span style="font-weight:bold; color:var(--accent-navy); margin-right:10px;">(${k})</span> ${v}`;
-                
-                rightHTML += `<label class="option-label ${checkedClass} ${disabledClass}">
-                    <input type="radio" style="display:none;" name="${q.id}" value="${k}" ${examSubmitted ? 'disabled' : ''} onchange="saveAnswer('${q.id}', '${k}')"> 
-                    ${optionText}
-                </label>`;
+            // 渲染選項
+            if (q.options) {
+                for (let [k, v] of Object.entries(q.options)) {
+                    const checkedClass = currentAns === k ? 'checked' : '';
+                    
+                    // 根據題型決定選項顯示方式
+                    let optionContent = "";
+                    if (isNoTextQ) {
+                        // Part 1, 2 只有圓圈選項，置中排版
+                        optionContent = `<div style="text-align:center; width:100%; font-weight:bold; font-size:1.1rem; color:var(--accent-amber);">(${k})</div>`;
+                    } else {
+                        // 其他部分顯示完整文字
+                        optionContent = `<div class="opt-letter">(${k})</div><div style="flex:1;">${v}</div>`;
+                    }
+                    
+                    rightHTML += `
+                    <label class="option-label ${checkedClass} ${disabledClass}" onclick="if(!${examSubmitted}) selectOption(this, '${q.id}', '${k}')">
+                        ${optionContent}
+                    </label>`;
+                }
             }
 
-            if (examSubmitted) {
+            // 渲染答案解析 (交卷後)
+            if (examSubmitted && q.answer) {
                 const isCorrect = currentAns === q.answer;
                 const boxClass = isCorrect ? 'correct' : 'wrong';
-                const statusText = isCorrect ? `答對了！` : `答錯了。您的答案：${currentAns || '未作答'}`;
+                const statusText = isCorrect ? `答對了！` : `答錯了。您的選擇：${currentAns || '未作答'}`;
                 rightHTML += `<div class="review-box ${boxClass}" style="display:block; font-weight:bold;">${statusText} <br><span style="color:var(--text-main); font-weight:normal; margin-top:5px; display:inline-block;">正確解答：${q.answer}</span></div>`;
             }
             rightHTML += `</div>`;
@@ -328,15 +349,15 @@ function renderCurrentPart() {
     }
 }
 
-function saveAnswer(qId, val) {
-    if(!examSubmitted) {
-        userAnswers[qId] = val;
-        renderCurrentPart();
-    }
+function selectOption(labelElement, questionId, value) {
+    userAnswers[questionId] = value;
+    const labels = labelElement.parentElement.querySelectorAll('.option-label');
+    labels.forEach(l => l.classList.remove('checked'));
+    labelElement.classList.add('checked');
 }
 
 function changePart(direction) {
-    if (window.speechSynthesis) window.speechSynthesis.cancel(); // 換頁強制閉嘴
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
     currentPartIndex += direction;
     renderCurrentPart();
     document.getElementById('rightPanel').scrollTop = 0; 
@@ -349,47 +370,55 @@ function finalizeExam() {
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     examSubmitted = true;
     clearInterval(timerInterval);
-    document.getElementById('timer').innerText = "測驗已結束";
+    document.getElementById('timer').innerText = "測驗結束";
 
     let listeningRaw = 0; let listeningMax = 0;
     let readingRaw = 0; let readingMax = 0;
 
-    // 計算聽力與閱讀的原始分數
     ['part1', 'part2', 'part3', 'part4'].forEach(p => {
-        toeicData[p].forEach(item => {
-            const qs = item.questions ? item.questions : [item];
-            qs.forEach(q => { listeningMax += q.points; if (userAnswers[q.id] === q.answer) listeningRaw += q.points; });
-        });
+        if(toeicData[p]) {
+            toeicData[p].forEach(item => {
+                const qs = item.questions ? item.questions : [item];
+                qs.forEach(q => { if(q.points) { listeningMax += q.points; if (userAnswers[q.id] === q.answer) listeningRaw += q.points; }});
+            });
+        }
     });
     
     ['part5', 'part6', 'part7'].forEach(p => {
-        toeicData[p].forEach(item => {
-            const qs = item.questions ? item.questions : [item];
-            qs.forEach(q => { readingMax += q.points; if (userAnswers[q.id] === q.answer) readingRaw += q.points; });
-        });
+        if(toeicData[p]) {
+            toeicData[p].forEach(item => {
+                const qs = item.questions ? item.questions : [item];
+                qs.forEach(q => { if(q.points) { readingMax += q.points; if (userAnswers[q.id] === q.answer) readingRaw += q.points; }});
+            });
+        }
     });
 
-    // 轉換為 990 分制 (擬真演算法)
-    const listeningScaled = Math.round((listeningRaw / listeningMax) * 495) || 5; 
-    const readingScaled = Math.round((readingRaw / readingMax) * 495) || 5;
+    const listeningScaled = listeningMax > 0 ? (Math.round((listeningRaw / listeningMax) * 495) || 5) : 0; 
+    const readingScaled = readingMax > 0 ? (Math.round((readingRaw / readingMax) * 495) || 5) : 0;
     const totalScore = listeningScaled + readingScaled;
 
-    document.getElementById('rightPanel').innerHTML = `
-        <div style="text-align:center; padding: 40px 20px;">
-            <h1 style="color:var(--accent-navy); font-size:2.5rem; letter-spacing:2px; margin-bottom:10px;">測驗證書</h1>
-            <div style="font-size:4rem; font-weight:bold; color:var(--accent-gold); margin:20px 0;">${totalScore}</div>
-            <div style="display:flex; justify-content:center; gap:30px; margin-bottom:40px; color:var(--text-main); font-size:1.1rem;">
-                <div>聽力 (Listening): <b>${listeningScaled}</b> / 495</div>
-                <div>閱讀 (Reading): <b>${readingScaled}</b> / 495</div>
-            </div>
-            <p style="color:var(--text-light); line-height:1.8;">您可以透過左下角按鈕回頭檢視各區塊的錯誤解析。<br>願此智慧助您在職場中清淨無礙。</p>
-            <button class="submit-btn" style="margin-top:30px;" onclick="window.location.href='index.html'">返回法界大廳</button>
+    document.getElementById('mainLayout').style.display = 'none';
+    document.getElementById('navFooter').style.display = 'none';
+    document.getElementById('sectionTitle').innerText = "測驗結算";
+    
+    const resultDiv = document.createElement('div');
+    resultDiv.style.cssText = "flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px 20px; text-align:center; animation: fadeIn 0.5s; overflow-y: auto;";
+    resultDiv.innerHTML = `
+        <h1 style="color:var(--accent-amber); font-size:2.2rem; font-weight:300; letter-spacing:4px; margin-bottom:10px;">職場實戰證書</h1>
+        <div style="font-size:4.5rem; font-weight:300; color:var(--accent-gold); margin:20px 0;">${totalScore}</div>
+        <div style="display:flex; justify-content:center; gap:30px; margin-bottom:40px; color:var(--text-main); font-size:1.1rem; font-weight:500;">
+            <div>聽力: <b style="color:var(--accent-navy);">${listeningScaled}</b> / 495</div>
+            <div>閱讀: <b style="color:var(--accent-jade);">${readingScaled}</b> / 495</div>
+        </div>
+        <p style="color:var(--text-light); line-height:1.8; margin-bottom:40px; max-width: 400px;">
+            成績已封存。您可以點擊下方按鈕重新檢視各區塊的答題狀況與解析。<br>願此智慧助您在職場中無礙前行。
+        </p>
+        <div style="display: flex; gap: 15px;">
+            <button class="vajra-btn" style="padding: 12px 25px; background: rgba(255,255,255,0.7); border: 1px solid var(--accent-amber); color: var(--accent-amber); border-radius: 20px; font-size: 0.95rem; cursor: pointer;" onclick="document.body.removeChild(this.parentElement.parentElement); document.getElementById('mainLayout').style.display='flex'; document.getElementById('navFooter').style.display='flex'; renderCurrentPart();">檢視錯誤解析</button>
+            <button class="submit-btn" onclick="window.location.href='index.html'">返回大廳</button>
         </div>
     `;
-    
-    document.getElementById('leftPanel').classList.add('hide');
-    document.getElementById('submitBtn').classList.add('hide');
-    document.getElementById('nextBtn').classList.add('hide');
+    document.body.appendChild(resultDiv);
 }
 
 function playAudio(text) {
