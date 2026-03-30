@@ -3,162 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>般若單字球場 - 圓滿整合版</title>
+    <title>般若模擬考場 - Study Together</title>
+    
+    <script src="question_bank.js"></script>
+
     <style>
         :root {
-            /* 莫蘭迪優雅配色 */
+            /* 統一回歸：莫蘭迪優雅純淨配色 */
             --m-blue: #8E9AAF;
             --m-blue-light: #CBCFD9;
             --m-green: #B4C7B6;
             --m-bg: #F8F9FA;
             --m-text: #4A4E69;
             --m-text-light: #9A8C98;
-            --accent-gold: #D4AF37;
-            --accent-jade: #508A55;
-            --accent-navy: #2C3E50;
-            --accent-amber: #D35400;
-            --field-grass: rgba(180, 199, 182, 0.7);
-            --field-dirt: rgba(200, 170, 140, 0.5);
-            --strike-red: #E76F51;
-            --base-lit: #4A4E69;
+
+            /* 考場專用：玻璃透視感與柔和陰影，結合莫蘭迪色系 */
+            --bg-gradient: linear-gradient(135deg, #FDFDFD, #F8F9FA);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(203, 207, 217, 0.6); /* 對應 --m-blue-light 的透視感 */
+            --shadow-soft: 0 10px 40px rgba(142, 154, 175, 0.12); /* 莫蘭迪藍的柔和陰影 */
         }
 
         * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-        body, html { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--m-bg); color: var(--m-text); font-family: -apple-system, "Segoe UI", sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        /* --- Header --- */
-        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid var(--m-blue-light); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .nav-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--m-blue-light); cursor: pointer; color: var(--m-blue); }
-        .nav-btn svg { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; fill: none; }
-        #header-title { font-weight: bold; letter-spacing: 2px; color: var(--m-blue); font-size: 1.1rem; }
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100dvh; 
+            background: var(--bg-gradient); color: var(--m-text); 
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
+            overflow: hidden; display: flex; flex-direction: column; 
+        }
 
-        /* --- 側邊選單 --- */
-        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px); z-index: 9000; display: none; }
-        .side-menu-overlay.open { display: block; }
-        .side-menu { position: fixed; top: 0; left: 0; width: 280px; height: 100%; background: white; border-right: 1px solid var(--m-blue-light); transform: translateX(-100%); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 9001; padding: 0; display: flex; flex-direction: column; }
+        /* --- 側邊選單與導航按鈕 (統一莫蘭迪藍規格) --- */
+        .nav-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); color: var(--m-blue); cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .nav-btn:active { transform: scale(0.92); background: rgba(255,255,255,0.9); }
+        
+        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); backdrop-filter: blur(5px); z-index: 9000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .side-menu-overlay.open { opacity: 1; pointer-events: auto; }
+        
+        .side-menu { position: fixed; top: 0; left: 0; width: 80%; max-width: 320px; height: 100%; background: rgba(248, 249, 250, 0.95); backdrop-filter: blur(20px); border-right: 1px solid var(--glass-border); box-shadow: 10px 0 40px rgba(142, 154, 175, 0.1); transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 9001; display: flex; flex-direction: column; padding-top: max(40px, env(safe-area-inset-top)); }
         .side-menu.open { transform: translateX(0); }
         
-        .menu-profile { padding: 40px 20px 20px; background: var(--m-bg); border-bottom: 1px solid var(--m-blue-light); }
-        .menu-title { font-size: 1.2rem; font-weight: 900; color: var(--m-blue); }
-        .menu-subtitle { font-size: 0.85rem; color: var(--m-text-light); margin-top: 5px; }
+        .menu-profile { padding: 0 25px 25px; border-bottom: 1px solid var(--m-blue-light); margin-bottom: 15px; flex-shrink: 0; }
+        .menu-title { font-size: 1.4rem; font-weight: 500; letter-spacing: 2px; color: var(--m-blue); }
+        .menu-list { flex: 1; overflow-y: auto; padding: 0 20px 20px; display: flex; flex-direction: column; gap: 12px; }
         
-        .menu-list { padding: 20px; flex: 1; overflow-y: auto; }
-        .menu-item { display: flex; align-items: center; padding: 15px; border-radius: 12px; border: 1px solid var(--m-blue-light); margin-bottom: 12px; cursor: pointer; text-decoration: none; color: var(--m-text); font-weight: bold; background: white; transition: 0.2s; }
-        .menu-item:active { background: var(--m-bg); }
-        .menu-icon-wrap { width: 24px; height: 24px; margin-right: 15px; display: flex; align-items: center; justify-content: center; fill: none; stroke: currentColor; stroke-width: 2; }
+        .menu-item { padding: 15px 20px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: bold; cursor: pointer; background: rgba(255,255,255,0.6); color: var(--m-text); text-decoration: none; transition: 0.2s;}
+        .menu-item:active { transform: scale(0.97); background: var(--m-blue-light); }
+        .menu-icon-wrap { width: 32px; height: 32px; border-radius: 50%; background: #fff; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.04); flex-shrink: 0; color: var(--m-blue); stroke: var(--m-blue); } /* 統一圖示顏色 */
 
-        /* --- 介面容器 --- */
-        .screen { flex: 1; width: 100%; display: none; flex-direction: column; align-items: center; padding: 20px; overflow-y: auto; animation: fadeIn 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        header {
+            background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            padding: max(15px, env(safe-area-inset-top)) 25px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border); z-index: 1000;
+        }
 
-        /* 階段一：四大分類 */
-        #main-category-screen { display: flex; }
-        .portal-grid { width: 100%; max-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
-        .portal-btn { background: white; border: 1px solid var(--m-blue-light); border-radius: 20px; padding: 25px 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .portal-icon { width: 40px; height: 40px; stroke: var(--m-blue); stroke-width: 1.5; fill: none; }
-        .portal-name { font-weight: bold; font-size: 0.95rem; }
+        #sectionTitle { font-weight: bold; color: var(--m-blue); font-size: 1.1rem; letter-spacing: 2px; }
+        .timer { font-size: 1.1rem; font-weight: 500; color: var(--m-blue); background: var(--glass-bg); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); letter-spacing: 1px; }
 
-        /* 階段二：子群組列表 (A-Z對應區) */
-        .group-btn { width: 100%; max-width: 450px; background: white; border: 1px solid var(--m-blue-light); padding: 18px; border-radius: 15px; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; color: var(--m-text); }
-        .arrow-icon { width: 20px; height: 20px; fill: var(--m-blue); }
-
-        /* 階段三：背單字 */
-        .word-list-card { width: 100%; max-width: 500px; background: white; padding: 15px; border-radius: 20px; border: 1px solid var(--m-blue-light); box-shadow: 0 10px 25px rgba(0,0,0,0.03); margin-bottom: 20px; }
-        .absorb-item { padding: 15px 0; border-bottom: 1px dashed var(--m-blue-light); display: flex; justify-content: space-between; align-items: center; }
-        .abs-word { font-size: 1.4rem; font-weight: 900; color: var(--m-blue); }
-        .abs-phonetic { font-size: 0.85rem; color: var(--m-text-light); font-family: monospace; }
-        .abs-root { font-size: 0.85rem; color: #889; background: #f0f2f5; padding: 2px 6px; border-radius: 4px; margin-top: 4px; display: inline-block; }
-        .voice-btn { border: 1px solid var(--m-blue-light); padding: 10px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        .voice-btn svg { width: 20px; height: 20px; fill: var(--m-blue); }
-
-        /* 階段四：棒球遊戲 */
-        #test-screen { padding: 0; background: #E9ECEF; overflow: hidden; position: relative; }
-        #stage { height: 45%; width: 100%; position: relative; background: #C9D6DF; overflow: hidden; border-bottom: 4px solid var(--m-blue); }
-        .field-svg { width: 100%; height: 100%; }
+        /* ...保留你原有的主畫面佈局、按鈕與 textarea 樣式... */
+        /* 下列僅修正色彩對應至莫蘭迪藍 */
+        .section-tag { display: inline-block; padding: 6px 14px; background: var(--m-blue); color: #fff; border-radius: 12px; font-size: 0.8rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .question-block { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px dashed var(--m-blue-light); }
+        .question-text { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; color: var(--m-text); font-weight: 500; }
         
-        #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; }
-        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; }
-        .swinging .bat-svg { transform: rotate(100deg); }
+        .option-label { 
+            display: block; padding: 15px 20px; margin: 10px 0; 
+            background: var(--glass-bg); backdrop-filter: blur(10px);
+            border-radius: 16px; border: 1px solid var(--glass-border); 
+            cursor: pointer; transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(142, 154, 175, 0.05); color: var(--m-text);
+        }
+        .option-label:hover { border-color: var(--m-blue); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(142, 154, 175, 0.15); }
+        .option-label.checked { border-color: var(--m-blue); background: rgba(142, 154, 175, 0.1); font-weight: bold; }
 
-        /* 得分與壘包 */
-        .scoreboard { position: absolute; top: 10px; left: 10px; color: white; background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; z-index: 10; pointer-events: none; }
-        .strike-row { display: flex; gap: 4px; margin-top: 4px; }
-        .s-dot { width: 12px; height: 12px; border: 1px solid white; border-radius: 50%; }
-        .s-active { background: var(--strike-red); box-shadow: 0 0 8px var(--strike-red); }
-
-        .base-indicator { position: absolute; top: 10px; right: 10px; width: 75px; height: 75px; }
-        .base-rect { fill: rgba(0,0,0,0.2); transition: fill 0.3s; }
-        .base-rect.active { fill: var(--base-lit); }
-
-        /* UI 與 鍵盤 */
-        #game-ui { flex: 1; background: var(--m-bg); width: 100%; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .word-display { height: 50px; display: flex; gap: 6px; margin-bottom: 10px; }
-        .letter-slot { border-bottom: 3px solid var(--m-blue); min-width: 25px; font-size: 1.6rem; font-weight: 900; text-align: center; color: var(--m-text); transition: color 0.3s; }
-        
-        .keyboard { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; width: 100%; max-width: 600px; }
-        .key { background: white; border: 1px solid var(--m-blue-light); height: 45px; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 3px 0 var(--m-blue-light); color: var(--m-text); }
-        .key.correct { background: var(--m-green); color: white; border: none; box-shadow: 0 3px 0 #9DB0A0; }
-        .key.wrong { background: var(--strike-red); color: white; opacity: 0.4; border: none; }
-
-        #announcer { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%) scale(0); font-size: 3.5rem; font-weight: 900; color: white; text-shadow: 0 0 15px rgba(0,0,0,0.3); z-index: 500; pointer-events: none; transition: 0.4s; }
-        .show-msg { transform: translate(-50%, -50%) scale(1.1) !important; }
-
-        .action-btn { width: 90%; max-width: 300px; padding: 16px; background: var(--m-blue); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        
-        #scan-btn { margin-top: 10px; background: var(--m-green); width: 100%; max-width: 300px; padding: 12px; border-radius: 10px; border: none; color: white; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
-        #scan-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-        .svg-icon { width: 20px; height: 20px; fill: currentColor; }
+        .vajra-submit {
+            padding: 12px 30px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(142, 154, 175, 0.2));
+            border: 1px solid rgba(142, 154, 175, 0.4); border-radius: 24px; cursor: pointer; position: relative; overflow: hidden;
+            color: var(--m-blue); font-weight: bold; letter-spacing: 2px; font-size: 1rem; transition: all 0.4s ease; box-shadow: var(--shadow-soft);
+        }
     </style>
 </head>
 <body>
 
-<div class="side-menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
+<div class="side-menu-overlay" id="side-menu-overlay" onclick="toggleMenu()"></div>
 <div class="side-menu" id="side-menu">
     <div class="menu-profile">
         <div class="menu-title">般若語言法界</div>
-        <div class="menu-subtitle">清淨無礙的學習淨土</div>
+        <div style="font-size: 0.8rem; color: var(--m-text-light); margin-top:5px; letter-spacing: 1px;">測驗中請專心，也可隨時離開</div>
     </div>
     <div class="menu-list">
-        <a href="game.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color: var(--accent-gold);"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>化生單字修煉
+        <a href="index.html" class="menu-item">
+            <div class="menu-icon-wrap">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </div>回法界大廳
         </a>
-        <a href="exam.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color: var(--accent-jade);">
-                <svg viewBox="0 0 24 24">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-            </div>高中全真模考
+        <a href="game.html" class="menu-item">
+            <div class="menu-icon-wrap">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>化生單字修煉
         </a>
         <a href="exam_toefl.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color: var(--accent-navy);"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>托福適性考場
+            <div class="menu-icon-wrap">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>托福適性考場
         </a>
         <a href="exam_toeic.html" class="menu-item">
-            <div class="menu-icon-wrap" style="color: var(--accent-amber);"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>多益職場實戰
+            <div class="menu-icon-wrap">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>多益職場實戰
         </a>
         <a href="https://namoamitabhapureland.github.io/bodhicitta/index.html" target="_blank" class="menu-item" style="margin-top: 20px;">
-            <div class="menu-icon-wrap" style="stroke: none; fill: var(--m-blue);"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2"/></svg></div>
+            <div class="menu-icon-wrap">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            </div>
             <div style="display: flex; flex-direction: column; gap: 4px;">
-                <div style="font-size: 0.95rem; font-weight: 500;">彌陀淨土系統</div>
-                <div style="font-size: 0.7rem; color: var(--text-light); font-weight: 400; letter-spacing: 0.5px;">回歸清淨本源</div>
+                <div style="font-size: 0.95rem; font-weight: bold; color: var(--m-text);">彌陀淨土系統</div>
+                <div style="font-size: 0.7rem; color: var(--m-text-light); font-weight: normal; letter-spacing: 0.5px;">回歸清淨本源</div>
             </div>
         </a>
-        <div class="menu-item" onclick="toggleMenu()" style="justify-content: center; margin-top: 10px; background: var(--m-bg);">
-            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            關閉選單
+        
+        <div class="menu-item" onclick="toggleMenu()" style="justify-content: center; margin-top: 10px; background: transparent; border: 1px dashed var(--m-blue-light);">
+            <svg viewBox="0 0 24 24" style="width:16px; height:16px; stroke:var(--m-blue); fill:none; stroke-width:2;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <span style="color: var(--m-blue);">關閉選單</span>
         </div>
     </div>
 </div>
 
 <header>
     <div class="nav-btn" onclick="toggleMenu()">
-        <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </div>
-    <div id="header-title">般若單字道場</div>
-    <div id="global-timer" style="font-weight: bold; color: var(--m-blue); font-size: 1.1rem;"></div>
+    
+    <div id="sectionTitle">般若模擬考場</div>
+    
+    <div class="timer" id="global-timer">00:00</div>
 </header>
+
 
 <div id="main-category-screen" class="screen">
     <div style="text-align:center; margin-bottom:10px;">
