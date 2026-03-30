@@ -895,8 +895,8 @@ const QuestionBank = {
                 { word: "zeal", meaning: "n. 熱忱", root: "來自「熱情」", phonetic: "/ziːl/" }
             ]
         }
-    ] // 這裡關閉 senior 陣列
-}; // 這裡關閉 QuestionBank 物件
+    ], // 這裡關閉 senior 陣列
+
 
     
     toefl: [
