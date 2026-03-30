@@ -3,56 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>PRAJNA SLUGGER - 聲色圓滿道場</title>
+    <title>般若單字球場 - 圓滿整合版</title>
     <style>
         :root {
-            /* 莫蘭迪高級配色系 */
+            /* 莫蘭迪優雅配色 */
             --m-blue: #8E9AAF;
             --m-blue-light: #CBCFD9;
             --m-green: #B4C7B6;
-            --m-bg: #F1F3F5;
+            --m-bg: #F8F9FA;
             --m-text: #4A4E69;
             --m-text-light: #9A8C98;
-            --field-grass: rgba(180, 199, 182, 0.75);
-            --field-dirt: rgba(190, 150, 120, 0.4);
-            --ball-white: rgba(255, 255, 255, 0.95);
+            --field-grass: rgba(180, 199, 182, 0.7);
+            --field-dirt: rgba(200, 170, 140, 0.5);
+            --strike-red: #E76F51;
         }
-        
-        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-        html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--m-bg); color: var(--m-text); font-family: -apple-system, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        /* --- 頂部導航 --- */
-        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid var(--m-blue-light); z-index: 1000; }
-        .nav-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: white; border: 1px solid var(--m-blue-light); cursor: pointer; color: var(--m-blue); font-size: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        #header-title { font-weight: bold; letter-spacing: 2px; color: var(--m-blue); }
+        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--m-bg); color: var(--m-text); font-family: -apple-system, "Segoe UI", sans-serif; overflow: hidden; display: flex; flex-direction: column; }
+
+        /* --- Header --- */
+        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid var(--m-blue-light); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .nav-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid var(--m-blue-light); cursor: pointer; font-size: 1.2rem; color: var(--m-blue); }
+        #header-title { font-weight: bold; letter-spacing: 2px; color: var(--m-blue); font-size: 1.1rem; }
 
         /* --- 側邊選單 --- */
-        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.15); backdrop-filter: blur(4px); z-index: 9000; display: none; }
+        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px); z-index: 9000; display: none; }
         .side-menu-overlay.open { display: block; }
-        .side-menu { position: fixed; top: 0; left: 0; width: 280px; height: 100%; background: white; border-right: 1px solid var(--m-blue-light); transform: translateX(-100%); transition: 0.3s ease; z-index: 9001; padding: 50px 20px; }
+        .side-menu { position: fixed; top: 0; left: 0; width: 280px; height: 100%; background: white; border-right: 1px solid var(--m-blue-light); transform: translateX(-100%); transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 9001; padding: 50px 20px; }
         .side-menu.open { transform: translateX(0); }
-        .menu-item { padding: 16px; border-radius: 12px; border: 1px solid var(--m-blue-light); margin-bottom: 12px; cursor: pointer; text-align: center; font-weight: bold; background: var(--m-bg); }
+        .menu-item { padding: 16px; border-radius: 12px; border: 1px solid var(--m-blue-light); margin-bottom: 12px; cursor: pointer; text-align: center; font-weight: bold; background: var(--m-bg); transition: 0.2s; }
+        .menu-item:active { background: var(--m-blue-light); }
 
-        /* --- 階段顯示 --- */
-        .screen { flex: 1; width: 100%; display: none; flex-direction: column; align-items: center; padding: 20px; overflow-y: auto; animation: fadeIn 0.4s; }
+        /* --- 介面容器 --- */
+        .screen { flex: 1; width: 100%; display: none; flex-direction: column; align-items: center; padding: 20px; overflow-y: auto; animation: fadeIn 0.3s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 階段一：分類大廳 */
+        /* 階段一：四大分類 (避免破格) */
         #main-category-screen { display: flex; }
-        .portal-grid { width: 100%; max-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
-        .portal-btn { background: white; border: 1px solid var(--m-blue-light); border-radius: 20px; padding: 25px 5px; display: flex; flex-direction: column; align-items: center; gap: 12px; cursor: pointer; }
+        .portal-grid { width: 100%; max-width: 500px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
+        .portal-btn { background: white; border: 1px solid var(--m-blue-light); border-radius: 20px; padding: 25px 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .portal-icon { width: 40px; height: 40px; stroke: var(--m-blue); stroke-width: 1.5; fill: none; }
         .portal-name { font-weight: bold; font-size: 0.95rem; }
 
         /* 階段二：子群組列表 */
         .group-btn { width: 100%; max-width: 450px; background: white; border: 1px solid var(--m-blue-light); padding: 18px; border-radius: 15px; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
 
-        /* 階段三：背單字定心 */
-        .word-list-card { width: 100%; max-width: 500px; background: white; padding: 15px; border-radius: 20px; border: 1px solid var(--m-blue-light); }
-        .absorb-item { padding: 15px 0; border-bottom: 1px dashed var(--m-blue-light); display: flex; justify-content: space-between; align-items: center; }
+        /* 階段三：背單字 (音標字根) */
+        .word-list-card { width: 100%; max-width: 500px; background: white; padding: 15px; border-radius: 20px; border: 1px solid var(--m-blue-light); box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+        .absorb-item { padding: 15px 0; border-bottom: 1px dashed var(--m-blue-light); }
         .abs-word { font-size: 1.4rem; font-weight: 900; color: var(--m-blue); }
+        .abs-phonetic { font-size: 0.85rem; color: var(--m-text-light); font-family: monospace; }
+        .abs-root { font-size: 0.85rem; color: #889; background: #f0f2f5; padding: 2px 6px; border-radius: 4px; margin-top: 4px; display: inline-block; }
 
-        /* 階段四：棒球場實戰 */
+        /* 階段四：棒球遊戲 */
         #test-screen { padding: 0; background: #E9ECEF; overflow: hidden; position: relative; }
         #stage { height: 45%; width: 100%; position: relative; background: #C9D6DF; overflow: hidden; border-bottom: 4px solid var(--m-blue); }
         .field-svg { width: 100%; height: 100%; }
@@ -61,48 +64,49 @@
         .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; }
         .swinging .bat-svg { transform: rotate(100deg); }
 
-        /* 計分板與壘包 */
-        .scoreboard { position: absolute; top: 12px; left: 12px; color: white; background: rgba(0,0,0,0.35); padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; z-index: 10; font-weight: bold; pointer-events: none; }
+        /* 得分與壘包 */
+        .scoreboard { position: absolute; top: 10px; left: 10px; color: white; background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; z-index: 10; pointer-events: none; }
         .strike-row { display: flex; gap: 4px; margin-top: 4px; }
         .s-dot { width: 12px; height: 12px; border: 1px solid white; border-radius: 50%; }
-        .s-active { background: #FF6B6B; box-shadow: 0 0 6px #FF6B6B; }
+        .s-active { background: var(--strike-red); box-shadow: 0 0 8px var(--strike-red); }
 
-        .base-indicator { position: absolute; top: 12px; right: 12px; width: 70px; height: 70px; }
+        .base-indicator { position: absolute; top: 10px; right: 10px; width: 75px; height: 75px; }
 
-        /* 操作區與鍵盤 */
+        /* UI 與 鍵盤 */
         #game-ui { flex: 1; background: var(--m-bg); width: 100%; padding: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .word-display { height: 50px; display: flex; gap: 8px; margin-bottom: 15px; }
+        .word-display { height: 50px; display: flex; gap: 6px; margin-bottom: 10px; }
         .letter-slot { border-bottom: 3px solid var(--m-blue); min-width: 25px; font-size: 1.6rem; font-weight: 900; text-align: center; }
-
+        
         .keyboard { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; width: 100%; max-width: 600px; }
-        .key { background: white; border: 1px solid var(--m-blue-light); height: 45px; border-radius: 8px; font-weight: bold; cursor: pointer; color: var(--m-text); box-shadow: 0 3px 0 var(--m-blue-light); }
-        .key.correct { background: var(--m-green); color: white; border: none; }
-        .key.wrong { background: #E76F51; color: white; opacity: 0.5; }
+        .key { background: white; border: 1px solid var(--m-blue-light); height: 45px; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 3px 0 var(--m-blue-light); }
+        .key.correct { background: var(--m-green); color: white; border: none; box-shadow: 0 3px 0 #9DB0A0; }
+        .key.wrong { background: var(--strike-red); color: white; opacity: 0.4; border: none; }
 
-        #announcer { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%) scale(0); font-size: 3.5rem; font-weight: 900; color: white; text-shadow: 0 0 15px rgba(0,0,0,0.4); z-index: 500; pointer-events: none; transition: 0.4s; }
+        #announcer { position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%) scale(0); font-size: 3.5rem; font-weight: 900; color: white; text-shadow: 0 0 15px rgba(0,0,0,0.3); z-index: 500; pointer-events: none; transition: 0.4s; }
         .show-msg { transform: translate(-50%, -50%) scale(1.1) !important; }
 
-        .vajra-btn { width: 90%; max-width: 300px; padding: 18px; background: var(--m-blue); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        .action-btn { width: 90%; max-width: 300px; padding: 16px; background: var(--m-blue); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; margin: 15px 0; }
+        #scan-btn { margin-top: 10px; background: var(--m-green); width: 100%; max-width: 300px; padding: 10px; border-radius: 10px; border: none; color: white; font-weight: 900; }
     </style>
 </head>
 <body>
 
 <div class="side-menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
 <div class="side-menu" id="side-menu">
-    <div class="menu-item" onclick="location.reload()">回到大廳首頁</div>
+    <div class="menu-item" onclick="location.reload()">分類大廳首頁</div>
     <div class="menu-item" onclick="toggleMenu()">關閉選單</div>
 </div>
 
 <header>
     <div class="nav-btn" onclick="toggleMenu()">☰</div>
-    <div id="header-title">般若單字球場</div>
-    <div id="global-timer" style="font-weight: bold; color: var(--m-blue);"></div>
+    <div id="header-title">般若單字道場</div>
+    <div id="global-timer" style="font-weight: bold; color: var(--m-blue); font-size: 1.1rem;"></div>
 </header>
 
 <div id="main-category-screen" class="screen">
     <div style="text-align:center; margin-bottom:10px;">
         <h2 style="color:var(--m-blue);">選擇修煉門類</h2>
-        <p style="color:var(--m-text-light); font-size:0.85rem;">選定領域，開始全壘打大賽</p>
+        <p style="color:var(--m-text-light); font-size:0.85rem;">先背誦，再開啟全壘打大賽</p>
     </div>
     <div class="portal-grid">
         <div class="portal-btn" onclick="enterCategory('senior', '高中 7000')">
@@ -117,7 +121,7 @@
             <svg class="portal-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             <div class="portal-name">多益職場</div>
         </div>
-        <div class="portal-btn" onclick="alert('俚語開發中')">
+        <div class="portal-btn" onclick="alert('生活俚語建置中')">
             <svg class="portal-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             <div class="portal-name">生活俚語</div>
         </div>
@@ -131,7 +135,7 @@
 
 <div id="absorb-screen" class="screen">
     <div class="word-list-card" id="word-list-container"></div>
-    <button class="vajra-btn" onclick="startBaseballGame()">開啟球場挑戰</button>
+    <button class="action-btn" onclick="startBaseballGame()">進入球場 (全壘打挑戰)</button>
 </div>
 
 <div id="test-screen" class="screen">
@@ -143,12 +147,12 @@
     </div>
     <div id="stage">
         <svg class="field-svg" viewBox="0 0 400 400">
-            <rect width="400" height="400" fill="rgba(142,154,175,0.15)" />
+            <rect width="400" height="400" fill="rgba(142,154,175,0.1)" />
             <path d="M0 250 L400 250 L400 400 L0 400 Z" fill="var(--field-grass)" />
             <path d="M200 250 L380 400 L20 400 Z" fill="var(--field-dirt)" />
             <circle cx="200" cy="270" r="30" fill="rgba(0,0,0,0.05)" />
             <path d="M185 375 L215 375 L220 388 L200 398 L180 388 Z" fill="white" fill-opacity="0.8" />
-            <g transform="translate(192, 245) scale(0.35)" fill-opacity="0.85">
+            <g transform="translate(192, 245) scale(0.35)" fill-opacity="0.8">
                 <rect x="0" y="20" width="40" height="45" rx="5" fill="#eb4d4b" />
                 <rect x="7" y="0" width="26" height="20" rx="8" fill="#feca57" />
                 <path d="M7 10 Q7 0 20 0 Q33 0 33 10 Z" fill="#eb4d4b" />
@@ -165,54 +169,43 @@
             <circle id="v-ball" cx="200" cy="265" r="5" fill="white" style="display:none;" />
         </svg>
         <svg class="base-indicator" viewBox="0 0 100 100">
-            <rect x="45" y="5" width="12" height="12" transform="rotate(45 50 11)" fill="rgba(0,0,0,0.2)" id="ind-2" />
-            <rect x="85" y="45" width="12" height="12" transform="rotate(45 91 51)" fill="rgba(0,0,0,0.2)" id="ind-1" />
-            <rect x="5" y="45" width="12" height="12" transform="rotate(45 11 51)" fill="rgba(0,0,0,0.2)" id="ind-3" />
-        </svg>
+            <rect x="45" y="5" width="12" height="12" transform="rotate(45 50 11)" fill="rgba(0,0,0,0.2)" id="ind-2" /> <rect x="85" y="45" width="12" height="12" transform="rotate(45 91 51)" fill="rgba(0,0,0,0.2)" id="ind-1" /> <rect x="5" y="45" width="12" height="12" transform="rotate(45 11 51)" fill="rgba(0,0,0,0.2)" id="ind-3" /> </svg>
         <div id="announcer">HIT!</div>
     </div>
     <div id="game-ui">
-        <div id="hint-text" style="font-weight:900; color:var(--m-text); margin-bottom:10px; font-size:1.1rem;"></div>
+        <div id="hint-meaning" style="font-weight:900; color:var(--m-text); margin-bottom:5px; font-size:1.1rem;"></div>
         <div class="word-display" id="word-display"></div>
         <div class="keyboard" id="keyboard"></div>
+        <button id="scan-btn" onclick="useMagicBall()">✨ SCAN BALL (剩餘 1)</button>
     </div>
 </div>
 
 <div id="result-screen" class="screen">
-    <h2 id="res-title" style="color:var(--m-blue);">修煉結果</h2>
-    <p id="res-desc" style="font-size:1.3rem; margin:20px 0;"></p>
-    <button class="vajra-btn" onclick="location.reload()">回到大廳</button>
+    <h2 id="res-title" style="color:var(--m-blue); font-size:2.5rem;">結算圓滿</h2>
+    <p id="res-desc" style="font-size:1.4rem; font-weight:bold;"></p>
+    <button class="action-btn" onclick="location.reload()">回到大廳</button>
 </div>
 
 <script>
-// --- 核心資料庫 (串接妳提供的格式) ---
-const MasterBank = {
+// --- 資料庫接軌 ---
+const RawBank = {
     senior: [
-        { title: "高中 7000 單字 (A組 - 1)", words: [{word:"ABANDON", meaning:"放棄；遺棄", root:"a(不)+band(約束)"}, {word:"ABSOLUTE", meaning:"絕對的", root:"ab(離)+solve(解)"}, {word:"ABSORB", meaning:"吸收；理解", root:"ab(離)+sorb(吸)"}, {word:"ABSTRACT", meaning:"抽象的", root:"abs+tract(拉)"}, {word:"ABUNDANT", meaning:"豐富的", root:"ab+und(波)"}, {word:"ABUSE", meaning:"濫用", root:"ab(壞)+use"}, {word:"ACADEMIC", meaning:"學術的", root:"academy+ic"}, {word:"ACCELERATE", meaning:"加速", root:"ac+celer(速)"}, {word:"ACCENT", meaning:"口音", root:"ac+cent(唱)"}, {word:"ACCEPT", meaning:"接受", root:"ac+cept(拿)"}] }
+        { title: "高中 7000 單字 (A組 - 1)", words: [{word:"ABANDON", meaning:"放棄；遺棄", root:"a(不)+band(約束)", phonetic:"/əˈbæn.dən/"}, {word:"ABSOLUTE", meaning:"絕對的", root:"ab(離開)+solve(解開)", phonetic:"/ˈæb.sə.luːt/"}, {word:"ABSORB", meaning:"吸收；理解", root:"ab(離開)+sorb(吸)", phonetic:"/əbˈzɔːrb/"}, {word:"ABSTRACT", meaning:"抽象的", root:"abs(離)+tract(拉)", phonetic:"/ˈæb.strækt/"}, {word:"ABUNDANT", meaning:"豐富的；大量的", root:"ab(加)+und(波浪)", phonetic:"/əˈbʌn.dənt/"}, {word:"ABUSE", meaning:"濫用；虐待", root:"ab(壞)+use(使)", phonetic:"/əˈbjuːz/"}, {word:"ACADEMIC", meaning:"學術的", root:"academy+ic", phonetic:"/ˌæk.əˈdem.ɪk/"}, {word:"ACCELERATE", meaning:"加速", root:"ac(向)+celer(速)", phonetic:"/əkˈsel.ə.reɪt/"}, {word:"ACCENT", meaning:"口音；重音", root:"ac(向)+cent(唱)", phonetic:"/ˈæk.sənt/"}, {word:"ACCEPT", meaning:"接受；答應", root:"ac(向)+cept(拿)", phonetic:"/əkˈsept/"}] },
+        { title: "高中 7000 單字 (A組 - 2)", words: [{word:"ACCOMMODATE", meaning:"容納；適應", root:"ac+com+mod", phonetic:"/əˈkɑː.mə.deɪt/"}, {word:"ACCOMPANY", meaning:"陪伴；伴隨", root:"ac+company", phonetic:"/əˈkʌm.pə.ni/"}] }
     ],
     toefl: [
-        { title: "托福核心 (慈悲與智慧)", words: [{word:"COMPASSION", meaning:"慈悲；同情", root:"com(共)+pass(感)"}, {word:"PROFOUND", meaning:"深刻的", root:"pro+found(底)"}, {word:"WISDOM", meaning:"智慧", root:"wise+dom"}, {word:"MINDFUL", meaning:"覺察的", root:"mind+ful"}] }
+        { title: "托福核心 (慈悲與智慧)", words: [{word:"COMPASSION", meaning:"慈悲；同情", root:"com(共)+pass(感)", phonetic:"/kəmˈpæʃ.ən/"}, {word:"PROFOUND", meaning:"深刻的", root:"pro(前)+found(底)", phonetic:"/prəˈfaʊnd/"}, {word:"WISDOM", meaning:"智慧", root:"wise+dom", phonetic:"/ˈwɪz.dəm/"}, {word:"MIND-FUL", meaning:"覺察的", root:"mind+ful", phonetic:"/ˈmaɪnd.fəl/"}] }
     ]
 };
-const Bank = (window.QuestionBank && Object.keys(window.QuestionBank).length > 0) ? window.QuestionBank : MasterBank;
 
 let activeWords = []; let curIdx = 0; let strikes = 0; let score = 0; let combo = 0;
 let onBase = [false, false, false]; let guessed = new Set(); let currentWord = "";
-let timer;
-
-// --- 語音系統 ---
-function speak(text) {
-    if (!window.speechSynthesis) return;
-    window.speechSynthesis.cancel();
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.lang = 'en-US';
-    msg.rate = 0.85;
-    window.speechSynthesis.speak(msg);
-}
+let magicUsed = false; let timer;
 
 // --- 介面導航 ---
 function toggleMenu() {
-    document.getElementById('menu-overlay').classList.toggle('open');
+    const isVisible = document.getElementById('menu-overlay').style.display === 'block';
+    document.getElementById('menu-overlay').style.display = isVisible ? 'none' : 'block';
     document.getElementById('side-menu').classList.toggle('open');
 }
 
@@ -221,15 +214,16 @@ function switchScreen(id) {
     document.getElementById(id).style.display = 'flex';
 }
 
-function enterCategory(key, title) {
-    document.getElementById('category-label').innerText = `✦ ${title} ✦`;
+function enterCategory(key, label) {
+    document.getElementById('category-label').innerText = label;
     const list = document.getElementById('group-list');
     list.innerHTML = '';
-    if(Bank[key]) {
-        Bank[key].forEach(g => {
+    
+    if(RawBank[key]) {
+        RawBank[key].forEach((g, idx) => {
             const btn = document.createElement('div');
             btn.className = 'group-btn';
-            btn.innerHTML = `<span>${g.title}</span><span>▶</span>`;
+            btn.innerHTML = `<span>${g.title}</span> <span>➤</span>`;
             btn.onclick = () => { activeWords = g.words; showAbsorb(); };
             list.appendChild(btn);
         });
@@ -238,46 +232,51 @@ function enterCategory(key, title) {
 }
 
 function showAbsorb() {
-    const cont = document.getElementById('word-list-container');
-    cont.innerHTML = activeWords.map(w => `
+    const container = document.getElementById('word-list-container');
+    container.innerHTML = activeWords.map(w => `
         <div class="absorb-item">
-            <div><div class="abs-word">${w.word}</div><div style="font-weight:bold;">${w.meaning}</div></div>
-            <button onclick="speak('${w.word}')" style="border:none; background:#eee; padding:5px 10px; border-radius:10px;">🔊 發音</button>
+            <div>
+                <div class="abs-word">${w.word}</div>
+                <div class="abs-phonetic">${w.phonetic}</div>
+                <div style="font-weight:bold; margin-top:2px;">${w.meaning}</div>
+                <div class="abs-root">字根：${w.root}</div>
+            </div>
+            <button onclick="speak('${w.word}')" style="border:none; padding:8px; border-radius:50%; background:#eee;">🔊</button>
         </div>
     `).join('');
     
-    let time = 600;
+    let timeLeft = 600;
     timer = setInterval(() => {
-        time--;
-        document.getElementById('global-timer').innerText = `${Math.floor(time/60)}:${time%60<10?'0':''}${time%60}`;
-        if(time <= 0) startBaseballGame();
+        timeLeft--;
+        document.getElementById('global-timer').innerText = `${Math.floor(timeLeft/60)}:${timeLeft%60<10?'0':''}${timeLeft%60}`;
+        if(timeLeft <= 0) startBaseballGame();
     }, 1000);
     switchScreen('absorb-screen');
 }
 
+// --- 棒球邏輯 ---
 function startBaseballGame() {
     clearInterval(timer);
     document.getElementById('global-timer').innerText = "";
-    curIdx = 0; score = 0; strikes = 0; combo = 0; onBase = [false, false, false];
-    loadGameQuestion();
+    curIdx = 0; score = 0; strikes = 0; combo = 0; onBase = [false, false, false]; magicUsed = false;
+    document.getElementById('scan-btn').disabled = false;
+    document.getElementById('scan-btn').innerText = "✨ SCAN BALL (剩餘 1)";
+    loadQuestion();
     switchScreen('test-screen');
 }
 
-function loadGameQuestion() {
+function loadQuestion() {
     if(curIdx >= activeWords.length || strikes >= 3) { finishGame(); return; }
-    currentWord = activeWords[curIdx].word.toUpperCase().replace(/\s/g, '');
+    currentWord = activeWords[curIdx].word.toUpperCase().replace(/\s/g, ''); // 移除空格處理
     guessed.clear();
     document.getElementById('game-q-idx').innerText = `${curIdx+1}/${activeWords.length}`;
-    document.getElementById('hint-text').innerText = activeWords[curIdx].meaning;
-    
-    // 自動朗讀
-    setTimeout(() => speak(currentWord), 500);
-    
-    renderGameUI();
+    document.getElementById('hint-meaning').innerText = activeWords[curIdx].meaning;
+    renderUI();
 }
 
-function renderGameUI() {
-    document.getElementById('word-display').innerHTML = currentWord.split('').map(l => `<span class="letter-slot">${guessed.has(l)?l:''}</span>`).join('');
+function renderUI() {
+    const disp = document.getElementById('word-display');
+    disp.innerHTML = currentWord.split('').map(l => `<span class="letter-slot">${guessed.has(l)?l:''}</span>`).join('');
     const letters = "QWERTYUIOPASDFGHJKLZXCVBNM".split('');
     document.getElementById('keyboard').innerHTML = letters.map(l => `<button class="key" id="k-${l}" onclick="handleGuess('${l}')">${l}</button>`).join('');
 }
@@ -286,41 +285,56 @@ function handleGuess(l) {
     if(guessed.has(l)) return;
     if(currentWord.includes(l)) {
         guessed.add(l); document.getElementById(`k-${l}`).classList.add('correct');
-        renderGameUI();
-        if(currentWord.split('').every(c => guessed.has(c))) winStep();
+        renderUI();
+        if(currentWord.split('').every(c => guessed.has(c))) handleWin();
     } else {
         document.getElementById(`k-${l}`).classList.add('wrong');
-        strikeStep();
+        handleStrike();
     }
 }
 
-function strikeStep() {
+function handleStrike() {
     strikes++; combo = 0;
     const dots = document.querySelectorAll('.s-dot');
     if(strikes <= 3) dots[strikes-1].classList.add('s-active');
+    
     document.getElementById('batter-group').classList.add('swinging');
     setTimeout(()=>document.getElementById('batter-group').classList.remove('swinging'), 200);
-    if(strikes >= 3) setTimeout(finishGame, 600);
+
+    if(strikes >= 3) {
+        showMsg("OUT!!");
+        setTimeout(finishGame, 800);
+    }
 }
 
-function winStep() {
+function handleWin() {
     combo++; curIdx++;
     const batter = document.getElementById('batter-group');
     const ball = document.getElementById('v-ball');
     batter.classList.add('swinging');
     ball.style.display = 'block';
-    ball.animate([{cx:200,cy:380,r:8,opacity:1},{cx:Math.random()*400,cy:-50,r:2,opacity:0.1}], {duration:800, fill:'forwards'});
     
+    ball.animate([
+        { cx: 200, cy: 380, r: 8, fillOpacity: 1 },
+        { cx: Math.random()*400, cy: -50, r: 2, fillOpacity: 0.1 }
+    ], { duration: 800, fill: 'forwards' });
+
     setTimeout(() => {
         batter.classList.remove('swinging'); ball.style.display = 'none';
         let msg = (curIdx===activeWords.length) ? "GRAND SLAM!" : (combo===4 ? "HOMERUN!" : "HIT!");
         if(combo===4) combo = 0;
         showMsg(msg);
-        if(msg !== "HIT!") score += (onBase.filter(b=>b).length + 1);
-        else onBase[combo-1] = true;
+        
+        if(msg !== "HIT!") {
+            score += (onBase.filter(b=>b).length + 1);
+            onBase = [false, false, false];
+        } else {
+            onBase[combo-1] = true;
+        }
+        
         document.getElementById('game-score').innerText = score;
         updateBaseUI();
-        setTimeout(loadGameQuestion, 1500);
+        setTimeout(loadQuestion, 1200);
     }, 800);
 }
 
@@ -330,6 +344,25 @@ function updateBaseUI() {
     document.getElementById('ind-3').setAttribute('fill', onBase[2] ? 'var(--m-blue)' : 'rgba(0,0,0,0.2)');
 }
 
+function useMagicBall() {
+    if(magicUsed) return;
+    magicUsed = true;
+    document.getElementById('scan-btn').disabled = true;
+    document.getElementById('scan-btn').innerText = "SCAN BALL (已使用)";
+    
+    const slots = document.querySelectorAll('.letter-slot');
+    currentWord.split('').forEach((l, i) => {
+        slots[i].innerText = l;
+        slots[i].style.color = 'var(--m-blue)';
+    });
+    setTimeout(() => {
+        currentWord.split('').forEach((l, i) => {
+            if(!guessed.has(l)) slots[i].innerText = '';
+            slots[i].style.color = 'var(--m-text)';
+        });
+    }, 1500);
+}
+
 function showMsg(txt) {
     const el = document.getElementById('announcer');
     el.innerText = txt; el.classList.add('show-msg');
@@ -337,11 +370,14 @@ function showMsg(txt) {
 }
 
 function finishGame() {
-    document.getElementById('res-desc').innerText = `修煉得分：${score} | 成功題數：${curIdx}`;
+    document.getElementById('res-desc').innerText = `全壘打得分：${score} | 答對題數：${curIdx}`;
+    document.getElementById('res-title').innerText = strikes >= 3 ? "被三振出局" : "修煉圓滿";
     switchScreen('result-screen');
 }
 
-window.onload = () => { console.log("Prajna Slugger Ready."); };
+function speak(t) { window.speechSynthesis.speak(new SpeechSynthesisUtterance(t)); }
+
+window.onload = () => { console.log("System Ready"); };
 </script>
 </body>
 </html>
