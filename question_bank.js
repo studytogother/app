@@ -428,5 +428,5 @@ const QuestionBank = {
                 ]
             }
         ]
-    };
+    },
 
