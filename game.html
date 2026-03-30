@@ -4,69 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>化生單字測驗 - 般若學習系統</title>
-    <script src="question_bank.js?v=6"></script>
+    <script src="question_bank.js?v=7"></script>
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.9);
-            --text-main: #58504A;
-            --accent-gold: #CBA37A;
-            --accent-jade: #82968C;
-            --accent-rose: #CFA4A4;
-            /* 插畫漸層色 */
+            /* 淨透琉璃配色系 */
+            --bg-gradient: linear-gradient(135deg, #F0F8FF, #E6E6FA);
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(200, 200, 255, 0.9);
+            --text-main: #4A4A6A; 
+            --text-light: #8A8AAB;
+            --accent-blue: #87CEFA; --accent-purple: #9370DB; --accent-teal: #7FFFD4; --accent-indigo: #4B0082;
+            --shadow-soft: 0 10px 40px rgba(100, 100, 150, 0.1);
+            
+            /* 化生雲朵專屬色 */
             --cloud-top: #E1F5FE;
             --cloud-bottom: #B3E5FC;
         }
+        
         * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
         html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); background: rgba(255,255,255,0.4); z-index: 100; }
-        .timer-badge { font-weight: bold; color: var(--accent-gold); font-size: 1.1rem; }
-        .back-btn { display: flex; align-items: center; gap: 6px; color: var(--accent-jade); font-size: 0.95rem; background: var(--glass-bg); padding: 8px 18px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: 0 4px 10px rgba(0,0,0,0.03); cursor: pointer; font-weight: bold; }
+        /* --- 頂部導航 (統一規格) --- */
+        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: blur(12px); z-index: 100; }
+        .nav-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-main); cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .nav-btn:active { transform: scale(0.92); background: rgba(255,255,255,0.9); }
+        
+        #header-title { font-weight: 500; font-size: 1.15rem; letter-spacing: 2px; color: var(--accent-blue); }
+        .timer-badge { font-weight: bold; color: var(--accent-purple); font-size: 1.1rem; letter-spacing: 1px;}
 
-        /* --- 階段零：選關畫面 --- */
-        #level-select-screen { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        .lock-banner { background: rgba(207, 164, 164, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); padding: 12px 20px; border-radius: 12px; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 20px; display: none; width: 100%; max-width: 500px;}
-        .section-title { width: 100%; max-width: 500px; font-size: 1.1rem; color: var(--accent-jade); border-bottom: 2px solid rgba(130, 150, 140, 0.2); padding-bottom: 8px; margin: 20px 0 10px; font-weight: bold; text-align: left; }
+        /* --- 側邊選單 (統一規格) --- */
+        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); backdrop-filter: blur(5px); z-index: 9000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .side-menu-overlay.open { opacity: 1; pointer-events: auto; }
+        .side-menu { position: fixed; top: 0; left: 0; width: 80%; max-width: 320px; height: 100%; background: rgba(240, 248, 255, 0.95); backdrop-filter: blur(20px); border-right: 1px solid var(--glass-border); box-shadow: 10px 0 40px rgba(0,0,0,0.08); transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 9001; display: flex; flex-direction: column; padding-top: max(40px, env(safe-area-inset-top)); }
+        .side-menu.open { transform: translateX(0); }
+        
+        .menu-profile { padding: 0 25px 25px; border-bottom: 1px solid rgba(135, 206, 250, 0.3); margin-bottom: 15px; flex-shrink: 0; }
+        .menu-title { font-size: 1.4rem; font-weight: 500; letter-spacing: 2px; color: var(--accent-blue); }
+        .menu-list { flex: 1; overflow-y: auto; padding: 0 20px 20px; display: flex; flex-direction: column; gap: 12px; }
+        .menu-item { padding: 15px 20px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: 500; cursor: pointer; background: rgba(255,255,255,0.5); color: var(--text-main); text-decoration: none; transition: 0.2s;}
+        .menu-item:active { transform: scale(0.97); background: #fff; border-color: var(--accent-blue); }
+        .menu-icon-wrap { width: 32px; height: 32px; border-radius: 50%; background: #fff; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.04); flex-shrink: 0; }
+        
+        .menu-divider { margin: 10px 0; border-top: 1px dashed rgba(135, 206, 250, 0.5); }
+        .menu-sub-title { font-size: 0.75rem; color: var(--text-light); letter-spacing: 1px; padding-left: 10px; margin-bottom: -5px; }
+
+        /* --- 階段一：主分類大廳 --- */
+        #main-category-screen { flex: 1; overflow-y: auto; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; width: 100%; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .portal-grid { width: 100%; max-width: 600px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;}
+        .portal-btn { background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); border-radius: 24px; padding: 30px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+        .portal-btn:active { transform: scale(0.96); background: rgba(255,255,255,0.95); }
+        .portal-icon { width: 40px; height: 40px; stroke-width: 1.5; fill: none; transition: transform 0.3s; }
+        .portal-name { font-size: 1.05rem; font-weight: 500; letter-spacing: 1px; color: var(--text-main); text-align: center;}
+        
+        .cat-senior .portal-icon { stroke: var(--accent-teal); }
+        .cat-toefl .portal-icon { stroke: var(--accent-purple); }
+        .cat-toeic .portal-icon { stroke: var(--accent-indigo); }
+        .cat-life .portal-icon { stroke: var(--accent-blue); }
+
+        /* --- 階段二：子群組選關 --- */
+        #level-select-screen { flex: 1; overflow-y: auto; padding: 20px; display: none; flex-direction: column; align-items: center; width: 100%; animation: fadeIn 0.5s; }
+        .lock-banner { background: rgba(147, 112, 219, 0.1); border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 12px 20px; border-radius: 12px; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 20px; display: none; width: 100%; max-width: 500px;}
         .grid-container { width: 100%; max-width: 500px; display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
         .group-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 22px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .group-btn:active { transform: scale(0.97); background: #fff; }
-        .g-title { font-size: 1.1rem; font-weight: bold; color: var(--text-main); }
-        .g-status { font-size: 0.85rem; background: rgba(130, 150, 140, 0.15); color: var(--accent-jade); padding: 4px 12px; border-radius: 12px; font-weight: bold; }
+        .group-btn:active { transform: scale(0.97); background: #fff; border-color: var(--accent-blue); }
+        .group-btn.locked { opacity: 0.5; pointer-events: none; filter: grayscale(80%); }
+        .g-title { font-size: 1.1rem; font-weight: bold; color: var(--text-main); letter-spacing: 1px;}
+        .g-status { font-size: 0.85rem; background: rgba(135, 206, 250, 0.2); color: var(--accent-blue); padding: 5px 15px; border-radius: 15px; font-weight: bold; letter-spacing: 1px;}
 
-        /* --- 階段一：定心吸收 --- */
-        #absorb-screen { flex: 1; padding: 20px; overflow-y: auto; display: none; flex-direction: column; align-items: center; }
-        .word-list-card { width: 100%; max-width: 500px; background: var(--glass-bg); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; border: 1px solid var(--glass-border); }
-        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(203,163,122,0.15); }
-        .absorb-word { font-weight: bold; font-size: 1.4rem; color: var(--accent-jade); margin-bottom: 4px; }
-        .audio-btn { padding: 8px 16px; border-radius: 15px; border: 1px solid var(--accent-gold); background: rgba(203,163,122,0.1); color: var(--accent-gold); font-weight: bold; cursor: pointer; }
+        /* --- 階段三：定心吸收 --- */
+        #absorb-screen { flex: 1; padding: 20px; overflow-y: auto; display: none; flex-direction: column; align-items: center; animation: fadeIn 0.5s;}
+        .word-list-card { width: 100%; max-width: 500px; background: var(--glass-bg); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);}
+        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px dashed rgba(135, 206, 250, 0.4); }
+        .absorb-item:last-child { border-bottom: none; }
+        .absorb-word { font-weight: bold; font-size: 1.3rem; color: var(--accent-indigo); margin-bottom: 6px; letter-spacing: 1px;}
+        .audio-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--accent-blue); background: rgba(135, 206, 250, 0.1); color: var(--accent-blue); font-weight: bold; cursor: pointer; transition: 0.2s;}
+        .audio-btn:active { background: var(--accent-blue); color: white; }
 
-        /* --- 階段二：測驗畫面 --- */
+        /* --- 階段四：測驗畫面 --- */
         #test-screen { flex: 1; display: none; flex-direction: column; align-items: center; position: relative; width: 100%; overflow: hidden; }
         .spirit-stage { height: 280px; display: flex; justify-content: center; align-items: center; position: relative; width: 100%; }
         
-        #cloud-svg { width: 220px; height: 260px; transition: 0.5s; z-index: 5; animation: float 4s infinite ease-in-out; transform-origin: center bottom; }
+        #cloud-svg { width: 220px; height: 260px; transition: 0.5s; z-index: 5; animation: float 4s infinite ease-in-out; transform-origin: center bottom; cursor: pointer;}
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
         
         .part { opacity: 0; transition: 0.4s; } .visible { opacity: 1 !important; }
 
-        /* 動態邏輯：凝聚、融化、升空 */
         .condense { animation: condenseAnim 0.8s forwards ease-out; }
         @keyframes condenseAnim { 0% { opacity: 0; transform: scale(0.2); } 100% { opacity: 1; transform: scale(1); } }
         
         .melt { animation: meltAnim 1.6s forwards ease-in; }
-        @keyframes meltAnim {
-    0% { 
-        transform: scaleY(1) scaleX(1) translateY(0); 
-        opacity: 1; 
-    }
-    100% { 
-        transform: scaleY(0.05) scaleX(2.5) translateY(100px); 
-        opacity: 0; 
-    }
-}
-
+        @keyframes meltAnim { 0% { transform: scaleY(1) scaleX(1) translateY(0); opacity: 1; } 100% { transform: scaleY(0.05) scaleX(2.5) translateY(100px); opacity: 0; } }
         
         #rocket { opacity: 0; transition: 0.6s; }
         .rocket-active #rocket { opacity: 1; transform: translateY(-10px); }
@@ -76,52 +105,90 @@
         /* 單字區 */
         .word-test-area { margin-bottom: 15px; text-align: center; flex-shrink: 0; width: 100%; }
         .letter-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 0 15px;}
-        .letter-dash { width: 34px; height: 46px; border-bottom: 4px solid var(--accent-gold); font-size: 1.8rem; font-weight: bold; display: flex; align-items: flex-end; justify-content: center; text-transform: uppercase; color: var(--text-main); transition: 0.3s; }
-        .letter-dash.error-reveal { color: var(--accent-rose); border-bottom-color: var(--accent-rose); }
+        .letter-dash { width: 34px; height: 46px; border-bottom: 4px solid var(--accent-purple); font-size: 1.8rem; font-weight: bold; display: flex; align-items: flex-end; justify-content: center; text-transform: uppercase; color: var(--text-main); transition: 0.3s; }
+        .letter-dash.error-reveal { color: #FF6B6B; border-bottom-color: #FF6B6B; }
 
         /* --- 手機大鍵盤 --- */
-        .keyboard-container { width: 100%; background: rgba(255,255,255,0.4); padding: 12px 8px env(safe-area-inset-bottom); border-top-left-radius: 25px; border-top-right-radius: 25px; }
+        .keyboard-container { width: 100%; background: rgba(255,255,255,0.6); padding: 12px 8px env(safe-area-inset-bottom); border-top-left-radius: 25px; border-top-right-radius: 25px; box-shadow: 0 -5px 20px rgba(0,0,0,0.02);}
         .kb-row { display: flex; justify-content: center; gap: 6px; margin-bottom: 8px; }
         .key { 
             flex: 1; max-width: 46px; height: 54px; 
-            background: #fff; border: none; border-radius: 12px;
+            background: #fff; border: 1px solid var(--glass-border); border-radius: 12px;
             font-size: 1.3rem; font-weight: bold; color: var(--text-main);
-            box-shadow: 0 4px 0 #D1D9E6;
-            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 4px 0 #D1D9E6; display: flex; justify-content: center; align-items: center;
             cursor: pointer; transition: 0.1s;
         }
         .key:active { transform: translateY(3px); box-shadow: 0 1px 0 #D1D9E6; }
-        .key.correct { background: var(--accent-jade); color: white; box-shadow: 0 4px 0 #6A7D74; pointer-events: none; }
-        .key.wrong { background: var(--accent-rose); color: white; box-shadow: 0 4px 0 #A57C7C; opacity: 0.5; pointer-events: none; }
+        .key.correct { background: var(--accent-teal); color: white; box-shadow: 0 4px 0 #5EBA9A; pointer-events: none; border:none;}
+        .key.wrong { background: #FFB6C1; color: white; box-shadow: 0 4px 0 #D1919E; opacity: 0.6; pointer-events: none; border:none;}
 
-        .wisdom-eye-btn { position: absolute; top: 15px; right: 20px; background: var(--glass-bg); border: 2px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: bold; z-index: 20; }
-        #cheat-overlay { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.85); color: var(--accent-gold); padding: 15px 35px; border-radius: 20px; font-size: 2.5rem; font-weight: bold; z-index: 50; display: none; letter-spacing: 5px; }
-
-        .vajra-btn { width: 90%; max-width: 320px; padding: 20px; background: var(--accent-gold); color: white; border: none; border-radius: 25px; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; margin: 20px 0; box-shadow: 0 6px 0 #A68563; }
-        .vajra-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #A68563; }
+        .wisdom-eye-btn { position: absolute; top: 15px; right: 20px; background: var(--glass-bg); border: 2px solid var(--accent-purple); color: var(--accent-purple); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: bold; z-index: 20; box-shadow: 0 4px 10px rgba(147, 112, 219, 0.2);}
+        .wisdom-eye-btn:active { transform: scale(0.95); background: var(--accent-purple); color: white;}
         
-        #result-screen { flex: 1; display: none; flex-direction: column; align-items: center; padding: 30px 20px; text-align: center; }
+        #cheat-overlay { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(75, 0, 130, 0.85); color: #fff; padding: 15px 35px; border-radius: 20px; font-size: 2.5rem; font-weight: bold; z-index: 50; display: none; letter-spacing: 5px; backdrop-filter: blur(5px);}
+
+        .vajra-btn { width: 90%; max-width: 320px; padding: 18px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; border: none; border-radius: 25px; font-size: 1.1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; margin: 20px 0; box-shadow: 0 6px 15px rgba(147, 112, 219, 0.3); transition: 0.2s;}
+        .vajra-btn:active { transform: translateY(3px); box-shadow: 0 2px 5px rgba(147, 112, 219, 0.3); }
+        
+        #result-screen { flex: 1; display: none; flex-direction: column; align-items: center; padding: 50px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
+<div class="side-menu-overlay" id="side-menu-overlay" onclick="toggleMenu()"></div>
+<div class="side-menu" id="side-menu">
+    <div class="menu-profile">
+        <div class="menu-title">單字修煉道場</div>
+    </div>
+    <div class="menu-list" id="dynamic-menu-list">
+        </div>
+</div>
+
 <header>
-    <div class="back-btn" onclick="goBackOrExit()">返回</div>
-    <div id="header-title" style="font-weight:bold; font-size: 1.1rem;">選擇修煉群組</div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="nav-btn" onclick="toggleMenu()">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </div>
+        <div id="header-title">修煉道場</div>
+    </div>
     <div class="timer-badge" id="global-timer"></div>
 </header>
 
+<div id="main-category-screen">
+    <div style="text-align: center; margin-bottom: 10px;">
+        <h2 style="color:var(--accent-indigo); font-weight: 400; letter-spacing: 2px;">選擇修煉法門</h2>
+        <p style="color:var(--text-light); font-size:0.9rem;">請選擇您今日欲突破的語言境界</p>
+    </div>
+    
+    <div class="portal-grid">
+        <div class="portal-btn cat-senior" onclick="enterCategory('senior', '高中 7000 單字')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div class="portal-name">高中 7000</div>
+        </div>
+        <div class="portal-btn cat-toefl" onclick="enterCategory('toefl', '托福高階無礙')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <div class="portal-name">托福高階</div>
+        </div>
+        <div class="portal-btn cat-toeic" onclick="enterCategory('toeic', '多益職場實戰')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <div class="portal-name">多益職場</div>
+        </div>
+        <div class="portal-btn cat-life" onclick="alert('【生活俚語片語】\n開發者妙依籌備中，敬請期待未來的擴充！')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <div class="portal-name">生活俚語</div>
+        </div>
+    </div>
+</div>
+
 <div id="level-select-screen">
-    <div class="lock-banner" id="lock-banner">今日修煉已圓滿。</div>
-    <div class="section-title">高中 7000 單字修煉</div>
-    <div class="grid-container" id="senior-grid"></div>
-    <div class="section-title">托福高階無礙</div>
-    <div class="grid-container" id="toefl-grid"></div>
+    <div class="lock-banner" id="lock-banner">今日修煉已圓滿，請明日再來。</div>
+    <div id="current-category-title" style="font-size: 1.2rem; color: var(--accent-indigo); font-weight: bold; margin-bottom: 20px;"></div>
+    <div class="grid-container" id="group-grid"></div>
 </div>
 
 <div id="absorb-screen">
     <div class="word-list-card" id="word-list-container"></div>
-    <button class="vajra-btn" onclick="startTest()">開始天籟盲測</button>
+    <button class="vajra-btn" onclick="startTest()">開啟天籟盲測</button>
 </div>
 
 <div id="test-screen">
@@ -136,7 +203,7 @@
                     <stop offset="100%" style="stop-color:var(--cloud-bottom);stop-opacity:1" />
                 </linearGradient>
             </defs>
-            <g id="rocket"><path d="M100 130 L85 160 L115 160 Z" fill="var(--accent-rose)" /><rect x="92" y="160" width="16" height="20" fill="var(--accent-gold)"/></g>
+            <g id="rocket"><path d="M100 130 L85 160 L115 160 Z" fill="var(--accent-purple)" /><rect x="92" y="160" width="16" height="20" fill="var(--accent-teal)"/></g>
             <path id="s-body" class="part" fill="url(#cloudGrad)" d="M50,130 Q30,130 30,110 Q30,80 60,80 Q60,50 100,50 Q140,50 140,80 Q170,80 170,110 Q170,130 150,130 Z" stroke="#90A4AE" stroke-width="2.5" />
             <g id="s-head" class="part">
                 <line x1="80" y1="95" x2="100" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
@@ -157,72 +224,101 @@
 </div>
 
 <div id="result-screen">
-    <h1 style="color:var(--accent-jade);">修煉圓滿</h1>
-    <div id="result-desc" style="font-size:1.2rem; margin: 20px 0;"></div>
-    <button class="vajra-btn" onclick="location.reload()">再煉一次</button>
+    <h1 style="color:var(--accent-indigo); margin-bottom: 5px;">修煉圓滿</h1>
+    <div id="result-desc" style="font-size:1.2rem; color:var(--text-main); margin: 20px 0 40px; letter-spacing: 1px;"></div>
+    <button class="vajra-btn" onclick="location.reload()">返回分類大廳</button>
 </div>
 
 <script>
-// --- 核心安全檢查：確保單字庫存在 ---
+// --- 確保單字庫存在 (開發安全測試) ---
 if (typeof window.QuestionBank === 'undefined') {
     window.QuestionBank = {
-        senior: [{title: "測試階段一", words: [{word:"PEACE", meaning:"和平"}, {word:"WISDOM", meaning:"智慧"}]}],
-        toefl: [{title: "高階測試", words: [{word:"ETERNITY", meaning:"永恆"}]}]
+        senior: [{title: "A組-1", words: [{word:"PEACE", meaning:"和平"}]}],
+        toefl: [{title: "托福-1", words: [{word:"WISDOM", meaning:"智慧"}]}],
+        toeic: [{title: "商務-1", words: [{word:"PROFIT", meaning:"利潤"}]}]
     };
-    console.log("提示：未偵測到外部單字庫，已啟用內建測試單字。");
 }
 
-let currentWords = []; let currentStep = -1; let testIndex = 0; 
+let activeCategoryKey = '';
+let currentWords = []; let testIndex = 0; 
 let mistakes = 0; let guessedLetters = new Set(); let correctCount = 0; let usedCheat = false;
 let globalTimerInterval;
 
-function initLevelSelect() {
-    currentStep = -1;
+// 1. 動態漢堡選單產生器
+function updateDynamicMenu() {
+    const menuList = document.getElementById('dynamic-menu-list');
+    let html = `
+        <a href="index.html" class="menu-item">
+            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>回首頁大廳
+        </a>
+        <div class="menu-item" onclick="location.reload()">
+            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>單字分類大廳
+        </div>
+    `;
+
+    // 如果目前已經進入某個分類 (例如高中)，就在選單列出捷徑
+    if (activeCategoryKey && QuestionBank[activeCategoryKey]) {
+        html += `<div class="menu-divider"></div>`;
+        html += `<div class="menu-sub-title">本區捷徑 (${activeCategoryKey.toUpperCase()})</div>`;
+        
+        QuestionBank[activeCategoryKey].forEach(group => {
+            html += `
+            <div class="menu-item" style="border:none; box-shadow:none; padding:10px 20px; background:transparent;" onclick="toggleMenu(); currentWords = ${JSON.stringify(group.words).replace(/"/g, '&quot;')}; initAbsorb();">
+                <div style="width:8px; height:8px; border-radius:50%; background:var(--accent-blue);"></div>${group.title}
+            </div>`;
+        });
+    }
+    
+    menuList.innerHTML = html;
+}
+
+function toggleMenu() { 
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    updateDynamicMenu(); // 每次打開前刷新內容
+    document.getElementById('side-menu').classList.toggle('open'); 
+    document.getElementById('side-menu-overlay').classList.toggle('open'); 
+}
+
+// 2. 進入子分類群組
+function enterCategory(categoryKey, titleText) {
+    activeCategoryKey = categoryKey;
+    document.getElementById('main-category-screen').style.display = 'none';
+    document.getElementById('level-select-screen').style.display = 'flex';
+    document.getElementById('header-title').innerText = "群組列表";
+    document.getElementById('current-category-title').innerText = `✦ ${titleText} ✦`;
+
     const d = new Date();
     const todayStr = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
     const isLocked = (localStorage.getItem('prajna_last_completed_date') === todayStr);
     if(isLocked) document.getElementById('lock-banner').style.display = 'block';
 
-    function renderGrid(containerId, category) {
-        const grid = document.getElementById(containerId); 
-        if (!grid) return;
-        grid.innerHTML = '';
-        if(QuestionBank[category]) {
-            QuestionBank[category].forEach(group => {
-                const btn = document.createElement('div');
-                btn.className = `group-btn ${isLocked ? 'locked' : ''}`;
-                btn.innerHTML = `<span class="g-title">${group.title}</span><span class="g-status">任務</span>`;
-                btn.onclick = () => { currentWords = group.words; initAbsorb(); };
-                grid.appendChild(btn);
-            });
-        }
-    }
-    renderGrid('senior-grid', 'senior'); renderGrid('toefl-grid', 'toefl');
-}
-
-function goBackOrExit() {
-    if (currentStep === -1 || currentStep === 2) window.location.href = 'index.html';
-    else {
-        clearInterval(globalTimerInterval);
-        document.getElementById('absorb-screen').style.display = 'none';
-        document.getElementById('test-screen').style.display = 'none';
-        document.getElementById('level-select-screen').style.display = 'flex';
-        document.getElementById('header-title').innerText = "選擇修煉群組";
-        document.getElementById('global-timer').innerText = "";
-        currentStep = -1;
+    const grid = document.getElementById('group-grid');
+    grid.innerHTML = '';
+    
+    if(QuestionBank[categoryKey]) {
+        QuestionBank[categoryKey].forEach(group => {
+            const btn = document.createElement('div');
+            btn.className = `group-btn ${isLocked ? 'locked' : ''}`;
+            btn.innerHTML = `<span class="g-title">${group.title}</span><span class="g-status">進入</span>`;
+            btn.onclick = () => { currentWords = group.words; initAbsorb(); };
+            grid.appendChild(btn);
+        });
+    } else {
+        grid.innerHTML = '<div style="text-align:center; color:var(--text-light);">此區題庫建置中</div>';
     }
 }
 
+// 3. 吸收與測驗邏輯
 function initAbsorb() {
-    currentStep = 0;
     document.getElementById('level-select-screen').style.display = 'none';
     document.getElementById('absorb-screen').style.display = 'flex';
     document.getElementById('header-title').innerText = "定心吸收";
+    
     document.getElementById('word-list-container').innerHTML = currentWords.map(w => `
         <div class="absorb-item">
             <div style="flex:1;">
                 <div class="absorb-word">${w.word}</div>
-                <div style="font-size:1rem; color:var(--text-main);">${w.meaning}</div>
+                <div style="font-size:0.95rem; color:var(--text-main);">${w.meaning}</div>
             </div>
             <button class="audio-btn" onclick="speak('${w.word}')">聽發音</button>
         </div>
@@ -230,7 +326,6 @@ function initAbsorb() {
     
     let timeLeft = 600;
     globalTimerInterval = setInterval(() => {
-        if (currentStep !== 0) { clearInterval(globalTimerInterval); return; }
         if (timeLeft <= 0) { startTest(); return; }
         timeLeft--;
         document.getElementById('global-timer').innerText = `${Math.floor(timeLeft / 60)}:${timeLeft % 60 < 10 ? '0' : ''}${timeLeft % 60}`;
@@ -238,7 +333,8 @@ function initAbsorb() {
 }
 
 function startTest() {
-    currentStep = 1; clearInterval(globalTimerInterval);
+    clearInterval(globalTimerInterval);
+    document.getElementById('global-timer').innerText = "";
     document.getElementById('absorb-screen').style.display = 'none';
     document.getElementById('test-screen').style.display = 'flex';
     document.getElementById('header-title').innerText = "天籟盲測";
@@ -250,15 +346,13 @@ function loadWordTest() {
     if (testIndex >= currentWords.length) { showFinalResult(); return; }
     guessedLetters.clear(); mistakes = 0; usedCheat = false;
     
-    // 凝聚化生邏輯
     const svg = document.getElementById('cloud-svg');
     svg.classList.remove('melt');
-    void svg.offsetWidth; // 觸發重繪
+    void svg.offsetWidth; 
     svg.classList.add('condense');
     document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
     document.getElementById('spirit-stage').classList.remove('rocket-active', 'liftoff');
     
-    // 完全空白開局
     document.getElementById('letter-row').innerHTML = currentWords[testIndex].word.split('').map(() => `<div class="letter-dash"></div>`).join('');
     
     initKeyboard();
@@ -329,11 +423,10 @@ function revealAnswer() {
 }
 
 function showFinalResult() {
-    currentStep = 2;
     document.getElementById('test-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'flex';
     document.getElementById('header-title').innerText = "結算";
-    document.getElementById('result-desc').innerHTML = `成功化生升空數：<b>${correctCount}</b> / ${currentWords.length}`;
+    document.getElementById('result-desc').innerHTML = `成功化生升空數：<br><b style="font-size:2rem; color:var(--accent-teal);">${correctCount}</b> / ${currentWords.length}`;
     localStorage.setItem('prajna_last_completed_date', `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`);
 }
 
@@ -342,7 +435,17 @@ function speak(text) {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
     let msg = new SpeechSynthesisUtterance(text); msg.lang = 'en-US'; msg.rate = 0.8; 
-    window.speechSynthesis.speak(msg);
+    let isAndroid = /Android/i.test(navigator.userAgent);
+    if (isAndroid) {
+        window.sysUtterances.push(msg);
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            let enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || voices.find(v => v.lang.includes('en'));
+            if (enVoice) msg.voice = enVoice;
+        }
+    }
+    msg.onend = () => { if(isAndroid) window.sysUtterances = window.sysUtterances.filter(u => u !== msg); };
+    setTimeout(() => { window.speechSynthesis.speak(msg); }, isAndroid ? 150 : 50);
 }
 
 function initKeyboard() {
@@ -356,7 +459,10 @@ function initKeyboard() {
     kb.style.pointerEvents = 'auto';
 }
 
-window.onload = initLevelSelect;
+// 移除原有的 window.onload 直接進題庫邏輯，改由 HTML 直接顯示第一層分類大廳
+window.onload = () => {
+    updateDynamicMenu();
+};
 </script>
 </body>
 </html>
