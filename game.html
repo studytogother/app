@@ -3,50 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>化生單字測驗 - 般若學習系統</title>
-    <script src="question_bank.js?v=7"></script>
+    <title>全壘打單字大賽</title>
+    <script src="question_bank.js?v=8"></script>
     <style>
         :root {
-            /* 淨透琉璃配色系 */
-            --bg-gradient: linear-gradient(135deg, #F0F8FF, #E6E6FA);
-            --glass-bg: rgba(255, 255, 255, 0.75);
-            --glass-border: rgba(200, 200, 255, 0.9);
-            --text-main: #4A4A6A; 
-            --text-light: #8A8AAB;
-            --accent-blue: #87CEFA; --accent-purple: #9370DB; --accent-teal: #7FFFD4; --accent-indigo: #4B0082;
-            --shadow-soft: 0 10px 40px rgba(100, 100, 150, 0.1);
+            /* 莫蘭迪藍色系 (Morandi Blue Palette) & 玻璃擬物風 */
+            --bg-gradient: linear-gradient(135deg, #E2E8F0, #CBD5E1);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --text-main: #475569; 
+            --text-light: #64748B;
+            --accent-blue: #64748B; /* 莫蘭迪主藍 */
+            --accent-purple: #71717A; /* 莫蘭迪灰紫 */
+            --accent-teal: #7393A7; /* 莫蘭迪灰青 */
+            --accent-indigo: #4B5563; /* 莫蘭迪深藍灰 */
+            --shadow-soft: 0 10px 40px rgba(71, 85, 105, 0.1);
             
-            /* 化生雲朵專屬色 */
-            --cloud-top: #E1F5FE;
-            --cloud-bottom: #B3E5FC;
+            /* 棒球場地專屬色 (調和莫蘭迪色調) */
+            --field-grass: rgba(148, 163, 153, 0.5);
+            --field-dirt: rgba(186, 172, 158, 0.5);
+            --strike-red: #B57F7F;
+            --base-lit: #4B5563;
         }
         
         * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
         html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--bg-gradient); color: var(--text-main); font-family: -apple-system, sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        /* --- 頂部導航 (統一規格) --- */
+        /* --- 頂部導航 (維持代碼一規格) --- */
         header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: blur(12px); z-index: 100; }
         .nav-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-main); cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .nav-btn:active { transform: scale(0.92); background: rgba(255,255,255,0.9); }
         
-        #header-title { font-weight: 500; font-size: 1.15rem; letter-spacing: 2px; color: var(--accent-blue); }
-        .timer-badge { font-weight: bold; color: var(--accent-purple); font-size: 1.1rem; letter-spacing: 1px;}
+        #header-title { font-weight: 600; font-size: 1.15rem; letter-spacing: 2px; color: var(--accent-indigo); }
+        .timer-badge { font-weight: bold; color: var(--accent-blue); font-size: 1.1rem; letter-spacing: 1px;}
 
-        /* --- 側邊選單 (統一規格) --- */
-        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.25); backdrop-filter: blur(5px); z-index: 9000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        /* --- 側邊選單 (維持代碼一規格) --- */
+        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.15); backdrop-filter: blur(4px); z-index: 9000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
         .side-menu-overlay.open { opacity: 1; pointer-events: auto; }
-        .side-menu { position: fixed; top: 0; left: 0; width: 80%; max-width: 320px; height: 100%; background: rgba(240, 248, 255, 0.95); backdrop-filter: blur(20px); border-right: 1px solid var(--glass-border); box-shadow: 10px 0 40px rgba(0,0,0,0.08); transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 9001; display: flex; flex-direction: column; padding-top: max(40px, env(safe-area-inset-top)); }
+        .side-menu { position: fixed; top: 0; left: 0; width: 80%; max-width: 320px; height: 100%; background: rgba(241, 245, 249, 0.95); backdrop-filter: blur(20px); border-right: 1px solid var(--glass-border); box-shadow: 10px 0 40px rgba(0,0,0,0.08); transform: translateX(-100%); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 9001; display: flex; flex-direction: column; padding-top: max(40px, env(safe-area-inset-top)); }
         .side-menu.open { transform: translateX(0); }
         
-        .menu-profile { padding: 0 25px 25px; border-bottom: 1px solid rgba(135, 206, 250, 0.3); margin-bottom: 15px; flex-shrink: 0; }
-        .menu-title { font-size: 1.4rem; font-weight: 500; letter-spacing: 2px; color: var(--accent-blue); }
+        .menu-profile { padding: 0 25px 25px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); margin-bottom: 15px; flex-shrink: 0; }
+        .menu-title { font-size: 1.4rem; font-weight: 600; letter-spacing: 2px; color: var(--accent-indigo); }
         .menu-list { flex: 1; overflow-y: auto; padding: 0 20px 20px; display: flex; flex-direction: column; gap: 12px; }
-        .menu-item { padding: 15px 20px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: 500; cursor: pointer; background: rgba(255,255,255,0.5); color: var(--text-main); text-decoration: none; transition: 0.2s;}
+        .menu-item { padding: 15px 20px; border-radius: 20px; border: 1px solid var(--glass-border); display: flex; align-items: center; gap: 15px; font-size: 0.95rem; font-weight: 600; cursor: pointer; background: rgba(255,255,255,0.6); color: var(--text-main); text-decoration: none; transition: 0.2s;}
         .menu-item:active { transform: scale(0.97); background: #fff; border-color: var(--accent-blue); }
         .menu-icon-wrap { width: 32px; height: 32px; border-radius: 50%; background: #fff; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.04); flex-shrink: 0; }
         
-        .menu-divider { margin: 10px 0; border-top: 1px dashed rgba(135, 206, 250, 0.5); }
-        .menu-sub-title { font-size: 0.75rem; color: var(--text-light); letter-spacing: 1px; padding-left: 10px; margin-bottom: -5px; }
+        .menu-divider { margin: 10px 0; border-top: 1px dashed rgba(100, 116, 139, 0.3); }
+        .menu-sub-title { font-size: 0.75rem; color: var(--text-light); letter-spacing: 1px; padding-left: 10px; margin-bottom: -5px; font-weight: 600; }
 
         /* --- 階段一：主分類大廳 --- */
         #main-category-screen { flex: 1; overflow-y: auto; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; width: 100%; animation: fadeIn 0.5s; }
@@ -55,82 +60,80 @@
         .portal-grid { width: 100%; max-width: 600px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;}
         .portal-btn { background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); border-radius: 24px; padding: 30px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
         .portal-btn:active { transform: scale(0.96); background: rgba(255,255,255,0.95); }
-        .portal-icon { width: 40px; height: 40px; stroke-width: 1.5; fill: none; transition: transform 0.3s; }
-        .portal-name { font-size: 1.05rem; font-weight: 500; letter-spacing: 1px; color: var(--text-main); text-align: center;}
-        
-        .cat-senior .portal-icon { stroke: var(--accent-teal); }
-        .cat-toefl .portal-icon { stroke: var(--accent-purple); }
-        .cat-toeic .portal-icon { stroke: var(--accent-indigo); }
-        .cat-life .portal-icon { stroke: var(--accent-blue); }
+        .portal-icon { width: 40px; height: 40px; stroke-width: 1.5; fill: none; transition: transform 0.3s; stroke: var(--accent-blue); }
+        .portal-name { font-size: 1.05rem; font-weight: 600; letter-spacing: 1px; color: var(--text-main); text-align: center;}
 
         /* --- 階段二：子群組選關 --- */
         #level-select-screen { flex: 1; overflow-y: auto; padding: 20px; display: none; flex-direction: column; align-items: center; width: 100%; animation: fadeIn 0.5s; }
-        .lock-banner { background: rgba(147, 112, 219, 0.1); border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 12px 20px; border-radius: 12px; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 20px; display: none; width: 100%; max-width: 500px;}
+        .lock-banner { background: rgba(113, 113, 122, 0.1); border: 1px solid var(--accent-purple); color: var(--accent-purple); padding: 12px 20px; border-radius: 12px; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 20px; display: none; width: 100%; max-width: 500px;}
         .grid-container { width: 100%; max-width: 500px; display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px; }
         .group-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 22px 20px; border-radius: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
         .group-btn:active { transform: scale(0.97); background: #fff; border-color: var(--accent-blue); }
         .group-btn.locked { opacity: 0.5; pointer-events: none; filter: grayscale(80%); }
-        .g-title { font-size: 1.1rem; font-weight: bold; color: var(--text-main); letter-spacing: 1px;}
-        .g-status { font-size: 0.85rem; background: rgba(135, 206, 250, 0.2); color: var(--accent-blue); padding: 5px 15px; border-radius: 15px; font-weight: bold; letter-spacing: 1px;}
+        .g-title { font-size: 1.1rem; font-weight: 600; color: var(--text-main); letter-spacing: 1px;}
+        .g-status { font-size: 0.85rem; background: rgba(100, 116, 139, 0.15); color: var(--accent-blue); padding: 5px 15px; border-radius: 15px; font-weight: bold; letter-spacing: 1px;}
 
-        /* --- 階段三：定心吸收 --- */
+        /* --- 階段三：賽前訓練 (原定心吸收) --- */
         #absorb-screen { flex: 1; padding: 20px; overflow-y: auto; display: none; flex-direction: column; align-items: center; animation: fadeIn 0.5s;}
         .word-list-card { width: 100%; max-width: 500px; background: var(--glass-bg); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);}
-        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px dashed rgba(135, 206, 250, 0.4); }
+        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px dashed rgba(100, 116, 139, 0.3); }
         .absorb-item:last-child { border-bottom: none; }
         .absorb-word { font-weight: bold; font-size: 1.3rem; color: var(--accent-indigo); margin-bottom: 6px; letter-spacing: 1px;}
-        .audio-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--accent-blue); background: rgba(135, 206, 250, 0.1); color: var(--accent-blue); font-weight: bold; cursor: pointer; transition: 0.2s;}
+        .audio-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--accent-blue); background: rgba(100, 116, 139, 0.1); color: var(--accent-blue); font-weight: bold; cursor: pointer; transition: 0.2s;}
         .audio-btn:active { background: var(--accent-blue); color: white; }
 
-        /* --- 階段四：測驗畫面 --- */
+        /* --- 階段四：棒球測驗畫面 --- */
         #test-screen { flex: 1; display: none; flex-direction: column; align-items: center; position: relative; width: 100%; overflow: hidden; }
-        .spirit-stage { height: 280px; display: flex; justify-content: center; align-items: center; position: relative; width: 100%; }
         
-        #cloud-svg { width: 220px; height: 260px; transition: 0.5s; z-index: 5; animation: float 4s infinite ease-in-out; transform-origin: center bottom; cursor: pointer;}
-        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
+        .baseball-stage { height: 320px; width: 100%; position: relative; display: flex; justify-content: center; align-items: center; flex-shrink: 0; margin-top: 10px;}
+        .field-svg { width: 100%; max-width: 400px; height: 100%; drop-shadow: var(--shadow-soft); }
         
-        .part { opacity: 0; transition: 0.4s; } .visible { opacity: 1 !important; }
+        /* 棒球動畫與元素 */
+        #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; }
+        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; }
+        .swinging .bat-svg { transform: rotate(100deg); }
 
-        .condense { animation: condenseAnim 0.8s forwards ease-out; }
-        @keyframes condenseAnim { 0% { opacity: 0; transform: scale(0.2); } 100% { opacity: 1; transform: scale(1); } }
-        
-        .melt { animation: meltAnim 1.6s forwards ease-in; }
-        @keyframes meltAnim { 0% { transform: scaleY(1) scaleX(1) translateY(0); opacity: 1; } 100% { transform: scaleY(0.05) scaleX(2.5) translateY(100px); opacity: 0; } }
-        
-        #rocket { opacity: 0; transition: 0.6s; }
-        .rocket-active #rocket { opacity: 1; transform: translateY(-10px); }
-        .liftoff { animation: liftoffAnim 1.6s forwards cubic-bezier(0.4, 0, 1, 1); }
-        @keyframes liftoffAnim { 0% { transform: translateY(0); } 100% { transform: translateY(-1200px); } }
+        .scoreboard { position: absolute; top: 15px; left: 20px; color: var(--accent-indigo); background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 8px 15px; border-radius: 12px; font-size: 0.9rem; font-weight: bold; z-index: 10; box-shadow: var(--shadow-soft); backdrop-filter: blur(5px);}
+        .strike-row { display: flex; gap: 5px; margin-top: 6px; }
+        .s-dot { width: 12px; height: 12px; border: 2px solid var(--accent-blue); border-radius: 50%; background: transparent; }
+        .s-active { background: var(--strike-red); border-color: var(--strike-red); box-shadow: 0 0 8px rgba(181, 127, 127, 0.6); }
 
-        /* 單字區 */
-        .word-test-area { margin-bottom: 15px; text-align: center; flex-shrink: 0; width: 100%; }
-        .letter-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 0 15px;}
-        .letter-dash { width: 34px; height: 46px; border-bottom: 4px solid var(--accent-purple); font-size: 1.8rem; font-weight: bold; display: flex; align-items: flex-end; justify-content: center; text-transform: uppercase; color: var(--text-main); transition: 0.3s; }
-        .letter-dash.error-reveal { color: #FF6B6B; border-bottom-color: #FF6B6B; }
+        .base-indicator { position: absolute; top: 15px; right: 20px; width: 60px; height: 60px; z-index: 10; }
+        .base-rect { fill: rgba(100, 116, 139, 0.2); stroke: var(--glass-border); stroke-width: 2; transition: fill 0.3s; }
+        .base-rect.active { fill: var(--base-lit); stroke: var(--base-lit); }
 
-        /* --- 手機大鍵盤 --- */
-        .keyboard-container { width: 100%; background: rgba(255,255,255,0.6); padding: 12px 8px env(safe-area-inset-bottom); border-top-left-radius: 25px; border-top-right-radius: 25px; box-shadow: 0 -5px 20px rgba(0,0,0,0.02);}
+        #announcer { position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%) scale(0); font-size: 3rem; font-weight: 900; color: var(--accent-indigo); text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff; z-index: 500; pointer-events: none; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); letter-spacing: 2px;}
+        .show-msg { transform: translate(-50%, -50%) scale(1) !important; }
+
+        /* 單字區與鍵盤 */
+        .word-test-area { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; padding: 0 15px; }
+        .hint-meaning { font-size: 1.1rem; font-weight: 600; color: var(--accent-indigo); margin-bottom: 12px; text-align: center; }
+        
+        .letter-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 15px;}
+        .letter-dash { width: 32px; height: 42px; border-bottom: 3px solid var(--accent-blue); font-size: 1.6rem; font-weight: bold; display: flex; align-items: flex-end; justify-content: center; text-transform: uppercase; color: var(--text-main); transition: 0.3s; }
+
+        .scan-btn { background: var(--glass-bg); border: 1px solid var(--accent-teal); color: var(--accent-teal); padding: 10px 24px; border-radius: 20px; font-size: 0.95rem; cursor: pointer; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(115, 147, 167, 0.15); transition: 0.2s;}
+        .scan-btn:active { transform: scale(0.96); }
+        .scan-btn:disabled { opacity: 0.5; pointer-events: none; border-color: var(--text-light); color: var(--text-light); }
+        .scan-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .keyboard-container { width: 100%; background: rgba(255,255,255,0.5); backdrop-filter: blur(10px); padding: 15px 8px env(safe-area-inset-bottom); border-top: 1px solid var(--glass-border); box-shadow: 0 -5px 20px rgba(0,0,0,0.02);}
         .kb-row { display: flex; justify-content: center; gap: 6px; margin-bottom: 8px; }
         .key { 
-            flex: 1; max-width: 46px; height: 54px; 
-            background: #fff; border: 1px solid var(--glass-border); border-radius: 12px;
-            font-size: 1.3rem; font-weight: bold; color: var(--text-main);
-            box-shadow: 0 4px 0 #D1D9E6; display: flex; justify-content: center; align-items: center;
+            flex: 1; max-width: 44px; height: 50px; 
+            background: rgba(255,255,255,0.8); border: 1px solid var(--glass-border); border-radius: 10px;
+            font-size: 1.25rem; font-weight: bold; color: var(--text-main);
+            box-shadow: 0 3px 0 rgba(100, 116, 139, 0.2); display: flex; justify-content: center; align-items: center;
             cursor: pointer; transition: 0.1s;
         }
-        .key:active { transform: translateY(3px); box-shadow: 0 1px 0 #D1D9E6; }
-        .key.correct { background: var(--accent-teal); color: white; box-shadow: 0 4px 0 #5EBA9A; pointer-events: none; border:none;}
-        .key.wrong { background: #FFB6C1; color: white; box-shadow: 0 4px 0 #D1919E; opacity: 0.6; pointer-events: none; border:none;}
+        .key:active { transform: translateY(3px); box-shadow: 0 0px 0 rgba(100, 116, 139, 0.2); }
+        .key.correct { background: var(--accent-teal); color: white; box-shadow: 0 3px 0 #5C7A8D; pointer-events: none; border:none;}
+        .key.wrong { background: var(--strike-red); color: white; box-shadow: 0 3px 0 #936565; opacity: 0.6; pointer-events: none; border:none;}
 
-        .wisdom-eye-btn { position: absolute; top: 15px; right: 20px; background: var(--glass-bg); border: 2px solid var(--accent-purple); color: var(--accent-purple); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: bold; z-index: 20; box-shadow: 0 4px 10px rgba(147, 112, 219, 0.2);}
-        .wisdom-eye-btn:active { transform: scale(0.95); background: var(--accent-purple); color: white;}
+        .main-action-btn { width: 90%; max-width: 320px; padding: 18px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal)); color: white; border: none; border-radius: 25px; font-size: 1.1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; margin: 20px 0; box-shadow: 0 6px 15px rgba(100, 116, 139, 0.3); transition: 0.2s;}
+        .main-action-btn:active { transform: translateY(3px); box-shadow: 0 2px 5px rgba(100, 116, 139, 0.3); }
         
-        #cheat-overlay { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); background: rgba(75, 0, 130, 0.85); color: #fff; padding: 15px 35px; border-radius: 20px; font-size: 2.5rem; font-weight: bold; z-index: 50; display: none; letter-spacing: 5px; backdrop-filter: blur(5px);}
-
-        .vajra-btn { width: 90%; max-width: 320px; padding: 18px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; border: none; border-radius: 25px; font-size: 1.1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; margin: 20px 0; box-shadow: 0 6px 15px rgba(147, 112, 219, 0.3); transition: 0.2s;}
-        .vajra-btn:active { transform: translateY(3px); box-shadow: 0 2px 5px rgba(147, 112, 219, 0.3); }
-        
-        #result-screen { flex: 1; display: none; flex-direction: column; align-items: center; padding: 50px 20px; text-align: center; }
+        #result-screen { flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 50px 20px; text-align: center; }
     </style>
 </head>
 <body>
@@ -138,26 +141,25 @@
 <div class="side-menu-overlay" id="side-menu-overlay" onclick="toggleMenu()"></div>
 <div class="side-menu" id="side-menu">
     <div class="menu-profile">
-        <div class="menu-title">單字修煉道場</div>
+        <div class="menu-title">單字競技場</div>
     </div>
-    <div class="menu-list" id="dynamic-menu-list">
-        </div>
+    <div class="menu-list" id="dynamic-menu-list"></div>
 </div>
 
 <header>
     <div style="display: flex; align-items: center; gap: 12px;">
         <div class="nav-btn" onclick="toggleMenu()">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </div>
-        <div id="header-title">修煉道場</div>
+        <div id="header-title">競技大廳</div>
     </div>
     <div class="timer-badge" id="global-timer"></div>
 </header>
 
 <div id="main-category-screen">
     <div style="text-align: center; margin-bottom: 10px;">
-        <h2 style="color:var(--accent-indigo); font-weight: 400; letter-spacing: 2px;">選擇修煉法門</h2>
-        <p style="color:var(--text-light); font-size:0.9rem;">請選擇您今日欲突破的語言境界</p>
+        <h2 style="color:var(--accent-indigo); font-weight: 600; letter-spacing: 2px;">選擇挑戰賽區</h2>
+        <p style="color:var(--text-light); font-size:0.9rem;">請選擇您今日欲挑戰的單字聯盟</p>
     </div>
     
     <div class="portal-grid">
@@ -165,15 +167,15 @@
             <svg class="portal-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             <div class="portal-name">高中 7000</div>
         </div>
-        <div class="portal-btn cat-toefl" onclick="enterCategory('toefl', '托福高階無礙')">
+        <div class="portal-btn cat-toefl" onclick="enterCategory('toefl', '托福高階聯盟')">
             <svg class="portal-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             <div class="portal-name">托福高階</div>
         </div>
-        <div class="portal-btn cat-toeic" onclick="enterCategory('toeic', '多益職場實戰')">
+        <div class="portal-btn cat-toeic" onclick="enterCategory('toeic', '多益職場聯盟')">
             <svg class="portal-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             <div class="portal-name">多益職場</div>
         </div>
-        <div class="portal-btn cat-life" onclick="alert('【生活俚語片語】\n開發者妙依籌備中，敬請期待未來的擴充！')">
+        <div class="portal-btn cat-life" onclick="alert('生活俚語賽區籌備中，敬請期待！')">
             <svg class="portal-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             <div class="portal-name">生活俚語</div>
         </div>
@@ -181,67 +183,87 @@
 </div>
 
 <div id="level-select-screen">
-    <div class="lock-banner" id="lock-banner">今日修煉已圓滿，請明日再來。</div>
+    <div class="lock-banner" id="lock-banner">今日賽程已完成，請明日再來。</div>
     <div id="current-category-title" style="font-size: 1.2rem; color: var(--accent-indigo); font-weight: bold; margin-bottom: 20px;"></div>
     <div class="grid-container" id="group-grid"></div>
 </div>
 
 <div id="absorb-screen">
     <div class="word-list-card" id="word-list-container"></div>
-    <button class="vajra-btn" onclick="startTest()">開啟天籟盲測</button>
+    <button class="main-action-btn" onclick="startTest()">進入打擊區 (開始測驗)</button>
 </div>
 
 <div id="test-screen">
-    <button class="wisdom-eye-btn" onclick="useCheatEye()">慧眼</button>
-    <div id="cheat-overlay"></div>
+    <div class="scoreboard">
+        SCORE: <span id="game-score">0</span> | Q: <span id="game-q-idx">1/10</span>
+        <div class="strike-row" id="strike-dots">
+            <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
+        </div>
+    </div>
+    <svg class="base-indicator" viewBox="0 0 100 100">
+        <rect x="44" y="5" width="12" height="12" transform="rotate(45 50 11)" class="base-rect" id="ind-2" /> 
+        <rect x="84" y="45" width="12" height="12" transform="rotate(45 90 51)" class="base-rect" id="ind-1" /> 
+        <rect x="4" y="45" width="12" height="12" transform="rotate(45 10 51)" class="base-rect" id="ind-3" /> 
+    </svg>
 
-    <div class="spirit-stage" id="spirit-stage">
-        <svg id="cloud-svg" viewBox="0 0 200 240" onclick="playCurrentWordAudio()">
-            <defs>
-                <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:var(--cloud-top);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:var(--cloud-bottom);stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <g id="rocket"><path d="M100 130 L85 160 L115 160 Z" fill="var(--accent-purple)" /><rect x="92" y="160" width="16" height="20" fill="var(--accent-teal)"/></g>
-            <path id="s-body" class="part" fill="url(#cloudGrad)" d="M50,130 Q30,130 30,110 Q30,80 60,80 Q60,50 100,50 Q140,50 140,80 Q170,80 170,110 Q170,130 150,130 Z" stroke="#90A4AE" stroke-width="2.5" />
-            <g id="s-head" class="part">
-                <line x1="80" y1="95" x2="100" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
-                <line x1="110" y1="95" x2="130" y2="95" stroke="#333" stroke-width="4" stroke-linecap="round" />
-                <path d="M95 112 Q105 108 115 112" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round" />
+    <div class="baseball-stage" id="baseball-stage">
+        <svg class="field-svg" viewBox="0 0 400 300">
+            <path d="M0 150 L400 150 L400 300 L0 300 Z" fill="var(--field-grass)" />
+            <path d="M200 150 L360 300 L40 300 Z" fill="var(--field-dirt)" />
+            <circle cx="200" cy="170" r="30" fill="rgba(255,255,255,0.1)" />
+            <path d="M185 275 L215 275 L220 288 L200 298 L180 288 Z" fill="rgba(255,255,255,0.9)" />
+            
+            <g transform="translate(192, 145) scale(0.35)" fill-opacity="0.8">
+                <rect x="0" y="20" width="40" height="45" rx="5" fill="var(--accent-purple)" />
+                <rect x="7" y="0" width="26" height="20" rx="8" fill="#E2E8F0" />
+                <path d="M7 10 Q7 0 20 0 Q33 0 33 10 Z" fill="var(--accent-purple)" />
             </g>
-            <g id="s-legs" class="part">
-                <line x1="85" y1="130" x2="85" y2="210" stroke="#90A4AE" stroke-width="5" stroke-linecap="round" />
-                <line x1="125" y1="130" x2="125" y2="210" stroke="#90A4AE" stroke-width="5" stroke-linecap="round" />
+            
+            <g id="batter-group" transform="translate(140, 220)" fill-opacity="0.9">
+                <rect x="30" y="45" width="35" height="45" rx="5" fill="var(--accent-indigo)" />
+                <rect x="36" y="22" width="22" height="22" rx="7" fill="#E2E8F0" />
+                <path d="M36 26 Q36 18 47 18 Q58 18 58 26 Z" fill="var(--accent-indigo)" />
+                <rect x="58" y="23" width="10" height="3" fill="var(--accent-indigo)" rx="1.5" />
+                <g class="bat-svg">
+                    <rect x="38" y="-5" width="7" height="70" rx="3" fill="var(--text-main)" />
+                </g>
             </g>
+            <circle id="v-ball" cx="200" cy="165" r="5" fill="white" style="display:none; box-shadow: 0 0 5px rgba(255,255,255,0.8);" />
         </svg>
+        <div id="announcer">HIT!</div>
     </div>
     
     <div class="word-test-area">
+        <div class="hint-meaning" id="hint-meaning"></div>
         <div class="letter-row" id="letter-row"></div>
+        <button class="scan-btn" id="scan-btn" onclick="useMagicBall()">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            鷹眼掃描 (剩 1 次)
+        </button>
     </div>
     <div class="keyboard-container" id="keyboard"></div>
 </div>
 
 <div id="result-screen">
-    <h1 style="color:var(--accent-indigo); margin-bottom: 5px;">修煉圓滿</h1>
-    <div id="result-desc" style="font-size:1.2rem; color:var(--text-main); margin: 20px 0 40px; letter-spacing: 1px;"></div>
-    <button class="vajra-btn" onclick="location.reload()">返回分類大廳</button>
+    <h1 id="res-title" style="color:var(--accent-indigo); margin-bottom: 5px; font-size: 2.2rem;">挑戰完成</h1>
+    <div id="result-desc" style="font-size:1.2rem; color:var(--text-main); margin: 20px 0 40px; letter-spacing: 1px; line-height: 1.6;"></div>
+    <button class="main-action-btn" onclick="location.reload()">返回賽事大廳</button>
 </div>
 
 <script>
 // --- 確保單字庫存在 (開發安全測試) ---
 if (typeof window.QuestionBank === 'undefined') {
     window.QuestionBank = {
-        senior: [{title: "A組-1", words: [{word:"PEACE", meaning:"和平"}]}],
-        toefl: [{title: "托福-1", words: [{word:"WISDOM", meaning:"智慧"}]}],
+        senior: [{title: "A組-1", words: [{word:"ABANDON", meaning:"v. 放棄；遺棄"}, {word:"ABSOLUTE", meaning:"adj. 絕對的"}]}],
+        toefl: [{title: "托福-1", words: [{word:"COMPASSION", meaning:"n. 同情"}, {word:"PROFOUND", meaning:"adj. 深刻的"}]}],
         toeic: [{title: "商務-1", words: [{word:"PROFIT", meaning:"利潤"}]}]
     };
 }
 
 let activeCategoryKey = '';
 let currentWords = []; let testIndex = 0; 
-let mistakes = 0; let guessedLetters = new Set(); let correctCount = 0; let usedCheat = false;
+let strikes = 0; let score = 0; let hitCount = 0;
+let guessedLetters = new Set(); let usedCheat = false;
 let globalTimerInterval;
 
 // 1. 動態漢堡選單產生器
@@ -249,14 +271,13 @@ function updateDynamicMenu() {
     const menuList = document.getElementById('dynamic-menu-list');
     let html = `
         <a href="index.html" class="menu-item">
-            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>回首頁大廳
+            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></div>回首頁
         </a>
         <div class="menu-item" onclick="location.reload()">
-            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>單字分類大廳
+            <div class="menu-icon-wrap"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>賽事大廳
         </div>
     `;
 
-    // 如果目前已經進入某個分類 (例如高中)，就在選單列出捷徑
     if (activeCategoryKey && QuestionBank[activeCategoryKey]) {
         html += `<div class="menu-divider"></div>`;
         html += `<div class="menu-sub-title">本區捷徑 (${activeCategoryKey.toUpperCase()})</div>`;
@@ -274,7 +295,7 @@ function updateDynamicMenu() {
 
 function toggleMenu() { 
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    updateDynamicMenu(); // 每次打開前刷新內容
+    updateDynamicMenu(); 
     document.getElementById('side-menu').classList.toggle('open'); 
     document.getElementById('side-menu-overlay').classList.toggle('open'); 
 }
@@ -284,12 +305,12 @@ function enterCategory(categoryKey, titleText) {
     activeCategoryKey = categoryKey;
     document.getElementById('main-category-screen').style.display = 'none';
     document.getElementById('level-select-screen').style.display = 'flex';
-    document.getElementById('header-title').innerText = "群組列表";
+    document.getElementById('header-title').innerText = "聯盟賽程";
     document.getElementById('current-category-title').innerText = `✦ ${titleText} ✦`;
 
     const d = new Date();
     const todayStr = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-    const isLocked = (localStorage.getItem('prajna_last_completed_date') === todayStr);
+    const isLocked = (localStorage.getItem('baseball_last_completed') === todayStr);
     if(isLocked) document.getElementById('lock-banner').style.display = 'block';
 
     const grid = document.getElementById('group-grid');
@@ -304,21 +325,21 @@ function enterCategory(categoryKey, titleText) {
             grid.appendChild(btn);
         });
     } else {
-        grid.innerHTML = '<div style="text-align:center; color:var(--text-light);">此區題庫建置中</div>';
+        grid.innerHTML = '<div style="text-align:center; color:var(--text-light);">此區賽程建置中</div>';
     }
 }
 
-// 3. 吸收與測驗邏輯
+// 3. 賽前訓練邏輯
 function initAbsorb() {
     document.getElementById('level-select-screen').style.display = 'none';
     document.getElementById('absorb-screen').style.display = 'flex';
-    document.getElementById('header-title').innerText = "定心吸收";
+    document.getElementById('header-title').innerText = "賽前訓練";
     
     document.getElementById('word-list-container').innerHTML = currentWords.map(w => `
         <div class="absorb-item">
             <div style="flex:1;">
                 <div class="absorb-word">${w.word}</div>
-                <div style="font-size:0.95rem; color:var(--text-main);">${w.meaning}</div>
+                <div style="font-size:0.95rem; color:var(--text-main); font-weight:600;">${w.meaning}</div>
             </div>
             <button class="audio-btn" onclick="speak('${w.word}')">聽發音</button>
         </div>
@@ -332,58 +353,66 @@ function initAbsorb() {
     }, 1000);
 }
 
+// 4. 開始棒球測驗
 function startTest() {
     clearInterval(globalTimerInterval);
     document.getElementById('global-timer').innerText = "";
     document.getElementById('absorb-screen').style.display = 'none';
     document.getElementById('test-screen').style.display = 'flex';
-    document.getElementById('header-title').innerText = "天籟盲測";
-    testIndex = 0; correctCount = 0;
+    document.getElementById('header-title').innerText = "上場打擊";
+    
+    testIndex = 0; score = 0; strikes = 0; hitCount = 0; usedCheat = false;
+    document.getElementById('scan-btn').disabled = false;
+    document.getElementById('scan-btn').innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 鷹眼掃描 (剩 1 次)`;
+    updateBaseUI();
     loadWordTest();
 }
 
 function loadWordTest() {
-    if (testIndex >= currentWords.length) { showFinalResult(); return; }
-    guessedLetters.clear(); mistakes = 0; usedCheat = false;
+    if (testIndex >= currentWords.length || strikes >= 3) { showFinalResult(); return; }
     
-    const svg = document.getElementById('cloud-svg');
-    svg.classList.remove('melt');
-    void svg.offsetWidth; 
-    svg.classList.add('condense');
-    document.querySelectorAll('.part').forEach(p => p.classList.remove('visible'));
-    document.getElementById('spirit-stage').classList.remove('rocket-active', 'liftoff');
+    const wordObj = currentWords[testIndex];
+    guessedLetters.clear();
     
-    document.getElementById('letter-row').innerHTML = currentWords[testIndex].word.split('').map(() => `<div class="letter-dash"></div>`).join('');
+    document.getElementById('game-q-idx').innerText = `${testIndex + 1}/${currentWords.length}`;
+    document.getElementById('hint-meaning').innerText = wordObj.meaning;
+    
+    document.getElementById('letter-row').innerHTML = wordObj.word.split('').map(() => `<div class="letter-dash"></div>`).join('');
     
     initKeyboard();
-    setTimeout(() => { svg.classList.remove('condense'); playCurrentWordAudio(); }, 800);
+    setTimeout(() => { playCurrentWordAudio(); }, 500);
 }
 
-function useCheatEye() {
+function useMagicBall() {
     if(usedCheat) return; usedCheat = true;
-    const overlay = document.getElementById('cheat-overlay');
-    overlay.innerText = currentWords[testIndex].word.toUpperCase();
-    overlay.style.display = 'block';
-    setTimeout(() => { overlay.style.display = 'none'; }, 900);
+    const btn = document.getElementById('scan-btn');
+    btn.disabled = true;
+    btn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 掃描已使用`;
+    
+    const word = currentWords[testIndex].word.toUpperCase();
+    const dashes = document.querySelectorAll('.letter-dash');
+    word.split('').forEach((char, i) => { dashes[i].innerText = char; dashes[i].style.color = 'var(--accent-blue)'; });
+    
+    setTimeout(() => {
+        word.split('').forEach((char, i) => { 
+            if(!guessedLetters.has(char)) dashes[i].innerText = ''; 
+            dashes[i].style.color = 'var(--text-main)';
+        });
+    }, 1200);
 }
 
 function handleGuess(letter, btn) {
     const word = currentWords[testIndex].word.toUpperCase();
-    const svg = document.getElementById('cloud-svg');
     
     if (word.includes(letter)) {
         guessedLetters.add(letter); btn.classList.add('correct');
-        updateDashes(); updateSpirit();
-        svg.style.transform = "scale(1.15)";
-        setTimeout(() => svg.style.transform = "scale(1)", 150);
+        updateDashes();
         if (word.split('').every(l => guessedLetters.has(l))) {
-            if(!usedCheat) correctCount++; triggerWin();
+            triggerWin();
         }
     } else {
-        mistakes++; btn.classList.add('wrong');
-        svg.style.transform = "translateX(15px) rotate(5deg)";
-        setTimeout(() => svg.style.transform = "translateX(0) rotate(0deg)", 200);
-        if (mistakes >= 3) revealAnswer();
+        btn.classList.add('wrong');
+        triggerStrike();
     }
 }
 
@@ -393,50 +422,93 @@ function updateDashes() {
     word.split('').forEach((char, i) => { if (guessedLetters.has(char)) dashes[i].innerText = char; });
 }
 
-function updateSpirit() {
-    const p = guessedLetters.size / new Set(currentWords[testIndex].word.toUpperCase().split('')).size;
-    if (p > 0) document.getElementById('s-body').classList.add('visible');
-    if (p > 0.4) document.getElementById('s-head').classList.add('visible');
-    if (p > 0.8) document.getElementById('s-legs').classList.add('visible');
+function triggerStrike() {
+    strikes++;
+    const dots = document.querySelectorAll('.s-dot');
+    if(strikes <= 3) dots[strikes-1].classList.add('s-active');
+    
+    const batter = document.getElementById('batter-group');
+    batter.classList.add('swinging');
+    setTimeout(() => batter.classList.remove('swinging'), 200);
+
+    if(strikes >= 3) {
+        showMsg("OUT!!");
+        setTimeout(showFinalResult, 1000);
+    }
 }
 
 function triggerWin() {
-    document.querySelectorAll('.part').forEach(p => p.classList.add('visible'));
+    hitCount++; score += 10;
     document.getElementById('keyboard').style.pointerEvents = 'none';
-    document.getElementById('spirit-stage').classList.add('rocket-active');
-    setTimeout(() => { 
-        document.getElementById('spirit-stage').classList.add('liftoff'); 
-        playCurrentWordAudio(); 
-        setTimeout(() => { testIndex++; loadWordTest(); }, 1800); 
+    
+    const batter = document.getElementById('batter-group');
+    const ball = document.getElementById('v-ball');
+    
+    batter.classList.add('swinging');
+    ball.style.display = 'block';
+    
+    ball.animate([
+        { cx: 200, cy: 260, r: 6, fillOpacity: 1 },
+        { cx: Math.random() * 400, cy: -50, r: 2, fillOpacity: 0.1 }
+    ], { duration: 800, fill: 'forwards' });
+
+    setTimeout(() => {
+        batter.classList.remove('swinging'); 
+        ball.style.display = 'none';
+        
+        let basesLit = hitCount % 4;
+        if(basesLit === 0) {
+            showMsg("HOME RUN!");
+            score += 50; 
+        } else {
+            showMsg("HIT!");
+            score += basesLit * 5; 
+        }
+        
+        document.getElementById('game-score').innerText = score;
+        updateBaseUI();
+        
+        setTimeout(() => { testIndex++; loadWordTest(); }, 1200);
     }, 800);
 }
 
-function revealAnswer() {
-    const word = currentWords[testIndex].word.toUpperCase();
-    const dashes = document.querySelectorAll('.letter-dash');
-    document.getElementById('keyboard').style.pointerEvents = 'none';
-    document.getElementById('cloud-svg').classList.add('melt');
-    word.split('').forEach((char, i) => { 
-        if (!guessedLetters.has(char)) { dashes[i].innerText = char; dashes[i].classList.add('error-reveal'); }
-    });
-    setTimeout(() => { testIndex++; loadWordTest(); }, 2000);
+function updateBaseUI() {
+    let basesLit = hitCount % 4;
+    document.getElementById('ind-1').classList.toggle('active', basesLit >= 1);
+    document.getElementById('ind-2').classList.toggle('active', basesLit >= 2);
+    document.getElementById('ind-3').classList.toggle('active', basesLit >= 3);
+}
+
+function showMsg(txt) {
+    const el = document.getElementById('announcer');
+    el.innerText = txt; el.classList.add('show-msg');
+    setTimeout(() => el.classList.remove('show-msg'), 1000);
 }
 
 function showFinalResult() {
     document.getElementById('test-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'flex';
-    document.getElementById('header-title').innerText = "結算";
-    document.getElementById('result-desc').innerHTML = `成功化生升空數：<br><b style="font-size:2rem; color:var(--accent-teal);">${correctCount}</b> / ${currentWords.length}`;
-    localStorage.setItem('prajna_last_completed_date', `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`);
+    document.getElementById('header-title').innerText = "賽事結算";
+    
+    document.getElementById('res-title').innerText = strikes >= 3 ? "被三振出局" : "挑戰完成";
+    document.getElementById('result-desc').innerHTML = `
+        <b style="font-size:2.5rem; color:var(--accent-teal);">${score}</b> 分<br><br>
+        總計安打數：${hitCount} / ${currentWords.length}
+    `;
+    
+    if (strikes < 3) {
+        localStorage.setItem('baseball_last_completed', `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`);
+    }
 }
 
 function playCurrentWordAudio() { speak(currentWords[testIndex].word); }
 function speak(text) {
     if (!window.speechSynthesis) return;
     window.speechSynthesis.cancel();
-    let msg = new SpeechSynthesisUtterance(text); msg.lang = 'en-US'; msg.rate = 0.8; 
+    let msg = new SpeechSynthesisUtterance(text); msg.lang = 'en-US'; msg.rate = 0.85; 
     let isAndroid = /Android/i.test(navigator.userAgent);
     if (isAndroid) {
+        window.sysUtterances = window.sysUtterances || [];
         window.sysUtterances.push(msg);
         let voices = window.speechSynthesis.getVoices();
         if (voices.length > 0) {
@@ -457,9 +529,11 @@ function initKeyboard() {
         </div>
     `).join('');
     kb.style.pointerEvents = 'auto';
+    
+    // Reset strike dots
+    document.querySelectorAll('.s-dot').forEach(d => d.classList.remove('s-active'));
 }
 
-// 移除原有的 window.onload 直接進題庫邏輯，改由 HTML 直接顯示第一層分類大廳
 window.onload = () => {
     updateDynamicMenu();
 };
