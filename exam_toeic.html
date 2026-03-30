@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>全真多益職場測驗 - 般若學習系統</title>
+    <script src="question_bank.js?v=8"></script>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(203, 163, 122, 0.4);
+            --text-main: #4A4542; 
+            --text-light: #8C857F;
+            --accent-gold: #CBA37A; 
+            --accent-jade: #82968C; 
+            --accent-navy: #4A6572;
+            --shadow-soft: 0 10px 30px rgba(160, 155, 150, 0.08);
+        }
+
+        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100dvh; 
+            background: var(--bg-gradient); color: var(--text-main); 
+            font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; 
+            overflow: hidden; display: flex; flex-direction: column; 
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            padding: max(15px, env(safe-area-inset-top)) 25px 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border); z-index: 100;
+        }
+
+        #sectionTitle { font-weight: 600; color: var(--accent-navy); font-size: 1.15rem; letter-spacing: 2px; }
+        .timer { font-size: 1.1rem; font-weight: bold; color: var(--accent-navy); background: var(--glass-bg); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); letter-spacing: 1px; }
+
+        .main-layout { display: flex; flex: 1; overflow: hidden; max-width: 1200px; margin: 0 auto; width: 100%; }
+        .content-panel { flex: 1; padding: 40px 30px; overflow-y: auto; background: transparent; border-right: 1px solid rgba(203, 163, 122, 0.2); display: flex; flex-direction: column; align-items: center; justify-content: flex-start;}
+        .question-panel { flex: 1; padding: 40px 30px; overflow-y: auto; background: transparent; }
+
+        @media (max-width: 768px) {
+            .main-layout { flex-direction: column; }
+            .content-panel { flex: none; height: 35dvh; border-right: none; border-bottom: 1px solid rgba(203, 163, 122, 0.2); padding: 20px;}
+            .question-panel { flex: 1; padding: 20px; }
+        }
+
+        .section-tag { display: inline-block; padding: 6px 16px; background: var(--accent-navy); color: #fff; border-radius: 12px; font-size: 0.85rem; margin-bottom: 20px; letter-spacing: 1px; }
+        
+        .article-box { width: 100%; line-height: 1.8; font-size: 1.05rem; color: var(--text-main); text-align: justify; background: var(--glass-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); }
+        .image-placeholder { width: 100%; max-width: 400px; height: 250px; background: rgba(203,163,122,0.1); border: 1px dashed var(--accent-gold); display: flex; justify-content: center; align-items: center; color: var(--accent-gold); border-radius: 12px; margin-bottom: 20px; font-weight: 500; text-align: center; padding: 20px;}
+
+        .question-block { margin-bottom: 35px; }
+        .question-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 15px; font-weight: 500; color: var(--text-main); }
+        
+        .option-label { 
+            display: block; padding: 16px 20px; margin: 10px 0; 
+            background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border); 
+            cursor: pointer; transition: all 0.2s ease; color: var(--text-main); font-size: 1.05rem;
+        }
+        .option-label:hover { border-color: var(--accent-navy); transform: translateX(5px); }
+        .option-label.checked { border-color: var(--accent-navy); background: rgba(74, 101, 114, 0.08); font-weight: bold; }
+        .option-label.disabled { cursor: not-allowed; opacity: 0.6; transform: none; }
+
+        .review-box { margin-top: 15px; padding: 15px 20px; border-radius: 12px; line-height: 1.6; display: none; background: rgba(255,255,255,0.9); border: 1px solid; }
+        .review-box.correct { border-color: var(--accent-jade); color: var(--accent-jade); }
+        .review-box.wrong { border-color: var(--accent-rose); color: var(--accent-rose); }
+
+        .nav-footer { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); padding: 20px 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+        .nav-btn { padding: 12px 25px; background: transparent; color: var(--accent-navy); border: 1px solid var(--accent-navy); border-radius: 20px; cursor: pointer; font-size: 0.95rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
+        .nav-btn:hover { background: var(--accent-navy); color: #fff; }
+        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; background: transparent; color: var(--accent-navy); }
+
+        .submit-btn { padding: 12px 35px; background: var(--accent-gold); color: #fff; border: none; border-radius: 20px; font-size: 1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(203, 163, 122, 0.3); }
+        .submit-btn:active { transform: scale(0.95); }
+
+        /* SVG 向量播放按鈕設計 */
+        .svg-audio-btn { width: 80px; height: 80px; background: var(--accent-navy); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: 0.3s; box-shadow: 0 8px 25px rgba(74, 101, 114, 0.3); border: none; outline: none; margin-bottom: 15px; }
+        .svg-audio-btn:active { transform: scale(0.92); box-shadow: 0 4px 15px rgba(74, 101, 114, 0.2); }
+        .svg-icon { width: 30px; height: 30px; fill: #fff; margin-left: 5px; }
+        
+        .full-width { flex: 2 !important; max-width: 900px; margin: 0 auto; }
+        .hide { display: none !important; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div id="sectionTitle">讀取中...</div>
+    <div class="timer" id="timer">120:00</div>
+</header>
+
+<div class="main-layout">
+    <div class="content-panel hide" id="leftPanel"></div>
+    <div class="question-panel" id="rightPanel">
+        <div id="sectionContent"></div>
+    </div>
+</div>
+
+<div class="nav-footer">
+    <button class="nav-btn" id="prevBtn" onclick="changePart(-1)">上一部分</button>
+    <div id="progressInfo" style="font-size: 0.9rem; color: var(--text-light); font-weight:500; letter-spacing: 1px;">Part 1 / 7</div>
+    <button class="nav-btn" id="nextBtn" onclick="changePart(1)">下一部分</button>
+    <button class="submit-btn hide" id="submitBtn" onclick="finalizeExam()">完成測驗</button>
+</div>
+
+<script>
+window.sysUtterances = [];
+const partsOrder = ['part1', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7'];
+const partNames = {
+    'part1': 'Part 1: 照片描述 (Listening)',
+    'part2': 'Part 2: 應答問題 (Listening)',
+    'part3': 'Part 3: 簡短對話 (Listening)',
+    'part4': 'Part 4: 簡短獨白 (Listening)',
+    'part5': 'Part 5: 句子填空 (Reading)',
+    'part6': 'Part 6: 段落填空 (Reading)',
+    'part7': 'Part 7: 閱讀理解 (Reading)'
+};
+
+let toeicData = null;
+let currentPartIndex = 0;
+let userAnswers = {};
+let examSubmitted = false;
+let timerInterval;
+
+// SVG 播放圖示
+const playIconSVG = `<svg class="svg-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+
+window.onload = () => {
+    try {
+        toeicData = QuestionBank.toeic;
+        if(!toeicData) throw new Error("No TOEIC data");
+        renderCurrentPart();
+        startTimer(7200); // 120分鐘
+    } catch (e) {
+        document.getElementById('sectionTitle').innerText = "系統資料載入失敗，請確認 question_bank.js";
+    }
+};
+
+function renderCurrentPart() {
+    const partKey = partsOrder[currentPartIndex];
+    const dataList = toeicData[partKey];
+    
+    document.getElementById('sectionTitle').innerText = partNames[partKey];
+    document.getElementById('progressInfo').innerText = `Part ${currentPartIndex + 1} / 7`;
+
+    const leftPanel = document.getElementById('leftPanel');
+    const rightPanel = document.getElementById('rightPanel');
+    const sectionContent = document.getElementById('sectionContent');
+    
+    let leftHTML = '';
+    let rightHTML = '';
+
+    dataList.forEach((item, index) => {
+        // --- 處理左側版面 (音訊/圖片/文章) ---
+        if (item.imageDesc || item.audioScript || item.article) {
+            leftHTML += `<div style="width:100%; margin-bottom: 40px; display:flex; flex-direction:column; align-items:center;">`;
+            
+            if (item.imageDesc) {
+                leftHTML += `<div class="image-placeholder">${item.imageDesc}</div>`;
+            }
+            if (item.audioScript) {
+                leftHTML += `<button class="svg-audio-btn" onclick="playAudio('${item.audioScript.replace(/'/g, "\\'")}')">${playIconSVG}</button>
+                             <div style="color:var(--text-light); font-size:0.9rem; letter-spacing:1px; margin-bottom:10px;">點擊播放聽力音檔</div>`;
+            }
+            if (item.article) {
+                leftHTML += `<div class="article-box">${item.article.replace(/\n/g, '<br>')}</div>`;
+            }
+            leftHTML += `</div>`;
+        }
+
+        // --- 處理右側版面 (考題) ---
+        // 判斷題庫結構是有多題 (questions) 還是單題 (本身就是題目)
+        const questionsArray = item.questions ? item.questions : [item];
+
+        questionsArray.forEach(q => {
+            // Part 1, Part 2 不顯示題目文字
+            const isNoTextQ = (partKey === 'part1' || partKey === 'part2');
+            const qTextDisplay = isNoTextQ ? `<span style="color:var(--accent-navy);">Question ${q.id.slice(-2)}</span>` : q.text;
+
+            rightHTML += `<div class="question-block"><div class="question-text">${qTextDisplay}</div>`;
+            
+            const currentAns = userAnswers[q.id] || '';
+            const disabledClass = examSubmitted ? 'disabled' : '';
+
+            for (let [k, v] of Object.entries(q.options)) {
+                const checkedClass = currentAns === k ? 'checked' : '';
+                // Part 1, 2 選項只顯示 (A) (B) (C)，隱藏實際內容
+                const optionText = isNoTextQ ? `<span style="font-weight:bold; font-size:1.1rem;">(${k})</span>` : `<span style="font-weight:bold; color:var(--accent-navy); margin-right:10px;">(${k})</span> ${v}`;
+                
+                rightHTML += `<label class="option-label ${checkedClass} ${disabledClass}">
+                    <input type="radio" style="display:none;" name="${q.id}" value="${k}" ${examSubmitted ? 'disabled' : ''} onchange="saveAnswer('${q.id}', '${k}')"> 
+                    ${optionText}
+                </label>`;
+            }
+
+            if (examSubmitted) {
+                const isCorrect = currentAns === q.answer;
+                const boxClass = isCorrect ? 'correct' : 'wrong';
+                const statusText = isCorrect ? `答對了！` : `答錯了。您的答案：${currentAns || '未作答'}`;
+                rightHTML += `<div class="review-box ${boxClass}" style="display:block; font-weight:bold;">${statusText} <br><span style="color:var(--text-main); font-weight:normal; margin-top:5px; display:inline-block;">正確解答：${q.answer}</span></div>`;
+            }
+            rightHTML += `</div>`;
+        });
+    });
+
+    if (leftHTML !== '') {
+        leftPanel.innerHTML = leftHTML;
+        leftPanel.classList.remove('hide');
+        rightPanel.classList.remove('full-width');
+    } else {
+        leftPanel.classList.add('hide');
+        rightPanel.classList.add('full-width');
+    }
+    
+    sectionContent.innerHTML = rightHTML;
+
+    // 導航按鈕狀態
+    document.getElementById('prevBtn').disabled = (currentPartIndex === 0);
+    if (currentPartIndex === partsOrder.length - 1) {
+        document.getElementById('nextBtn').classList.add('hide');
+        if (!examSubmitted) document.getElementById('submitBtn').classList.remove('hide');
+    } else {
+        document.getElementById('nextBtn').classList.remove('hide');
+        document.getElementById('submitBtn').classList.add('hide');
+    }
+}
+
+function saveAnswer(qId, val) {
+    if(!examSubmitted) {
+        userAnswers[qId] = val;
+        renderCurrentPart();
+    }
+}
+
+function changePart(direction) {
+    if (window.speechSynthesis) window.speechSynthesis.cancel(); // 換頁強制閉嘴
+    currentPartIndex += direction;
+    renderCurrentPart();
+    document.getElementById('rightPanel').scrollTop = 0; 
+    document.getElementById('leftPanel').scrollTop = 0;
+}
+
+function finalizeExam() {
+    if(!confirm("確定要完成測驗並結算多益分數嗎？")) return;
+    
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    examSubmitted = true;
+    clearInterval(timerInterval);
+    document.getElementById('timer').innerText = "測驗已結束";
+
+    let listeningRaw = 0; let listeningMax = 0;
+    let readingRaw = 0; let readingMax = 0;
+
+    // 計算聽力與閱讀的原始分數
+    ['part1', 'part2', 'part3', 'part4'].forEach(p => {
+        toeicData[p].forEach(item => {
+            const qs = item.questions ? item.questions : [item];
+            qs.forEach(q => { listeningMax += q.points; if (userAnswers[q.id] === q.answer) listeningRaw += q.points; });
+        });
+    });
+    
+    ['part5', 'part6', 'part7'].forEach(p => {
+        toeicData[p].forEach(item => {
+            const qs = item.questions ? item.questions : [item];
+            qs.forEach(q => { readingMax += q.points; if (userAnswers[q.id] === q.answer) readingRaw += q.points; });
+        });
+    });
+
+    // 轉換為 990 分制 (擬真演算法)
+    const listeningScaled = Math.round((listeningRaw / listeningMax) * 495) || 5; 
+    const readingScaled = Math.round((readingRaw / readingMax) * 495) || 5;
+    const totalScore = listeningScaled + readingScaled;
+
+    document.getElementById('rightPanel').innerHTML = `
+        <div style="text-align:center; padding: 40px 20px;">
+            <h1 style="color:var(--accent-navy); font-size:2.5rem; letter-spacing:2px; margin-bottom:10px;">測驗證書</h1>
+            <div style="font-size:4rem; font-weight:bold; color:var(--accent-gold); margin:20px 0;">${totalScore}</div>
+            <div style="display:flex; justify-content:center; gap:30px; margin-bottom:40px; color:var(--text-main); font-size:1.1rem;">
+                <div>聽力 (Listening): <b>${listeningScaled}</b> / 495</div>
+                <div>閱讀 (Reading): <b>${readingScaled}</b> / 495</div>
+            </div>
+            <p style="color:var(--text-light); line-height:1.8;">您可以透過左下角按鈕回頭檢視各區塊的錯誤解析。<br>願此智慧助您在職場中清淨無礙。</p>
+            <button class="submit-btn" style="margin-top:30px;" onclick="window.location.href='index.html'">返回法界大廳</button>
+        </div>
+    `;
+    
+    document.getElementById('leftPanel').classList.add('hide');
+    document.getElementById('submitBtn').classList.add('hide');
+    document.getElementById('nextBtn').classList.add('hide');
+}
+
+function playAudio(text) {
+    if (!window.speechSynthesis) return alert("設備不支援語音");
+    window.speechSynthesis.cancel();
+    let msg = new SpeechSynthesisUtterance(text);
+    msg.lang = 'en-US'; msg.rate = 0.9; 
+    let isAndroid = /Android/i.test(navigator.userAgent);
+    if (isAndroid) {
+        window.sysUtterances.push(msg);
+        let voices = window.speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            let enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google')) || voices.find(v => v.lang.includes('en'));
+            if (enVoice) msg.voice = enVoice;
+        }
+    }
+    msg.onend = () => { if(isAndroid) window.sysUtterances = window.sysUtterances.filter(u => u !== msg); };
+    setTimeout(() => { window.speechSynthesis.speak(msg); }, isAndroid ? 150 : 50);
+}
+
+function startTimer(seconds) {
+    let timeLeft = seconds;
+    timerInterval = setInterval(() => {
+        if(timeLeft <= 0) { finalizeExam(); return; }
+        timeLeft--;
+        let m = Math.floor(timeLeft / 60); let s = timeLeft % 60;
+        document.getElementById('timer').innerText = `${m}:${s < 10 ? '0' + s : s}`;
+    }, 1000);
+}
+</script>
+</body>
+</html>
