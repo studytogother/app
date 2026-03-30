@@ -260,10 +260,13 @@ function renderCurrentPart() {
             if (item.imageDesc) {
                 leftHTML += `<div class="image-placeholder">${item.imageDesc}</div>`;
             }
-            if (item.audioScript) {
-                leftHTML += `<button class="svg-audio-btn audio-pulse" onclick="playAudio('${item.audioScript.replace(/'/g, "\\'")}')">${playIconSVG}</button>
+                        if (item.audioScript) {
+                // 清理單引號與換行符號，避免 HTML 屬性斷裂導致按鈕失效
+                const safeAudioText = item.audioScript.replace(/'/g, "\\'").replace(/\n/g, " ").replace(/\r/g, " ");
+                leftHTML += `<button class="svg-audio-btn audio-pulse" onclick="playAudio('${safeAudioText}')">${playIconSVG}</button>
                              <div style="color:var(--text-light); font-size:0.85rem; letter-spacing:1px; margin-bottom:10px;">點擊播放聽力音檔</div>`;
             }
+
             if (item.article) {
                 leftHTML += `<div class="section-tag" style="align-self:flex-start;">閱讀文本</div>`;
                 leftHTML += `<div class="article-box">${item.article.replace(/\n/g, '<br>')}</div>`;
