@@ -84,10 +84,50 @@
         .review-box.correct { border-color: var(--accent-jade); color: var(--accent-jade); }
         .review-box.wrong { border-color: var(--accent-rose); color: var(--accent-rose); }
 
-        .nav-footer { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(15px); padding: 20px 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; z-index: 100; }
-        .nav-btn { padding: 12px 25px; background: transparent; color: var(--accent-navy); border: 1px solid var(--accent-navy); border-radius: 20px; cursor: pointer; font-size: 0.95rem; font-weight: 600; letter-spacing: 1px; transition: 0.3s; }
-        .nav-btn:hover { background: var(--accent-navy); color: #fff; }
-        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; background: transparent; color: var(--accent-navy); }
+                /* --- 修正後的底部導航容器 --- */
+        .nav-footer { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            /* 關鍵：動態預留 iPhone 底部小白條空間，解決跑位 */
+            padding: 12px 25px calc(12px + env(safe-area-inset-bottom)); 
+            border-top: 1px solid var(--glass-border); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000;
+            height: auto;
+        }
+
+        /* --- 修正後的按鈕：解決變胖問題 --- */
+        .footer-btn { 
+            padding: 0 15px; 
+            height: 38px;
+            background: transparent; 
+            color: var(--accent-navy); 
+            border: 1px solid var(--accent-navy); 
+            border-radius: 19px; 
+            cursor: pointer; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            transition: 0.3s; 
+            white-space: nowrap; 
+            min-width: 100px; /* 固定最小寬度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer-btn:hover { background: var(--accent-navy); color: #fff; }
+        .footer-btn:disabled { opacity: 0.2; cursor: not-allowed; border-color: var(--text-light); color: var(--text-light); }
+
+        /* --- 進度文字置中優化 --- */
+        #progressInfo { 
+            font-size: 0.85rem; 
+            color: var(--text-light); 
+            font-weight: 600; 
+            flex: 1; 
+            text-align: center; 
+        }
 
         .submit-btn { padding: 12px 35px; background: var(--accent-gold); color: #fff; border: none; border-radius: 20px; font-size: 1rem; font-weight: bold; letter-spacing: 2px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(203, 163, 122, 0.3); }
         .submit-btn:active { transform: scale(0.95); }
@@ -151,9 +191,9 @@
 </div>
 
 <div class="nav-footer">
-    <button class="nav-btn" id="prevBtn" onclick="changePart(-1)">上一部分</button>
-    <div id="progressInfo" style="font-size: 0.9rem; color: var(--text-light); font-weight:500; letter-spacing: 1px;">Part 1 / 7</div>
-    <button class="nav-btn" id="nextBtn" onclick="changePart(1)">下一部分</button>
+    <button class="footer-btn" id="prevBtn" onclick="changePart(-1)">上一部分</button>
+    <div id="progressInfo">Part 1 / 7</div>
+    <button class="footer-btn" id="nextBtn" onclick="changePart(1)">下一部分</button>
     <button class="submit-btn hide" id="submitBtn" onclick="finalizeExam()">完成測驗</button>
 </div>
 
