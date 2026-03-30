@@ -3,302 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>WORD SLUGGER - LEGO TRANSLUCENT EDITION</title>
+    <title>PRAJNA SLUGGER - 莫蘭迪棒球單字道場</title>
+    <script src="question_bank.js"></script>
     <style>
         :root {
-            /* 用 RGBA 定義半透明色彩 */
-            --bg-field: rgba(96, 163, 188, 0.9); --grass: rgba(120, 224, 143, 0.8); --dirt: rgba(230, 126, 34, 0.7); --ui-navy: rgba(10, 61, 98, 0.95);
-            --lego-yellow: rgba(254, 202, 87, 0.9); --neon-blue: rgba(0, 210, 211, 0.95); --strike-red: rgba(255, 107, 107, 0.9);
-            --white: #ffffff;
+            /* 莫蘭迪配色系 (灰調美學) */
+            --m-blue: #8E9AAF;
+            --m-blue-light: #CBCFD9;
+            --m-green: #B4C7B6;
+            --m-green-light: #DCE2DD;
+            --m-bg: #F1F3F5;
+            --m-text: #4A4E69;
+            --m-text-light: #9A8C98;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            
+            /* 棒球場半透明色 */
+            --field-grass: rgba(180, 199, 182, 0.8);
+            --field-dirt: rgba(190, 150, 120, 0.5);
+            --ball-white: rgba(255, 255, 255, 0.9);
         }
+        
+        * { box-sizing: border-box; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100dvh; background: var(--m-bg); color: var(--m-text); font-family: -apple-system, "Microsoft JhengHei", sans-serif; overflow: hidden; display: flex; flex-direction: column; }
 
-        * { box-sizing: border-box; touch-action: manipulation; font-family: 'Segoe UI', Arial, sans-serif; }
-        body, html { margin: 0; padding: 0; width: 100%; height: 100dvh; background: #0a3d62; overflow: hidden; color: var(--white); }
+        /* --- 導航與選單 --- */
+        header { width: 100%; padding: max(15px, env(safe-area-inset-top)) 20px 15px; display: flex; justify-content: space-between; align-items: center; background: var(--glass-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--m-blue-light); z-index: 100; }
+        .nav-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: white; border: 1px solid var(--m-blue-light); cursor: pointer; color: var(--m-blue); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        #header-title { font-weight: bold; letter-spacing: 2px; color: var(--m-blue); font-size: 1.1rem; }
+        .timer-badge { font-weight: bold; color: var(--m-text-light); }
 
-        #game-container { width: 100%; height: 100%; display: flex; flex-direction: column; }
+        .side-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.15); backdrop-filter: blur(4px); z-index: 9000; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .side-menu-overlay.open { opacity: 1; pointer-events: auto; }
+        .side-menu { position: fixed; top: 0; left: 0; width: 80%; max-width: 300px; height: 100%; background: var(--m-bg); border-right: 1px solid var(--m-blue-light); transform: translateX(-100%); transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 9001; padding: 40px 20px; }
+        .side-menu.open { transform: translateX(0); }
+        .menu-item { padding: 15px; border-radius: 12px; border: 1px solid var(--m-blue-light); margin-bottom: 12px; display: flex; align-items: center; gap: 15px; cursor: pointer; color: var(--m-text); text-decoration: none; background: white; transition: 0.2s; }
+        .menu-item:active { transform: scale(0.96); background: var(--m-blue-light); }
 
-        /* --- 頂部計分板 (向量幾何風) --- */
-        header { 
-            height: 80px; background: rgba(0,0,0,0.5); display: flex; justify-content: space-around; 
-            align-items: center; border-bottom: 4px solid var(--neon-blue); z-index: 10;
-        }
-        .stat-box { text-align: center; border: 1px solid rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 8px; }
-        .stat-label { font-size: 10px; color: var(--neon-blue); font-weight: bold; letter-spacing: 1px; }
-        .stat-value { font-size: 1.2rem; font-weight: bold; color: var(--white); }
-        .strike-dot { display: inline-block; width: 14px; height: 14px; border: 2px solid #555; border-radius: 50%; margin: 0 3px; transition: 0.3s; }
-        .strike-active { background: var(--strike-red); border-color: var(--white); box-shadow: 0 0 8px var(--strike-red); }
+        /* --- 主畫面：分類選擇 --- */
+        #main-category-screen { flex: 1; overflow-y: auto; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .portal-grid { width: 100%; max-width: 600px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px; }
+        .portal-btn { background: white; border: 1px solid var(--m-blue-light); border-radius: 24px; padding: 35px 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .portal-btn:active { transform: scale(0.95); background: var(--m-bg); }
+        .portal-icon { width: 45px; height: 45px; stroke: var(--m-blue); stroke-width: 1.5; fill: none; }
+        .portal-name { font-weight: bold; color: var(--m-text); }
 
-        /* --- 向量球場舞台 --- */
-        #stage { flex: 1; position: relative; background: var(--bg-field); overflow: hidden; }
+        /* --- 階段二：子關卡選關 --- */
+        #level-screen { flex: 1; overflow-y: auto; padding: 20px; display: none; flex-direction: column; align-items: center; animation: fadeIn 0.5s; }
+        .group-grid { width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 12px; }
+        .group-btn { background: white; border: 1px solid var(--m-blue-light); padding: 20px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+
+        /* --- 階段三：定心吸收 (背單字) --- */
+        #absorb-screen { flex: 1; padding: 20px; overflow-y: auto; display: none; flex-direction: column; align-items: center; }
+        .word-list-card { width: 100%; max-width: 500px; background: white; border-radius: 20px; padding: 15px; border: 1px solid var(--m-blue-light); box-shadow: 0 5px 20px rgba(0,0,0,0.02); }
+        .absorb-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed var(--m-blue-light); }
+        .absorb-word { font-weight: 900; font-size: 1.4rem; color: var(--m-blue); }
+        .vajra-btn { width: 90%; max-width: 320px; padding: 18px; background: var(--m-blue); color: white; border: none; border-radius: 50px; font-weight: bold; letter-spacing: 2px; cursor: pointer; margin: 25px 0; box-shadow: 0 4px 15px rgba(142, 154, 175, 0.3); }
+
+        /* --- 階段四：棒球測驗遊戲 --- */
+        #test-screen { flex: 1; display: none; flex-direction: column; position: relative; width: 100%; background: #E9ECEF; overflow: hidden; }
+        #stage { flex: 1; position: relative; background: #C9D6DF; overflow: hidden; border-bottom: 4px solid var(--m-blue); }
         .field-svg { width: 100%; height: 100%; }
 
-        /* 樂高人物與打擊動畫 */
-        #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; fill-opacity: 0.9; }
-        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; fill-opacity: 0.9; }
+        /* 樂高人與球動畫控制 */
+        #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; }
+        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; }
         .swinging .bat-svg { transform: rotate(100deg); }
-
+        
         /* 壘包指示器 */
-        .base-indicator { position: absolute; top: 10px; right: 10px; width: 70px; height: 70px; fill-opacity: 0.8; }
+        .base-indicator { position: absolute; top: 15px; right: 15px; width: 80px; height: 80px; }
+        
+        /* UI 操作區 */
+        #game-ui { background: var(--m-bg); padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        .word-display { height: 60px; display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 15px; }
+        .letter-slot { border-bottom: 3px solid var(--m-blue); min-width: 30px; font-size: 1.8rem; font-weight: 900; text-align: center; color: var(--m-text); }
+        
+        /* 鍵盤 */
+        .keyboard { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; width: 100%; max-width: 600px; }
+        .key { background: white; border: 1px solid var(--m-blue-light); height: 50px; border-radius: 8px; font-weight: bold; cursor: pointer; color: var(--m-text); box-shadow: 0 3px 0 var(--m-blue-light); }
+        .key:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--m-blue-light); }
+        .key.correct { background: var(--m-green); color: white; border: none; }
+        .key.wrong { background: #E76F51; color: white; opacity: 0.5; border: none; }
 
-        /* --- 題目區 --- */
-        #ui-area { background: var(--ui-navy); padding: 20px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .meaning-hint { color: var(--lego-yellow); font-size: 1.2rem; margin-bottom: 12px; font-weight: bold; text-align: center; }
-        .word-display { text-align: center; margin-bottom: 20px; letter-spacing: 5px; }
-        .letter-slot { 
-            display: inline-block; width: 32px; height: 45px; border-bottom: 4px solid var(--white); 
-            margin: 0 5px; font-size: 28px; font-weight: bold; text-transform: uppercase; line-height: 45px;
-        }
+        /* 得分板 */
+        .scoreboard { position: absolute; top: 15px; left: 15px; display: flex; flex-direction: column; gap: 5px; pointer-events: none; }
+        .score-item { background: rgba(0,0,0,0.4); color: white; padding: 4px 12px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; }
+        .strike-row { display: flex; gap: 4px; margin-top: 5px; }
+        .s-dot { width: 12px; height: 12px; border: 1px solid white; border-radius: 50%; }
+        .s-active { background: #FF6B6B; box-shadow: 0 0 5px #FF6B6B; }
 
-        /* 樂高風格鍵盤 */
-        .keyboard { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; max-width: 600px; margin: 0 auto; }
-        .key { 
-            background: rgba(75, 101, 132, 0.9); border: none; border-radius: 6px; color: white; height: 48px; 
-            font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.1s;
-            box-shadow: 0 4px 0 rgba(47, 53, 66, 0.9);
-        }
-        .key:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(47, 53, 66, 0.9); }
-        .key.correct { background: rgba(32, 191, 107, 0.95); box-shadow: 0 4px 0 rgba(16, 172, 132, 0.95); }
-        .key.wrong { background: var(--strike-red); opacity: 0.4; }
+        #announcer { position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%) scale(0); font-size: 4rem; font-weight: 900; color: white; text-shadow: 0 0 20px var(--m-blue); z-index: 200; pointer-events: none; transition: 0.4s; }
+        .show-msg { transform: translate(-50%, -50%) scale(1.2) !important; }
 
-        /* 掃描球 (Scan Ball) */
-        #scan-btn { 
-            width: 100%; margin-top: 15px; padding: 12px; background: var(--neon-blue); 
-            border: none; border-radius: 10px; color: white; font-weight: 900; letter-spacing: 2px;
-            cursor: pointer; box-shadow: 0 4px 0 rgba(10, 189, 227, 0.9); fill-opacity: 0.95;
-        }
-
-        /* 效果文字 */
-        #announcer { 
-            position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%) scale(0);
-            font-size: 4rem; font-weight: 900; color: var(--lego-yellow); 
-            text-shadow: 4px 4px 0 var(--ui-navy); z-index: 100; pointer-events: none; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .show-announcement { transform: translate(-50%, -50%) scale(1.2) !important; opacity: 1; }
-
-        /* --- 學習畫面 --- */
-        .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; background: var(--ui-navy); }
-        .study-list { width: 90%; max-width: 500px; flex: 1; overflow-y: auto; padding: 20px; }
-        .study-card { background: rgba(255,255,255,0.05); border-left: 5px solid var(--lego-yellow); padding: 15px; margin-bottom: 10px; border-radius: 4px; }
-        .btn-start { padding: 15px 60px; font-size: 1.5rem; background: var(--lego-yellow); border: none; border-radius: 50px; cursor: pointer; font-weight: bold; margin: 20px; color: var(--ui-navy); fill-opacity: 0.95; }
+        #result-screen { flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center; background: var(--m-bg); }
     </style>
 </head>
 <body>
 
-<div id="game-container">
-    <header>
-        <div class="stat-box"><div class="stat-label">SCORE</div><div class="stat-value" id="score">0</div></div>
-        <div class="stat-box"><div class="stat-label">QUEST</div><div class="stat-value" id="q-idx">1/10</div></div>
-        <div class="stat-box">
-            <div class="stat-label">STRIKES</div>
-            <div id="strike-container"><span class="strike-dot"></span><span class="strike-dot"></span><span class="strike-dot"></span></div>
-        </div>
-    </header>
-
-    <div id="stage">
-        <svg class="field-svg" viewBox="0 0 400 400">
-            <rect width="400" height="400" fill="var(--bg-field)" />
-            <path d="M0 250 L400 250 L400 400 L0 400 Z" fill="var(--grass)" /> <path d="M200 250 L400 400 L0 400 Z" fill="rgba(230, 126, 34, 0.3)" /> <circle cx="200" cy="270" r="40" fill="rgba(207, 106, 23, 0.6)" /> <g transform="translate(192, 240) scale(0.4)" fill-opacity="0.8">
-                <rect x="0" y="20" width="40" height="45" rx="5" fill="#eb4d4b" /> <rect x="7" y="0" width="26" height="20" rx="8" fill="#feca57" /> <path d="M7 10 Q7 0 20 0 Q33 0 33 10 Z" fill="#eb4d4b" />
-                <rect x="33" y="7" width="10" height="3" fill="#eb4d4b" rx="1.5" />
-            </g>
-
-            <path d="M185 370 L215 370 L220 385 L200 395 L180 385 Z" fill="rgba(255,255,255,0.8)" />
-
-            <g id="batter-group" transform="translate(160, 300)" fill-opacity="0.9">
-                <rect x="30" y="45" width="40" height="50" rx="5" fill="#4b6584" />
-                <rect x="38" y="20" width="24" height="25" rx="8" fill="#feca57" />
-                <path d="M38 25 Q38 15 50 15 Q62 15 62 25 Z" fill="#2f3542" />
-                <rect x="62" y="22" width="12" height="4" fill="#2f3542" rx="2" />
-                <g class="bat-svg">
-                    <rect x="38" y="-10" width="8" height="75" rx="4" fill="#d35400" />
-                </g>
-            </g>
-
-            <circle id="v-ball" cx="200" cy="260" r="5" fill="rgba(255,255,255,0.9)" style="display:none; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));" />
-        </svg>
-
-        <svg class="base-indicator" viewBox="0 0 100 100">
-            <rect x="45" y="5" width="10" height="10" transform="rotate(45 50 10)" fill="rgba(51,51,51,0.5)" id="ind-2" />
-            <rect x="85" y="45" width="10" height="10" transform="rotate(45 90 50)" fill="rgba(51,51,51,0.5)" id="ind-1" />
-            <rect x="5" y="45" width="10" height="10" transform="rotate(45 10 50)" fill="rgba(51,51,51,0.5)" id="ind-3" />
-        </svg>
-
-        <div id="announcer">HOMERUN</div>
-    </div>
-
-    <div id="ui-area">
-        <div class="meaning-hint" id="hint">準備開始</div>
-        <div class="word-display" id="display"></div>
-        <div class="keyboard" id="kb"></div>
-        <button id="scan-btn">SCAN BALL (剩餘 1)</button>
-    </div>
-
-    <div id="study-screen" class="screen" style="display:flex;">
-        <h2 style="color:var(--lego-yellow)">📋 賽前暖身錄</h2>
-        <div class="study-list" id="s-list"></div>
-        <div id="timer" style="font-size:2rem; margin:10px; font-weight:bold;">10:00</div>
-        <button class="btn-start" onclick="startGame()">進入球場</button>
-    </div>
-
-    <div id="result-screen" class="screen">
-        <h1 id="r-title" style="color:var(--lego-yellow); font-size:3rem;">FINISH</h1>
-        <p id="r-msg" style="font-size:1.5rem"></p>
-        <button class="btn-start" onclick="location.reload()">重新挑戰</button>
+<div class="side-menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
+<div class="side-menu" id="side-menu">
+    <h2 style="color:var(--m-blue); border-bottom: 2px solid var(--m-blue-light); padding-bottom: 10px;">單字道場目錄</h2>
+    <div id="dynamic-menu-list">
+        <div class="menu-item" onclick="location.reload()">分類首頁大廳</div>
+        <div class="menu-item" onclick="toggleMenu()">關閉選單</div>
     </div>
 </div>
 
+<header>
+    <div class="nav-btn" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+    <div id="header-title">般若單字道場</div>
+    <div class="timer-badge" id="global-timer"></div>
+</header>
+
+<div id="main-category-screen">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h2 style="color:var(--m-blue); margin-bottom:5px;">選擇修煉法門</h2>
+        <p style="color:var(--m-text-light); font-size:0.9rem;">選定領域，開始今日的棒球對決</p>
+    </div>
+    <div class="portal-grid">
+        <div class="portal-btn" onclick="enterCategory('senior', '高中 7000')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div class="portal-name">高中 7000</div>
+        </div>
+        <div class="portal-btn" onclick="enterCategory('toefl', '托福高階')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <div class="portal-name">托福高階</div>
+        </div>
+        <div class="portal-btn" onclick="enterCategory('toeic', '多益職場')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <div class="portal-name">多益職場</div>
+        </div>
+        <div class="portal-btn" onclick="alert('生活俚語建置中')">
+            <svg class="portal-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <div class="portal-name">生活俚語</div>
+        </div>
+    </div>
+</div>
+
+<div id="level-screen">
+    <h3 id="category-label" style="color:var(--m-blue);"></h3>
+    <div class="group-grid" id="group-list"></div>
+</div>
+
+<div id="absorb-screen">
+    <div class="word-list-card" id="word-list-container"></div>
+    <button class="vajra-btn" onclick="startBaseballGame()">開啟全壘打挑戰</button>
+</div>
+
+<div id="test-screen">
+    <div class="scoreboard">
+        <div class="score-item">SCORE: <span id="game-score">0</span></div>
+        <div class="score-item">Q: <span id="game-q-idx">1/10</span></div>
+        <div class="strike-row" id="strike-dots">
+            <div class="s-dot"></div><div class="s-dot"></div><div class="s-dot"></div>
+        </div>
+    </div>
+    
+    <div id="stage">
+        <svg class="field-svg" viewBox="0 0 400 400">
+            <rect width="400" height="400" fill="rgba(142, 154, 175, 0.2)" />
+            <path d="M0 250 L400 250 L400 400 L0 400 Z" fill="var(--field-grass)" />
+            <circle cx="200" cy="270" r="40" fill="rgba(0,0,0,0.1)" /> <path d="M185 370 L215 370 L220 385 L200 395 L180 385 Z" fill="white" fill-opacity="0.8" />
+
+            <g transform="translate(192, 240) scale(0.4)" fill-opacity="0.8">
+                <rect x="0" y="20" width="40" height="45" rx="5" fill="#eb4d4b" />
+                <rect x="7" y="0" width="26" height="20" rx="8" fill="#feca57" />
+                <path d="M7 10 Q7 0 20 0 Q33 0 33 10 Z" fill="#eb4d4b" /> </g>
+
+            <g id="batter-group" transform="translate(135, 305)" fill-opacity="0.9">
+                <rect x="30" y="45" width="35" height="45" rx="5" fill="#4a4e69" /> <rect x="36" y="22" width="22" height="22" rx="7" fill="#feca57" /> <path d="M36 26 Q36 18 47 18 Q58 18 58 26 Z" fill="#4a4e69" /> <rect x="58" y="23" width="10" height="3" fill="#4a4e69" rx="1.5" /> <g class="bat-svg">
+                    <rect x="38" y="-5" width="7" height="70" rx="3" fill="#d35400" /> </g>
+            </g>
+
+            <circle id="v-ball" cx="200" cy="260" r="5" fill="var(--ball-white)" style="display:none;" />
+        </svg>
+
+        <svg class="base-indicator" viewBox="0 0 100 100">
+            <rect x="45" y="5" width="12" height="12" transform="rotate(45 50 11)" fill="rgba(0,0,0,0.2)" id="ind-2" />
+            <rect x="85" y="45" width="12" height="12" transform="rotate(45 91 51)" fill="rgba(0,0,0,0.2)" id="ind-1" />
+            <rect x="5" y="45" width="12" height="12" transform="rotate(45 11 51)" fill="rgba(0,0,0,0.2)" id="ind-3" />
+        </svg>
+
+        <div id="announcer">HIT!</div>
+    </div>
+
+    <div id="game-ui">
+        <div id="hint-text" style="color:var(--m-text-light); font-weight:bold; margin-bottom:5px;">載入中...</div>
+        <div class="word-display" id="word-display"></div>
+        <div class="keyboard" id="keyboard"></div>
+    </div>
+</div>
+
+<div id="result-screen">
+    <h2 id="res-title" style="color:var(--m-blue); font-size:2.5rem;">修煉圓滿</h2>
+    <p id="res-desc" style="font-size:1.2rem;"></p>
+    <button class="vajra-btn" onclick="location.reload()">回到大廳</button>
+</div>
+
 <script>
-// --- 核心邏輯 ---
-const wordBank = [
-    {word: "STRATEGY", meaning: "策略"}, {word: "CHAMPION", meaning: "冠軍"},
-    {word: "EFFICIENT", meaning: "有效率的"}, {word: "BRILLIANT", meaning: "傑出的"},
-    {word: "POTENTIAL", meaning: "潛力"}, {word: "DYNAMIC", meaning: "充滿活力的"},
-    {word: "FOCUS", meaning: "焦點"}, {word: "VICTORY", meaning: "勝利"},
-    {word: "DEDICATED", meaning: "奉獻的"}, {word: "AMBITIOUS", meaning: "有抱負的"}
-];
+// --- 題庫架構 ---
+const QuestionBank = window.QuestionBank || {
+    senior: [{title: "初學者入門-1", words: [{word:"PEACE", meaning:"和平"}, {word:"HONOR", meaning:"榮譽"}]}],
+    toefl: [{title: "托福核心-1", words: [{word:"CULTURE", meaning:"文化"}]}],
+    toeic: [{title: "商務對話-1", words: [{word:"OFFICE", meaning:"辦公室"}]}]
+};
 
-let session = []; let curIdx = 0; let strikes = 0; let score = 0; let combo = 0;
-let onBase = [false, false, false]; // 1, 2, 3
-let currentWord = ""; let guessed = new Set();
-let cheats = 1;
+let activeCategory = '';
+let activeWords = [];
+let gameIndex = 0;
+let strikes = 0;
+let score = 0;
+let combo = 0;
+let onBase = [false, false, false];
+let currentWord = "";
+let guessedLetters = new Set();
+let timerInterval;
 
-function init() {
-    session = wordBank.sort(() => 0.5 - Math.random()).slice(0, 10);
-    document.getElementById('s-list').innerHTML = session.map(w => `
-        <div class="study-card"><strong>${w.word}</strong><br>${w.meaning}</div>
-    `).join('');
+// --- 介面導航邏輯 ---
+function toggleMenu() {
+    document.getElementById('side-menu').classList.toggle('open');
+    document.getElementById('menu-overlay').classList.toggle('open');
+}
+
+function enterCategory(key, title) {
+    activeCategory = key;
+    document.getElementById('main-category-screen').style.display = 'none';
+    document.getElementById('level-screen').style.display = 'flex';
+    document.getElementById('category-label').innerText = `✦ ${title} ✦`;
     
-    let time = 600;
-    const tInterval = setInterval(() => {
-        time--;
-        let m = Math.floor(time/60); let s = time%60;
-        document.getElementById('timer').innerText = `${m}:${s<10?'0':''}${s}`;
-        if(time <= 0) startGame();
-    }, 1000);
-    window.tInterval = tInterval;
-}
-
-function startGame() {
-    clearInterval(window.tInterval);
-    document.getElementById('study-screen').style.display = 'none';
-    loadWord();
-}
-
-function loadWord() {
-    if(curIdx >= 10) { end(true); return; }
-    currentWord = session[curIdx].word.toUpperCase();
-    guessed.clear();
-    document.getElementById('q-idx').innerText = `${curIdx+1}/10`;
-    document.getElementById('hint').innerText = session[curIdx].meaning;
-    render();
-}
-
-function render() {
-    const disp = document.getElementById('display');
-    disp.innerHTML = currentWord.split('').map(l => `<span class="letter-slot">${guessed.has(l)?l:''}</span>`).join('');
+    const list = document.getElementById('group-list');
+    list.innerHTML = '';
     
-    const kb = document.getElementById('kb');
-    const letters = "QWERTYUIOPASDFGHJKLZXCVBNM".split('');
-    kb.innerHTML = letters.map(l => `<button class="key" id="k-${l}" onclick="guess('${l}')">${l}</button>`).join('');
-}
-
-function guess(l) {
-    if(guessed.has(l)) return;
-    const btn = document.getElementById(`k-${l}`);
-    if(currentWord.includes(l)) {
-        guessed.add(l); btn.classList.add('correct');
-        render();
-        if(currentWord.split('').every(char => guessed.has(char))) winStep();
-    } else {
-        btn.classList.add('wrong');
-        strikeStep();
+    if(QuestionBank[key]) {
+        QuestionBank[key].forEach(group => {
+            const btn = document.createElement('div');
+            btn.className = 'group-btn';
+            btn.innerHTML = `<strong>${group.title}</strong><span>進入</span>`;
+            btn.onclick = () => { activeWords = group.words; showAbsorb(); };
+            list.appendChild(btn);
+        });
     }
 }
 
-function strikeStep() {
-    strikes++; combo = 0;
-    const dots = document.querySelectorAll('.strike-dot');
-    if(strikes <= 3) dots[strikes-1].classList.add('strike-active');
+function showAbsorb() {
+    document.getElementById('level-screen').style.display = 'none';
+    document.getElementById('absorb-screen').style.display = 'flex';
+    document.getElementById('header-title').innerText = "背單字定心";
     
-    // 揮棒空振動畫
+    document.getElementById('word-list-container').innerHTML = activeWords.map(w => `
+        <div class="absorb-item">
+            <div><div class="absorb-word">${w.word}</div><div>${w.meaning}</div></div>
+            <button class="nav-btn" style="width:auto; height:auto; padding:5px 15px; border-radius:10px;" onclick="speak('${w.word}')">發音</button>
+        </div>
+    `).join('');
+    
+    let time = 600; // 10分鐘
+    timerInterval = setInterval(() => {
+        if(time <= 0) { startBaseballGame(); return; }
+        time--;
+        document.getElementById('global-timer').innerText = `${Math.floor(time/60)}:${time%60 < 10 ? '0' : ''}${time%60}`;
+    }, 1000);
+}
+
+// --- 棒球遊戲邏輯 ---
+function startBaseballGame() {
+    clearInterval(timerInterval);
+    document.getElementById('global-timer').innerText = "";
+    document.getElementById('absorb-screen').style.display = 'none';
+    document.getElementById('test-screen').style.display = 'flex';
+    document.getElementById('header-title').innerText = "棒球英文測驗";
+    
+    gameIndex = 0; score = 0; strikes = 0; combo = 0;
+    onBase = [false, false, false];
+    loadBaseballQuestion();
+}
+
+function loadBaseballQuestion() {
+    if(gameIndex >= activeWords.length || strikes >= 3) { finishGame(); return; }
+    
+    currentWord = activeWords[gameIndex].word.toUpperCase();
+    guessedLetters.clear();
+    document.getElementById('game-q-idx').innerText = `${gameIndex + 1}/10`;
+    document.getElementById('hint-text').innerText = activeWords[gameIndex].meaning;
+    
+    renderWord();
+    renderKeyboard();
+    updateBaseUI();
+}
+
+function renderWord() {
+    const disp = document.getElementById('word-display');
+    disp.innerHTML = currentWord.split('').map(l => `<span class="letter-slot">${guessedLetters.has(l) ? l : ''}</span>`).join('');
+}
+
+function renderKeyboard() {
+    const kb = document.getElementById('keyboard');
+    const rows = "QWERTYUIOPASDFGHJKLZXCVBNM".split('');
+    kb.innerHTML = rows.map(l => `<button class="key" id="key-${l}" onclick="handleGuess('${l}')">${l}</button>`).join('');
+}
+
+function handleGuess(l) {
+    if(guessedLetters.has(l)) return;
+    const btn = document.getElementById(`key-${l}`);
+    
+    if(currentWord.includes(l)) {
+        guessedLetters.add(l);
+        btn.classList.add('correct');
+        renderWord();
+        if(currentWord.split('').every(char => guessedLetters.has(char))) handleWin();
+    } else {
+        btn.classList.add('wrong');
+        handleStrike();
+    }
+}
+
+function handleStrike() {
+    strikes++; combo = 0;
+    const dots = document.querySelectorAll('.s-dot');
+    if(strikes <= 3) dots[strikes-1].classList.add('s-active');
+    
+    // 揮棒空
     document.getElementById('batter-group').classList.add('swinging');
     setTimeout(()=>document.getElementById('batter-group').classList.remove('swinging'), 200);
 
-    if(strikes >= 3) setTimeout(()=>end(false), 500);
+    if(strikes >= 3) setTimeout(finishGame, 600);
 }
 
-function winStep() {
-    combo++; curIdx++;
-    // 打擊動作
+function handleWin() {
+    combo++; gameIndex++;
     const batter = document.getElementById('batter-group');
     const ball = document.getElementById('v-ball');
-    batter.classList.add('swinging');
     
-    // 球飛出動畫 (修正)
+    batter.classList.add('swinging');
     ball.style.display = 'block';
-    // 雖然 CSS 定義了，但這裡用 JS animate 控制路徑更準確，且能顯示球飛出去
+    
+    // 球飛出動畫
     ball.animate([
-        { cx: 200, cy: 375, r: 8, fillOpacity: 1 }, // 起點在本壘板
-        { cx: Math.random()*400, cy: -50, r: 2, fillOpacity: 0.1 } // 飛向遠方外野
-    ], { duration: 800, fill: 'forwards', easing: 'ease-out' });
+        { cx: 200, cy: 380, r: 8, fillOpacity: 1 },
+        { cx: Math.random()*400, cy: -50, r: 2, fillOpacity: 0.1 }
+    ], { duration: 800, fill: 'forwards' });
 
     setTimeout(() => {
         batter.classList.remove('swinging');
         ball.style.display = 'none';
         
-        // 判定規則
-        if(curIdx === 10) { announce("GRAND SLAM!", 4); onBase=[false,false,false]; }
-        else if(combo === 4) { announce("HOMERUN!", 4); combo=0; onBase=[false,false,false]; }
-        else { announce("HIT!", 0); onBase[combo-1] = true; }
+        if(gameIndex === 10) { 
+            triggerAnnounce("GRAND SLAM!", true); 
+        } else if(combo === 4) { 
+            triggerAnnounce("HOMERUN!", true); combo = 0; onBase = [false,false,false]; 
+        } else { 
+            triggerAnnounce("HIT!", false); onBase[combo-1] = true; 
+        }
         
-        updateBases();
-        setTimeout(loadWord, 1500);
+        updateBaseUI();
+        setTimeout(loadBaseballQuestion, 1500);
     }, 800);
 }
 
-function updateBases() {
-    // 這裡也加入透明色判斷
-    document.getElementById('ind-1').setAttribute('fill', onBase[0]?'rgba(254, 202, 87, 0.9)':'rgba(51,51,51,0.5)');
-    document.getElementById('ind-2').setAttribute('fill', onBase[1]?'rgba(254, 202, 87, 0.9)':'rgba(51,51,51,0.5)');
-    document.getElementById('ind-3').setAttribute('fill', onBase[2]?'rgba(254, 202, 87, 0.9)':'rgba(51,51,51,0.5)');
+function updateBaseUI() {
+    document.getElementById('ind-1').setAttribute('fill', onBase[0] ? 'var(--m-blue)' : 'rgba(0,0,0,0.2)');
+    document.getElementById('ind-2').setAttribute('fill', onBase[1] ? 'var(--m-blue)' : 'rgba(0,0,0,0.2)');
+    document.getElementById('ind-3').setAttribute('fill', onBase[2] ? 'var(--m-blue)' : 'rgba(0,0,0,0.2)');
 }
 
-function announce(txt, pts) {
+function triggerAnnounce(txt, isHomerun) {
     const el = document.getElementById('announcer');
     el.innerText = txt;
-    el.classList.add('show-announcement');
-    if(pts > 0) { 
+    el.classList.add('show-msg');
+    if(isHomerun) {
         let runners = onBase.filter(b=>b).length + 1;
         score += runners;
-        document.getElementById('score').innerText = score;
+        document.getElementById('game-score').innerText = score;
     }
-    setTimeout(()=>el.classList.remove('show-announcement'), 1200);
+    setTimeout(()=>el.classList.remove('show-msg'), 1200);
 }
 
-document.getElementById('scan-btn').onclick = () => {
-    if(cheats <= 0) return;
-    cheats--;
-    document.getElementById('scan-btn').innerText = `SCAN BALL (剩餘 0)`;
-    const slots = document.querySelectorAll('.letter-slot');
-    currentWord.split('').forEach((l, i) => {
-        slots[i].innerText = l;
-        slots[i].style.color = 'var(--neon-blue)';
-    });
-    setTimeout(() => {
-        currentWord.split('').forEach((l, i) => {
-            if(!guessed.has(l)) slots[i].innerText = '';
-            slots[i].style.color = 'white';
-        });
-    }, 1200);
-};
+function speak(text) {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = 'en-US';
+    window.speechSynthesis.speak(msg);
+}
 
-function end(win) {
+function finishGame() {
+    document.getElementById('test-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'flex';
-    document.getElementById('r-title').innerText = win ? "勝利投球！" : "被三振了！";
-    document.getElementById('r-msg').innerText = `最終擊出得分：${score}`;
+    document.getElementById('res-desc').innerText = `最終得分：${score} 分`;
+    document.getElementById('header-title').innerText = "結算";
 }
 
-init();
 </script>
 </body>
 </html>
