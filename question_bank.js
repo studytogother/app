@@ -916,7 +916,37 @@ const QuestionBank = {
             ]
         },
         {
-            id: "toefl_2", title: "托福核心 (清淨與專注)",
+            id: "toefl_2", title: "托福核心 (無常與寂靜)",
+            words: [
+                { word: "ephemeral", meaning: "adj. 短暫的；朝生暮死的", root: "epi (在...之上) + hemera (天)", phonetic: "/ɪˈfem.ɚ.əl/" },
+                { word: "transient", meaning: "adj. 轉瞬即逝的", root: "trans (跨越) + ire (走)", phonetic: "/ˈtræn.zi.ənt/" },
+                { word: "serenity", meaning: "n. 寧靜；平靜", root: "serenus (晴朗/平靜) + ity", phonetic: "/səˈren.ə.t̬i/" },
+                { word: "equanimity", meaning: "n. 平和；鎮定", root: "aequus (平) + animus (心)", phonetic: "/ˌiː.kwəˈnɪm.ə.t̬i/" },
+                { word: "impermanent", meaning: "adj. 無常的；非永久的", root: "im (不) + permanent (永久)", phonetic: "/ɪmˈpɝː.mə.nənt/" },
+                { word: "obliterate", meaning: "v. 抹除；消滅", root: "ob (反) + liter (文字) -> 擦去字跡", phonetic: "/əˈblɪt̬.ə.reɪt/" },
+                { word: "immutable", meaning: "adj. 不可變的", root: "im (不) + mut (改變) + able", phonetic: "/ɪˈmjuː.t̬ə.bəl/" },
+                { word: "solitude", meaning: "n. 獨處；孤獨 (平靜的)", root: "solus (單獨) + itude", phonetic: "/ˈsɑː.lə.tuːd/" },
+                { word: "transcend", meaning: "v. 超越", root: "trans (跨越) + scandere (攀登)", phonetic: "/trænˈsend/" },
+                { word: "void", meaning: "n. 空虛；空間 adj. 空的", root: "vacare (空)", phonetic: "/vɔɪd/" }
+            ]
+        },
+        {
+            id: "toefl_3", title: "托福核心 (精進與因果)",
+            words: [
+                { word: "endeavor", meaning: "n./v. 努力；盡力", root: "en (使) + devoir (責任)", phonetic: "/ɪnˈdev.ɚ/" },
+                { word: "persevere", meaning: "v. 堅持不懈", root: "per (始終) + severus (嚴格)", phonetic: "/ˌpɝː.səˈvɪr/" },
+                { word: "dormant", meaning: "adj. 休眠的；潛伏的", root: "dormire (睡覺)", phonetic: "/ˈdɔːr.mənt/" },
+                { word: "manifestation", meaning: "n. 顯化；表現", root: "mani (手) + fest (打) -> 具象化", phonetic: "/ˌmæn.ə.fesˈteɪ.ʃən/" },
+                { word: "inevitable", meaning: "adj. 不可避免的", root: "in (不) + e (出) + vitare (避開)", phonetic: "/ˌɪnˈev.ə.t̬ə.bəl/" },
+                { word: "correlation", meaning: "n. 關聯；相互關係", root: "cor (共同) + relation (關係)", phonetic: "/ˌkɔːr.əˈleɪ.ʃən/" },
+                { word: "consequence", meaning: "n. 結果；後果", root: "con (共同) + sequ (跟隨) + ence", phonetic: "/ˈkɑːn.sə.kwəns/" },
+                { word: "enlightenment", meaning: "n. 啟蒙；覺悟", root: "en (使) + light (光) + ment", phonetic: "/ɪnˈlaɪ.t̬ən.mənt/" },
+                { word: "delusion", meaning: "n. 錯覺；妄想", root: "de (向下) + ludere (玩弄)", phonetic: "/dɪˈluː.ʒən/" },
+                { word: "karmic", meaning: "adj. 業力的；因果的", root: "源自梵文 karma (行為)", phonetic: "/ˈkɑːr.mɪk/" }
+            ]
+        },
+        {
+            id: "toefl_4", title: "托福核心 (清淨與專注)",
             words: [
                 { word: "authentic", meaning: "adj. 真實的；可靠的", root: "auth (自己) + entic", phonetic: "/ɑːˈθen.t̬ɪk/" },
                 { word: "beneficial", meaning: "adj. 有益的", root: "bene (好) + fic (做)", phonetic: "/ˌben.əˈfɪʃ.əl/" },
@@ -944,12 +974,29 @@ const QuestionBank = {
                 { id: "tr_q2", text: "2. How did the kingfisher bird inspire the bullet train?", options: {A:"It made the train fly", B:"It helped reduce noise and increase speed", C:"It changed the train's color", D:"It made the train cheaper"}, answer: "B", points: 15 }
             ]
         },
+        {
+            id: "t_r_02",
+            article: "The phenomenon of neuroplasticity suggests that the human brain is not a static organ but rather a highly dynamic structure. Neural pathways can be rewired continuously through meditation, focused attention, and learning, proving that structural changes in the brain can occur well into adulthood. This mechanism is foundational to developing equanimity and breaking habitual patterns.",
+            questions: [
+                { id: "tr_q3", text: "1. What does neuroplasticity indicate about the human brain?", options: {A:"It stops developing in childhood.", B:"It is a highly dynamic structure capable of rewiring.", C:"It is immune to external stimuli.", D:"It only changes during sleep."}, answer: "B", points: 15 },
+                { id: "tr_q4", text: "2. According to the passage, what is foundational to developing equanimity?", options: {A:"Ignoring habitual patterns.", B:"The structural static nature of the brain.", C:"The brain's ability to rewire neural pathways.", D:"Avoiding focused attention."}, answer: "C", points: 15 }
+            ]
+        },
+    
         listening_hard: {
             id: "t_lh_01",
             audioScript: "Welcome to Advanced Neuroscience. Today we'll discuss neuroplasticity—the brain's ability to reorganize itself by forming new neural connections throughout life. This challenges the old dogma that the adult brain is entirely hard-wired.",
             questions: [
                 { id: "tlh_q1", text: "1. What is the main topic of the lecture?", options: {A:"Brain surgery techniques", B:"Neuroplasticity and neural connections", C:"Childhood education", D:"The history of neuroscience"}, answer: "B", points: 15 },
                 { id: "tlh_q2", text: "2. What old dogma does neuroplasticity challenge?", options: {A:"That the brain requires sleep", B:"That the adult brain is entirely hard-wired", C:"That neurons die with age", D:"That the brain is a muscle"}, answer: "B", points: 15 }
+            ]
+        },
+    {
+            id: "t_lh_02",
+            audioScript: "Professor: Let's shift our focus to the 'Observer Effect' in quantum mechanics. It posits that the mere observation of a phenomenon inevitably changes that phenomenon. Philosophically, this echoes ancient wisdom: the mind of the observer is never truly separate from the reality being observed. This interconnectedness shatters the illusion of pure objectivity.",
+            questions: [
+                { id: "tlh_q3", text: "1. What is the core concept of the 'Observer Effect' discussed?", options: {A:"Observation requires complex instruments.", B:"Observation inevitably changes the phenomenon.", C:"Reality is entirely predictable.", D:"Observers must remain objective."}, answer: "B", points: 15 },
+                { id: "tlh_q4", text: "2. What illusion does this concept shatter?", options: {A:"The illusion of pure objectivity.", B:"The illusion of time.", C:"The illusion of technological progress.", D:"The illusion of mathematical certainty."}, answer: "A", points: 15 }
             ]
         },
         listening_easy: {
@@ -960,6 +1007,14 @@ const QuestionBank = {
                 { id: "tle_q2", text: "2. When will it reopen?", options: {A:"Tonight at 10 PM", B:"Tomorrow at 8 AM", C:"Next Monday", D:"Tomorrow at noon"}, answer: "B", points: 10 }
             ]
         },
+{
+            id: "t_le_02",
+            audioScript: "Hello, this is the university housing office. We are calling to remind you that the deadline to apply for the summer dormitory extension is this Friday at 5:00 PM. Late applications will not be accepted due to high demand.",
+            questions: [
+                { id: "tle_q3", text: "1. What is the deadline for the summer dormitory extension?", options: {A:"Today at 5:00 PM", B:"This Friday at 5:00 PM", C:"Next Monday at 9:00 AM", D:"This weekend"}, answer: "B", points: 10 },
+                { id: "tle_q4", text: "2. Why will late applications not be accepted?", options: {A:"System maintenance", B:"High demand", C:"Staff vacation", D:"Building closure"}, answer: "B", points: 10 }
+            ]
+        },
         speaking: {
             id: "t_s_01",
             article: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
@@ -968,8 +1023,27 @@ const QuestionBank = {
                 { id: "ts_q1", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
             ]
         },
+{
+            id: "t_s_02",
+            article: "The greatest glory in living lies not in never falling, but in rising every time we fall. Resilience is built in the quiet moments of choosing to try again.",
+            audioScript: "The greatest glory in living lies not in never falling, but in rising every time we fall. Resilience is built in the quiet moments of choosing to try again.",
+            questions: [
+                { id: "ts_q2", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次，體會語言的節奏與堅韌的力量。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
+            ]
+        },
         writing: {
+            
+            {
             id: "t_w_01",
+            questions: [
+                { 
+                    id: "tw_q2", text: "獨立寫作 (Independent Writing)：\nDo you agree or disagree with the following statement? 'It is more important for individuals to maintain inner peace than to pursue continuous material wealth.' Use specific reasons and examples to support your answer. (請寫出約 300 字大綱與核心段落) (滿分30分)", type: "composition",
+                    answer: "【評分標準】論點明確清晰、具備邏輯連貫性、詞彙運用精準（如：inner tranquility, materialistic pursuit, sustainable well-being）。", points: 30
+                }
+            ]
+        },
+         {
+            id: "t_w_02",
             questions: [
                 { 
                     id: "tw_q1", text: "實用 Email 寫作：\n請寫一封信給教授，說明你週末要參加偏鄉志工服務，請求報告延期兩天繳交。(滿分30分)", type: "composition",
