@@ -897,9 +897,7 @@ const QuestionBank = {
         }
     ], // 這裡關閉 senior 陣列
 
-
-    
-    toefl: [
+toefl: [
         {
             id: "toefl_1", title: "托福核心 (慈悲與智慧)",
             words: [
@@ -929,6 +927,66 @@ const QuestionBank = {
                 { word: "consensus", meaning: "n. 共識", root: "con (共同) + sens (感覺) + us", phonetic: "/kənˈsen.səs/" },
                 { word: "contemplate", meaning: "v. 沉思；深思", root: "con (共同) + templ (廟宇 -> 靜思的地方)", phonetic: "/ˈkɑːn.t̬əm.pleɪt/" }
             ]
+        },
+        {
+            id: "toefl_3", title: "托福核心 (無常與寂靜)",
+            words: [
+                { word: "ephemeral", meaning: "adj. 短暫的；朝生暮死的", root: "epi (在...之上) + hemera (天)", phonetic: "/ɪˈfem.ɚ.əl/" },
+                { word: "transient", meaning: "adj. 轉瞬即逝的", root: "trans (跨越) + ire (走)", phonetic: "/ˈtræn.zi.ənt/" },
+                { word: "serenity", meaning: "n. 寧靜；平靜", root: "serenus (晴朗/平靜) + ity", phonetic: "/səˈren.ə.t̬i/" },
+                { word: "equanimity", meaning: "n. 平和；鎮定", root: "aequus (平) + animus (心)", phonetic: "/ˌiː.kwəˈnɪm.ə.t̬i/" },
+                { word: "impermanent", meaning: "adj. 無常的；非永久的", root: "im (不) + permanent (永久)", phonetic: "/ɪmˈpɝː.mə.nənt/" },
+                { word: "obliterate", meaning: "v. 抹除；消滅", root: "ob (反) + liter (文字) -> 擦去字跡", phonetic: "/əˈblɪt̬.ə.reɪt/" },
+                { word: "immutable", meaning: "adj. 不可變的", root: "im (不) + mut (改變) + able", phonetic: "/ɪˈmjuː.t̬ə.bəl/" },
+                { word: "solitude", meaning: "n. 獨處；孤獨 (平靜的)", root: "solus (單獨) + itude", phonetic: "/ˈsɑː.lə.tuːd/" },
+                { word: "transcend", meaning: "v. 超越", root: "trans (跨越) + scandere (攀登)", phonetic: "/trænˈsend/" },
+                { word: "void", meaning: "n. 空虛；空間 adj. 空的", root: "vacare (空)", phonetic: "/vɔɪd/" }
+            ]
+        },
+        {
+            id: "toefl_4", title: "托福核心 (精進與因果)",
+            words: [
+                { word: "endeavor", meaning: "n./v. 努力；盡力", root: "en (使) + devoir (責任)", phonetic: "/ɪnˈdev.ɚ/" },
+                { word: "persevere", meaning: "v. 堅持不懈", root: "per (始終) + severus (嚴格)", phonetic: "/ˌpɝː.səˈvɪr/" },
+                { word: "dormant", meaning: "adj. 休眠的；潛伏的", root: "dormire (睡覺)", phonetic: "/ˈdɔːr.mənt/" },
+                { word: "manifestation", meaning: "n. 顯化；表現", root: "mani (手) + fest (打) -> 具象化", phonetic: "/ˌmæn.ə.fesˈteɪ.ʃən/" },
+                { word: "inevitable", meaning: "adj. 不可避免的", root: "in (不) + e (出) + vitare (避開)", phonetic: "/ˌɪnˈev.ə.t̬ə.bəl/" },
+                { word: "correlation", meaning: "n. 關聯；相互關係", root: "cor (共同) + relation (關係)", phonetic: "/ˌkɔːr.əˈleɪ.ʃən/" },
+                { word: "consequence", meaning: "n. 結果；後果", root: "con (共同) + sequ (跟隨) + ence", phonetic: "/ˈkɑːn.sə.kwəns/" },
+                { word: "enlightenment", meaning: "n. 啟蒙；覺悟", root: "en (使) + light (光) + ment", phonetic: "/ɪnˈlaɪ.t̬ən.mənt/" },
+                { word: "delusion", meaning: "n. 錯覺；妄想", root: "de (向下) + ludere (玩弄)", phonetic: "/dɪˈluː.ʒən/" },
+                { word: "karmic", meaning: "adj. 業力的；因果的", root: "源自梵文 karma (行為)", phonetic: "/ˈkɑːr.mɪk/" }
+            ]
+        },
+        {
+            id: "toefl_5", title: "托福核心 (真理與思辨)",
+            words: [
+                { word: "paradox", meaning: "n. 悖論；自相矛盾的情況", root: "para (旁/相反) + doxa (意見)", phonetic: "/ˈper.ə.dɑːks/" },
+                { word: "skepticism", meaning: "n. 懷疑論；懷疑態度", root: "skeptesthai (觀察/思考) + ism", phonetic: "/ˈskep.tə.sɪ.zəm/" },
+                { word: "dogma", meaning: "n. 教條；武斷的意見", root: "dokein (認為/似乎)", phonetic: "/ˈdɑːɡ.mə/" },
+                { word: "pragmatic", meaning: "adj. 務實的", root: "pragma (行為/事物) + tic", phonetic: "/præɡˈmæt̬.ɪk/" },
+                { word: "ambiguity", meaning: "n. 模稜兩可", root: "ambi (兩者) + agere (驅動)", phonetic: "/ˌæm.bɪˈɡjuː.ə.t̬i/" },
+                { word: "inherent", meaning: "adj. 內在的；固有的", root: "in (內) + haerere (黏附)", phonetic: "/ɪnˈhɪr.ənt/" },
+                { word: "bias", meaning: "n. 偏見", root: "源自斜線的意象 -> 偏離正道", phonetic: "/ˈbaɪ.əs/" },
+                { word: "validity", meaning: "n. 有效性；正確性", root: "validus (強壯) + ity", phonetic: "/vəˈlɪd.ə.t̬i/" },
+                { word: "premise", meaning: "n. 前提", root: "pre (前) + mittere (放置)", phonetic: "/ˈprem.ɪs/" },
+                { word: "deduction", meaning: "n. 推論；演繹", root: "de (向下) + ducere (引導)", phonetic: "/dɪˈdʌk.ʃən/" }
+            ]
+        },
+        {
+            id: "toefl_6", title: "托福核心 (宇宙與生態)",
+            words: [
+                { word: "cosmos", meaning: "n. 宇宙 (強調秩序)", root: "kosmos (秩序/世界)", phonetic: "/ˈkɑːz.moʊs/" },
+                { word: "symbiosis", meaning: "n. 共生關係", root: "syn (共同) + bioun (生活)", phonetic: "/ˌsɪm.baɪˈoʊ.sɪs/" },
+                { word: "equilibrium", meaning: "n. 平衡", root: "aequi (相等) + libra (天平)", phonetic: "/ˌiː.kwəˈlɪb.ri.əm/" },
+                { word: "sustainability", meaning: "n. 永續性", root: "sus (在下) + tenere (保持) + ability", phonetic: "/səˌsteɪ.nəˈbɪl.ə.t̬i/" },
+                { word: "biodiversity", meaning: "n. 生物多樣性", root: "bio (生命) + diversity (多樣)", phonetic: "/ˌbaɪ.oʊ.dɪˈvɝː.sə.t̬i/" },
+                { word: "habitat", meaning: "n. 棲息地", root: "habitare (居住)", phonetic: "/ˈhæb.ə.tæt/" },
+                { word: "catalyst", meaning: "n. 催化劑；促使變化的人事物", root: "cata (向下) + lyein (解開)", phonetic: "/ˈkæt̬.əl.ɪst/" },
+                { word: "synthesis", meaning: "n. 合成；綜合", root: "syn (共同) + thesis (放置)", phonetic: "/ˈsɪn.θə.sɪs/" },
+                { word: "interdependence", meaning: "n. 相互依賴", root: "inter (之間) + dependence (依賴)", phonetic: "/ˌɪn.t̬ɚ.dɪˈpen.dəns/" },
+                { word: "microcosm", meaning: "n. 微觀世界；縮影", root: "mikros (小) + kosmos (世界)", phonetic: "/ˈmaɪ.kroʊˌkɑː.zəm/" }
+            ]
         }
     ],
 
@@ -936,48 +994,141 @@ const QuestionBank = {
     // 模組三：托福適性考場專用 (供 exam_toefl.html 讀取)
     // ==========================================
     toefl_adaptive: {
-        reading: {
-            id: "t_r_01",
-            article: "Biomimicry involves studying nature's best ideas and imitating them to solve human problems. For example, the design of the famous bullet train in Japan was inspired by the beak of the kingfisher bird, making it 10% faster and much quieter.",
-            questions: [
-                { id: "tr_q1", text: "1. What is biomimicry?", options: {A:"Studying birds", B:"Imitating nature to solve problems", C:"Building faster trains", D:"Protecting the environment"}, answer: "B", points: 15 },
-                { id: "tr_q2", text: "2. How did the kingfisher bird inspire the bullet train?", options: {A:"It made the train fly", B:"It helped reduce noise and increase speed", C:"It changed the train's color", D:"It made the train cheaper"}, answer: "B", points: 15 }
-            ]
-        },
-        listening_hard: {
-            id: "t_lh_01",
-            audioScript: "Welcome to Advanced Neuroscience. Today we'll discuss neuroplasticity—the brain's ability to reorganize itself by forming new neural connections throughout life. This challenges the old dogma that the adult brain is entirely hard-wired.",
-            questions: [
-                { id: "tlh_q1", text: "1. What is the main topic of the lecture?", options: {A:"Brain surgery techniques", B:"Neuroplasticity and neural connections", C:"Childhood education", D:"The history of neuroscience"}, answer: "B", points: 15 },
-                { id: "tlh_q2", text: "2. What old dogma does neuroplasticity challenge?", options: {A:"That the brain requires sleep", B:"That the adult brain is entirely hard-wired", C:"That neurons die with age", D:"That the brain is a muscle"}, answer: "B", points: 15 }
-            ]
-        },
-        listening_easy: {
-            id: "t_le_01",
-            audioScript: "Attention students. The library will close at 8 PM tonight for maintenance. It will reopen tomorrow at 8 AM. Please use the student center if you need a place to study late.",
-            questions: [
-                { id: "tle_q1", text: "1. Why is the library closing early?", options: {A:"For a holiday", B:"For maintenance", C:"Staff shortage", D:"Weather emergency"}, answer: "B", points: 10 },
-                { id: "tle_q2", text: "2. When will it reopen?", options: {A:"Tonight at 10 PM", B:"Tomorrow at 8 AM", C:"Next Monday", D:"Tomorrow at noon"}, answer: "B", points: 10 }
-            ]
-        },
-        speaking: {
-            id: "t_s_01",
-            article: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
-            audioScript: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
-            questions: [
-                { id: "ts_q1", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
-            ]
-        },
-        writing: {
-            id: "t_w_01",
-            questions: [
-                { 
-                    id: "tw_q1", text: "實用 Email 寫作：\n請寫一封信給教授，說明你週末要參加偏鄉志工服務，請求報告延期兩天繳交。(滿分30分)", type: "composition",
-                    answer: "【評分標準】清楚說明原因、禮貌請求、字數適中。", points: 30
-                }
-            ]
-        }
-    }, // <-- 就是這裡漏了逗號！
+        // 注意：這裡已從物件 {} 轉換為陣列 []，這樣才能無縫擴充多篇考題
+        reading: [
+            {
+                id: "t_r_01",
+                article: "Biomimicry involves studying nature's best ideas and imitating them to solve human problems. For example, the design of the famous bullet train in Japan was inspired by the beak of the kingfisher bird, making it 10% faster and much quieter.",
+                questions: [
+                    { id: "tr_q1", text: "1. What is biomimicry?", options: {A:"Studying birds", B:"Imitating nature to solve problems", C:"Building faster trains", D:"Protecting the environment"}, answer: "B", points: 15 },
+                    { id: "tr_q2", text: "2. How did the kingfisher bird inspire the bullet train?", options: {A:"It made the train fly", B:"It helped reduce noise and increase speed", C:"It changed the train's color", D:"It made the train cheaper"}, answer: "B", points: 15 }
+                ]
+            },
+            {
+                id: "t_r_02",
+                article: "The phenomenon of neuroplasticity suggests that the human brain is not a static organ but rather a highly dynamic structure. Neural pathways can be rewired continuously through meditation, focused attention, and learning, proving that structural changes in the brain can occur well into adulthood. This mechanism is foundational to developing equanimity and breaking habitual patterns.",
+                questions: [
+                    { id: "tr_q3", text: "1. What does neuroplasticity indicate about the human brain?", options: {A:"It stops developing in childhood.", B:"It is a highly dynamic structure capable of rewiring.", C:"It is immune to external stimuli.", D:"It only changes during sleep."}, answer: "B", points: 15 },
+                    { id: "tr_q4", text: "2. According to the passage, what is foundational to developing equanimity?", options: {A:"Ignoring habitual patterns.", B:"The structural static nature of the brain.", C:"The brain's ability to rewire neural pathways.", D:"Avoiding focused attention."}, answer: "C", points: 15 }
+                ]
+            },
+            {
+                id: "t_r_03",
+                article: "The concept of deep ecology argues that the natural world is a subtle balance of complex inter-relationships in which the existence of organisms is dependent on the existence of others within ecosystems. Unlike anthropocentrism, which views humans as the center of the universe, deep ecology asserts the inherent value of all living beings, regardless of their instrumental utility to human needs.",
+                questions: [
+                    { id: "tr_q5", text: "3. What is the fundamental argument of deep ecology?", options: {A:"Humans are the most important species.", B:"Ecosystems exist primarily for human use.", C:"All living beings have inherent value.", D:"Technological solutions can fix nature."}, answer: "C", points: 15 },
+                    { id: "tr_q6", text: "4. How does deep ecology view the relationship between organisms?", options: {A:"As independent and isolated.", B:"As a subtle balance of complex inter-relationships.", C:"As a strict hierarchical structure.", D:"As a constant competition for dominance."}, answer: "B", points: 15 }
+                ]
+            }
+        ],
+        listening_hard: [
+            {
+                id: "t_lh_01",
+                audioScript: "Welcome to Advanced Neuroscience. Today we'll discuss neuroplasticity—the brain's ability to reorganize itself by forming new neural connections throughout life. This challenges the old dogma that the adult brain is entirely hard-wired.",
+                questions: [
+                    { id: "tlh_q1", text: "1. What is the main topic of the lecture?", options: {A:"Brain surgery techniques", B:"Neuroplasticity and neural connections", C:"Childhood education", D:"The history of neuroscience"}, answer: "B", points: 15 },
+                    { id: "tlh_q2", text: "2. What old dogma does neuroplasticity challenge?", options: {A:"That the brain requires sleep", B:"That the adult brain is entirely hard-wired", C:"That neurons die with age", D:"That the brain is a muscle"}, answer: "B", points: 15 }
+                ]
+            },
+            {
+                id: "t_lh_02",
+                audioScript: "Professor: Let's shift our focus to the 'Observer Effect' in quantum mechanics. It posits that the mere observation of a phenomenon inevitably changes that phenomenon. Philosophically, this echoes ancient wisdom: the mind of the observer is never truly separate from the reality being observed. This interconnectedness shatters the illusion of pure objectivity.",
+                questions: [
+                    { id: "tlh_q3", text: "1. What is the core concept of the 'Observer Effect' discussed?", options: {A:"Observation requires complex instruments.", B:"Observation inevitably changes the phenomenon.", C:"Reality is entirely predictable.", D:"Observers must remain objective."}, answer: "B", points: 15 },
+                    { id: "tlh_q4", text: "2. What illusion does this concept shatter?", options: {A:"The illusion of pure objectivity.", B:"The illusion of time.", C:"The illusion of technological progress.", D:"The illusion of mathematical certainty."}, answer: "A", points: 15 }
+                ]
+            },
+            {
+                id: "t_lh_03",
+                audioScript: "Professor: Let's shift our focus to the 'Observer Effect' in quantum mechanics. It posits that the mere observation of a phenomenon inevitably changes that phenomenon. Philosophically, this echoes ancient wisdom: the mind of the observer is never truly separate from the reality being observed. This interconnectedness shatters the illusion of pure objectivity.",
+                questions: [
+                    { id: "tlh_q5", text: "3. What is the core concept of the 'Observer Effect' discussed?", options: {A:"Observation requires complex mathematical instruments.", B:"Observation inevitably changes the phenomenon being observed.", C:"Reality is entirely predictable and static.", D:"Observers must remain completely objective at all times."}, answer: "B", points: 15 },
+                    { id: "tlh_q6", text: "4. According to the professor, what illusion does this concept shatter?", options: {A:"The illusion of pure objectivity.", B:"The illusion of linear time.", C:"The illusion of continuous technological progress.", D:"The illusion of absolute mathematical certainty."}, answer: "A", points: 15 }
+                ]
+            }
+        ],
+        listening_easy: [
+            {
+                id: "t_le_01",
+                audioScript: "Attention students. The library will close at 8 PM tonight for maintenance. It will reopen tomorrow at 8 AM. Please use the student center if you need a place to study late.",
+                questions: [
+                    { id: "tle_q1", text: "1. Why is the library closing early?", options: {A:"For a holiday", B:"For maintenance", C:"Staff shortage", D:"Weather emergency"}, answer: "B", points: 10 },
+                    { id: "tle_q2", text: "2. When will it reopen?", options: {A:"Tonight at 10 PM", B:"Tomorrow at 8 AM", C:"Next Monday", D:"Tomorrow at noon"}, answer: "B", points: 10 }
+                ]
+            },
+            {
+                id: "t_le_02",
+                audioScript: "Hello, this is the university housing office. We are calling to remind you that the deadline to apply for the summer dormitory extension is this Friday at 5:00 PM. Late applications will not be accepted due to high demand.",
+                questions: [
+                    { id: "tle_q3", text: "1. What is the deadline for the summer dormitory extension?", options: {A:"Today at 5:00 PM", B:"This Friday at 5:00 PM", C:"Next Monday at 9:00 AM", D:"This weekend"}, answer: "B", points: 10 },
+                    { id: "tle_q4", text: "2. Why will late applications not be accepted?", options: {A:"System maintenance", B:"High demand", C:"Staff vacation", D:"Building closure"}, answer: "B", points: 10 }
+                ]
+            },
+            {
+                id: "t_le_03",
+                audioScript: "Hello, this is the university health center. We are calling to remind all students that the free annual health screening, including blood pressure and glucose checks, will be held next Wednesday in the main gymnasium. Please bring your student ID.",
+                questions: [
+                    { id: "tle_q5", text: "3. Where will the health screening take place?", options: {A:"At the university hospital", B:"In the main gymnasium", C:"At the library", D:"In the student cafeteria"}, answer: "B", points: 10 },
+                    { id: "tle_q6", text: "4. What must students bring with them?", options: {A:"A medical record", B:"A payment method", C:"Their student ID", D:"A printed schedule"}, answer: "C", points: 10 }
+                ]
+            }
+        ],
+        speaking: [
+            {
+                id: "t_s_01",
+                article: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
+                audioScript: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
+                questions: [
+                    { id: "ts_q1", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
+                ]
+            },
+            {
+                id: "t_s_02",
+                article: "The greatest glory in living lies not in never falling, but in rising every time we fall. Resilience is built in the quiet moments of choosing to try again.",
+                audioScript: "The greatest glory in living lies not in never falling, but in rising every time we fall. Resilience is built in the quiet moments of choosing to try again.",
+                questions: [
+                    { id: "ts_q2", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次，體會語言的節奏與堅韌的力量。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
+                ]
+            },
+            {
+                id: "t_s_03",
+                article: "Compassion is not a relationship between the healer and the wounded. It's a relationship between equals. Only when we know our own darkness well can we be present with the darkness of others.",
+                audioScript: "Compassion is not a relationship between the healer and the wounded. It's a relationship between equals. Only when we know our own darkness well can we be present with the darkness of others.",
+                questions: [
+                    { id: "ts_q3", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次，體會這段關於同理與平等的深意。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再靜心練習一次。"}, answer: "A", points: 30 }
+                ]
+            }
+        ],
+        writing: [
+            {
+                id: "t_w_01",
+                questions: [
+                    { 
+                        id: "tw_q1", text: "實用 Email 寫作：\n請寫一封信給教授，說明你週末要參加偏鄉志工服務，請求報告延期兩天繳交。(滿分30分)", type: "composition",
+                        answer: "【評分標準】清楚說明原因、禮貌請求、字數適中。", points: 30
+                    }
+                ]
+            },
+            {
+                id: "t_w_02",
+                questions: [
+                    { 
+                        id: "tw_q2", text: "獨立寫作 (Independent Writing)：\nDo you agree or disagree with the following statement? 'It is more important for individuals to maintain inner peace than to pursue continuous material wealth.' Use specific reasons and examples to support your answer. (請寫出約 300 字大綱與核心段落) (滿分30分)", type: "composition",
+                        answer: "【評分標準】論點明確清晰、具備邏輯連貫性、詞彙運用精準（如：inner tranquility, materialistic pursuit, sustainable well-being）。", points: 30
+                    }
+                ]
+            },
+            {
+                id: "t_w_03",
+                questions: [
+                    { 
+                        id: "tw_q3", text: "整合寫作 (Integrated Writing)：\n閱讀一段關於「極簡主義生活方式對心理健康的影響」的文章，並聆聽一段反對該觀點的心理學講座。請綜合兩者資訊，寫一篇約 200 字的摘要報告。(滿分30分)", type: "composition",
+                        answer: "【評分標準】必須精準捕捉閱讀文本的主旨（極簡帶來平靜），並清晰對比聽力文本的反駁（過度壓抑物質需求可能導致另一種焦慮）。架構需客觀、無個人偏見。", points: 30
+                    }
+                ]
+            }
+        ]
+    },
 
     // ==========================================
     // 模組四：多益職場考場專用 (供 exam_toeic.html 讀取)
@@ -990,6 +1141,20 @@ const QuestionBank = {
                 audioScript: "(A) He is drinking a cup of coffee. (B) He is typing on a keyboard. (C) He is leaving the office. (D) He is reading a newspaper.",
                 options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
                 answer: "B", points: 5
+            },
+            {
+                id: "toeic_p1_02",
+                imageDesc: "[圖片情境：幾位專業人士在會議室中，一人正指著白板上的圖表說明]",
+                audioScript: "(A) They are eating lunch in a cafeteria. (B) One of the men is pointing at a chart. (C) They are arranging chairs in a circle. (D) The whiteboard is being erased.",
+                options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
+                answer: "B", points: 5
+            },
+            {
+                id: "toeic_p1_03",
+                imageDesc: "[圖片情境：一位工程師正在伺服器機房內檢查線路，手持平板電腦]",
+                audioScript: "(A) He is installing a new light fixture. (B) He is inspecting the server cables. (C) He is turning off the monitor. (D) He is carrying a heavy box.",
+                options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
+                answer: "B", points: 5
             }
         ],
         part2: [
@@ -998,6 +1163,18 @@ const QuestionBank = {
                 audioScript: "When is the project proposal due? \n(A) By next Friday. \n(B) Yes, I did it. \n(C) Mr. Smith is the manager.",
                 options: {A:"(A)", B:"(B)", C:"(C)"}, 
                 answer: "A", points: 5
+            },
+            {
+                id: "toeic_p2_02",
+                audioScript: "Has the software update been installed on all computers? \n(A) Yes, the IT department finished it yesterday. \n(B) The computer is on the desk. \n(C) I prefer to update my schedule.",
+                options: {A:"(A)", B:"(B)", C:"(C)"}, 
+                answer: "A", points: 5
+            },
+            {
+                id: "toeic_p2_03",
+                audioScript: "Would you mind reviewing the contract before I send it to the client? \n(A) The client is visiting tomorrow. \n(B) No, not at all. I'll look at it now. \n(C) I signed the document yesterday.",
+                options: {A:"(A)", B:"(B)", C:"(C)"}, 
+                answer: "B", points: 5
             }
         ],
         part3: [
@@ -1007,6 +1184,22 @@ const QuestionBank = {
                 questions: [
                     { id: "tp3_q1", text: "1. Where does the woman want to travel to?", options: {A:"New York", B:"London", C:"Tokyo", D:"Paris"}, answer: "C", points: 5 },
                     { id: "tp3_q2", text: "2. What time is the flight?", options: {A:"8:00 AM", B:"9:00 AM", C:"10:00 AM", D:"11:00 AM"}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p3_02",
+                audioScript: "M: Sarah, have you reviewed the budget report for the new environmental project?\nW: Not yet. I was planning to look at it after the team meeting at 2 PM. Is there an issue?\nM: We are slightly over budget in the research phase. We might need to cut back on some initial testing.\nW: I see. Let's discuss this together with the lead researcher at 3 PM to find a solution.",
+                questions: [
+                    { id: "tp3_q3", text: "1. What project are the speakers discussing?", options: {A:"A marketing campaign", B:"An environmental project", C:"A software upgrade", D:"A building construction"}, answer: "B", points: 5 },
+                    { id: "tp3_q4", text: "2. What is the problem mentioned by the man?", options: {A:"They missed a deadline.", B:"A staff member resigned.", C:"They are over budget in a certain phase.", D:"The testing equipment is broken."}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p3_03",
+                audioScript: "M: Hello, I'm calling about the accounting software we purchased last month. We are having trouble generating the annual financial reports.\nW: I apologize for the inconvenience. That module requires a specific update to function correctly with this year's tax codes. \nM: I see. Can you guide me through the update process now?\nW: Certainly. Please open the settings menu and click on the 'System Update' tab.",
+                questions: [
+                    { id: "tp3_q5", text: "3. What is the man's problem?", options: {A:"He lost his password.", B:"He cannot generate specific reports.", C:"He wants a refund.", D:"He installed the wrong program."}, answer: "B", points: 5 },
+                    { id: "tp3_q6", text: "4. What does the woman ask the man to do?", options: {A:"Call back later", B:"Purchase a new license", C:"Open the settings menu", D:"Contact the tax office"}, answer: "C", points: 5 }
                 ]
             }
         ],
@@ -1018,11 +1211,31 @@ const QuestionBank = {
                     { id: "tp4_q1", text: "3. What is the main purpose of the announcement?", options: {A:"To report a lost item", B:"To announce a flight boarding", C:"To delay a train", D:"To change a gate"}, answer: "B", points: 5 },
                     { id: "tp4_q2", text: "4. Who will board the plane first?", options: {A:"Families with children", B:"Economy class passengers", C:"First-class passengers", D:"Airline staff"}, answer: "C", points: 5 }
                 ]
+            },
+            {
+                id: "toeic_p4_02",
+                audioScript: "Good morning, everyone. Before we open the store, I want to quickly go over the new customer service policy. Starting today, we will offer a 30-day return window for all electronics, no questions asked, provided the receipt is shown. Our goal is to ensure complete satisfaction and build long-term trust. Please make sure to communicate this clearly at the checkout counter.",
+                questions: [
+                    { id: "tp4_q3", text: "3. Who is the intended audience for this announcement?", options: {A:"Customers", B:"Store employees", C:"Delivery drivers", D:"Product manufacturers"}, answer: "B", points: 5 },
+                    { id: "tp4_q4", text: "4. What is required for a customer to return electronics?", options: {A:"A valid ID", B:"The original packaging", C:"A receipt", D:"A manager's approval"}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p4_03",
+                audioScript: "Thank you for joining this quarterly review meeting. I am pleased to announce that our new open-source project has reached 10,000 downloads in just two weeks. This success is entirely due to our commitment to keeping the code clean, ad-free, and accessible to everyone. Moving forward, we will focus on enhancing the user interface, making it even more intuitive. Let's look at the projected timeline on the screen.",
+                questions: [
+                    { id: "tp4_q5", text: "5. What milestone has the project achieved?", options: {A:"Hiring 10,000 new employees", B:"Reaching 10,000 downloads", C:"Securing a large investment", D:"Opening a new branch"}, answer: "B", points: 5 },
+                    { id: "tp4_q6", text: "6. What will be the team's next focus?", options: {A:"Creating advertisements", B:"Enhancing the user interface", C:"Changing the project name", D:"Charging a subscription fee"}, answer: "B", points: 5 }
+                ]
             }
         ],
         part5: [
             { id: "toeic_p5_01", text: "5. The new marketing strategy was highly _____ in increasing our overall sales last quarter.", options: {A:"effect", B:"effective", C:"effectively", D:"effectiveness"}, answer: "B", points: 5 },
-            { id: "toeic_p5_02", text: "6. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 }
+            { id: "toeic_p5_02", text: "6. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 },
+            { id: "toeic_p5_03", text: "7. The CEO emphasized that sustainable growth is _____ to the company's future success.", options: {A:"vitality", B:"vitally", C:"vital", D:"vitalize"}, answer: "C", points: 5 },
+            { id: "toeic_p5_04", text: "8. Employees who wish to attend the seminar must register _____ Friday afternoon.", options: {A:"until", B:"by", C:"within", D:"during"}, answer: "B", points: 5 },
+            { id: "toeic_p5_05", text: "9. The manager requested that all confidential documents be handled with the utmost _____.", options: {A:"discreet", B:"discretion", C:"discretely", D:"discretions"}, answer: "B", points: 5 },
+            { id: "toeic_p5_06", text: "10. _____ the heavy rain, the outdoor charity event was successfully relocated to the indoor hall.", options: {A:"Although", B:"Because", C:"Despite", D:"However"}, answer: "C", points: 5 }
         ],
         part6: [
             {
@@ -1030,6 +1243,20 @@ const QuestionBank = {
                 article: "Dear Mr. Davis,\nWe are pleased to inform you that your application for the position of Senior Analyst has been __(7)__. Please come to our main office next Monday at 9 AM for the orientation session.\nSincerely,\nHuman Resources",
                 questions: [
                     { id: "tp6_q1", text: "7.", options: {A:"accept", B:"accepted", C:"accepting", D:"accepts"}, answer: "B", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p6_02",
+                article: "Notice to All Residents:\nThe annual water pipe maintenance will take place next Tuesday from 9 AM to 2 PM. During this time, the water supply will be temporarily __(9)__. We apologize for any inconvenience this may cause and appreciate your cooperation.\nManagement Office",
+                questions: [
+                    { id: "tp6_q2", text: "9.", options: {A:"shut off", B:"shutting off", C:"shuts off", D:"shut off from"}, answer: "A", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p6_03",
+                article: "Dear Valued Customer,\nThank you for choosing our cloud storage service. Your annual subscription will expire in 15 days. To ensure uninterrupted access to your files, please __(11)__ your payment information in your account settings.\nBest regards,\nThe Billing Team",
+                questions: [
+                    { id: "tp6_q3", text: "11.", options: {A:"update", B:"updates", C:"updated", D:"updating"}, answer: "A", points: 5 }
                 ]
             }
         ],
@@ -1041,7 +1268,25 @@ const QuestionBank = {
                     { id: "tp7_q1", text: "8. What is the purpose of this memo?", options: {A:"To announce a new hire", B:"To explain a renovation schedule", C:"To complain about broken equipment", D:"To change working hours"}, answer: "B", points: 5 },
                     { id: "tp7_q2", text: "9. Where will the coffee machines be moved?", options: {A:"To the 1st floor", B:"To the 2nd-floor lobby", C:"To the 4th floor", D:"To the manager's office"}, answer: "B", points: 5 }
                 ]
+            },
+            {
+                id: "toeic_p7_02",
+                article: "Email\nTo: Design Team\nFrom: Alice Chen, Project Manager\nDate: November 10\nSubject: Feedback on Logo Drafts\n\nThank you all for submitting the initial drafts for the 'Pure Mind' application logo. The client reviewed them yesterday and was very impressed with the vector aesthetics. They have requested to proceed with Draft B, but they would like the color palette to be slightly muted to evoke a stronger sense of tranquility. Please submit the revised version by Thursday.",
+                questions: [
+                    { id: "tp7_q3", text: "10. What is the main purpose of the email?", options: {A:"To schedule a meeting", B:"To provide client feedback", C:"To introduce a new team member", D:"To announce a product launch"}, answer: "B", points: 5 },
+                    { id: "tp7_q4", text: "11. What change did the client request for Draft B?", options: {A:"A larger font size", B:"A different shape", C:"A muted color palette", D:"A completely new design"}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p7_03",
+                article: "Internal Announcement\n\nEffective next Monday, the company will implement a new 'Quiet Hour' policy. From 1:00 PM to 2:00 PM every day, employees are encouraged to refrain from scheduling meetings or making non-urgent phone calls. This initiative aims to provide everyone with a block of uninterrupted time to focus on deep work, coding, or simply resting their minds. Please adjust your calendars accordingly.",
+                questions: [
+                    { id: "tp7_q5", text: "12. What is the purpose of the 'Quiet Hour'?", options: {A:"To serve lunch", B:"To allow for uninterrupted work or rest", C:"To conduct daily team meetings", D:"To clean the office"}, answer: "B", points: 5 },
+                    { id: "tp7_q6", text: "13. What are employees asked to avoid during this time?", options: {A:"Using the internet", B:"Drinking coffee", C:"Scheduling meetings", D:"Leaving the building"}, answer: "C", points: 5 }
+                ]
             }
         ]
     }
 };
+    
+  
