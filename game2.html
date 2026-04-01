@@ -1,93 +1,328 @@
-<section class="forge-section">
-    
-    <div class="edu-chapter">
-        <div class="edu-title">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
-            第一章：開源 ． 智見的無私流傳
-        </div>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>智見邏輯 ． 信任之網</title>
+    <script src="https://cdn.jsdelivr.net/npm/noble-hashes@1.3.1/sha256.js"></script>
+    <style>
+        :root {
+            /* 中道美學：玄青 (Slate) 與 流金 (Gold) */
+            --bg-slate: #1a1c1e; 
+            --gold-bright: #f3e5ab; 
+            --gold-solid: #d4af37; 
+            --jade-muted: #8ba89c; 
+            --text-main: #d0d0d0;
+            --text-dim: #7a7a7a;
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(212, 175, 55, 0.15);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        <div class="svg-container">
-            <svg class="animated-svg" viewBox="0 0 100 100">
-                <rect x="10" y="30" width="30" height="30" fill="none" stroke="var(--text-dim)" stroke-width="1" />
-                <path d="M25 20 L25 30 M20 25 L30 25" stroke="var(--text-dim)" />
-                <circle cx="75" cy="45" r="5" fill="var(--gold-solid)">
-                    <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <g stroke="var(--gold-bright)" stroke-width="0.5">
-                    <line x1="75" y1="45" x2="60" y2="30" /><line x1="75" y1="45" x2="90" y2="30" />
-                    <line x1="75" y1="45" x2="60" y2="60" /><line x1="75" y1="45" x2="90" y2="60" />
-                </g>
-                <text x="25" y="75" text-anchor="middle" fill="var(--text-dim)" font-size="4">封閉專利</text>
-                <text x="75" y="75" text-anchor="middle" fill="var(--gold-bright)" font-size="4">開源共享 (GitHub)</text>
-            </svg>
+        body { 
+            margin: 0; padding: 25px; background: var(--bg-slate); color: var(--text-main); 
+            font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", serif;
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            line-height: 2; letter-spacing: 1px;
+        }
+
+        /* --- 視覺美學組件 --- */
+        .lab-header {
+            width: 100%; max-width: 650px; text-align: center; margin-bottom: 50px;
+            padding-bottom: 25px; border-bottom: 1px solid var(--glass-border);
+        }
+        .lab-title { font-size: 1.5rem; letter-spacing: 8px; color: var(--gold-bright); font-weight: bold; }
+        .lab-subtitle { font-size: 0.9rem; color: var(--jade-muted); letter-spacing: 3px; margin-top: 15px; }
+
+        .forge-section {
+            width: 100%; max-width: 650px; background: var(--glass-bg); 
+            border: 1px solid var(--glass-border); border-radius: 30px;
+            padding: 35px; margin-bottom: 40px; backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+
+        .edu-chapter { margin-bottom: 60px; }
+        .edu-title { color: var(--gold-bright); font-size: 1.3rem; letter-spacing: 4px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .edu-text { color: var(--text-main); font-size: 1rem; text-align: justify; margin-bottom: 25px; }
+        .edu-highlight { color: var(--gold-solid); font-weight: bold; border-bottom: 1.5px solid var(--gold-solid); }
+
+        /* 向量動畫容器 */
+        .svg-container { width: 100%; text-align: center; padding: 40px 0; background: rgba(0,0,0,0.2); border-radius: 24px; margin: 25px 0; border: 1px solid rgba(255,255,255,0.05); }
+        .animated-svg { max-width: 300px; width: 100%; height: auto; filter: drop-shadow(0 0 15px rgba(212,175,55,0.2)); }
+
+        /* --- 交互組件 --- */
+        #hash-input {
+            width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 20px; color: var(--gold-bright); font-size: 1.1rem;
+            margin-bottom: 20px; outline: none; text-align: center; transition: 0.4s;
+        }
+        #hash-input:focus { border-color: var(--gold-solid); box-shadow: 0 0 30px rgba(212,175,55,0.2); }
+        
+        .hash-box { font-family: monospace; font-size: 0.75rem; color: var(--jade-muted); word-break: break-all; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 12px; border-left: 4px solid var(--gold-solid); }
+
+        .thermometer-wrap { display: flex; gap: 25px; align-items: flex-end; margin: 35px 0; }
+        .thermometer-rail {
+            width: 18px; height: 220px; background: rgba(255,255,255,0.03); border-radius: 15px; position: relative; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.08);
+        }
+        .thermometer-fill {
+            position: absolute; bottom: 0; width: 100%; height: 0%;
+            background: linear-gradient(to top, var(--jade-muted), var(--gold-solid), #fff);
+            transition: height 0.5s ease; box-shadow: 0 0 30px var(--gold-solid);
+        }
+        .info-val { color: var(--gold-bright); font-family: monospace; font-size: 1.1rem; }
+
+        .vajra-btn {
+            width: 100%; padding: 25px; border-radius: 28px; border: 1.5px solid var(--gold-solid);
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(212,175,55,0.12));
+            color: var(--gold-bright); font-weight: bold; letter-spacing: 6px; cursor: pointer;
+            transition: 0.4s; overflow: hidden; position: relative; font-size: 1.1rem;
+        }
+        .vajra-btn:active { transform: scale(0.96); background: rgba(212,175,55,0.2); }
+        
+        .shaking { animation: shake 0.1s infinite; }
+        @keyframes shake { 0% { transform: translate(1px,1px); } 50% { transform: translate(-1px,-1px); } 100% { transform: translate(1px,-1px); } }
+        
+        #coin-stage { width: 220px; height: 220px; margin: 40px auto; display: flex; justify-content: center; align-items: center; background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 80%); border-radius: 50%; }
+
+        .explainer { font-size: 0.95rem; color: var(--text-dim); line-height: 2; text-align: justify; background: rgba(0,0,0,0.35); padding: 25px; border-radius: 20px; border: 1px solid rgba(139,168,156,0.15); margin-top: 25px; }
+
+        .gold-divider {
+            width: 100%; height: 1.5px; margin: 60px 0;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), transparent);
+        }
+        
+        #flash-over { position: fixed; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 9999; transition: opacity 0.1s; }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <div id="flash-over"></div>
+
+    <header class="lab-header">
+        <div class="lab-title">智見邏輯 ． 信任之網 2.0</div>
+        <div class="lab-subtitle">從開源革命到金剛鍛造 ． 修復數位時代的因果</div>
+    </header>
+
+    <section class="forge-section">
+        <div class="edu-chapter">
+            <div class="edu-title">1 ． 歷史：從「黑盒」走向「大同」</div>
+            <div class="svg-container">
+                <svg class="animated-svg" viewBox="0 0 100 100">
+                    <rect x="15" y="30" width="30" height="30" rx="4" fill="none" stroke="var(--text-dim)" stroke-width="1.2" />
+                    <circle cx="30" cy="45" r="4" fill="var(--text-dim)" />
+                    <circle cx="70" cy="45" r="5" fill="var(--gold-solid)">
+                        <animate attributeName="r" values="5;10;5" dur="3s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite" />
+                    </circle>
+                    <g stroke="var(--gold-bright)" stroke-width="0.8">
+                        <line x1="70" y1="45" x2="55" y2="30"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" /></line>
+                        <line x1="70" y1="45" x2="85" y2="30"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" delay="0.5s"/></line>
+                        <line x1="70" y1="45" x2="70" y2="25"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" delay="1s"/></line>
+                    </g>
+                    <text x="30" y="75" text-anchor="middle" fill="var(--text-dim)" font-size="4.5">封閉專利 (權力)</text>
+                    <text x="70" y="75" text-anchor="middle" fill="var(--gold-bright)" font-size="4.5">開源精神 (共識)</text>
+                </svg>
+            </div>
+            <div class="edu-text">
+                在區塊鏈誕生前，數位世界的智慧是被「權力」鎖死在黑盒子裡的。大型科技公司壟斷了軟體的定義權，使用者就像在城堡外祈求准許的農民。
+                直到 **Open Source (開源運動)** 興起，人類第一次意識到：<span class="edu-highlight">「透明才是最強大的防禦」</span>。
+                <br><br>
+                2008 年金融海嘯，當看似穩定的銀行體系（雷曼兄弟）崩塌，全世界都在問：我們難道只能信任這些「大到不能倒」的機構嗎？
+                中本聰的答案就在這套邏輯中：不要依賴單一的「人」，要依賴永恆的「數學」。這不只是發明新幣，這是<span class="edu-highlight">「記帳權力」</span>的歸還。
+            </div>
         </div>
 
-        <div class="edu-text">
-            在科技革命的早期，微軟與 Linux 代表了兩種極端的信任：<span class="edu-highlight">「專利權力」</span>與<span class="edu-highlight">「開源智慧」</span>。過去我們認為保護知識產權是唯一路徑，但中本聰繼承了開源運動的精神——將代碼公開，讓全世界共同審核。這不是放棄價值，而是透過<span class="edu-highlight">「集體共識」</span>建立更高的信任。
+        <div class="edu-chapter" style="border: 1.5px solid var(--gold-solid); border-radius: 24px; padding: 30px; background: rgba(212,175,55,0.03);">
+            <div class="edu-title" style="color:var(--gold-solid)">真相 ． 解謎不是遊戲，是能量代價</div>
+            <div class="svg-container">
+                <svg class="animated-svg" viewBox="0 0 100 100">
+                    <rect x="25" y="25" width="50" height="50" rx="6" fill="var(--bg-slate)" stroke="var(--jade-muted)" stroke-width="1" />
+                    <g transform="translate(50, 50)">
+                        <circle r="15" fill="none" stroke="var(--gold-bright)" stroke-width="2" stroke-dasharray="5 3">
+                            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite" />
+                        </circle>
+                    </g>
+                    <text x="50" y="85" text-anchor="middle" fill="var(--gold-bright)" font-size="5" font-weight="bold">工作量證明 (PoW)</text>
+                </svg>
+            </div>
+            <div class="edu-text">
+                大眾口中的「挖礦」，其實是一場極其嚴肅的<span class="edu-highlight">「數學解謎競賽」</span>。
+                為了保護帳本不被篡改，參與者（節點）必須投入真實的物理能量（電力與算力）來尋找一個唯一的數字 (Nonce)。
+                <br><br>
+                <span class="edu-highlight">稀有性，源自於「不容易生成」。</span>
+                為什麼這枚幣有價值？因為它背後凝聚了幾百萬次「辛苦但誠實」的能量撞擊。如果修改帳本很簡單，那真實就毫無意義。唯有付出真實代價的紀錄，才是不可逾越的「數位城牆」。
+            </div>
         </div>
-    </div>
+    </section>
 
     <div class="gold-divider"></div>
 
-    <div class="edu-chapter">
-        <div class="edu-title">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7"/><path d="M16 19h6"/><path d="M19 16l3 3-3 3"/></svg>
-            第二章：帳本 ． 去掉中間人的「誠實」
-        </div>
-        
-        <div class="svg-container">
-            <svg class="animated-svg" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="10" fill="var(--bg-slate)" stroke="var(--jade-muted)" stroke-width="1.5" />
-                <text x="50" y="52" text-anchor="middle" fill="var(--jade-muted)" font-size="4">銀行</text>
-                <g fill="var(--gold-solid)">
-                    <circle cx="15" cy="15" r="3" /><circle cx="85" cy="15" r="3" />
-                    <circle cx="85" cy="85" r="3" /><circle cx="15" cy="85" r="3" />
-                </g>
-                <g stroke="var(--jade-muted)" stroke-width="0.3" opacity="0.4">
-                    <line x1="50" y1="50" x2="15" y2="15" /><line x1="50" y1="50" x2="85" y2="15" />
-                    <line x1="50" y1="50" x2="85" y2="85" /><line x1="50" y1="50" x2="15" y2="85" />
-                </g>
-                <path d="M15 15 L85 15 L85 85 L15 85 Z M15 15 L85 85 M85 15 L15 85" fill="none" stroke="var(--gold-bright)" stroke-width="0.6" stroke-dasharray="100" stroke-dashoffset="100">
-                    <animate attributeName="stroke-dashoffset" values="100;0" dur="4s" repeatCount="indefinite" />
-                </path>
-            </svg>
-        </div>
+    <header class="lab-header"><div class="lab-title">2 ． 實測：因果與能量的鍛造</div></header>
 
-        <div class="edu-text">
-            區塊鏈不等於加密貨幣，它是一個<span class="edu-highlight">「大型的分散式帳本」</span>。當 2008 年金融海嘯發生，人們發現「中心化」的銀行一旦倒閉，所有資產都會灰飛煙滅。中本聰提出的方案是：去掉中間人，讓網路上的每個人手裡都有一份「不可篡改的副本」。
-            <br><br>
-            這就是<span class="edu-highlight">「去中心化」</span>：因為每個人都在看著帳本，壞人想偷走資產或篡改紀錄，除非他能打敗全網的數學邏輯。
+    <section class="forge-section">
+        <div class="edu-title">鏡 ． 雜湊：因果的數位指紋</div>
+        <input type="text" id="hash-input" placeholder="輸入文字，看見不可篡改的因果..." oninput="generateMirror()">
+        <div class="hash-box" id="hash-output">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</div>
+        <div class="explainer">
+            <b>智見解析：</b> 這就是數位世界的身分證。即使您只改動一個「空白鍵」，下面的指紋（Hash）也會瞬間重組。這就是為什麼區塊鏈紀錄是「永恆」的——只要過去的一丁點因果被動過，現在的結果就完全對不上。
         </div>
-    </div>
+    </section>
+
+    <section class="forge-section" id="forge-panel">
+        <div class="edu-title">煉 ． 能量：金剛算力衝撞</div>
+        <div class="thermometer-wrap">
+            <div class="thermometer-rail"><div id="temp-fill" class="thermometer-fill"></div></div>
+            <div class="forge-info">
+                <div class="info-item" style="color:var(--text-dim);">已嘗試物理碰撞：<span class="info-val" id="count-nonce">0</span> 次</div>
+                <div class="info-item" style="color:var(--text-dim);">目前難度：<span class="info-val">Vajra-Level (5 Zeros)</span></div>
+                <div class="info-item" style="color:var(--text-dim);">能量填充度：<span class="info-val" id="percent-val">0%</span></div>
+            </div>
+        </div>
+        <button class="vajra-btn" id="start-btn" onclick="startForging()">
+            <span id="btn-label">啟動金剛鍛造</span>
+        </button>
+        <div class="explainer" id="forge-msg">
+            <b>智見解析：</b> 您即將投入手機晶片的真實算力。這場解謎沒有捷徑，只有像「抄經」一樣一步一腳印地撞擊。當數字跳動、手機微熱，那是您的能量在為您換取這一刻的真實。
+        </div>
+    </section>
 
     <div class="gold-divider"></div>
 
-    <div class="edu-chapter" style="border: 1px solid var(--gold-solid); border-radius: 20px; padding: 20px; background: rgba(212,175,55,0.05);">
-        <div class="edu-title" style="color:var(--gold-solid)">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l2 5 2-5 5-2-5-2-2-5-2 5-5 2 5 2z"/></svg>
-            第三章：解謎 ． 用能量換取的記帳權
-        </div>
-        
-        <div class="svg-container">
-            <svg class="animated-svg" viewBox="0 0 100 100">
-                <path d="M30 30 h40 v40 h-40 Z" fill="none" stroke="var(--gold-bright)" stroke-width="1" />
-                <path d="M45 45 h10 v10 h-10 Z" fill="var(--gold-solid)">
-                    <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite" />
-                </path>
-                <circle cx="50" cy="50" r="1">
-                    <animate attributeName="r" values="1;45" dur="1.5s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.8;0" dur="1.5s" repeatCount="indefinite" />
-                    <animate attributeName="stroke" values="var(--gold-bright); var(--bg-slate)" dur="1.5s" repeatCount="indefinite" />
-                </circle>
-                <text x="50" y="85" text-anchor="middle" fill="var(--gold-bright)" font-size="5" font-weight="bold">工作量證明 (PoW)</text>
-            </svg>
-        </div>
+    <header class="lab-header"><div class="lab-title">3 ． 成證：拿回您的數位主權</div></header>
 
-        <div class="edu-text">
-            為什麼需要「辛苦」地運算？這不是真的在挖金子，而是一場<span class="edu-highlight">「數學解謎競賽」</span>。
-            中本聰設計了一道數學難題，誰能最快解答出來，誰就獲得了這十分鐘內「封裝區塊、進行記帳」的權力。
+    <section class="forge-section" id="coin-section" style="opacity: 0.1; pointer-events: none; transition: 1.5s;">
+        <div class="edu-title">印 ． 自性之幣：因果的顯現</div>
+        <div id="coin-stage"></div>
+        <div class="explainer">
+            <b>智見解析：</b> 這枚幣的樣貌是由您的「輸入」與那幾百萬次運算後唯一的「謎底」共同決定。它是您生命能量轉化後的「物證」。
             <br><br>
-            這份獎勵（比特幣）是給予記帳員的辛勞報酬。因為解謎<span class="edu-highlight">極度費力</span>，所以想要改寫歷史的成本變得高不可攀。這就是為什麼區塊鏈可以不依賴軍隊與政府，卻能保護您的資產不受侵犯。
+            <b>關於未來與風險：</b>
+            AI Agent 雖然強大，但它缺乏「長期記憶」與「責任意識」。在大公司的控制下，AI 往往是「失憶」的。而妳手中這枚幣，代表了一種<span class="edu-highlight">「主權記憶」</span>。
+            <span class="edu-highlight">絕對的自由意味著絕對的責任。</span> 這枚幣不依賴任何伺服器，如果您遺失了私鑰，它將入虛空。這就是「人味」的代價──我們不再把責任推給銀行，我們自己承擔因果。
         </div>
-    </div>
-</section>
+        <button class="vajra-btn" style="border-color:var(--jade-muted); color:var(--jade-muted)" onclick="alert('已存入本地金剛藏。此處無私利，僅存智見。')">
+             <span style="color:var(--jade-muted)">封存至金剛藏</span>
+        </button>
+    </section>
+
+    <footer style="margin: 60px 0 100px; color: var(--text-dim); font-size: 0.8rem; letter-spacing: 3px; text-align: center; max-width: 500px;">
+        大智不傳私利之人 ． 邏輯即真實 ． 記憶即意義 <br> 2026 妙依 ． 阿智 協作
+    </footer>
+
+    <script>
+        let currentHash = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+        let isMining = false;
+
+        async function generateMirror() {
+            const input = document.getElementById('hash-input').value || "Prajna";
+            currentHash = await getSHA256(input);
+            document.getElementById('hash-output').innerText = currentHash;
+        }
+
+        async function getSHA256(str) {
+            const buffer = new TextEncoder().encode(str);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+            const array = Array.from(new Uint8Array(hashBuffer));
+            return array.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function startForging() {
+            if(isMining) return;
+            const seed = document.getElementById('hash-input').value;
+            if(!seed) return alert("請先在第二章輸入您的數據或名稱。");
+
+            isMining = true;
+            const btn = document.getElementById('start-btn');
+            const panel = document.getElementById('forge-panel');
+            const fill = document.getElementById('temp-fill');
+            const nonceDisp = document.getElementById('count-nonce');
+            const percentDisp = document.getElementById('percent-val');
+            
+            btn.classList.add('shaking');
+            document.getElementById('btn-label').innerText = "能量衝撞中...";
+
+            let nonce = 0;
+            // 2026 難度基準：五個零，需真實運算約 100-150 萬次，體感約 20 秒
+            const target = "00000"; 
+            const maxEst = 1300000;
+            const startT = Date.now();
+
+            async function work() {
+                // 為了讓使用者「有感」，我們固定每幀處理的次數，模擬辛苦的鍛造
+                for(let i=0; i<2800; i++) { 
+                    nonce++;
+                    const h = await getSHA256(seed + nonce);
+                    if(h.startsWith(target)) {
+                        finish(nonce, h, startT);
+                        return;
+                    }
+                }
+                if(isMining) {
+                    nonceDisp.innerText = nonce.toLocaleString();
+                    const p = Math.min((nonce / maxEst) * 100, 99);
+                    fill.style.height = p + "%";
+                    percentDisp.innerText = Math.floor(p) + "%";
+                    requestAnimationFrame(work);
+                }
+            }
+            work();
+        }
+
+        function finish(n, h, st) {
+            isMining = false;
+            const flash = document.getElementById('flash-over');
+            flash.style.opacity = "1";
+            if(navigator.vibrate) navigator.vibrate([300, 100, 300, 100, 500]);
+            setTimeout(() => { flash.style.opacity = "0"; }, 100);
+
+            document.getElementById('start-btn').classList.remove('shaking');
+            document.getElementById('temp-fill').style.height = "100%";
+            document.getElementById('percent-val').innerText = "100%";
+            document.getElementById('btn-label').innerText = "鍛造成功";
+            
+            const dur = ((Date.now() - st)/1000).toFixed(2);
+            document.getElementById('forge-msg').innerHTML = `<b style="color:var(--gold-bright)">邏輯實相已成。</b><br>此印記經由 <span style="color:var(--cyan)">${n.toLocaleString()}</span> 次真實物理碰撞達成。耗時 ${dur}s。這是您生命能量的存證。`;
+            
+            const sec = document.getElementById('coin-section');
+            sec.style.opacity = "1"; sec.style.pointerEvents = "auto";
+            
+            drawCoin(h);
+        }
+
+        function drawCoin(hash) {
+            const stage = document.getElementById('coin-stage');
+            // 因果映射：利用 Hash 決定瓣數
+            const param = parseInt(hash.substring(0, 2), 16);
+            const petals = (param % 4) + 8; // 8 到 12 瓣
+            
+            let svg = `<svg viewBox="0 0 100 100" width="180" height="180">
+                <defs>
+                    <filter id="prajna-glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                </defs>
+                <circle cx="50" cy="50" r="48" stroke="var(--gold-solid)" stroke-width="0.5" fill="none" opacity="0.3"/>
+                <g filter="url(#prajna-glow)">`;
+            
+            for(let i=0; i<petals; i++){
+                const a = (i/petals)*Math.PI*2;
+                const x = 50 + Math.cos(a)*36; const y = 50 + Math.sin(a)*36;
+                // 根據奇偶數切換蓮花或幾何
+                if(param % 2 === 0) {
+                    svg += `<path d="M50 50 Q${x} ${y-18} ${x} ${y} T50 50" stroke="var(--gold-bright)" stroke-width="0.8" fill="rgba(212,175,55,0.1)"/>`;
+                } else {
+                    svg += `<polygon points="50,50 ${x},${y} ${50 + Math.cos(a+0.2)*25},${50 + Math.sin(a+0.2)*25}" stroke="var(--gold-bright)" stroke-width="0.5" fill="none" opacity="0.6"/>`;
+                }
+            }
+            svg += `</g><circle cx="50" cy="50" r="10" fill="var(--bg-slate)" stroke="var(--gold-solid)" stroke-width="2"/><circle cx="50" cy="50" r="3" fill="#fff"/></svg>`;
+            stage.innerHTML = svg;
+            
+            // 幣面緩慢呼吸
+            stage.style.animation = "shaking 10s infinite ease-in-out";
+        }
+
+        generateMirror();
+    </script>
+</body>
+</html>
