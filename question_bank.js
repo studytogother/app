@@ -1061,9 +1061,9 @@ toefl: [
         }
     },
 
-
-        // ==========================================
-    // 模組四：多益職場考場專用 (百題精華大會考)
+    // ==========================================
+    // 模組四：多益職場考場專用 (100題 精華半編版)
+    // 聽力 50 題 + 閱讀 50 題
     // ==========================================
     toeic: {
         part1: [
@@ -1075,134 +1075,168 @@ toefl: [
             { id: "toeic_p1_06", imageDesc: "[圖片情境：兩名工人穿著安全背心，正在將貨物搬上卡車]", audioScript: "(A) They are loading boxes onto a truck. (B) They are driving on a highway. (C) They are taking off their vests. (D) They are sweeping the warehouse floor.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "A", points: 5 }
         ],
         part2: [
-            { id: "toeic_p2_01", audioScript: "When is the project proposal due? \n(A) By next Friday. \n(B) Yes, I did it. \n(C) Mr. Smith is the manager.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
-            { id: "toeic_p2_02", audioScript: "Has the software update been installed on all computers? \n(A) Yes, the IT department finished it yesterday. \n(B) The computer is on the desk. \n(C) I prefer to update my schedule.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
-            { id: "toeic_p2_03", audioScript: "Would you mind reviewing the contract before I send it to the client? \n(A) The client is visiting tomorrow. \n(B) No, not at all. I'll look at it now. \n(C) I signed the document yesterday.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
-            { id: "toeic_p2_04", audioScript: "Where should we store these extra office supplies? \n(A) At the hardware store. \n(B) Put them in the supply closet on the second floor. \n(C) I have an extra pen.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
-            { id: "toeic_p2_05", audioScript: "Who is leading the marketing seminar this afternoon? \n(A) It starts at 3 PM. \n(B) The seminar was very helpful. \n(C) I believe Ms. Garcia is in charge.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "C", points: 5 },
-            { id: "toeic_p2_06", audioScript: "Didn't you take the subway to work today? \n(A) Yes, my car is in the repair shop. \n(B) The subway station is nearby. \n(C) I work in the human resources department.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
-            { id: "toeic_p2_07", audioScript: "How long will the renovation of the lobby take? \n(A) It’s a very spacious lobby. \n(B) They expect to finish in about two weeks. \n(C) Turn left at the front desk.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
-            { id: "toeic_p2_08", audioScript: "Why was the flight to London delayed? \n(A) Because of severe weather conditions. \n(B) It takes about ten hours. \n(C) I booked a window seat.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
-            { id: "toeic_p2_09", audioScript: "Is there a coffee shop in this building, or do I need to go outside? \n(A) I prefer green tea. \n(B) There's a cafe right on the ground floor. \n(C) It’s very cold outside today.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
-            { id: "toeic_p2_10", audioScript: "Let's schedule a meeting with the design team for Wednesday. \n(A) The design is very modern. \n(B) That works for me. I'll send out the invites. \n(C) They met in the conference room.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 }
+            { id: "toeic_p2_01", audioScript: "7. When is the project proposal due? \n(A) By next Friday. \n(B) Yes, I did it. \n(C) Mr. Smith is the manager.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_02", audioScript: "8. Has the software update been installed on all computers? \n(A) Yes, the IT department finished it yesterday. \n(B) The computer is on the desk. \n(C) I prefer to update my schedule.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_03", audioScript: "9. Would you mind reviewing the contract before I send it to the client? \n(A) The client is visiting tomorrow. \n(B) No, not at all. I'll look at it now. \n(C) I signed the document yesterday.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_04", audioScript: "10. Where should we store these extra office supplies? \n(A) At the hardware store. \n(B) Put them in the supply closet on the second floor. \n(C) I have an extra pen.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_05", audioScript: "11. Who is leading the marketing seminar this afternoon? \n(A) It starts at 3 PM. \n(B) The seminar was very helpful. \n(C) I believe Ms. Garcia is in charge.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "C", points: 5 },
+            { id: "toeic_p2_06", audioScript: "12. Didn't you take the subway to work today? \n(A) Yes, my car is in the repair shop. \n(B) The subway station is nearby. \n(C) I work in the human resources department.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_07", audioScript: "13. How long will the renovation of the lobby take? \n(A) It’s a very spacious lobby. \n(B) They expect to finish in about two weeks. \n(C) Turn left at the front desk.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_08", audioScript: "14. Why was the flight to London delayed? \n(A) Because of severe weather conditions. \n(B) It takes about ten hours. \n(C) I booked a window seat.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_09", audioScript: "15. Is there a coffee shop in this building, or do I need to go outside? \n(A) I prefer green tea. \n(B) There's a cafe right on the ground floor. \n(C) It’s very cold outside today.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_10", audioScript: "16. Let's schedule a meeting with the design team for Wednesday. \n(A) The design is very modern. \n(B) That works for me. I'll send out the invites. \n(C) They met in the conference room.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_11", audioScript: "17. Which folder should I file these invoices under? \n(A) Under 'Accounts Payable'. \n(B) The filing cabinet is locked. \n(C) I paid the invoice yesterday.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_12", audioScript: "18. Do you know if the printer has been fixed yet? \n(A) Yes, the technician just left. \n(B) Please print fifty copies. \n(C) The ink cartridge is empty.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_13", audioScript: "19. The annual banquet will be held at the Grand Hotel, won't it? \n(A) It was a wonderful evening. \n(B) Actually, they changed the venue to the Riverside Center. \n(C) The food was excellent.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_14", audioScript: "20. Why don't we take a short break before we continue reviewing the data? \n(A) I broke my glasses. \n(B) The review was very detailed. \n(C) That's a good idea, I could use some coffee.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "C", points: 5 },
+            { id: "toeic_p2_15", audioScript: "21. Are you going to the trade show in Berlin next month? \n(A) I'm still waiting for my manager's approval. \n(B) The show was very crowded. \n(C) Berlin is a beautiful city.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 }
         ],
         part3: [
             {
                 id: "toeic_p3_01",
-                audioScript: "W: Hi, I'd like to book a flight to Tokyo for next Monday.\nM: Let me check the schedule. We have a direct flight leaving at 10:00 AM.\nW: That sounds perfect. I'll take it.",
+                audioScript: "W: Hi, I'd like to book a flight to Tokyo for next Monday.\nM: Let me check the schedule. We have a direct flight leaving at 10:00 AM.\nW: That sounds perfect. I'll take it. Can I also request a vegetarian meal for the flight?\nM: Certainly. I'll add that to your reservation right now.",
                 questions: [
-                    { id: "tp3_q1", text: "1. Where does the woman want to travel to?", options: {A:"New York", B:"London", C:"Tokyo", D:"Paris"}, answer: "C", points: 5 },
-                    { id: "tp3_q2", text: "2. What time is the flight?", options: {A:"8:00 AM", B:"9:00 AM", C:"10:00 AM", D:"11:00 AM"}, answer: "C", points: 5 }
+                    { id: "tp3_q1", text: "22. Where does the woman want to travel to?", options: {A:"New York", B:"London", C:"Tokyo", D:"Paris"}, answer: "C", points: 5 },
+                    { id: "tp3_q2", text: "23. What time is the flight?", options: {A:"8:00 AM", B:"9:00 AM", C:"10:00 AM", D:"11:00 AM"}, answer: "C", points: 5 },
+                    { id: "tp3_q3", text: "24. What special request does the woman make?", options: {A:"Extra legroom", B:"A vegetarian meal", C:"A window seat", D:"Early boarding"}, answer: "B", points: 5 }
                 ]
             },
             {
                 id: "toeic_p3_02",
                 audioScript: "M: Sarah, have you reviewed the budget report for the new environmental project?\nW: Not yet. I was planning to look at it after the team meeting at 2 PM. Is there an issue?\nM: We are slightly over budget in the research phase. We might need to cut back on some initial testing.\nW: I see. Let's discuss this together with the lead researcher at 3 PM to find a solution.",
                 questions: [
-                    { id: "tp3_q3", text: "3. What project are the speakers discussing?", options: {A:"A marketing campaign", B:"An environmental project", C:"A software upgrade", D:"A building construction"}, answer: "B", points: 5 },
-                    { id: "tp3_q4", text: "4. What is the problem mentioned by the man?", options: {A:"They missed a deadline.", B:"A staff member resigned.", C:"They are over budget in a certain phase.", D:"The testing equipment is broken."}, answer: "C", points: 5 },
-                    { id: "tp3_q5", text: "5. What will they do at 3 PM?", options: {A:"Meet with the lead researcher.", B:"Submit the budget report.", C:"Cancel the project.", D:"Go home early."}, answer: "A", points: 5 }
+                    { id: "tp3_q4", text: "25. What project are the speakers discussing?", options: {A:"A marketing campaign", B:"An environmental project", C:"A software upgrade", D:"A building construction"}, answer: "B", points: 5 },
+                    { id: "tp3_q5", text: "26. What is the problem mentioned by the man?", options: {A:"They missed a deadline.", B:"A staff member resigned.", C:"They are over budget.", D:"The testing equipment is broken."}, answer: "C", points: 5 },
+                    { id: "tp3_q6", text: "27. What will they do at 3 PM?", options: {A:"Meet with the lead researcher.", B:"Submit the budget report.", C:"Cancel the project.", D:"Go home early."}, answer: "A", points: 5 }
                 ]
             },
             {
                 id: "toeic_p3_03",
                 audioScript: "M: Hello, I'm calling about the accounting software we purchased last month. We are having trouble generating the annual financial reports.\nW: I apologize for the inconvenience. That module requires a specific update to function correctly with this year's tax codes. \nM: I see. Can you guide me through the update process now?\nW: Certainly. Please open the settings menu and click on the 'System Update' tab.",
                 questions: [
-                    { id: "tp3_q6", text: "6. What is the man's problem?", options: {A:"He lost his password.", B:"He cannot generate specific reports.", C:"He wants a refund.", D:"He installed the wrong program."}, answer: "B", points: 5 },
-                    { id: "tp3_q7", text: "7. Why is the software not working?", options: {A:"The computer is too old.", B:"The internet connection is down.", C:"It needs an update for new tax codes.", D:"The license has expired."}, answer: "C", points: 5 },
-                    { id: "tp3_q8", text: "8. What does the woman ask the man to do?", options: {A:"Call back later", B:"Purchase a new license", C:"Open the settings menu", D:"Contact the tax office"}, answer: "C", points: 5 }
+                    { id: "tp3_q7", text: "28. What is the man's problem?", options: {A:"He lost his password.", B:"He cannot generate reports.", C:"He wants a refund.", D:"He installed the wrong program."}, answer: "B", points: 5 },
+                    { id: "tp3_q8", text: "29. Why is the software not working?", options: {A:"The computer is too old.", B:"The internet is down.", C:"It needs an update for new tax codes.", D:"The license has expired."}, answer: "C", points: 5 },
+                    { id: "tp3_q9", text: "30. What does the woman ask the man to do?", options: {A:"Call back later", B:"Purchase a new license", C:"Open the settings menu", D:"Contact the tax office"}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p3_04",
                 audioScript: "W: Excuse me, do you know where the employee cafeteria is? I just transferred from the branch office today.\nM: Welcome to headquarters! Yes, it's on the basement level. Take these elevators down to 'B1' and turn right.\nW: Great, thanks. By the way, do they accept credit cards there, or do I need my employee badge?\nM: You can use your badge to get a 20% discount, but they accept credit cards too.",
                 questions: [
-                    { id: "tp3_q9", text: "9. Why is the woman asking for directions?", options: {A:"She lost her map.", B:"She is a new transfer.", C:"She is a visiting client.", D:"She is late for a meeting."}, answer: "B", points: 5 },
-                    { id: "tp3_q10", text: "10. Where is the cafeteria located?", options: {A:"On the first floor", B:"On the second floor", C:"On the roof", D:"On the basement level"}, answer: "D", points: 5 },
-                    { id: "tp3_q11", text: "11. How can the woman get a discount?", options: {A:"By paying with cash.", B:"By arriving before noon.", C:"By using her employee badge.", D:"By ordering a specific meal."}, answer: "C", points: 5 }
+                    { id: "tp3_q10", text: "31. Why is the woman asking for directions?", options: {A:"She lost her map.", B:"She is a new transfer.", C:"She is a visiting client.", D:"She is late for a meeting."}, answer: "B", points: 5 },
+                    { id: "tp3_q11", text: "32. Where is the cafeteria located?", options: {A:"First floor", B:"Second floor", C:"Roof", D:"Basement level"}, answer: "D", points: 5 },
+                    { id: "tp3_q12", text: "33. How can the woman get a discount?", options: {A:"Paying with cash.", B:"Arriving before noon.", C:"Using her employee badge.", D:"Ordering a specific meal."}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p3_05",
+                audioScript: "M: The catering company just called. They said they will be about 30 minutes late delivering the food for the retirement party.\nW: Oh no, the guests are starting to arrive in 15 minutes! What should we do?\nM: I'll ask the receptionist to direct people to the lounge area first and serve the complementary beverages.\nW: Good idea. I'll go set up the lounge and put on some background music to keep everyone entertained.",
+                questions: [
+                    { id: "tp3_q13", text: "34. What is the problem?", options: {A:"The catering company is late.", B:"The guest speaker cancelled.", C:"The venue is double-booked.", D:"The food is cold."}, answer: "A", points: 5 },
+                    { id: "tp3_q14", text: "35. Where will the guests go first?", options: {A:"To the main hall", B:"To the lounge area", C:"To the garden", D:"To the parking lot"}, answer: "B", points: 5 },
+                    { id: "tp3_q15", text: "36. What will the woman do next?", options: {A:"Call the caterer", B:"Greet the guests outside", C:"Set up music in the lounge", D:"Print name tags"}, answer: "C", points: 5 }
                 ]
             }
         ],
         part4: [
             {
                 id: "toeic_p4_01",
-                audioScript: "Attention all passengers. Flight 402 to Taipei is now boarding at Gate 5. Please have your boarding passes and passports ready. We will begin boarding with first-class passengers and those requiring special assistance.",
+                audioScript: "Attention all passengers. Flight 402 to Taipei is now boarding at Gate 5. Please have your boarding passes and passports ready. We will begin boarding with first-class passengers and those requiring special assistance, followed by groups A and B. Please ensure your carry-on luggage meets the size restrictions.",
                 questions: [
-                    { id: "tp4_q1", text: "12. What is the main purpose of the announcement?", options: {A:"To report a lost item", B:"To announce a flight boarding", C:"To delay a train", D:"To change a gate"}, answer: "B", points: 5 },
-                    { id: "tp4_q2", text: "13. Who will board the plane first?", options: {A:"Families with children", B:"Economy class passengers", C:"First-class passengers", D:"Airline staff"}, answer: "C", points: 5 }
+                    { id: "tp4_q1", text: "37. What is the main purpose of the announcement?", options: {A:"Report a lost item", B:"Announce a flight boarding", C:"Delay a train", D:"Change a gate"}, answer: "B", points: 5 },
+                    { id: "tp4_q2", text: "38. Who will board the plane first?", options: {A:"Families with children", B:"Economy class passengers", C:"First-class passengers", D:"Airline staff"}, answer: "C", points: 5 },
+                    { id: "tp4_q3", text: "39. What are passengers asked to check?", options: {A:"Their seating assignments", B:"The weather forecast", C:"Carry-on luggage size", D:"Connecting flights"}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p4_02",
                 audioScript: "Good morning, everyone. Before we open the store, I want to quickly go over the new customer service policy. Starting today, we will offer a 30-day return window for all electronics, no questions asked, provided the receipt is shown. Our goal is to ensure complete satisfaction and build long-term trust. Please make sure to communicate this clearly at the checkout counter.",
                 questions: [
-                    { id: "tp4_q3", text: "14. Who is the intended audience for this announcement?", options: {A:"Customers", B:"Store employees", C:"Delivery drivers", D:"Product manufacturers"}, answer: "B", points: 5 },
-                    { id: "tp4_q4", text: "15. What is required for a customer to return electronics?", options: {A:"A valid ID", B:"The original packaging", C:"A receipt", D:"A manager's approval"}, answer: "C", points: 5 },
-                    { id: "tp4_q5", text: "16. What is the company's main goal?", options: {A:"To sell more electronics.", B:"To reduce store hours.", C:"To ensure satisfaction and build trust.", D:"To hire more checkout staff."}, answer: "C", points: 5 }
+                    { id: "tp4_q4", text: "40. Who is the intended audience for this announcement?", options: {A:"Customers", B:"Store employees", C:"Delivery drivers", D:"Manufacturers"}, answer: "B", points: 5 },
+                    { id: "tp4_q5", text: "41. What is required to return electronics?", options: {A:"A valid ID", B:"Original packaging", C:"A receipt", D:"Manager approval"}, answer: "C", points: 5 },
+                    { id: "tp4_q6", text: "42. What is the company's main goal?", options: {A:"Sell more products.", B:"Reduce store hours.", C:"Ensure satisfaction and build trust.", D:"Hire more staff."}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p4_03",
                 audioScript: "Thank you for joining this quarterly review meeting. I am pleased to announce that our new open-source project has reached 10,000 downloads in just two weeks. This success is entirely due to our commitment to keeping the code clean, ad-free, and accessible to everyone. Moving forward, we will focus on enhancing the user interface, making it even more intuitive. Let's look at the projected timeline on the screen.",
                 questions: [
-                    { id: "tp4_q6", text: "17. What milestone has the project achieved?", options: {A:"Hiring 10,000 new employees", B:"Reaching 10,000 downloads", C:"Securing a large investment", D:"Opening a new branch"}, answer: "B", points: 5 },
-                    { id: "tp4_q7", text: "18. What contributed to the project's success?", options: {A:"Expensive advertising", B:"Keeping the code clean and ad-free", C:"A mandatory subscription fee", D:"Partnerships with big tech companies"}, answer: "B", points: 5 },
-                    { id: "tp4_q8", text: "19. What will be the team's next focus?", options: {A:"Creating advertisements", B:"Enhancing the user interface", C:"Changing the project name", D:"Charging a subscription fee"}, answer: "B", points: 5 }
+                    { id: "tp4_q7", text: "43. What milestone has the project achieved?", options: {A:"10,000 employees", B:"10,000 downloads", C:"Large investment", D:"New branch"}, answer: "B", points: 5 },
+                    { id: "tp4_q8", text: "44. What contributed to the project's success?", options: {A:"Expensive advertising", B:"Clean and ad-free code", C:"A subscription fee", D:"Tech partnerships"}, answer: "B", points: 5 },
+                    { id: "tp4_q9", text: "45. What will be the team's next focus?", options: {A:"Creating ads", B:"Enhancing user interface", C:"Changing project name", D:"Charging fees"}, answer: "B", points: 5 }
                 ]
             },
             {
                 id: "toeic_p4_04",
                 audioScript: "You have reached the customer service hotline for Horizon Utilities. Our office is currently closed. Our regular business hours are Monday through Friday, from 8 AM to 6 PM. If you are calling to report a power outage or an emergency, please press 1 to be connected to our 24-hour dispatch team. For all other inquiries, please leave a detailed message after the beep, and a representative will return your call the next business day.",
                 questions: [
-                    { id: "tp4_q9", text: "20. What type of business is this message for?", options: {A:"A travel agency", B:"A utility company", C:"A hospital", D:"A law firm"}, answer: "B", points: 5 },
-                    { id: "tp4_q10", text: "21. Why would a caller press 1?", options: {A:"To pay a bill", B:"To speak to a manager", C:"To report a power outage", D:"To change their address"}, answer: "C", points: 5 },
-                    { id: "tp4_q11", text: "22. When will regular inquiries be answered?", options: {A:"Immediately", B:"The next business day", C:"In one week", D:"On weekends"}, answer: "B", points: 5 }
+                    { id: "tp4_q10", text: "46. What type of business is this message for?", options: {A:"Travel agency", B:"Utility company", C:"Hospital", D:"Law firm"}, answer: "B", points: 5 },
+                    { id: "tp4_q11", text: "47. Why would a caller press 1?", options: {A:"To pay a bill", B:"To speak to a manager", C:"To report a power outage", D:"To change address"}, answer: "C", points: 5 },
+                    { id: "tp4_q12", text: "48. When will regular inquiries be answered?", options: {A:"Immediately", B:"The next business day", C:"In one week", D:"On weekends"}, answer: "B", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p4_05",
+                audioScript: "Welcome to the grand opening of the City Art Museum's new modern wing. Today, you will have the opportunity to view over fifty contemporary sculptures donated by the Harrison Foundation. Guided tours will start every half hour at the main entrance. Also, don't forget to visit our gift shop on the ground floor, where all items are discounted by 15% today only to celebrate the opening.",
+                questions: [
+                    { id: "tp4_q13", text: "49. Where is this announcement taking place?", options: {A:"At a shopping mall", B:"At an art museum", C:"At a university", D:"At a foundation office"}, answer: "B", points: 5 },
+                    { id: "tp4_q14", text: "50. What is being exhibited?", options: {A:"Historical paintings", B:"Contemporary sculptures", C:"Photography", D:"Antique furniture"}, answer: "B", points: 5 }
                 ]
             }
         ],
         part5: [
-            { id: "toeic_p5_01", text: "23. The new marketing strategy was highly _____ in increasing our overall sales last quarter.", options: {A:"effect", B:"effective", C:"effectively", D:"effectiveness"}, answer: "B", points: 5 },
-            { id: "toeic_p5_02", text: "24. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 },
-            { id: "toeic_p5_03", text: "25. The CEO emphasized that sustainable growth is _____ to the company's future success.", options: {A:"vitality", B:"vitally", C:"vital", D:"vitalize"}, answer: "C", points: 5 },
-            { id: "toeic_p5_04", text: "26. Employees who wish to attend the seminar must register _____ Friday afternoon.", options: {A:"until", B:"by", C:"within", D:"during"}, answer: "B", points: 5 },
-            { id: "toeic_p5_05", text: "27. The manager requested that all confidential documents be handled with the utmost _____.", options: {A:"discreet", B:"discretion", C:"discretely", D:"discretions"}, answer: "B", points: 5 },
-            { id: "toeic_p5_06", text: "28. _____ the heavy rain, the outdoor charity event was successfully relocated to the indoor hall.", options: {A:"Although", B:"Because", C:"Despite", D:"However"}, answer: "C", points: 5 },
-            { id: "toeic_p5_07", text: "29. The accounting department _____ the financial records for the past three years to ensure compliance.", options: {A:"audits", B:"has been audited", C:"is auditing", D:"has audited"}, answer: "D", points: 5 },
-            { id: "toeic_p5_08", text: "30. The software company offers a _____ trial period for users to evaluate the product before purchasing.", options: {A:"complimentary", B:"compliment", C:"complies", D:"complied"}, answer: "A", points: 5 },
-            { id: "toeic_p5_09", text: "31. To accommodate the growing number of staff, the company plans to _____ its office space by next year.", options: {A:"expand", B:"expansion", C:"expanding", D:"expands"}, answer: "A", points: 5 },
-            { id: "toeic_p5_10", text: "32. The supervisor was very _____ with the team's presentation, praising their thorough research.", options: {A:"impresses", B:"impression", C:"impressed", D:"impressive"}, answer: "C", points: 5 },
-            { id: "toeic_p5_11", text: "33. We apologize for any inconvenience caused by the temporary _____ of the online booking system.", options: {A:"suspends", B:"suspend", C:"suspending", D:"suspension"}, answer: "D", points: 5 },
-            { id: "toeic_p5_12", text: "34. Only candidates with at least five years of managerial _____ will be considered for this position.", options: {A:"experience", B:"experiment", C:"experiencing", D:"experiences"}, answer: "A", points: 5 },
-            { id: "toeic_p5_13", text: "35. Please ensure that all mobile devices are turned off _____ the duration of the conference.", options: {A:"while", B:"during", C:"between", D:"whenever"}, answer: "B", points: 5 },
-            { id: "toeic_p5_14", text: "36. The updated employee manual provides _____ instructions on how to request annual leave.", options: {A:"clear", B:"clears", C:"clearly", D:"clearing"}, answer: "A", points: 5 },
-            { id: "toeic_p5_15", text: "37. Due to a scheduling conflict, the board meeting has been _____ until next Thursday.", options: {A:"postpone", B:"postponed", C:"postponing", D:"postpones"}, answer: "B", points: 5 },
-            { id: "toeic_p5_16", text: "38. The new factory is expected to _____ thousands of jobs for the local community.", options: {A:"create", B:"creations", C:"creative", D:"creatively"}, answer: "A", points: 5 },
-            { id: "toeic_p5_17", text: "39. _____ you require further assistance, please do not hesitate to contact our support team.", options: {A:"Should", B:"If", C:"When", D:"Unless"}, answer: "A", points: 5 },
-            { id: "toeic_p5_18", text: "40. The company's profits have risen _____ since the introduction of the new product line.", options: {A:"significance", B:"significant", C:"significantly", D:"signify"}, answer: "C", points: 5 }
+            { id: "toeic_p5_01", text: "51. The new marketing strategy was highly _____ in increasing our overall sales last quarter.", options: {A:"effect", B:"effective", C:"effectively", D:"effectiveness"}, answer: "B", points: 5 },
+            { id: "toeic_p5_02", text: "52. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 },
+            { id: "toeic_p5_03", text: "53. The CEO emphasized that sustainable growth is _____ to the company's future success.", options: {A:"vitality", B:"vitally", C:"vital", D:"vitalize"}, answer: "C", points: 5 },
+            { id: "toeic_p5_04", text: "54. Employees who wish to attend the seminar must register _____ Friday afternoon.", options: {A:"until", B:"by", C:"within", D:"during"}, answer: "B", points: 5 },
+            { id: "toeic_p5_05", text: "55. The manager requested that all confidential documents be handled with the utmost _____.", options: {A:"discreet", B:"discretion", C:"discretely", D:"discretions"}, answer: "B", points: 5 },
+            { id: "toeic_p5_06", text: "56. _____ the heavy rain, the outdoor charity event was successfully relocated to the indoor hall.", options: {A:"Although", B:"Because", C:"Despite", D:"However"}, answer: "C", points: 5 },
+            { id: "toeic_p5_07", text: "57. The accounting department _____ the financial records for the past three years to ensure compliance.", options: {A:"audits", B:"has been audited", C:"is auditing", D:"has audited"}, answer: "D", points: 5 },
+            { id: "toeic_p5_08", text: "58. The software company offers a _____ trial period for users to evaluate the product before purchasing.", options: {A:"complimentary", B:"compliment", C:"complies", D:"complied"}, answer: "A", points: 5 },
+            { id: "toeic_p5_09", text: "59. To accommodate the growing number of staff, the company plans to _____ its office space by next year.", options: {A:"expand", B:"expansion", C:"expanding", D:"expands"}, answer: "A", points: 5 },
+            { id: "toeic_p5_10", text: "60. The supervisor was very _____ with the team's presentation, praising their thorough research.", options: {A:"impresses", B:"impression", C:"impressed", D:"impressive"}, answer: "C", points: 5 },
+            { id: "toeic_p5_11", text: "61. We apologize for any inconvenience caused by the temporary _____ of the online booking system.", options: {A:"suspends", B:"suspend", C:"suspending", D:"suspension"}, answer: "D", points: 5 },
+            { id: "toeic_p5_12", text: "62. Only candidates with at least five years of managerial _____ will be considered for this position.", options: {A:"experience", B:"experiment", C:"experiencing", D:"experiences"}, answer: "A", points: 5 },
+            { id: "toeic_p5_13", text: "63. Please ensure that all mobile devices are turned off _____ the duration of the conference.", options: {A:"while", B:"during", C:"between", D:"whenever"}, answer: "B", points: 5 },
+            { id: "toeic_p5_14", text: "64. The updated employee manual provides _____ instructions on how to request annual leave.", options: {A:"clear", B:"clears", C:"clearly", D:"clearing"}, answer: "A", points: 5 },
+            { id: "toeic_p5_15", text: "65. Due to a scheduling conflict, the board meeting has been _____ until next Thursday.", options: {A:"postpone", B:"postponed", C:"postponing", D:"postpones"}, answer: "B", points: 5 },
+            { id: "toeic_p5_16", text: "66. The new factory is expected to _____ thousands of jobs for the local community.", options: {A:"create", B:"creations", C:"creative", D:"creatively"}, answer: "A", points: 5 },
+            { id: "toeic_p5_17", text: "67. _____ you require further assistance, please do not hesitate to contact our support team.", options: {A:"Should", B:"If", C:"When", D:"Unless"}, answer: "A", points: 5 },
+            { id: "toeic_p5_18", text: "68. The company's profits have risen _____ since the introduction of the new product line.", options: {A:"significance", B:"significant", C:"significantly", D:"signify"}, answer: "C", points: 5 },
+            { id: "toeic_p5_19", text: "69. The board of directors _____ approved the merger proposal during yesterday's meeting.", options: {A:"unanimous", B:"unanimously", C:"unanimity", D:"unanimities"}, answer: "B", points: 5 },
+            { id: "toeic_p5_20", text: "70. Ms. Lewis is responsible for overseeing the _____ of all incoming shipments at the warehouse.", options: {A:"inspect", B:"inspects", C:"inspected", D:"inspection"}, answer: "D", points: 5 }
         ],
         part6: [
             {
                 id: "toeic_p6_01",
-                article: "Dear Mr. Davis,\nWe are pleased to inform you that your application for the position of Senior Analyst has been __(41)__. We were highly impressed with your background and interview performance. Please come to our main office next Monday at 9 AM for the orientation session. __(42)__.\nSincerely,\nHuman Resources",
+                article: "Dear Mr. Davis,\nWe are pleased to inform you that your application for the position of Senior Analyst has been __(71)__. We were highly impressed with your background and interview performance. Please come to our main office next Monday at 9 AM for the orientation session. __(72)__.\nSincerely,\nHuman Resources",
                 questions: [
-                    { id: "tp6_q1", text: "41.", options: {A:"accept", B:"accepted", C:"accepting", D:"accepts"}, answer: "B", points: 5 },
-                    { id: "tp6_q2", text: "42.", options: {A:"We regret to inform you that the position is filled.", B:"Please bring a valid photo ID with you.", C:"The orientation will be canceled.", D:"You do not need to attend any sessions."}, answer: "B", points: 5 }
+                    { id: "tp6_q1", text: "71.", options: {A:"accept", B:"accepted", C:"accepting", D:"accepts"}, answer: "B", points: 5 },
+                    { id: "tp6_q2", text: "72.", options: {A:"We regret to inform you that the position is filled.", B:"Please bring a valid photo ID with you.", C:"The orientation will be canceled.", D:"You do not need to attend any sessions."}, answer: "B", points: 5 }
                 ]
             },
             {
                 id: "toeic_p6_02",
-                article: "Notice to All Residents:\nThe annual water pipe maintenance will take place next Tuesday from 9 AM to 2 PM. During this time, the water supply will be temporarily __(43)__. We apologize for any inconvenience this may cause. __(44)__. We appreciate your cooperation in maintaining the building's infrastructure.\nManagement Office",
+                article: "Notice to All Residents:\nThe annual water pipe maintenance will take place next Tuesday from 9 AM to 2 PM. During this time, the water supply will be temporarily __(73)__. We apologize for any inconvenience this may cause. __(74)__. We appreciate your cooperation in maintaining the building's infrastructure.\nManagement Office",
                 questions: [
-                    { id: "tp6_q3", text: "43.", options: {A:"shut off", B:"shutting off", C:"shuts off", D:"shut off from"}, answer: "A", points: 5 },
-                    { id: "tp6_q4", text: "44.", options: {A:"Please leave your faucets running.", B:"The electricity will also be cut.", C:"It is advised to store some water in advance.", D:"The maintenance has been postponed."}, answer: "C", points: 5 }
+                    { id: "tp6_q3", text: "73.", options: {A:"shut off", B:"shutting off", C:"shuts off", D:"shut off from"}, answer: "A", points: 5 },
+                    { id: "tp6_q4", text: "74.", options: {A:"Please leave your faucets running.", B:"The electricity will also be cut.", C:"It is advised to store some water in advance.", D:"The maintenance has been postponed."}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p6_03",
-                article: "Dear Valued Customer,\nThank you for choosing our cloud storage service. Your annual subscription will expire in 15 days. To ensure uninterrupted access to your files, please __(45)__ your payment information in your account settings. __(46)__.\nBest regards,\nThe Billing Team",
+                article: "Dear Valued Customer,\nThank you for choosing our cloud storage service. Your annual subscription will expire in 15 days. To ensure uninterrupted access to your files, please __(75)__ your payment information in your account settings. __(76)__.\nBest regards,\nThe Billing Team",
                 questions: [
-                    { id: "tp6_q5", text: "45.", options: {A:"update", B:"updates", C:"updated", D:"updating"}, answer: "A", points: 5 },
-                    { id: "tp6_q6", text: "46.", options: {A:"If you have already renewed, please ignore this message.", B:"We will delete all your files immediately.", C:"Our service is completely free.", D:"Please visit our physical store to pay."}, answer: "A", points: 5 }
+                    { id: "tp6_q5", text: "75.", options: {A:"update", B:"updates", C:"updated", D:"updating"}, answer: "A", points: 5 },
+                    { id: "tp6_q6", text: "76.", options: {A:"If you have already renewed, please ignore this message.", B:"We will delete all your files immediately.", C:"Our service is completely free.", D:"Please visit our physical store to pay."}, answer: "A", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p6_04",
+                article: "To: All Department Heads\nFrom: IT Support\nSubject: Network Upgrade\n\nPlease note that a major network upgrade will be conducted this weekend. The system will go offline starting Friday at midnight and will remain __(77)__ until Sunday evening. __(78)__. Please ensure all critical files are saved locally before the shutdown.\nThank you.",
+                questions: [
+                    { id: "tp6_q7", text: "77.", options: {A:"unavailable", B:"unavailability", C:"unavailably", D:"avails"}, answer: "A", points: 5 },
+                    { id: "tp6_q8", text: "78.", options: {A:"You must work through the weekend.", B:"No internet access will be possible during this period.", C:"The upgrade has been successfully completed.", D:"We are hiring new IT staff."}, answer: "B", points: 5 }
                 ]
             }
         ],
@@ -1211,38 +1245,60 @@ toefl: [
                 id: "toeic_p7_01",
                 article: "Memo\nTo: All Staff\nFrom: Facilities Management\nDate: October 5\nSubject: Break Room Renovation\n\nPlease be informed that the main break room on the 3rd floor will be closed for renovation starting next Wednesday, October 12. The microwave ovens and coffee machines will be temporarily moved to the 2nd-floor lobby. We expect the work to be completed by the end of the month. Thank you for your patience while we upgrade these facilities.",
                 questions: [
-                    { id: "tp7_q1", text: "47. What is the purpose of this memo?", options: {A:"To announce a new hire", B:"To explain a renovation schedule", C:"To complain about broken equipment", D:"To change working hours"}, answer: "B", points: 5 },
-                    { id: "tp7_q2", text: "48. Where will the coffee machines be moved?", options: {A:"To the 1st floor", B:"To the 2nd-floor lobby", C:"To the 4th floor", D:"To the manager's office"}, answer: "B", points: 5 },
-                    { id: "tp7_q3", text: "49. When is the renovation expected to be finished?", options: {A:"October 5", B:"October 12", C:"Next Wednesday", D:"By the end of the month"}, answer: "D", points: 5 }
+                    { id: "tp7_q1", text: "79. What is the purpose of this memo?", options: {A:"To announce a new hire", B:"To explain a renovation schedule", C:"To complain about broken equipment", D:"To change working hours"}, answer: "B", points: 5 },
+                    { id: "tp7_q2", text: "80. Where will the coffee machines be moved?", options: {A:"To the 1st floor", B:"To the 2nd-floor lobby", C:"To the 4th floor", D:"To the manager's office"}, answer: "B", points: 5 },
+                    { id: "tp7_q3", text: "81. When is the renovation expected to be finished?", options: {A:"October 5", B:"October 12", C:"Next Wednesday", D:"By the end of the month"}, answer: "D", points: 5 }
                 ]
             },
             {
                 id: "toeic_p7_02",
                 article: "Email\nTo: Design Team\nFrom: Alice Chen, Project Manager\nDate: November 10\nSubject: Feedback on Logo Drafts\n\nThank you all for submitting the initial drafts for the 'Pure Mind' application logo. The client reviewed them yesterday and was very impressed with the vector aesthetics. They have requested to proceed with Draft B, but they would like the color palette to be slightly muted to evoke a stronger sense of tranquility. Please submit the revised version by Thursday afternoon.",
                 questions: [
-                    { id: "tp7_q4", text: "50. What is the main purpose of the email?", options: {A:"To schedule a meeting", B:"To provide client feedback", C:"To introduce a new team member", D:"To announce a product launch"}, answer: "B", points: 5 },
-                    { id: "tp7_q5", text: "51. What change did the client request for Draft B?", options: {A:"A larger font size", B:"A different shape", C:"A muted color palette", D:"A completely new design"}, answer: "C", points: 5 },
-                    { id: "tp7_q6", text: "52. When is the revised version due?", options: {A:"Yesterday", B:"November 10", C:"Thursday afternoon", D:"Next Monday"}, answer: "C", points: 5 }
+                    { id: "tp7_q4", text: "82. What is the main purpose of the email?", options: {A:"To schedule a meeting", B:"To provide client feedback", C:"To introduce a new team member", D:"To announce a product launch"}, answer: "B", points: 5 },
+                    { id: "tp7_q5", text: "83. What change did the client request for Draft B?", options: {A:"A larger font size", B:"A different shape", C:"A muted color palette", D:"A completely new design"}, answer: "C", points: 5 },
+                    { id: "tp7_q6", text: "84. When is the revised version due?", options: {A:"Yesterday", B:"November 10", C:"Thursday afternoon", D:"Next Monday"}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p7_03",
                 article: "Internal Announcement\n\nEffective next Monday, the company will implement a new 'Quiet Hour' policy. From 1:00 PM to 2:00 PM every day, employees are encouraged to refrain from scheduling meetings or making non-urgent phone calls. This initiative aims to provide everyone with a block of uninterrupted time to focus on deep work, coding, or simply resting their minds. Please adjust your calendars accordingly.",
                 questions: [
-                    { id: "tp7_q7", text: "53. What is the purpose of the 'Quiet Hour'?", options: {A:"To serve lunch", B:"To allow for uninterrupted work or rest", C:"To conduct daily team meetings", D:"To clean the office"}, answer: "B", points: 5 },
-                    { id: "tp7_q8", text: "54. What are employees asked to avoid during this time?", options: {A:"Using the internet", B:"Drinking coffee", C:"Scheduling meetings", D:"Leaving the building"}, answer: "C", points: 5 }
+                    { id: "tp7_q7", text: "85. What is the purpose of the 'Quiet Hour'?", options: {A:"To serve lunch", B:"To allow for uninterrupted work or rest", C:"To conduct daily team meetings", D:"To clean the office"}, answer: "B", points: 5 },
+                    { id: "tp7_q8", text: "86. What are employees asked to avoid during this time?", options: {A:"Using the internet", B:"Drinking coffee", C:"Scheduling meetings", D:"Leaving the building"}, answer: "C", points: 5 },
+                    { id: "tp7_q9", text: "87. When does the Quiet Hour take place?", options: {A:"Every morning", B:"Every day from 1 PM to 2 PM", C:"Only on Mondays", D:"After business hours"}, answer: "B", points: 5 }
                 ]
             },
             {
                 id: "toeic_p7_04",
                 article: "PRESS RELEASE\n\nEco-Tech Solutions Announces New Solar Panel\n\nSeattle, WA - Eco-Tech Solutions, a leading provider of renewable energy products, unveiled its latest solar panel model, the SunMax 500, at the Global Energy Expo yesterday. The SunMax 500 boasts a 20% increase in energy conversion efficiency compared to previous models. 'Our team has worked tirelessly for two years to develop this technology,' said CEO Mark Evans. The new panels are designed specifically for residential use and will be available for purchase starting in early spring. Early pre-orders will receive a complimentary installation service.",
                 questions: [
-                    { id: "tp7_q9", text: "55. What is the main subject of the press release?", options: {A:"A change in company leadership", B:"The release of a new renewable energy product", C:"The cancellation of an energy expo", D:"A new environmental law"}, answer: "B", points: 5 },
-                    { id: "tp7_q10", text: "56. How is the SunMax 500 different from older models?", options: {A:"It is 20% cheaper.", B:"It is much larger in size.", C:"It has a 20% higher energy conversion efficiency.", D:"It is only for commercial use."}, answer: "C", points: 5 },
-                    { id: "tp7_q11", text: "57. What benefit do early pre-orders receive?", options: {A:"A 20% discount", B:"Free installation service", C:"A tour of the factory", D:"An extended warranty"}, answer: "B", points: 5 }
+                    { id: "tp7_q10", text: "88. What is the main subject of the press release?", options: {A:"A change in company leadership", B:"The release of a new renewable energy product", C:"The cancellation of an energy expo", D:"A new environmental law"}, answer: "B", points: 5 },
+                    { id: "tp7_q11", text: "89. How is the SunMax 500 different from older models?", options: {A:"It is 20% cheaper.", B:"It is much larger in size.", C:"It has a 20% higher energy conversion efficiency.", D:"It is only for commercial use."}, answer: "C", points: 5 },
+                    { id: "tp7_q12", text: "90. What benefit do early pre-orders receive?", options: {A:"A 20% discount", B:"Free installation service", C:"A tour of the factory", D:"An extended warranty"}, answer: "B", points: 5 },
+                    { id: "tp7_q13", text: "91. Who is the intended market for the SunMax 500?", options: {A:"Large factories", B:"Residential users", C:"Public schools", D:"Government buildings"}, answer: "B", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p7_05",
+                article: "To: Jessica Thorne <j.thorne@logisticsplus.com>\nFrom: Human Resources <hr@logisticsplus.com>\nDate: September 15\nSubject: Annual Performance Review\n\nDear Jessica,\n\nYour annual performance review has been scheduled for Wednesday, September 22, at 10:30 AM in Conference Room B. Please complete the attached self-evaluation form and submit it to your department manager by Monday, September 20. Your insights are a critical part of this review process, as they help us set your professional goals for the upcoming year. \n\nRegards,\nHR Department",
+                questions: [
+                    { id: "tp7_q14", text: "92. Why was this email sent to Jessica?", options: {A:"To offer her a promotion", B:"To schedule a performance review", C:"To invite her to a company party", D:"To complain about her work"}, answer: "B", points: 5 },
+                    { id: "tp7_q15", text: "93. What must Jessica do by September 20?", options: {A:"Attend a meeting in Conference Room B", B:"Submit a self-evaluation form", C:"Sign a new contract", D:"Train a new employee"}, answer: "B", points: 5 },
+                    { id: "tp7_q16", text: "94. Who should receive the attached form?", options: {A:"The CEO", B:"Human Resources", C:"Her department manager", D:"The accounting team"}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p7_06",
+                article: "[Job Advertisement]\n\nPositions Available: Customer Service Representative\nLocation: Downtown Toronto\nType: Full-time (Shift work required)\n\nGlobal Communications is seeking energetic individuals to join our growing customer service team. The ideal candidate will have excellent communication skills, a high school diploma, and at least one year of experience in a call center environment. We offer a competitive salary, comprehensive health benefits, and opportunities for career advancement. \n\nTo apply, please send your resume and cover letter to jobs@globalcomm.ca by August 30. Only shortlisted candidates will be contacted for an interview.",
+                questions: [
+                    { id: "tp7_q17", text: "95. What kind of job is being advertised?", options: {A:"Sales Manager", B:"Customer Service Representative", C:"Software Engineer", D:"Accountant"}, answer: "B", points: 5 },
+                    { id: "tp7_q18", text: "96. What is a requirement for the position?", options: {A:"A university degree", B:"Five years of experience", C:"A high school diploma", D:"A valid driver's license"}, answer: "C", points: 5 },
+                    { id: "tp7_q19", text: "97. What is the deadline to apply?", options: {A:"Immediately", B:"August 30", C:"September 1", D:"End of the year"}, answer: "B", points: 5 },
+                    { id: "tp7_q20", text: "98. How are applicants instructed to apply?", options: {A:"By calling the hotline", B:"By visiting the office in person", C:"By sending an email with required documents", D:"By filling out an online form"}, answer: "C", points: 5 },
+                    { id: "tp7_q21", text: "99. What benefit is NOT explicitly mentioned?", options: {A:"Health benefits", B:"Career advancement", C:"Competitive salary", D:"Free transportation"}, answer: "D", points: 5 },
+                    { id: "tp7_q22", text: "100. What will happen to candidates who are NOT shortlisted?", options: {A:"They will be offered a different job.", B:"They will not be contacted.", C:"They will receive a phone interview.", D:"They must apply again next year."}, answer: "B", points: 5 }
                 ]
             }
         ]
     }
 
-  
