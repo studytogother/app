@@ -990,192 +990,101 @@ toefl: [
         }
     ],
 
-    // ==========================================
-    // 模組三：托福適性考場專用 (供 exam_toefl.html 讀取)
+        // ==========================================
+    // 模組三：托福適性考場專用 (原生完美相容版 - 滿編10題)
     // ==========================================
     toefl_adaptive: {
-        // 注意：這裡已從物件 {} 轉換為陣列 []，這樣才能無縫擴充多篇考題
-        reading: [
-            {
-                id: "t_r_01",
-                article: "Biomimicry involves studying nature's best ideas and imitating them to solve human problems. For example, the design of the famous bullet train in Japan was inspired by the beak of the kingfisher bird, making it 10% faster and much quieter.",
-                questions: [
-                    { id: "tr_q1", text: "1. What is biomimicry?", options: {A:"Studying birds", B:"Imitating nature to solve problems", C:"Building faster trains", D:"Protecting the environment"}, answer: "B", points: 15 },
-                    { id: "tr_q2", text: "2. How did the kingfisher bird inspire the bullet train?", options: {A:"It made the train fly", B:"It helped reduce noise and increase speed", C:"It changed the train's color", D:"It made the train cheaper"}, answer: "B", points: 15 }
-                ]
-            },
-            {
-                id: "t_r_02",
-                article: "The phenomenon of neuroplasticity suggests that the human brain is not a static organ but rather a highly dynamic structure. Neural pathways can be rewired continuously through meditation, focused attention, and learning, proving that structural changes in the brain can occur well into adulthood. This mechanism is foundational to developing equanimity and breaking habitual patterns.",
-                questions: [
-                    { id: "tr_q3", text: "1. What does neuroplasticity indicate about the human brain?", options: {A:"It stops developing in childhood.", B:"It is a highly dynamic structure capable of rewiring.", C:"It is immune to external stimuli.", D:"It only changes during sleep."}, answer: "B", points: 15 },
-                    { id: "tr_q4", text: "2. According to the passage, what is foundational to developing equanimity?", options: {A:"Ignoring habitual patterns.", B:"The structural static nature of the brain.", C:"The brain's ability to rewire neural pathways.", D:"Avoiding focused attention."}, answer: "C", points: 15 }
-                ]
-            },
-            {
-                id: "t_r_03",
-                article: "The concept of deep ecology argues that the natural world is a subtle balance of complex inter-relationships in which the existence of organisms is dependent on the existence of others within ecosystems. Unlike anthropocentrism, which views humans as the center of the universe, deep ecology asserts the inherent value of all living beings, regardless of their instrumental utility to human needs.",
-                questions: [
-                    { id: "tr_q5", text: "3. What is the fundamental argument of deep ecology?", options: {A:"Humans are the most important species.", B:"Ecosystems exist primarily for human use.", C:"All living beings have inherent value.", D:"Technological solutions can fix nature."}, answer: "C", points: 15 },
-                    { id: "tr_q6", text: "4. How does deep ecology view the relationship between organisms?", options: {A:"As independent and isolated.", B:"As a subtle balance of complex inter-relationships.", C:"As a strict hierarchical structure.", D:"As a constant competition for dominance."}, answer: "B", points: 15 }
-                ]
-            }
-        ],
-        listening_hard: [
-            {
-                id: "t_lh_01",
-                audioScript: "Welcome to Advanced Neuroscience. Today we'll discuss neuroplasticity—the brain's ability to reorganize itself by forming new neural connections throughout life. This challenges the old dogma that the adult brain is entirely hard-wired.",
-                questions: [
-                    { id: "tlh_q1", text: "1. What is the main topic of the lecture?", options: {A:"Brain surgery techniques", B:"Neuroplasticity and neural connections", C:"Childhood education", D:"The history of neuroscience"}, answer: "B", points: 15 },
-                    { id: "tlh_q2", text: "2. What old dogma does neuroplasticity challenge?", options: {A:"That the brain requires sleep", B:"That the adult brain is entirely hard-wired", C:"That neurons die with age", D:"That the brain is a muscle"}, answer: "B", points: 15 }
-                ]
-            },
-            {
-                id: "t_lh_02",
-                audioScript: "Professor: Let's shift our focus to the 'Observer Effect' in quantum mechanics. It posits that the mere observation of a phenomenon inevitably changes that phenomenon. Philosophically, this echoes ancient wisdom: the mind of the observer is never truly separate from the reality being observed. This interconnectedness shatters the illusion of pure objectivity.",
-                questions: [
-                    { id: "tlh_q3", text: "1. What is the core concept of the 'Observer Effect' discussed?", options: {A:"Observation requires complex instruments.", B:"Observation inevitably changes the phenomenon.", C:"Reality is entirely predictable.", D:"Observers must remain objective."}, answer: "B", points: 15 },
-                    { id: "tlh_q4", text: "2. What illusion does this concept shatter?", options: {A:"The illusion of pure objectivity.", B:"The illusion of time.", C:"The illusion of technological progress.", D:"The illusion of mathematical certainty."}, answer: "A", points: 15 }
-                ]
-            },
-            {
-                id: "t_lh_03",
-                audioScript: "Professor: Let's shift our focus to the 'Observer Effect' in quantum mechanics. It posits that the mere observation of a phenomenon inevitably changes that phenomenon. Philosophically, this echoes ancient wisdom: the mind of the observer is never truly separate from the reality being observed. This interconnectedness shatters the illusion of pure objectivity.",
-                questions: [
-                    { id: "tlh_q5", text: "3. What is the core concept of the 'Observer Effect' discussed?", options: {A:"Observation requires complex mathematical instruments.", B:"Observation inevitably changes the phenomenon being observed.", C:"Reality is entirely predictable and static.", D:"Observers must remain completely objective at all times."}, answer: "B", points: 15 },
-                    { id: "tlh_q6", text: "4. According to the professor, what illusion does this concept shatter?", options: {A:"The illusion of pure objectivity.", B:"The illusion of linear time.", C:"The illusion of continuous technological progress.", D:"The illusion of absolute mathematical certainty."}, answer: "A", points: 15 }
-                ]
-            }
-        ],
-        listening_easy: [
-            {
-                id: "t_le_01",
-                audioScript: "Attention students. The library will close at 8 PM tonight for maintenance. It will reopen tomorrow at 8 AM. Please use the student center if you need a place to study late.",
-                questions: [
-                    { id: "tle_q1", text: "1. Why is the library closing early?", options: {A:"For a holiday", B:"For maintenance", C:"Staff shortage", D:"Weather emergency"}, answer: "B", points: 10 },
-                    { id: "tle_q2", text: "2. When will it reopen?", options: {A:"Tonight at 10 PM", B:"Tomorrow at 8 AM", C:"Next Monday", D:"Tomorrow at noon"}, answer: "B", points: 10 }
-                ]
-            },
-            {
-                id: "t_le_02",
-                audioScript: "Hello, this is the university housing office. We are calling to remind you that the deadline to apply for the summer dormitory extension is this Friday at 5:00 PM. Late applications will not be accepted due to high demand.",
-                questions: [
-                    { id: "tle_q3", text: "1. What is the deadline for the summer dormitory extension?", options: {A:"Today at 5:00 PM", B:"This Friday at 5:00 PM", C:"Next Monday at 9:00 AM", D:"This weekend"}, answer: "B", points: 10 },
-                    { id: "tle_q4", text: "2. Why will late applications not be accepted?", options: {A:"System maintenance", B:"High demand", C:"Staff vacation", D:"Building closure"}, answer: "B", points: 10 }
-                ]
-            },
-            {
-                id: "t_le_03",
-                audioScript: "Hello, this is the university health center. We are calling to remind all students that the free annual health screening, including blood pressure and glucose checks, will be held next Wednesday in the main gymnasium. Please bring your student ID.",
-                questions: [
-                    { id: "tle_q5", text: "3. Where will the health screening take place?", options: {A:"At the university hospital", B:"In the main gymnasium", C:"At the library", D:"In the student cafeteria"}, answer: "B", points: 10 },
-                    { id: "tle_q6", text: "4. What must students bring with them?", options: {A:"A medical record", B:"A payment method", C:"Their student ID", D:"A printed schedule"}, answer: "C", points: 10 }
-                ]
-            }
-        ],
-        speaking: [
-            {
-                id: "t_s_01",
-                article: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
-                audioScript: "True peace does not mean being in a place where there is no noise or trouble. It means to be in the midst of those things and still be calm in your heart.",
-                questions: [
-                    { id: "ts_q1", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
-                ]
-            },
-            {
-                id: "t_s_02",
-                article: "The greatest glory in living lies not in never falling, but in rising every time we fall. Resilience is built in the quiet moments of choosing to try again.",
-                audioScript: "The greatest glory in living lies not in never falling, but in rising every time we fall. Resilience is built in the quiet moments of choosing to try again.",
-                questions: [
-                    { id: "ts_q2", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次，體會語言的節奏與堅韌的力量。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再練習一下。"}, answer: "A", points: 30 }
-                ]
-            },
-            {
-                id: "t_s_03",
-                article: "Compassion is not a relationship between the healer and the wounded. It's a relationship between equals. Only when we know our own darkness well can we be present with the darkness of others.",
-                audioScript: "Compassion is not a relationship between the healer and the wounded. It's a relationship between equals. Only when we know our own darkness well can we be present with the darkness of others.",
-                questions: [
-                    { id: "ts_q3", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次，體會這段關於同理與平等的深意。", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再靜心練習一次。"}, answer: "A", points: 30 }
-                ]
-            }
-        ],
-        writing: [
-            {
-                id: "t_w_01",
-                questions: [
-                    { 
-                        id: "tw_q1", text: "實用 Email 寫作：\n請寫一封信給教授，說明你週末要參加偏鄉志工服務，請求報告延期兩天繳交。(滿分30分)", type: "composition",
-                        answer: "【評分標準】清楚說明原因、禮貌請求、字數適中。", points: 30
-                    }
-                ]
-            },
-            {
-                id: "t_w_02",
-                questions: [
-                    { 
-                        id: "tw_q2", text: "獨立寫作 (Independent Writing)：\nDo you agree or disagree with the following statement? 'It is more important for individuals to maintain inner peace than to pursue continuous material wealth.' Use specific reasons and examples to support your answer. (請寫出約 300 字大綱與核心段落) (滿分30分)", type: "composition",
-                        answer: "【評分標準】論點明確清晰、具備邏輯連貫性、詞彙運用精準（如：inner tranquility, materialistic pursuit, sustainable well-being）。", points: 30
-                    }
-                ]
-            },
-            {
-                id: "t_w_03",
-                questions: [
-                    { 
-                        id: "tw_q3", text: "整合寫作 (Integrated Writing)：\n閱讀一段關於「極簡主義生活方式對心理健康的影響」的文章，並聆聽一段反對該觀點的心理學講座。請綜合兩者資訊，寫一篇約 200 字的摘要報告。(滿分30分)", type: "composition",
-                        answer: "【評分標準】必須精準捕捉閱讀文本的主旨（極簡帶來平靜），並清晰對比聽力文本的反駁（過度壓抑物質需求可能導致另一種焦慮）。架構需客觀、無個人偏見。", points: 30
-                    }
-                ]
-            }
-        ]
+        reading: {
+            id: "t_r_01",
+            article: "In an era characterized by chronic digital overload, the Japanese spatial concept of 'Ma' offers a profound psychological remedy. 'Ma' is often translated as 'negative space' or 'gap,' but it does not imply an empty void. Rather, it represents a dynamic stillness that gives form to the surrounding elements. In traditional architecture, a room is not defined by its walls, but by the empty space within them. Psychologists have found that incorporating 'Ma' into daily life—such as scheduling deliberate pauses between tasks or decluttering physical environments—significantly reduces cortisol levels. This intentional emptiness allows the mind to shift from a state of constant reaction to one of deep reflection, proving that sometimes, doing nothing is the most productive action one can take.",
+            questions: [
+                { id: "tr_q1", text: "1. What is the primary definition of 'Ma' according to the passage?", options: {A:"A dark, empty void.", B:"A dynamic stillness or negative space.", C:"A traditional style of painting.", D:"A method of digital communication."}, answer: "B", points: 3 },
+                { id: "tr_q2", text: "2. How do psychologists believe 'Ma' affects human health?", options: {A:"It increases anxiety and stress.", B:"It encourages multitasking.", C:"It significantly reduces cortisol levels.", D:"It causes chronic digital overload."}, answer: "C", points: 3 },
+                { id: "tr_q3", text: "3. What does the passage suggest about the modern digital era?", options: {A:"It suffers from chronic digital overload.", B:"It perfectly embraces the concept of 'Ma'.", C:"It is the most productive era in human history.", D:"It completely ignores traditional Japanese architecture."}, answer: "A", points: 3 },
+                { id: "tr_q4", text: "4. What is the ultimate benefit of incorporating 'Ma' into daily life?", options: {A:"It helps build stronger architectural walls.", B:"It shifts the mind from constant reaction to deep reflection.", C:"It allows people to work 24 hours a day.", D:"It increases the amount of furniture in a room."}, answer: "B", points: 3 },
+                { id: "tr_q5", text: "5. The word 'chronic' in the first sentence is closest in meaning to:", options: {A:"Persistent and long-lasting", B:"Temporary and fleeting", C:"Mild and harmless", D:"Sudden and unexpected"}, answer: "A", points: 3 },
+                { id: "tr_q6", text: "6. According to traditional Japanese architecture, how is a room defined?", options: {A:"By the thickness of its wooden walls.", B:"By the empty space contained within it.", C:"By the amount of sunlight it receives.", D:"By the expensive furniture inside."}, answer: "B", points: 3 },
+                { id: "tr_q7", text: "7. Which of the following is an example of incorporating 'Ma' given by the author?", options: {A:"Buying more technological devices.", B:"Scheduling deliberate pauses between tasks.", C:"Working continuously without breaks.", D:"Listening to loud music while studying."}, answer: "B", points: 3 },
+                { id: "tr_q8", text: "8. The word 'deliberate' is closest in meaning to:", options: {A:"Accidental", B:"Intentional", C:"Careless", D:"Rushed"}, answer: "B", points: 3 },
+                { id: "tr_q9", text: "9. What paradoxical conclusion does the author reach at the end of the passage?", options: {A:"Doing nothing can be the most productive action.", B:"Empty space is heavier than solid walls.", C:"Stress is actually good for deep reflection.", D:"Technology is the only cure for digital overload."}, answer: "A", points: 3 },
+                { id: "tr_q10", text: "10. What is the author's primary purpose in writing this passage?", options: {A:"To teach readers how to build a traditional Japanese house.", B:"To introduce 'Ma' as a psychological remedy for modern stress.", C:"To argue that all digital devices should be banned.", D:"To explain the biological process of cortisol production."}, answer: "B", points: 3 }
+            ]
+        },
+        listening_hard: {
+            id: "t_lh_01",
+            audioScript: "Professor: Let's discuss the fascinating link between altruism and neuroplasticity. We used to think of compassion as merely a moral choice. However, recent fMRI scans reveal that engaging in selfless acts actually thickens the prefrontal cortex and strengthens the neural pathways associated with emotional regulation. In other words, when you practice compassion for others, you are physically rewiring your own brain to be more resilient against stress. It perfectly illustrates the ancient philosophical concept of interbeing: helping others is literally helping yourself.",
+            questions: [
+                { id: "tlh_q1", text: "1. What is the main topic of the lecture?", options: {A:"The history of traditional moral philosophy.", B:"The neurological effects of altruism and compassion.", C:"How to perform an fMRI scan.", D:"The dangers of chronic stress."}, answer: "B", points: 3 },
+                { id: "tlh_q2", text: "2. How does practicing compassion alter the brain physically?", options: {A:"It thickens the prefrontal cortex.", B:"It shrinks the entire brain.", C:"It disables the neural pathways.", D:"It slows down the nervous system."}, answer: "A", points: 3 },
+                { id: "tlh_q3", text: "3. What ancient philosophical concept does this neurological evidence support?", options: {A:"Consumerism", B:"Individualism", C:"Interbeing", D:"Nihilism"}, answer: "C", points: 3 },
+                { id: "tlh_q4", text: "4. What did people PREVIOUSLY assume about compassion?", options: {A:"It was merely a moral choice.", B:"It was a physical reflex.", C:"It caused brain damage.", D:"It was impossible to study."}, answer: "A", points: 3 },
+                { id: "tlh_q5", text: "5. What technology was used to reveal these new findings?", options: {A:"X-rays", B:"fMRI scans", C:"Blood tests", D:"Ultrasounds"}, answer: "B", points: 3 },
+                { id: "tlh_q6", text: "6. According to the professor, what happens to pathways associated with emotional regulation?", options: {A:"They are completely destroyed.", B:"They remain unchanged.", C:"They are significantly weakened.", D:"They are strengthened."}, answer: "D", points: 3 },
+                { id: "tlh_q7", text: "7. What does the word 'resilient' mean in the context of the lecture?", options: {A:"Able to withstand and recover from stress.", B:"Easily broken or damaged.", C:"Highly emotional and unstable.", D:"Physically inflexible."}, answer: "A", points: 3 },
+                { id: "tlh_q8", text: "8. What does the professor imply by the phrase 'helping others is literally helping yourself'?", options: {A:"You will receive financial rewards for volunteering.", B:"Altruism provides tangible, neurological benefits to the giver.", C:"People only help others to look good.", D:"It is impossible to help someone without getting paid."}, answer: "B", points: 3 },
+                { id: "tlh_q9", text: "9. Which part of the brain is explicitly mentioned as being affected by selfless acts?", options: {A:"The brain stem", B:"The prefrontal cortex", C:"The cerebellum", D:"The visual cortex"}, answer: "B", points: 3 },
+                { id: "tlh_q10", text: "10. What is the professor's attitude toward the recent findings?", options: {A:"Skeptical and doubtful.", B:"Fascinated and supportive.", C:"Angry and dismissive.", D:"Indifferent and bored."}, answer: "B", points: 3 }
+            ]
+        },
+        listening_easy: {
+            id: "t_le_01",
+            audioScript: "Attention all students. The campus Wellness Center is hosting a free, three-day silent meditation retreat this coming weekend. Registration closes on Thursday at 5 PM. Please remember that smartphones and laptops are strictly prohibited during the retreat to ensure a distraction-free environment.",
+            questions: [
+                { id: "tle_q1", text: "1. What event is the Wellness Center hosting?", options: {A:"A music concert", B:"A silent meditation retreat", C:"A programming workshop", D:"A sports tournament"}, answer: "B", points: 3 },
+                { id: "tle_q2", text: "2. What is strictly prohibited during the event?", options: {A:"Drinking water", B:"Reading physical books", C:"Smartphones and laptops", D:"Wearing comfortable clothes"}, answer: "C", points: 3 },
+                { id: "tle_q3", text: "3. When does registration for the event close?", options: {A:"Wednesday", B:"Thursday", C:"Friday", D:"Saturday"}, answer: "B", points: 3 },
+                { id: "tle_q4", text: "4. At what time does the registration close?", options: {A:"3 PM", B:"5 PM", C:"8 PM", D:"Midnight"}, answer: "B", points: 3 },
+                { id: "tle_q5", text: "5. How much does it cost to attend the retreat?", options: {A:"It is free.", B:"$10", C:"$50", D:"The cost is not mentioned."}, answer: "A", points: 3 },
+                { id: "tle_q6", text: "6. How long will the retreat last?", options: {A:"One day", B:"Two days", C:"Three days", D:"One week"}, answer: "C", points: 3 },
+                { id: "tle_q7", text: "7. When is the retreat taking place?", options: {A:"This coming weekend", B:"Next Monday", C:"During the winter break", D:"Next month"}, answer: "A", points: 3 },
+                { id: "tle_q8", text: "8. Who is hosting the event?", options: {A:"The Student Union", B:"The campus Library", C:"The Wellness Center", D:"The cafeteria"}, answer: "C", points: 3 },
+                { id: "tle_q9", text: "9. Why are certain electronic devices prohibited?", options: {A:"To save electricity on campus.", B:"To ensure a distraction-free environment.", C:"Because there is no Wi-Fi available.", D:"To prevent students from cheating on exams."}, answer: "B", points: 3 },
+                { id: "tle_q10", text: "10. Who is the intended audience for this announcement?", options: {A:"University professors", B:"Campus security guards", C:"All students", D:"Local residents only"}, answer: "C", points: 3 }
+            ]
+        },
+        speaking: {
+            id: "t_s_01",
+            article: "Clinging to the past only brings suffering; true wisdom lies in forgiving oneself and focusing entirely on the present moment. Emptiness is not a void, but a canvas of infinite possibilities.",
+            audioScript: "Clinging to the past only brings suffering; true wisdom lies in forgiving oneself and focusing entirely on the present moment. Emptiness is not a void, but a canvas of infinite possibilities.",
+            questions: [
+                { id: "ts_q1", text: "請點擊左側播放聆聽，並誠實大聲跟讀三次，體會這份放下的平靜與智慧。(滿分30分)", options: {A:"是的，我已用心完成跟讀修行。", B:"我還需要再靜心練習一次。"}, answer: "A", points: 30 }
+            ]
+        },
+        writing: {
+            id: "t_w_01",
+            questions: [
+                { 
+                    id: "tw_q1", text: "獨立寫作 (Independent Writing)：\nDo you agree or disagree with the following statement? 'Taking deliberate pauses and embracing silence is more crucial for long-term well-being than constant busyness.' Please write an essay of about 150-200 words to express your views. (滿分30分)", type: "composition",
+                    answer: "【評分標準】論述需清晰對比「無休止的忙碌」與「刻意留白」對心理狀態的影響。高分關鍵在於精確使用如 digital detox, cognitive overload, serenity, interbeing 等詞彙。", points: 30
+                }
+            ]
+        }
     },
 
-    // ==========================================
-    // 模組四：多益職場考場專用 (供 exam_toeic.html 讀取)
+
+        // ==========================================
+    // 模組四：多益職場考場專用 (百題精華大會考)
     // ==========================================
     toeic: {
         part1: [
-            {
-                id: "toeic_p1_01",
-                imageDesc: "[圖片情境：一位男士正坐在辦公桌前打字，桌上有一杯咖啡]",
-                audioScript: "(A) He is drinking a cup of coffee. (B) He is typing on a keyboard. (C) He is leaving the office. (D) He is reading a newspaper.",
-                options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
-                answer: "B", points: 5
-            },
-            {
-                id: "toeic_p1_02",
-                imageDesc: "[圖片情境：幾位專業人士在會議室中，一人正指著白板上的圖表說明]",
-                audioScript: "(A) They are eating lunch in a cafeteria. (B) One of the men is pointing at a chart. (C) They are arranging chairs in a circle. (D) The whiteboard is being erased.",
-                options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
-                answer: "B", points: 5
-            },
-            {
-                id: "toeic_p1_03",
-                imageDesc: "[圖片情境：一位工程師正在伺服器機房內檢查線路，手持平板電腦]",
-                audioScript: "(A) He is installing a new light fixture. (B) He is inspecting the server cables. (C) He is turning off the monitor. (D) He is carrying a heavy box.",
-                options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, 
-                answer: "B", points: 5
-            }
+            { id: "toeic_p1_01", imageDesc: "[圖片情境：一位男士正坐在辦公桌前打字，桌上有一杯咖啡]", audioScript: "(A) He is drinking a cup of coffee. (B) He is typing on a keyboard. (C) He is leaving the office. (D) He is reading a newspaper.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "B", points: 5 },
+            { id: "toeic_p1_02", imageDesc: "[圖片情境：幾位專業人士在會議室中，一人正指著白板上的圖表說明]", audioScript: "(A) They are eating lunch in a cafeteria. (B) One of the men is pointing at a chart. (C) They are arranging chairs in a circle. (D) The whiteboard is being erased.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "B", points: 5 },
+            { id: "toeic_p1_03", imageDesc: "[圖片情境：一位工程師正在伺服器機房內檢查線路，手持平板電腦]", audioScript: "(A) He is installing a new light fixture. (B) He is inspecting the server cables. (C) He is turning off the monitor. (D) He is carrying a heavy box.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "B", points: 5 },
+            { id: "toeic_p1_04", imageDesc: "[圖片情境：一名女子站在影印機旁，手裡拿著一疊文件]", audioScript: "(A) She is repairing the machine. (B) She is making some copies. (C) She is hanging a poster. (D) She is drinking water.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "B", points: 5 },
+            { id: "toeic_p1_05", imageDesc: "[圖片情境：大廳裡有幾盆植物，陽光穿過落地窗灑落]", audioScript: "(A) People are watering the plants. (B) The curtains are completely closed. (C) Potted plants are arranged in the lobby. (D) The windows are being cleaned.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "C", points: 5 },
+            { id: "toeic_p1_06", imageDesc: "[圖片情境：兩名工人穿著安全背心，正在將貨物搬上卡車]", audioScript: "(A) They are loading boxes onto a truck. (B) They are driving on a highway. (C) They are taking off their vests. (D) They are sweeping the warehouse floor.", options: {A:"(A)", B:"(B)", C:"(C)", D:"(D)"}, answer: "A", points: 5 }
         ],
         part2: [
-            {
-                id: "toeic_p2_01",
-                audioScript: "When is the project proposal due? \n(A) By next Friday. \n(B) Yes, I did it. \n(C) Mr. Smith is the manager.",
-                options: {A:"(A)", B:"(B)", C:"(C)"}, 
-                answer: "A", points: 5
-            },
-            {
-                id: "toeic_p2_02",
-                audioScript: "Has the software update been installed on all computers? \n(A) Yes, the IT department finished it yesterday. \n(B) The computer is on the desk. \n(C) I prefer to update my schedule.",
-                options: {A:"(A)", B:"(B)", C:"(C)"}, 
-                answer: "A", points: 5
-            },
-            {
-                id: "toeic_p2_03",
-                audioScript: "Would you mind reviewing the contract before I send it to the client? \n(A) The client is visiting tomorrow. \n(B) No, not at all. I'll look at it now. \n(C) I signed the document yesterday.",
-                options: {A:"(A)", B:"(B)", C:"(C)"}, 
-                answer: "B", points: 5
-            }
+            { id: "toeic_p2_01", audioScript: "When is the project proposal due? \n(A) By next Friday. \n(B) Yes, I did it. \n(C) Mr. Smith is the manager.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_02", audioScript: "Has the software update been installed on all computers? \n(A) Yes, the IT department finished it yesterday. \n(B) The computer is on the desk. \n(C) I prefer to update my schedule.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_03", audioScript: "Would you mind reviewing the contract before I send it to the client? \n(A) The client is visiting tomorrow. \n(B) No, not at all. I'll look at it now. \n(C) I signed the document yesterday.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_04", audioScript: "Where should we store these extra office supplies? \n(A) At the hardware store. \n(B) Put them in the supply closet on the second floor. \n(C) I have an extra pen.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_05", audioScript: "Who is leading the marketing seminar this afternoon? \n(A) It starts at 3 PM. \n(B) The seminar was very helpful. \n(C) I believe Ms. Garcia is in charge.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "C", points: 5 },
+            { id: "toeic_p2_06", audioScript: "Didn't you take the subway to work today? \n(A) Yes, my car is in the repair shop. \n(B) The subway station is nearby. \n(C) I work in the human resources department.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_07", audioScript: "How long will the renovation of the lobby take? \n(A) It’s a very spacious lobby. \n(B) They expect to finish in about two weeks. \n(C) Turn left at the front desk.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_08", audioScript: "Why was the flight to London delayed? \n(A) Because of severe weather conditions. \n(B) It takes about ten hours. \n(C) I booked a window seat.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "A", points: 5 },
+            { id: "toeic_p2_09", audioScript: "Is there a coffee shop in this building, or do I need to go outside? \n(A) I prefer green tea. \n(B) There's a cafe right on the ground floor. \n(C) It’s very cold outside today.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 },
+            { id: "toeic_p2_10", audioScript: "Let's schedule a meeting with the design team for Wednesday. \n(A) The design is very modern. \n(B) That works for me. I'll send out the invites. \n(C) They met in the conference room.", options: {A:"(A)", B:"(B)", C:"(C)"}, answer: "B", points: 5 }
         ],
         part3: [
             {
@@ -1190,16 +1099,27 @@ toefl: [
                 id: "toeic_p3_02",
                 audioScript: "M: Sarah, have you reviewed the budget report for the new environmental project?\nW: Not yet. I was planning to look at it after the team meeting at 2 PM. Is there an issue?\nM: We are slightly over budget in the research phase. We might need to cut back on some initial testing.\nW: I see. Let's discuss this together with the lead researcher at 3 PM to find a solution.",
                 questions: [
-                    { id: "tp3_q3", text: "1. What project are the speakers discussing?", options: {A:"A marketing campaign", B:"An environmental project", C:"A software upgrade", D:"A building construction"}, answer: "B", points: 5 },
-                    { id: "tp3_q4", text: "2. What is the problem mentioned by the man?", options: {A:"They missed a deadline.", B:"A staff member resigned.", C:"They are over budget in a certain phase.", D:"The testing equipment is broken."}, answer: "C", points: 5 }
+                    { id: "tp3_q3", text: "3. What project are the speakers discussing?", options: {A:"A marketing campaign", B:"An environmental project", C:"A software upgrade", D:"A building construction"}, answer: "B", points: 5 },
+                    { id: "tp3_q4", text: "4. What is the problem mentioned by the man?", options: {A:"They missed a deadline.", B:"A staff member resigned.", C:"They are over budget in a certain phase.", D:"The testing equipment is broken."}, answer: "C", points: 5 },
+                    { id: "tp3_q5", text: "5. What will they do at 3 PM?", options: {A:"Meet with the lead researcher.", B:"Submit the budget report.", C:"Cancel the project.", D:"Go home early."}, answer: "A", points: 5 }
                 ]
             },
             {
                 id: "toeic_p3_03",
                 audioScript: "M: Hello, I'm calling about the accounting software we purchased last month. We are having trouble generating the annual financial reports.\nW: I apologize for the inconvenience. That module requires a specific update to function correctly with this year's tax codes. \nM: I see. Can you guide me through the update process now?\nW: Certainly. Please open the settings menu and click on the 'System Update' tab.",
                 questions: [
-                    { id: "tp3_q5", text: "3. What is the man's problem?", options: {A:"He lost his password.", B:"He cannot generate specific reports.", C:"He wants a refund.", D:"He installed the wrong program."}, answer: "B", points: 5 },
-                    { id: "tp3_q6", text: "4. What does the woman ask the man to do?", options: {A:"Call back later", B:"Purchase a new license", C:"Open the settings menu", D:"Contact the tax office"}, answer: "C", points: 5 }
+                    { id: "tp3_q6", text: "6. What is the man's problem?", options: {A:"He lost his password.", B:"He cannot generate specific reports.", C:"He wants a refund.", D:"He installed the wrong program."}, answer: "B", points: 5 },
+                    { id: "tp3_q7", text: "7. Why is the software not working?", options: {A:"The computer is too old.", B:"The internet connection is down.", C:"It needs an update for new tax codes.", D:"The license has expired."}, answer: "C", points: 5 },
+                    { id: "tp3_q8", text: "8. What does the woman ask the man to do?", options: {A:"Call back later", B:"Purchase a new license", C:"Open the settings menu", D:"Contact the tax office"}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p3_04",
+                audioScript: "W: Excuse me, do you know where the employee cafeteria is? I just transferred from the branch office today.\nM: Welcome to headquarters! Yes, it's on the basement level. Take these elevators down to 'B1' and turn right.\nW: Great, thanks. By the way, do they accept credit cards there, or do I need my employee badge?\nM: You can use your badge to get a 20% discount, but they accept credit cards too.",
+                questions: [
+                    { id: "tp3_q9", text: "9. Why is the woman asking for directions?", options: {A:"She lost her map.", B:"She is a new transfer.", C:"She is a visiting client.", D:"She is late for a meeting."}, answer: "B", points: 5 },
+                    { id: "tp3_q10", text: "10. Where is the cafeteria located?", options: {A:"On the first floor", B:"On the second floor", C:"On the roof", D:"On the basement level"}, answer: "D", points: 5 },
+                    { id: "tp3_q11", text: "11. How can the woman get a discount?", options: {A:"By paying with cash.", B:"By arriving before noon.", C:"By using her employee badge.", D:"By ordering a specific meal."}, answer: "C", points: 5 }
                 ]
             }
         ],
@@ -1208,85 +1128,121 @@ toefl: [
                 id: "toeic_p4_01",
                 audioScript: "Attention all passengers. Flight 402 to Taipei is now boarding at Gate 5. Please have your boarding passes and passports ready. We will begin boarding with first-class passengers and those requiring special assistance.",
                 questions: [
-                    { id: "tp4_q1", text: "3. What is the main purpose of the announcement?", options: {A:"To report a lost item", B:"To announce a flight boarding", C:"To delay a train", D:"To change a gate"}, answer: "B", points: 5 },
-                    { id: "tp4_q2", text: "4. Who will board the plane first?", options: {A:"Families with children", B:"Economy class passengers", C:"First-class passengers", D:"Airline staff"}, answer: "C", points: 5 }
+                    { id: "tp4_q1", text: "12. What is the main purpose of the announcement?", options: {A:"To report a lost item", B:"To announce a flight boarding", C:"To delay a train", D:"To change a gate"}, answer: "B", points: 5 },
+                    { id: "tp4_q2", text: "13. Who will board the plane first?", options: {A:"Families with children", B:"Economy class passengers", C:"First-class passengers", D:"Airline staff"}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p4_02",
                 audioScript: "Good morning, everyone. Before we open the store, I want to quickly go over the new customer service policy. Starting today, we will offer a 30-day return window for all electronics, no questions asked, provided the receipt is shown. Our goal is to ensure complete satisfaction and build long-term trust. Please make sure to communicate this clearly at the checkout counter.",
                 questions: [
-                    { id: "tp4_q3", text: "3. Who is the intended audience for this announcement?", options: {A:"Customers", B:"Store employees", C:"Delivery drivers", D:"Product manufacturers"}, answer: "B", points: 5 },
-                    { id: "tp4_q4", text: "4. What is required for a customer to return electronics?", options: {A:"A valid ID", B:"The original packaging", C:"A receipt", D:"A manager's approval"}, answer: "C", points: 5 }
+                    { id: "tp4_q3", text: "14. Who is the intended audience for this announcement?", options: {A:"Customers", B:"Store employees", C:"Delivery drivers", D:"Product manufacturers"}, answer: "B", points: 5 },
+                    { id: "tp4_q4", text: "15. What is required for a customer to return electronics?", options: {A:"A valid ID", B:"The original packaging", C:"A receipt", D:"A manager's approval"}, answer: "C", points: 5 },
+                    { id: "tp4_q5", text: "16. What is the company's main goal?", options: {A:"To sell more electronics.", B:"To reduce store hours.", C:"To ensure satisfaction and build trust.", D:"To hire more checkout staff."}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p4_03",
                 audioScript: "Thank you for joining this quarterly review meeting. I am pleased to announce that our new open-source project has reached 10,000 downloads in just two weeks. This success is entirely due to our commitment to keeping the code clean, ad-free, and accessible to everyone. Moving forward, we will focus on enhancing the user interface, making it even more intuitive. Let's look at the projected timeline on the screen.",
                 questions: [
-                    { id: "tp4_q5", text: "5. What milestone has the project achieved?", options: {A:"Hiring 10,000 new employees", B:"Reaching 10,000 downloads", C:"Securing a large investment", D:"Opening a new branch"}, answer: "B", points: 5 },
-                    { id: "tp4_q6", text: "6. What will be the team's next focus?", options: {A:"Creating advertisements", B:"Enhancing the user interface", C:"Changing the project name", D:"Charging a subscription fee"}, answer: "B", points: 5 }
+                    { id: "tp4_q6", text: "17. What milestone has the project achieved?", options: {A:"Hiring 10,000 new employees", B:"Reaching 10,000 downloads", C:"Securing a large investment", D:"Opening a new branch"}, answer: "B", points: 5 },
+                    { id: "tp4_q7", text: "18. What contributed to the project's success?", options: {A:"Expensive advertising", B:"Keeping the code clean and ad-free", C:"A mandatory subscription fee", D:"Partnerships with big tech companies"}, answer: "B", points: 5 },
+                    { id: "tp4_q8", text: "19. What will be the team's next focus?", options: {A:"Creating advertisements", B:"Enhancing the user interface", C:"Changing the project name", D:"Charging a subscription fee"}, answer: "B", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p4_04",
+                audioScript: "You have reached the customer service hotline for Horizon Utilities. Our office is currently closed. Our regular business hours are Monday through Friday, from 8 AM to 6 PM. If you are calling to report a power outage or an emergency, please press 1 to be connected to our 24-hour dispatch team. For all other inquiries, please leave a detailed message after the beep, and a representative will return your call the next business day.",
+                questions: [
+                    { id: "tp4_q9", text: "20. What type of business is this message for?", options: {A:"A travel agency", B:"A utility company", C:"A hospital", D:"A law firm"}, answer: "B", points: 5 },
+                    { id: "tp4_q10", text: "21. Why would a caller press 1?", options: {A:"To pay a bill", B:"To speak to a manager", C:"To report a power outage", D:"To change their address"}, answer: "C", points: 5 },
+                    { id: "tp4_q11", text: "22. When will regular inquiries be answered?", options: {A:"Immediately", B:"The next business day", C:"In one week", D:"On weekends"}, answer: "B", points: 5 }
                 ]
             }
         ],
         part5: [
-            { id: "toeic_p5_01", text: "5. The new marketing strategy was highly _____ in increasing our overall sales last quarter.", options: {A:"effect", B:"effective", C:"effectively", D:"effectiveness"}, answer: "B", points: 5 },
-            { id: "toeic_p5_02", text: "6. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 },
-            { id: "toeic_p5_03", text: "7. The CEO emphasized that sustainable growth is _____ to the company's future success.", options: {A:"vitality", B:"vitally", C:"vital", D:"vitalize"}, answer: "C", points: 5 },
-            { id: "toeic_p5_04", text: "8. Employees who wish to attend the seminar must register _____ Friday afternoon.", options: {A:"until", B:"by", C:"within", D:"during"}, answer: "B", points: 5 },
-            { id: "toeic_p5_05", text: "9. The manager requested that all confidential documents be handled with the utmost _____.", options: {A:"discreet", B:"discretion", C:"discretely", D:"discretions"}, answer: "B", points: 5 },
-            { id: "toeic_p5_06", text: "10. _____ the heavy rain, the outdoor charity event was successfully relocated to the indoor hall.", options: {A:"Although", B:"Because", C:"Despite", D:"However"}, answer: "C", points: 5 }
+            { id: "toeic_p5_01", text: "23. The new marketing strategy was highly _____ in increasing our overall sales last quarter.", options: {A:"effect", B:"effective", C:"effectively", D:"effectiveness"}, answer: "B", points: 5 },
+            { id: "toeic_p5_02", text: "24. All employees are required to submit their expense reports _____ the end of the month.", options: {A:"on", B:"in", C:"at", D:"by"}, answer: "D", points: 5 },
+            { id: "toeic_p5_03", text: "25. The CEO emphasized that sustainable growth is _____ to the company's future success.", options: {A:"vitality", B:"vitally", C:"vital", D:"vitalize"}, answer: "C", points: 5 },
+            { id: "toeic_p5_04", text: "26. Employees who wish to attend the seminar must register _____ Friday afternoon.", options: {A:"until", B:"by", C:"within", D:"during"}, answer: "B", points: 5 },
+            { id: "toeic_p5_05", text: "27. The manager requested that all confidential documents be handled with the utmost _____.", options: {A:"discreet", B:"discretion", C:"discretely", D:"discretions"}, answer: "B", points: 5 },
+            { id: "toeic_p5_06", text: "28. _____ the heavy rain, the outdoor charity event was successfully relocated to the indoor hall.", options: {A:"Although", B:"Because", C:"Despite", D:"However"}, answer: "C", points: 5 },
+            { id: "toeic_p5_07", text: "29. The accounting department _____ the financial records for the past three years to ensure compliance.", options: {A:"audits", B:"has been audited", C:"is auditing", D:"has audited"}, answer: "D", points: 5 },
+            { id: "toeic_p5_08", text: "30. The software company offers a _____ trial period for users to evaluate the product before purchasing.", options: {A:"complimentary", B:"compliment", C:"complies", D:"complied"}, answer: "A", points: 5 },
+            { id: "toeic_p5_09", text: "31. To accommodate the growing number of staff, the company plans to _____ its office space by next year.", options: {A:"expand", B:"expansion", C:"expanding", D:"expands"}, answer: "A", points: 5 },
+            { id: "toeic_p5_10", text: "32. The supervisor was very _____ with the team's presentation, praising their thorough research.", options: {A:"impresses", B:"impression", C:"impressed", D:"impressive"}, answer: "C", points: 5 },
+            { id: "toeic_p5_11", text: "33. We apologize for any inconvenience caused by the temporary _____ of the online booking system.", options: {A:"suspends", B:"suspend", C:"suspending", D:"suspension"}, answer: "D", points: 5 },
+            { id: "toeic_p5_12", text: "34. Only candidates with at least five years of managerial _____ will be considered for this position.", options: {A:"experience", B:"experiment", C:"experiencing", D:"experiences"}, answer: "A", points: 5 },
+            { id: "toeic_p5_13", text: "35. Please ensure that all mobile devices are turned off _____ the duration of the conference.", options: {A:"while", B:"during", C:"between", D:"whenever"}, answer: "B", points: 5 },
+            { id: "toeic_p5_14", text: "36. The updated employee manual provides _____ instructions on how to request annual leave.", options: {A:"clear", B:"clears", C:"clearly", D:"clearing"}, answer: "A", points: 5 },
+            { id: "toeic_p5_15", text: "37. Due to a scheduling conflict, the board meeting has been _____ until next Thursday.", options: {A:"postpone", B:"postponed", C:"postponing", D:"postpones"}, answer: "B", points: 5 },
+            { id: "toeic_p5_16", text: "38. The new factory is expected to _____ thousands of jobs for the local community.", options: {A:"create", B:"creations", C:"creative", D:"creatively"}, answer: "A", points: 5 },
+            { id: "toeic_p5_17", text: "39. _____ you require further assistance, please do not hesitate to contact our support team.", options: {A:"Should", B:"If", C:"When", D:"Unless"}, answer: "A", points: 5 },
+            { id: "toeic_p5_18", text: "40. The company's profits have risen _____ since the introduction of the new product line.", options: {A:"significance", B:"significant", C:"significantly", D:"signify"}, answer: "C", points: 5 }
         ],
         part6: [
             {
                 id: "toeic_p6_01",
-                article: "Dear Mr. Davis,\nWe are pleased to inform you that your application for the position of Senior Analyst has been __(7)__. Please come to our main office next Monday at 9 AM for the orientation session.\nSincerely,\nHuman Resources",
+                article: "Dear Mr. Davis,\nWe are pleased to inform you that your application for the position of Senior Analyst has been __(41)__. We were highly impressed with your background and interview performance. Please come to our main office next Monday at 9 AM for the orientation session. __(42)__.\nSincerely,\nHuman Resources",
                 questions: [
-                    { id: "tp6_q1", text: "7.", options: {A:"accept", B:"accepted", C:"accepting", D:"accepts"}, answer: "B", points: 5 }
+                    { id: "tp6_q1", text: "41.", options: {A:"accept", B:"accepted", C:"accepting", D:"accepts"}, answer: "B", points: 5 },
+                    { id: "tp6_q2", text: "42.", options: {A:"We regret to inform you that the position is filled.", B:"Please bring a valid photo ID with you.", C:"The orientation will be canceled.", D:"You do not need to attend any sessions."}, answer: "B", points: 5 }
                 ]
             },
             {
                 id: "toeic_p6_02",
-                article: "Notice to All Residents:\nThe annual water pipe maintenance will take place next Tuesday from 9 AM to 2 PM. During this time, the water supply will be temporarily __(9)__. We apologize for any inconvenience this may cause and appreciate your cooperation.\nManagement Office",
+                article: "Notice to All Residents:\nThe annual water pipe maintenance will take place next Tuesday from 9 AM to 2 PM. During this time, the water supply will be temporarily __(43)__. We apologize for any inconvenience this may cause. __(44)__. We appreciate your cooperation in maintaining the building's infrastructure.\nManagement Office",
                 questions: [
-                    { id: "tp6_q2", text: "9.", options: {A:"shut off", B:"shutting off", C:"shuts off", D:"shut off from"}, answer: "A", points: 5 }
+                    { id: "tp6_q3", text: "43.", options: {A:"shut off", B:"shutting off", C:"shuts off", D:"shut off from"}, answer: "A", points: 5 },
+                    { id: "tp6_q4", text: "44.", options: {A:"Please leave your faucets running.", B:"The electricity will also be cut.", C:"It is advised to store some water in advance.", D:"The maintenance has been postponed."}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p6_03",
-                article: "Dear Valued Customer,\nThank you for choosing our cloud storage service. Your annual subscription will expire in 15 days. To ensure uninterrupted access to your files, please __(11)__ your payment information in your account settings.\nBest regards,\nThe Billing Team",
+                article: "Dear Valued Customer,\nThank you for choosing our cloud storage service. Your annual subscription will expire in 15 days. To ensure uninterrupted access to your files, please __(45)__ your payment information in your account settings. __(46)__.\nBest regards,\nThe Billing Team",
                 questions: [
-                    { id: "tp6_q3", text: "11.", options: {A:"update", B:"updates", C:"updated", D:"updating"}, answer: "A", points: 5 }
+                    { id: "tp6_q5", text: "45.", options: {A:"update", B:"updates", C:"updated", D:"updating"}, answer: "A", points: 5 },
+                    { id: "tp6_q6", text: "46.", options: {A:"If you have already renewed, please ignore this message.", B:"We will delete all your files immediately.", C:"Our service is completely free.", D:"Please visit our physical store to pay."}, answer: "A", points: 5 }
                 ]
             }
         ],
         part7: [
             {
                 id: "toeic_p7_01",
-                article: "Memo\nTo: All Staff\nFrom: Facilities Management\nDate: October 5\nSubject: Break Room Renovation\n\nPlease be informed that the main break room on the 3rd floor will be closed for renovation starting next Wednesday, October 12. The microwave ovens and coffee machines will be temporarily moved to the 2nd-floor lobby. We expect the work to be completed by the end of the month.",
+                article: "Memo\nTo: All Staff\nFrom: Facilities Management\nDate: October 5\nSubject: Break Room Renovation\n\nPlease be informed that the main break room on the 3rd floor will be closed for renovation starting next Wednesday, October 12. The microwave ovens and coffee machines will be temporarily moved to the 2nd-floor lobby. We expect the work to be completed by the end of the month. Thank you for your patience while we upgrade these facilities.",
                 questions: [
-                    { id: "tp7_q1", text: "8. What is the purpose of this memo?", options: {A:"To announce a new hire", B:"To explain a renovation schedule", C:"To complain about broken equipment", D:"To change working hours"}, answer: "B", points: 5 },
-                    { id: "tp7_q2", text: "9. Where will the coffee machines be moved?", options: {A:"To the 1st floor", B:"To the 2nd-floor lobby", C:"To the 4th floor", D:"To the manager's office"}, answer: "B", points: 5 }
+                    { id: "tp7_q1", text: "47. What is the purpose of this memo?", options: {A:"To announce a new hire", B:"To explain a renovation schedule", C:"To complain about broken equipment", D:"To change working hours"}, answer: "B", points: 5 },
+                    { id: "tp7_q2", text: "48. Where will the coffee machines be moved?", options: {A:"To the 1st floor", B:"To the 2nd-floor lobby", C:"To the 4th floor", D:"To the manager's office"}, answer: "B", points: 5 },
+                    { id: "tp7_q3", text: "49. When is the renovation expected to be finished?", options: {A:"October 5", B:"October 12", C:"Next Wednesday", D:"By the end of the month"}, answer: "D", points: 5 }
                 ]
             },
             {
                 id: "toeic_p7_02",
-                article: "Email\nTo: Design Team\nFrom: Alice Chen, Project Manager\nDate: November 10\nSubject: Feedback on Logo Drafts\n\nThank you all for submitting the initial drafts for the 'Pure Mind' application logo. The client reviewed them yesterday and was very impressed with the vector aesthetics. They have requested to proceed with Draft B, but they would like the color palette to be slightly muted to evoke a stronger sense of tranquility. Please submit the revised version by Thursday.",
+                article: "Email\nTo: Design Team\nFrom: Alice Chen, Project Manager\nDate: November 10\nSubject: Feedback on Logo Drafts\n\nThank you all for submitting the initial drafts for the 'Pure Mind' application logo. The client reviewed them yesterday and was very impressed with the vector aesthetics. They have requested to proceed with Draft B, but they would like the color palette to be slightly muted to evoke a stronger sense of tranquility. Please submit the revised version by Thursday afternoon.",
                 questions: [
-                    { id: "tp7_q3", text: "10. What is the main purpose of the email?", options: {A:"To schedule a meeting", B:"To provide client feedback", C:"To introduce a new team member", D:"To announce a product launch"}, answer: "B", points: 5 },
-                    { id: "tp7_q4", text: "11. What change did the client request for Draft B?", options: {A:"A larger font size", B:"A different shape", C:"A muted color palette", D:"A completely new design"}, answer: "C", points: 5 }
+                    { id: "tp7_q4", text: "50. What is the main purpose of the email?", options: {A:"To schedule a meeting", B:"To provide client feedback", C:"To introduce a new team member", D:"To announce a product launch"}, answer: "B", points: 5 },
+                    { id: "tp7_q5", text: "51. What change did the client request for Draft B?", options: {A:"A larger font size", B:"A different shape", C:"A muted color palette", D:"A completely new design"}, answer: "C", points: 5 },
+                    { id: "tp7_q6", text: "52. When is the revised version due?", options: {A:"Yesterday", B:"November 10", C:"Thursday afternoon", D:"Next Monday"}, answer: "C", points: 5 }
                 ]
             },
             {
                 id: "toeic_p7_03",
                 article: "Internal Announcement\n\nEffective next Monday, the company will implement a new 'Quiet Hour' policy. From 1:00 PM to 2:00 PM every day, employees are encouraged to refrain from scheduling meetings or making non-urgent phone calls. This initiative aims to provide everyone with a block of uninterrupted time to focus on deep work, coding, or simply resting their minds. Please adjust your calendars accordingly.",
                 questions: [
-                    { id: "tp7_q5", text: "12. What is the purpose of the 'Quiet Hour'?", options: {A:"To serve lunch", B:"To allow for uninterrupted work or rest", C:"To conduct daily team meetings", D:"To clean the office"}, answer: "B", points: 5 },
-                    { id: "tp7_q6", text: "13. What are employees asked to avoid during this time?", options: {A:"Using the internet", B:"Drinking coffee", C:"Scheduling meetings", D:"Leaving the building"}, answer: "C", points: 5 }
+                    { id: "tp7_q7", text: "53. What is the purpose of the 'Quiet Hour'?", options: {A:"To serve lunch", B:"To allow for uninterrupted work or rest", C:"To conduct daily team meetings", D:"To clean the office"}, answer: "B", points: 5 },
+                    { id: "tp7_q8", text: "54. What are employees asked to avoid during this time?", options: {A:"Using the internet", B:"Drinking coffee", C:"Scheduling meetings", D:"Leaving the building"}, answer: "C", points: 5 }
+                ]
+            },
+            {
+                id: "toeic_p7_04",
+                article: "PRESS RELEASE\n\nEco-Tech Solutions Announces New Solar Panel\n\nSeattle, WA - Eco-Tech Solutions, a leading provider of renewable energy products, unveiled its latest solar panel model, the SunMax 500, at the Global Energy Expo yesterday. The SunMax 500 boasts a 20% increase in energy conversion efficiency compared to previous models. 'Our team has worked tirelessly for two years to develop this technology,' said CEO Mark Evans. The new panels are designed specifically for residential use and will be available for purchase starting in early spring. Early pre-orders will receive a complimentary installation service.",
+                questions: [
+                    { id: "tp7_q9", text: "55. What is the main subject of the press release?", options: {A:"A change in company leadership", B:"The release of a new renewable energy product", C:"The cancellation of an energy expo", D:"A new environmental law"}, answer: "B", points: 5 },
+                    { id: "tp7_q10", text: "56. How is the SunMax 500 different from older models?", options: {A:"It is 20% cheaper.", B:"It is much larger in size.", C:"It has a 20% higher energy conversion efficiency.", D:"It is only for commercial use."}, answer: "C", points: 5 },
+                    { id: "tp7_q11", text: "57. What benefit do early pre-orders receive?", options: {A:"A 20% discount", B:"Free installation service", C:"A tour of the factory", D:"An extended warranty"}, answer: "B", points: 5 }
                 ]
             }
         ]
     }
-};
-    
+
   
