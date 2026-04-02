@@ -156,13 +156,16 @@
 </div>
 
 <div class="top-nav">
-    <div style="width: 42px;">
+    <div style="width: 84px; display: flex; gap: 10px;">
         <div class="nav-btn" onclick="toggleMenu()">
             <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </div>
+        <div class="nav-btn" onclick="goBack()" style="color: var(--accent-gold); border-color: var(--accent-gold);">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </div>
     </div>
     <div id="header-title">競技大廳</div>
-    <div style="width: 42px; text-align: right;">
+    <div style="width: 84px; text-align: right;">
         <div class="timer-badge" id="global-timer"></div>
     </div>
 </div>
@@ -322,6 +325,32 @@ function toggleMenu() {
     updateDynamicMenu(); 
     document.getElementById('side-menu').classList.toggle('open'); 
     document.getElementById('side-menu-overlay').classList.toggle('open'); 
+}
+    // 智能返回上一頁邏輯
+function goBack() {
+    // 如果語音還在念，先停止
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    
+    const testScreen = document.getElementById('test-screen');
+    const absorbScreen = document.getElementById('absorb-screen');
+    const levelScreen = document.getElementById('level-select-screen');
+
+    if (testScreen.style.display === 'flex' || absorbScreen.style.display === 'flex') {
+        // 從「打擊區」或「賽前準備」退回「選關區」
+        clearInterval(globalTimerInterval);
+        document.getElementById('global-timer').innerText = "";
+        document.querySelectorAll('.screen-container').forEach(el => el.style.display = 'none');
+        levelScreen.style.display = 'flex';
+        document.getElementById('header-title').innerText = "聯盟賽程";
+    } else if (levelScreen.style.display === 'flex') {
+        // 從「選關區」退回「主分類大廳」
+        document.querySelectorAll('.screen-container').forEach(el => el.style.display = 'none');
+        document.getElementById('main-category-screen').style.display = 'flex';
+        document.getElementById('header-title').innerText = "競技大廳";
+    } else {
+        // 如果已經在大廳，可以直接回總首頁
+        window.location.href = 'index.html';
+    }
 }
 
 // 2. 進入子分類群組
