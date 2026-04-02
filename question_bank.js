@@ -3059,7 +3059,7 @@ toefl: [
 
 
     // 🌟 新增：多益實戰 (20字，分為兩關)
-    toeic: [
+    toeic_vocab: [
         {
             title: "多益必考核心 (一)",
             words: [
