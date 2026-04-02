@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="manifest.json">
-        <link rel="apple-touch-icon" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
     <title>單字競技場 ． 清淨學習</title>
     <script src="question_bank.js?v=10"></script>
     <style>
@@ -99,10 +99,9 @@
         
         /* 棒球動畫與元素 */
         #batter-group { transition: transform 0.1s; transform-origin: 50% 80%; }
-        .bat-svg { transition: transform 0.1s; transform-origin: 42px 65px; }
-        .swinging .bat-svg { transform: rotate(100deg); }
+        .bat-svg { transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-origin: 42px 65px; }
+        .swinging .bat-svg { transform: rotate(110deg); }
 
-        /* 修正重疊：將計分板與壘包改為相對 baseball-stage 絕對定位 */
         .scoreboard { position: absolute; top: 10px; left: 15px; color: var(--text-main); background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 10px 15px; border-radius: 16px; font-size: 0.85rem; font-weight: 500; z-index: 10; box-shadow: var(--shadow-soft); backdrop-filter: blur(8px); letter-spacing: 1px;}
         .strike-row { display: flex; gap: 6px; margin-top: 8px; }
         .s-dot { width: 12px; height: 12px; border: 1.5px solid var(--accent-gold); border-radius: 50%; background: transparent; }
@@ -121,6 +120,9 @@
         
         .letter-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;}
         .letter-dash { width: 30px; height: 40px; border-bottom: 2px solid var(--accent-gold); font-size: 1.5rem; font-weight: 400; display: flex; align-items: flex-end; justify-content: center; text-transform: uppercase; color: var(--text-main); transition: 0.3s; }
+        
+        /* 智能處理空白鍵的樣式 */
+        .space-dash { border-bottom: none !important; width: 15px !important; }
 
         .scan-btn { background: var(--glass-bg); border: 1px solid var(--accent-jade); color: var(--accent-jade); padding: 10px 24px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 500; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; box-shadow: var(--shadow-soft); transition: 0.2s; letter-spacing: 1px;}
         .scan-btn:active { transform: scale(0.96); background: var(--accent-jade); color: white;}
@@ -184,7 +186,7 @@
             <svg class="portal-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             <div class="portal-name">多益實戰</div>
         </div>
-        <div class="portal-btn" onclick="alert('生活俚語題庫擴充中，敬請期待。')">
+        <div class="portal-btn" onclick="enterCategory('slang', '生活俚語聯盟')">
             <svg class="portal-icon" style="stroke: var(--accent-amber);" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             <div class="portal-name">生活俚語</div>
         </div>
@@ -224,10 +226,14 @@
             <circle cx="200" cy="170" r="30" fill="rgba(255,255,255,0.4)" />
             <path d="M185 275 L215 275 L220 288 L200 298 L180 288 Z" fill="rgba(255,255,255,0.8)" />
             
-            <g transform="translate(192, 145) scale(0.35)" fill-opacity="0.8">
-                <rect x="0" y="20" width="40" height="45" rx="5" fill="var(--accent-navy)" />
-                <rect x="7" y="0" width="26" height="20" rx="8" fill="#FFF" />
-                <path d="M7 10 Q7 0 20 0 Q33 0 33 10 Z" fill="var(--accent-navy)" />
+            <g id="pitcher-group" transform="translate(192, 140)" fill="var(--text-main)" fill-opacity="0.7">
+                <circle cx="8" cy="5" r="5" />
+                <rect x="3" y="10" width="10" height="15" rx="3" />
+            </g>
+
+            <g id="catcher-group" transform="translate(188, 260)" fill="var(--accent-jade)" fill-opacity="0.5">
+                <circle cx="12" cy="10" r="7" />
+                <rect x="4" y="18" width="16" height="12" rx="4" />
             </g>
             
             <g id="batter-group" transform="translate(140, 220)" fill-opacity="0.9">
@@ -235,11 +241,14 @@
                 <rect x="36" y="22" width="22" height="22" rx="7" fill="#FFF" />
                 <path d="M36 26 Q36 18 47 18 Q58 18 58 26 Z" fill="var(--text-main)" />
                 <rect x="58" y="23" width="10" height="3" fill="var(--text-main)" rx="1.5" />
+                
                 <g class="bat-svg">
                     <rect x="38" y="-5" width="7" height="70" rx="3" fill="var(--accent-gold)" />
+                    <circle cx="41.5" cy="53" r="5" fill="#E8DCC4" />
+                    <circle cx="41.5" cy="62" r="5" fill="#E8DCC4" />
                 </g>
             </g>
-            <circle id="v-ball" cx="200" cy="165" r="5" fill="white" style="display:none; filter: drop-shadow(0 0 5px rgba(255,255,255,0.8));" />
+            <circle id="v-ball" cx="200" cy="145" r="5" fill="white" style="display:none; filter: drop-shadow(0 0 6px rgba(255,255,255,0.9));" />
         </svg>
         <div id="announcer">HIT!</div>
     </div>
@@ -266,7 +275,9 @@
 if (typeof window.QuestionBank === 'undefined') {
     window.QuestionBank = {
         senior: [{title: "系統提示", words: [{word:"UPDATE", meaning:"請更新 question_bank.js"}]}],
-        toefl: [{title: "系統提示", words: [{word:"CONNECT", meaning:"請確認資料庫連結"}]}]
+        toefl: [{title: "系統提示", words: [{word:"CONNECT", meaning:"請確認資料庫連結"}]}],
+        toeic: [{title: "系統提示", words: [{word:"DATA", meaning:"題庫準備中"}]}],
+        slang: [{title: "系統提示", words: [{word:"CHILL OUT", meaning:"放輕鬆"}]}] // 測試包含空格的俚語
     };
 }
 
@@ -276,7 +287,7 @@ let strikes = 0; let score = 0; let hitCount = 0;
 let guessedLetters = new Set(); let usedCheat = false;
 let globalTimerInterval;
 
-// 1. 動態漢堡選單產生器 (補齊向量圖示 SVG)
+// 1. 動態漢堡選單產生器
 function updateDynamicMenu() {
     const menuList = document.getElementById('dynamic-menu-list');
     let html = `
@@ -325,7 +336,6 @@ function enterCategory(categoryKey, titleText) {
     const todayStr = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
     const isLocked = (localStorage.getItem('baseball_last_completed') === todayStr);
     
-    // 取消次數限制，只顯示鼓勵語
     if(isLocked) document.getElementById('lock-banner').style.display = 'block';
 
     const grid = document.getElementById('group-grid');
@@ -333,7 +343,6 @@ function enterCategory(categoryKey, titleText) {
     
     if(QuestionBank[categoryKey]) {
         QuestionBank[categoryKey].forEach(group => {
-            // 完全移除了 isLocked 造成的鎖定 class
             const btn = document.createElement('div');
             btn.className = `group-btn`; 
             btn.innerHTML = `<span class="g-title">${group.title}</span><span class="g-status">進入</span>`;
@@ -392,10 +401,19 @@ function loadWordTest() {
     const wordObj = currentWords[testIndex];
     guessedLetters.clear();
     
+    // 🌟 智能空白鍵識別：如果字彙中包含空格，自動將其加入已猜中的字元中
+    if (wordObj.word.includes(' ')) {
+        guessedLetters.add(' ');
+    }
+    
     document.getElementById('game-q-idx').innerText = `${testIndex + 1}/${currentWords.length}`;
     document.getElementById('hint-meaning').innerText = wordObj.meaning;
     
-    document.getElementById('letter-row').innerHTML = wordObj.word.split('').map(() => `<div class="letter-dash"></div>`).join('');
+    // 渲染底線，空格不顯示底線
+    document.getElementById('letter-row').innerHTML = wordObj.word.split('').map(char => {
+        if (char === ' ') return `<div class="letter-dash space-dash"></div>`;
+        return `<div class="letter-dash"></div>`;
+    }).join('');
     
     initKeyboard();
     setTimeout(() => { playCurrentWordAudio(); }, 500);
@@ -409,10 +427,16 @@ function useMagicBall() {
     
     const word = currentWords[testIndex].word.toUpperCase();
     const dashes = document.querySelectorAll('.letter-dash');
-    word.split('').forEach((char, i) => { dashes[i].innerText = char; dashes[i].style.color = 'var(--accent-jade)'; });
+    
+    word.split('').forEach((char, i) => { 
+        if (char === ' ') return; // 略過空格
+        dashes[i].innerText = char; 
+        dashes[i].style.color = 'var(--accent-jade)'; 
+    });
     
     setTimeout(() => {
         word.split('').forEach((char, i) => { 
+            if (char === ' ') return;
             if(!guessedLetters.has(char)) dashes[i].innerText = ''; 
             dashes[i].style.color = 'var(--text-main)';
         });
@@ -425,6 +449,8 @@ function handleGuess(letter, btn) {
     if (word.includes(letter)) {
         guessedLetters.add(letter); btn.classList.add('correct');
         updateDashes();
+        
+        // 檢查是否全部猜中 (包含智能加進去的空格)
         if (word.split('').every(l => guessedLetters.has(l))) {
             triggerWin();
         }
@@ -437,45 +463,85 @@ function handleGuess(letter, btn) {
 function updateDashes() {
     const word = currentWords[testIndex].word.toUpperCase();
     const dashes = document.querySelectorAll('.letter-dash');
-    word.split('').forEach((char, i) => { if (guessedLetters.has(char)) dashes[i].innerText = char; });
+    word.split('').forEach((char, i) => { 
+        if (char === ' ') return;
+        if (guessedLetters.has(char)) dashes[i].innerText = char; 
+    });
 }
 
+// 🌟 沉浸式棒球動畫 - 揮空 (Strike)
 function triggerStrike() {
     strikes++;
     const dots = document.querySelectorAll('.s-dot');
     if(strikes <= 3) dots[strikes-1].classList.add('s-active');
     
     const batter = document.getElementById('batter-group');
-    batter.classList.add('swinging');
-    setTimeout(() => batter.classList.remove('swinging'), 200);
+    const ball = document.getElementById('v-ball');
+    
+    // 投手投球 -> 捕手
+    ball.style.display = 'block';
+    let pitchAnim = ball.animate([
+        { cx: 200, cy: 145, r: 2, fillOpacity: 1 },
+        { cx: 180, cy: 260, r: 5, fillOpacity: 0.8 }
+    ], { duration: 400, easing: 'ease-in', fill: 'forwards' });
 
-    if(strikes >= 3) {
-        showMsg("OUT!!");
-        setTimeout(showFinalResult, 1000);
-    }
+    // 打擊者揮空
+    setTimeout(() => {
+        batter.classList.add('swinging');
+        if (navigator.vibrate) navigator.vibrate(20);
+    }, 200);
+
+    setTimeout(() => batter.classList.remove('swinging'), 450);
+
+    pitchAnim.onfinish = () => {
+        ball.style.display = 'none';
+        if(strikes >= 3) {
+            showMsg("OUT!!");
+            setTimeout(showFinalResult, 1000);
+        }
+    };
 }
 
+// 🌟 沉浸式棒球動畫 - 安打/全壘打 (Hit)
 function triggerWin() {
-    hitCount++; score += 10;
+    hitCount++; 
     document.getElementById('keyboard').style.pointerEvents = 'none';
     
     const batter = document.getElementById('batter-group');
     const ball = document.getElementById('v-ball');
     
-    batter.classList.add('swinging');
+    // 投手投球 -> 擊球點
     ball.style.display = 'block';
-    
-    ball.animate([
-        { cx: 200, cy: 260, r: 6, fillOpacity: 1 },
-        { cx: Math.random() * 400, cy: -50, r: 2, fillOpacity: 0.1 }
-    ], { duration: 800, fill: 'forwards' });
+    let pitchAnim = ball.animate([
+        { cx: 200, cy: 145, r: 2 },
+        { cx: 180, cy: 235, r: 5 }
+    ], { duration: 300, easing: 'ease-in', fill: 'forwards' });
 
+    // 打擊者揮擊
     setTimeout(() => {
-        batter.classList.remove('swinging'); 
-        ball.style.display = 'none';
+        batter.classList.add('swinging');
+    }, 150);
+
+    pitchAnim.onfinish = () => {
+        if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
         
         let basesLit = hitCount % 4;
-        if(basesLit === 0) {
+        let isHR = (basesLit === 0);
+
+        // 球飛出場外或外野
+        let endX = isHR ? (Math.random() * 400) : (Math.random() * 300 + 50);
+        let endY = isHR ? -50 : (Math.random() * 80 + 20);
+
+        ball.animate([
+            { cx: 180, cy: 235, r: 5 },
+            { cx: endX, cy: endY, r: isHR ? 2 : 4 }
+        ], { duration: isHR ? 800 : 500, easing: 'ease-out', fill: 'forwards' }).onfinish = () => {
+            ball.style.display = 'none';
+        };
+
+        setTimeout(() => batter.classList.remove('swinging'), 300);
+
+        if(isHR) {
             showMsg("HOME RUN!");
             score += 50; 
         } else {
@@ -487,7 +553,7 @@ function triggerWin() {
         updateBaseUI();
         
         setTimeout(() => { testIndex++; loadWordTest(); }, 1200);
-    }, 800);
+    };
 }
 
 function updateBaseUI() {
