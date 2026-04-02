@@ -3057,6 +3057,81 @@ toefl: [
         }
     ],
 
+
+    // 🌟 新增：多益實戰 (20字，分為兩關)
+    toeic: [
+        {
+            title: "多益必考核心 (一)",
+            words: [
+                { word: "IMPLEMENT", meaning: "實施；執行" },
+                { word: "REVENUE", meaning: "收益；歲入" },
+                { word: "NEGOTIATE", meaning: "談判；協商" },
+                { word: "PROPOSAL", meaning: "提案；企劃書" },
+                { word: "COMMITTEE", meaning: "委員會" },
+                { word: "EVALUATE", meaning: "評估；核定" },
+                { word: "WARRANTY", meaning: "保固；保證書" },
+                { word: "INVENTORY", meaning: "存貨；盤點" },
+                { word: "STRATEGY", meaning: "策略；戰略" },
+                { word: "BUDGET", meaning: "預算" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二)",
+            words: [
+                { word: "CAMPAIGN", meaning: "活動；宣傳活動" },
+                { word: "FREQUENT", meaning: "頻繁的；常發生的" },
+                { word: "COMMUTE", meaning: "通勤" },
+                { word: "ITINERARY", meaning: "行程表；旅行路線" },
+                { word: "CORPORATE", meaning: "企業的；法人的" },
+                { word: "DEADLINE", meaning: "截止日期" },
+                { word: "COMPENSATE", meaning: "補償；賠償" },
+                { word: "CANDIDATE", meaning: "候選人；應徵者" },
+                { word: "FACILITY", meaning: "設施；設備" },
+                { word: "QUOTATION", meaning: "報價單；引語" }
+            ]
+        }
+    ],
+
+    // 🌟 新增：生活俚語 (20字，分為兩關)
+    slang: [
+        {
+            title: "道地美式俚語 (一)",
+            words: [
+                { word: "AWESOME", meaning: "極好的；超讚的" },
+                { word: "BUMMER", meaning: "令人失望的事；掃興" },
+                { word: "SALTY", meaning: "惱羞成怒的；酸葡萄心理" },
+                { word: "GHOST", meaning: "不告而別；搞消失" },
+                { word: "CRUSH", meaning: "迷戀；暗戀對象" },
+                { word: "SHADY", meaning: "可疑的；偷偷摸摸的" },
+                { word: "DOPE", meaning: "超酷的；完美的" },
+                { word: "SKETCHY", meaning: "詭異的；不太安全的" },
+                { word: "SAVAGE", meaning: "超猛的；不留情面的" },
+                { word: "FLEX", meaning: "炫耀；展現" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二)",
+            words: [
+                { word: "LOWKEY", meaning: "低調地；有點偷偷地" },
+                { word: "HIGHKEY", meaning: "高調地；明顯地" },
+                { word: "BASIC", meaning: "老套的；大眾款無新意的" },
+                { word: "CATCHY", meaning: "朗朗上口的；好記的" },
+                { word: "CHEESY", meaning: "俗氣的；太過煽情的" },
+                { word: "CRAM", meaning: "死記硬背；臨時抱佛腳" },
+                { word: "EPIC", meaning: "史詩級的；超乎想像的" },
+                { word: "LIT", meaning: "超讚的；超嗨的" },
+                { word: "SNATCHED", meaning: "極好的；完美無瑕的" },
+                { word: "CHILL", meaning: "放鬆；冷靜點" }
+            ]
+        }
+    ]
+};
+
+
+
+
+
+    
         // ==========================================
     // 模組三：托福適性考場專用 (原生完美相容版 - 滿編10題)
     // ==========================================
