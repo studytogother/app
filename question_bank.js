@@ -156,6 +156,108 @@ const QuestionBank = {
                 ]
             },
             {
+            id: "c_s_005",
+            article: "In a world characterized by constant noise and digital distractions, the concept of a 'soundscape' has become increasingly important. A soundscape refers to the acoustic environment as perceived by humans. While urban areas are often dominated by the harsh noises of traffic and construction, natural environments offer a symphony of wind, water, and wildlife. Research suggests that exposure to natural soundscapes can significantly __1__ stress levels and improve cognitive function. __2__, prolonged exposure to urban noise pollution has been linked to anxiety and cardiovascular diseases. Therefore, urban planners are now seeking ways to design cities that incorporate quiet zones and green spaces. These areas serve as sanctuaries where people can escape the __3__ of city life. By intentionally tuning into our auditory surroundings, we can cultivate a deeper sense of mindfulness. Listening to the rain or the rustling of leaves __4__ us to anchor our attention in the present moment. Ultimately, preserving natural soundscapes is not just an environmental issue; it is __5__ for maintaining our psychological well-being.",
+            questions: [
+                { id: "c_q_26", text: "1.", options: {A:"elevate", B:"reduce", C:"multiply", D:"sustain"}, answer: "B", points: 2 },
+                { id: "c_q_27", text: "2.", options: {A:"Conversely", B:"Furthermore", C:"Similarly", D:"Consequently"}, answer: "A", points: 2 },
+                { id: "c_q_28", text: "3.", options: {A:"tranquility", B:"chaos", C:"harmony", D:"serenity"}, answer: "B", points: 2 },
+                { id: "c_q_29", text: "4.", options: {A:"allowing", B:"allows", C:"allow", D:"allowed"}, answer: "B", points: 2 },
+                { id: "c_q_30", text: "5.", options: {A:"trivial", B:"optional", C:"essential", D:"detrimental"}, answer: "C", points: 2 }
+            ]
+        },
+            {
+            id: "c_s_006",
+            article: "Vipassana, which means to see things as they really are, is one of India's most ancient techniques of meditation. It was rediscovered by Gotama Buddha more than 2500 years ago and was taught by him as a universal remedy for universal ills. This non-sectarian technique aims for the total eradication of mental impurities and the resulting highest happiness of full liberation. __1__ focusing on religious dogma, Vipassana is an art of living. The practice involves observing the natural breath to concentrate the mind. With a sharpened awareness, one proceeds to observe the changing nature of body and mind and experiences the universal truths of impermanence, suffering, and egolessness. This truth-realization by direct experience is the process of purification. The entire path is a universal remedy for universal problems and has nothing to do with any organized religion or sectarianism. For this reason, it can be freely practiced by everyone, __2__ race, community or religion, and will prove equally beneficial to all. __3__, the technique requires a strict code of discipline during the initial ten-day retreat. Students must observe Noble Silence, meaning no communication with fellow meditators, __4__ them to turn their attention entirely inward. Through this rigorous practice, individuals often emerge with a __5__ understanding of their own mental habits.",
+            questions: [
+                { id: "c_q_31", text: "1.", options: {A:"Due to", B:"Rather than", C:"By means of", D:"In addition to"}, answer: "B", points: 2 },
+                { id: "c_q_32", text: "2.", options: {A:"regardless of", B:"depending on", C:"in spite of", D:"according to"}, answer: "A", points: 2 },
+                { id: "c_q_33", text: "3.", options: {A:"Therefore", B:"Moreover", C:"However", D:"Otherwise"}, answer: "C", points: 2 },
+                { id: "c_q_34", text: "4.", options: {A:"allow", B:"allowed", C:"allowing", D:"to allow"}, answer: "C", points: 2 },
+                { id: "c_q_35", text: "5.", options: {A:"superficial", B:"profound", C:"trivial", D:"vague"}, answer: "B", points: 2 }
+            ]
+        },
+            {
+            id: "c_s_007",
+            article: "In traditional Japanese architecture, the concept of 'Ma' translates to 'gap,' 'space,' or 'pause.' It is the fundamental belief that empty space is not an absence of things, but rather a profound presence that gives shape and meaning to the whole. __1__ a room stuffed with furniture, a traditional tearoom utilizes 'Ma' to create a sense of vastness within a confined area. This concept extends far beyond architecture; it deeply influences music, conversation, and daily life. In a piece of music, the silence between the notes is just as important as the notes themselves, __2__ the rhythm to breathe. In human relationships, a comfortable silence between two people demonstrates a deep, unspoken connection. However, modern society is terrified of 'Ma.' We constantly fill every spare moment with digital noise, scrolling through feeds to avoid the discomfort of emptiness. __3__, we lose the space needed for our minds to rest and for true creativity to emerge. To reclaim our inner peace, we must intentionally cultivate 'Ma' in our lives. __4__ scheduling every minute of the day, we should leave deliberate pauses. By embracing the void, we realize that emptiness is not a void to be filled, but a canvas of infinite __5__.",
+            questions: [
+                { id: "c_q_36", text: "1.", options: {A:"Similar to", B:"Unlike", C:"Regardless of", D:"Because of"}, answer: "B", points: 2 },
+                { id: "c_q_37", text: "2.", options: {A:"allow", B:"allowed", C:"allowing", D:"to allow"}, answer: "C", points: 2 },
+                { id: "c_q_38", text: "3.", options: {A:"As a result", B:"Nevertheless", C:"On the contrary", D:"Fortunately"}, answer: "A", points: 2 },
+                { id: "c_q_39", text: "4.", options: {A:"In favor of", B:"Instead of", C:"By means of", D:"In addition to"}, answer: "B", points: 2 },
+                { id: "c_q_40", text: "5.", options: {A:"limitations", B:"possibilities", C:"obstacles", D:"sorrows"}, answer: "B", points: 2 }
+            ]
+        },
+            {
+            id: "c_s_008",
+            article: "The philosophy of open-source software development closely mirrors the ancient practice of 'Dana,' or selfless giving. In an open-source community, developers contribute their code voluntarily, allowing anyone to use, modify, and distribute it without any copyright disputes or financial barriers. __1__ keeping their innovations locked behind paywalls for personal profit, these creators focus on the collective elevation of human knowledge. This altruistic approach creates a system with incredibly low entropy, where bugs are fixed rapidly by a global network of peers, and code becomes cleaner and more efficient over time. __2__, this requires a profound level of humility. When a developer submits code, it is immediately subjected to public scrutiny. They must leave room for criticism, acknowledging that their work is never absolutely perfect. __3__ clinging to the ego of authorship, they embrace the collaborative evolution of the project. This ecosystem thrives because it operates on the universal law of cause and effect: what you give to the community inevitably benefits you in return. __4__ the internet becomes increasingly commercialized, these ad-free, pure sanctuaries of knowledge remain vital. They remind us that the highest form of technology is not driven by greed, but by a sincere __5__ to serve humanity.",
+            questions: [
+                { id: "c_q_41", text: "1.", options: {A:"Instead of", B:"In pursuit of", C:"Due to", D:"Similar to"}, answer: "A", points: 2 },
+                { id: "c_q_42", text: "2.", options: {A:"However", B:"Therefore", C:"Moreover", D:"Otherwise"}, answer: "A", points: 2 },
+                { id: "c_q_43", text: "3.", options: {A:"Rather than", B:"Because of", C:"With regard to", D:"In spite of"}, answer: "A", points: 2 },
+                { id: "c_q_44", text: "4.", options: {A:"As", B:"Unless", C:"Until", D:"Before"}, answer: "A", points: 2 },
+                { id: "c_q_45", text: "5.", options: {A:"desire", B:"prejudice", C:"obstacle", D:"anxiety"}, answer: "A", points: 2 }
+            ]
+        },
+            {
+            id: "c_s_009",
+            article: "In the modern attention economy, human focus is the most valuable commodity. Tech companies employ psychologists and behavioral scientists to design algorithms specifically engineered to hijack our dopamine pathways. __1__ providing useful tools, many applications are designed as slot machines, using variable rewards to keep us endlessly scrolling. This continuous partial attention severely degrades our ability to engage in 'deep work'—the focused, uninterrupted concentration required to master complex skills or produce meaningful art. __2__, it fragments our consciousness, leaving us feeling chronically exhausted and fundamentally disconnected from our immediate reality. The antidote to this digital conditioning is intentional friction. By consciously creating barriers between ourselves and our devices—such as turning off non-essential notifications or keeping phones out of the bedroom—we reclaim our cognitive sovereignty. __3__ we learn to sit comfortably with boredom, we cannot discover true creativity. Silence and stillness are not empty voids to be avoided; they are the fertile grounds __4__ which profound insights grow. Ultimately, taking back control of our attention is not just a productivity hack; it is a fundamental act of preserving our inner peace and psychological __5__.",
+            questions: [
+                { id: "c_q_46", text: "1.", options: {A:"Instead of", B:"In addition to", C:"Because of", D:"According to"}, answer: "A", points: 2 },
+                { id: "c_q_47", text: "2.", options: {A:"Furthermore", B:"However", C:"Conversely", D:"Similarly"}, answer: "A", points: 2 },
+                { id: "c_q_48", text: "3.", options: {A:"Unless", B:"If", C:"Because", D:"Although"}, answer: "A", points: 2 },
+                { id: "c_q_49", text: "4.", options: {A:"from", B:"with", C:"without", D:"against"}, answer: "A", points: 2 },
+                { id: "c_q_50", text: "5.", options: {A:"integrity", B:"vulnerability", C:"anxiety", D:"fragility"}, answer: "A", points: 2 }
+            ]
+        },
+       
+        {
+            id: "c_s_010",
+            article: "The illusion of human separation from nature is a relatively recent cognitive error. For millennia, indigenous cultures understood deeply that human beings are an integral part of the ecological web. Modern industrial societies, __1__, adopted an anthropocentric worldview, treating the Earth merely as a warehouse of resources to be endlessly extracted. This paradigm has led to unprecedented environmental degradation. Recognizing this crisis, the philosophy of Deep Ecology offers a radical shift in perspective. It asserts that all living beings have intrinsic value, __2__ their usefulness to human ends. When we pollute a river, we are not just damaging an external environment; we are poisoning the very water that circulates through our own bodies. __3__ this realization, environmental protection ceases to be a noble charity and becomes an act of basic self-preservation. To heal the planet, we must first heal the psychological rift within ourselves. We must move away from an economy of limitless growth and embrace an economy of sufficiency. By aligning our daily actions with the rhythmic cycles of nature, we step back into a state of profound __4__ with the cosmos, ensuring a viable future for all __5__.",
+            questions: [
+                { id: "c_q_51", text: "1.", options: {A:"however", B:"therefore", C:"moreover", D:"similarly"}, answer: "A", points: 2 },
+                { id: "c_q_52", text: "2.", options: {A:"regardless of", B:"due to", C:"in pursuit of", D:"based on"}, answer: "A", points: 2 },
+                { id: "c_q_53", text: "3.", options: {A:"With", B:"Without", C:"Beyond", D:"Against"}, answer: "A", points: 2 },
+                { id: "c_q_54", text: "4.", options: {A:"harmony", B:"conflict", C:"isolation", D:"dominance"}, answer: "A", points: 2 },
+                { id: "c_q_55", text: "5.", options: {A:"species", B:"corporations", C:"machines", D:"profits"}, answer: "A", points: 2 }
+            ]
+        },
+        
+        {
+            id: "c_s_011",
+            article: "True listening is an incredibly rare and profound act of compassion. In most conversations, people do not listen to understand; they listen to reply. Their minds are busy formulating counter-arguments or preparing to shift the focus back to themselves. This ego-driven communication creates an illusion of connection while leaving both parties feeling fundamentally misunderstood. Active, mindful listening requires the complete silencing of the internal monologue. It is the act of offering someone your purest, undivided attention. __1__ you remove the filter of your own judgments and simply hold space for another person's reality, you create a psychological sanctuary for them. Studies in psychotherapy show that simply feeling deeply heard can physically regulate a person's nervous system, reducing levels of cortisol and anxiety. __2__, listening is not a passive activity; it is a highly dynamic form of energetic healing. __3__ we cultivate the discipline to truly hear the pain, joy, and unspoken fears of others, we dissolve the artificial boundaries of the self. In this sacred space of mutual understanding, empathy blossoms naturally, proving that the most powerful tool for human connection is not eloquent speech, but profound __4__ and __5__.",
+            questions: [
+                { id: "c_q_56", text: "1.", options: {A:"When", B:"Unless", C:"Though", D:"Until"}, answer: "A", points: 2 },
+                { id: "c_q_57", text: "2.", options: {A:"Therefore", B:"However", C:"Otherwise", D:"Conversely"}, answer: "A", points: 2 },
+                { id: "c_q_58", text: "3.", options: {A:"As", B:"Whereas", C:"Although", D:"Despite"}, answer: "A", points: 2 },
+                { id: "c_q_59", text: "4.", options: {A:"presence", B:"absence", C:"ignorance", D:"arrogance"}, answer: "A", points: 2 },
+                { id: "c_q_60", text: "5.", options: {A:"silence", B:"noise", C:"debate", D:"criticism"}, answer: "A", points: 2 }
+            ]
+        },
+    
+        {
+            id: "c_s_012",
+            article: "The ultimate realization in Eastern contemplative traditions is the truth of Anatman, or 'Non-Self.' This is arguably the most misunderstood concept in Buddhist philosophy. It does not mean that you do not exist physically, nor does it advocate for negative nihilism. __1__, it teaches that the 'self' is not a fixed, permanent, or independent entity. Imagine a river: it looks like a single, solid thing, but it is actually a continuous, ever-changing flow of different water droplets. Similarly, what we call 'I' is simply a dynamic stream of physical sensations, thoughts, and memories, none of which remain the same from one moment to the next. Human suffering arises precisely because we desperately try to solidify this fluid process. We attach our identity to our status, our bodies, and our opinions, terrified of losing them. __2__ we deeply comprehend that impermanence is the fundamental law of the universe, our psychological grip begins to loosen. We realize there is nothing to cling to, and ironically, in this complete letting go, we find absolute invulnerability. __3__ resisting the flow of life, a wise mind moves with it perfectly. This profound acceptance is not defeat; it is the highest form of spiritual __4__, leading directly to unshakeable inner __5__.",
+            questions: [
+                { id: "c_q_61", text: "1.", options: {A:"Rather", B:"Similarly", C:"Consequently", D:"Moreover"}, answer: "A", points: 2 },
+                { id: "c_q_62", text: "2.", options: {A:"Once", B:"Unless", C:"Before", D:"Whereas"}, answer: "A", points: 2 },
+                { id: "c_q_63", text: "3.", options: {A:"Instead of", B:"In favor of", C:"Due to", D:"By means of"}, answer: "A", points: 2 },
+                { id: "c_q_64", text: "4.", options: {A:"liberation", B:"confinement", C:"illusion", D:"attachment"}, answer: "A", points: 2 },
+                { id: "c_q_65", text: "5.", options: {A:"peace", B:"turmoil", C:"chaos", D:"anxiety"}, answer: "A", points: 2 }
+            ]
+        },
+            {
+            id: "c_s_013",
+            article: "The inherent limitation of human language is a recurring theme in deep philosophical inquiry. Words are essentially conceptual labels we use to navigate the physical world. However, when attempting to articulate the ultimate nature of reality, language becomes fundamentally __1__. The famous opening line of the Tao Te Ching states, 'The Tao that can be told is not the eternal Tao.' This implies that the moment we attempt to define the infinite, we immediately confine it within the finite parameters of our intellect. The absolute truth is entirely __2__; it transcends the dualistic structure of human grammar, which constantly divides the world into subjects and objects, good and bad, existence and non-existence. Contemplative traditions recognize this cognitive barrier. Therefore, they often utilize silence, paradoxes, or seemingly __3__ riddles (like Zen koans) to bypass the logical mind. These methods are designed to deliberately exhaust the intellect, creating a mental crisis that forces the practitioner to abandon analytical reasoning. __4__ reaching the limits of thought, a sudden intuitive breakthrough can occur. In this state of pure, unmediated awareness, the practitioner experiences reality exactly as it is, stripped of all linguistic filters. Ultimately, words are merely fingers pointing at the moon; a wise seeker relies on the finger for direction, but never __5__ it for the moon itself.",
+            questions: [
+                { id: "c_q_66", text: "1.", options: {A:"inadequate", B:"eloquent", C:"versatile", D:"objective"}, answer: "A", points: 2 },
+                { id: "c_q_67", text: "2.", options: {A:"ineffable", B:"empirical", C:"tangible", D:"lucrative"}, answer: "A", points: 2 },
+                { id: "c_q_68", text: "3.", options: {A:"absurd", B:"rational", C:"plausible", D:"homogeneous"}, answer: "A", points: 2 },
+                { id: "c_q_69", text: "4.", options: {A:"Upon", B:"Instead of", C:"Regardless of", D:"Prior to"}, answer: "A", points: 2 },
+                { id: "c_q_70", text: "5.", options: {A:"mistakes", B:"substitutes", C:"compensates", D:"manipulates"}, answer: "A", points: 2 }
+            ]
+        },
+            {
                 id: "c_s_003",
                 article: "A 'digital detox' refers to a period of time when a person refrains from using electronic devices. The primary goal is to reduce stress and __1__ connection with the physical world. While smartphones have made communication easier, they also keep our brains in a state of constant alert. __2__, stepping away from screens can help lower anxiety levels. During a detox, people often find themselves paying more attention to their surroundings. It is not about completely abandoning technology, __3__ finding a healthy balance. Experts suggest starting small, such as turning off notifications during meals. __4__ taking these minor steps, individuals can gradually reclaim their time. Ultimately, disconnecting from the digital world allows us to reconnect with our inner selves, bringing a profound sense of __5__.",
                 questions: [
@@ -187,6 +289,164 @@ const QuestionBank = {
                     { id: "b_q_30", text: "30. 請選擇正確選項：", answer: "D", points: 2 }
                 ]
             },
+            {
+            id: "b_s_004",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) boundaries  (B) overload  (C) intentionally  (D) clarity  (E) notifications<br>(F) profound  (G) consuming  (H) disconnect  (I) fundamental  (J) restoring<br><br>The modern digital diet is often filled with empty calories. We spend hours endlessly scrolling through social media, __31__ information that rarely adds value to our lives. This constant state of information __32__ leaves our minds fragmented and exhausted. To combat this, many are turning to digital minimalism, a philosophy that advocates for using technology __33__ rather than impulsively. It starts with a __34__ shift in perspective: technology should serve us, not the other way around. By turning off non-essential __35__ and establishing tech-free zones, we create physical and mental __36__. This conscious choice to occasionally __37__ from the virtual world allows us to reconnect with the physical one. The result is often a __38__ sense of peace and improved focus. __39__ our attention is the ultimate goal, giving us the mental __40__ needed to pursue truly meaningful endeavors.",
+            questions: [
+                { id: "b_q_41", text: "31. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_42", text: "32. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_43", text: "33. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_44", text: "34. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_45", text: "35. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_46", text: "36. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_47", text: "37. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_48", text: "38. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_49", text: "39. 請選擇正確選項：", answer: "J", points: 2 },
+                { id: "b_q_50", text: "40. 請選擇正確選項：", answer: "D", points: 2 }
+            ]
+        },
+            {
+            id: "b_s_005",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) existence  (B) interconnectedness  (C) isolated  (D) ecology  (E) actions<br>(F) ripple  (G) profound  (H) mutual  (I) independently  (J) harmony<br><br>The concept of deep __51__ goes beyond standard environmentalism by asserting the inherent worth of all living beings, regardless of their utility to human needs. It stems from the realization of our fundamental __52__ with the natural world. In modern society, humans often view themselves as __53__ from nature, leading to destructive behaviors and environmental crises. However, science and ancient philosophies alike teach us that nothing exists __54__. A single drop of pollution in a river creates a __55__ effect that touches the soil, the plants, and eventually our own bodies. Acknowledging this __56__ dependence requires a __57__ shift in consciousness. We must move away from an ego-centric worldview to an eco-centric one. By recognizing that our __58__ are deeply intertwined with the web of life, we begin to act with greater responsibility and compassion. True __59__ is achieved only when we respect the __60__ of every leaf, insect, and mountain as equal to our own.",
+            questions: [
+                { id: "b_q_51", text: "51. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "b_q_52", text: "52. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_53", text: "53. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_54", text: "54. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_55", text: "55. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_56", text: "56. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_57", text: "57. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_58", text: "58. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_59", text: "59. 請選擇正確選項：", answer: "J", points: 2 },
+                { id: "b_q_60", text: "60. 請選擇正確選項：", answer: "A", points: 2 }
+            ]
+        },
+            {
+            id: "b_s_006",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) attachment  (B) transient  (C) inevitable  (D) perspective  (E) resistance<br>(F) gracefully  (G) profound  (H) clinging  (I) fundamental  (J) liberation<br><br>One of the most __41__ teachings in contemplative philosophy is the concept of impermanence. Everything in the physical and mental universe is in a constant state of flux. Flowers bloom and wither; emotions rise and fall; human lives are ultimately __42__. Recognizing this reality is crucial, yet human beings have a deep-seated tendency toward __43__. We desperately try to hold onto youth, wealth, and relationships, fearing the __44__ changes that time brings. This __45__ to the natural flow of life is the primary source of psychological suffering. When we resist what is, we create tension. Conversely, when we practice letting go of our __46__, we experience a profound sense of relief. Letting go does not mean becoming cold or indifferent; rather, it is a shift in __47__. We learn to appreciate things fully while they are here, without __48__ to them when they must pass. By accepting the changing nature of reality __49__, we achieve a state of inner __50__, free from the fear of loss.",
+            questions: [
+                { id: "b_q_61", text: "41. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_62", text: "42. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_63", text: "43. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_64", text: "44. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_65", text: "45. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_66", text: "46. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_67", text: "47. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "b_q_68", text: "48. 請選擇正確選項：", answer: "H", points: 2 }, // 此處也可為 clinging，若 46 填 attachment
+                { id: "b_q_69", text: "49. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_70", text: "50. 請選擇正確選項：", answer: "J", points: 2 }
+            ]
+        },
+            {
+            id: "b_s_007",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) boundaries  (B) framework  (C) chaotic  (D) navigate  (E) absolute<br>(F) algorithms  (G) profound  (H) internal  (I) rigorous  (J) principles<br><br>The study of law and the writing of computer code share a __71__ similarity: both require a mind grounded in strict logic. A society without laws descends into a __72__ state, much like a software program without syntax rules will inevitably crash. In both domains, developers and lawmakers must construct a stable __73__ to handle unpredictable human behaviors and inputs. However, true wisdom lies in understanding that no system is 100% perfect. There is no __74__ truth in the physical world; there is always a margin of error, a one percent left for criticism and continuous improvement. To __75__ this complex reality, one must apply __76__ aesthetic standards not just to visual design, but to the very structure of thought. A beautifully written piece of code, free of redundant __77__, is like a well-drafted legal contract—it leaves no room for ambiguous interpretations. Yet, beyond the external rules, we must also cultivate our __78__ order. By setting clear mental __79__ and adhering to ethical __80__, we protect our minds from being manipulated by the noise of the outside world.",
+            questions: [
+                { id: "b_q_71", text: "71. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_72", text: "72. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_73", text: "73. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_74", text: "74. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_75", text: "75. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "b_q_76", text: "76. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_77", text: "77. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_78", text: "78. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_79", text: "79. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_80", text: "80. 請選擇正確選項：", answer: "J", points: 2 }
+            ]
+        },
+            {
+            id: "b_s_008",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) algorithm  (B) intentionally  (C) fragmented  (D) clarity  (E) dopamine<br>(F) profound  (G) consuming  (H) disconnect  (I) fundamental  (J) restoring<br><br>Every time your phone buzzes, a small hit of __81__ is released in your brain, creating a chemical dependency on digital validation. The underlying __82__ of social media is mathematically optimized to keep you scrolling, effectively monetizing your attention. As a result, our daily consciousness becomes heavily __83__, jumping rapidly from one useless piece of information to another. To counter this, we must practice digital asceticism by __84__ choosing when and how we engage with technology. A __85__ step is to turn off all non-essential alerts. The initial anxiety of this __86__ eventually fades, giving way to a __87__ sense of mental relief. We stop __88__ our lives comparing our behind-the-scenes with everyone else's highlight reels. By __89__ silence to our daily routine, we create the necessary space for deep thinking and self-reflection. Ultimately, preserving our focus is the only way to achieve true mental __90__ in the 21st century.",
+            questions: [
+                { id: "b_q_81", text: "81. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_82", text: "82. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_83", text: "83. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_84", text: "84. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_85", text: "85. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_86", text: "86. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_87", text: "87. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_88", text: "88. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_89", text: "89. 請選擇正確選項：", answer: "J", points: 2 },
+                { id: "b_q_90", text: "90. 請選擇正確選項：", answer: "D", points: 2 }
+            ]
+        },
+        // Set 8
+        {
+            id: "b_s_009",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) existence  (B) interwoven  (C) isolated  (D) ecology  (E) footprints<br>(F) harmony  (G) profound  (H) mutual  (I) independently  (J) sustainability<br><br>True environmental __91__ is not merely a technological problem, but a spiritual one. It requires a shift from viewing nature as a commodity to viewing it as a sacred web of life. Human beings are deeply __92__ with the fate of the soil, the oceans, and the forests. We do not exist __93__ from the natural world; we are a direct expression of it. When we fully grasp this __94__ truth, our behavior naturally changes. We begin to minimize our carbon __95__ not out of guilt, but out of a genuine sense of love and responsibility. This perspective is the essence of deep __96__. It teaches that an insect is not less important than a human in the grand tapestry of __97__. Every organism relies on a state of __98__ support to survive. If we wish to thrive as a species, we must abandon the delusion that we are __99__ rulers of the planet, and instead learn to live in quiet __100__ with all sentient beings.",
+            questions: [
+                { id: "b_q_91", text: "91. 請選擇正確選項：", answer: "J", points: 2 },
+                { id: "b_q_92", text: "92. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_93", text: "93. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_94", text: "94. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_95", text: "95. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_96", text: "96. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "b_q_97", text: "97. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_98", text: "98. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_99", text: "99. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_100", text: "100. 請選擇正確選項：", answer: "F", points: 2 }
+            ]
+        },
+        // Set 9
+        {
+            id: "b_s_010",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) vengeance  (B) forgiveness  (C) burden  (D) navigate  (E) hostility<br>(F) resentment  (G) profound  (H) internal  (I) liberation  (J) vulnerable<br><br>Carrying anger is like drinking poison and expecting the other person to die. This ancient proverb highlights the destructive nature of __101__. When someone wrongs us, our ego naturally demands justice or __102__. However, holding onto this bitterness creates a heavy psychological __103__ that exhausts our mental energy. The true path to healing lies in the difficult practice of __104__. To forgive is not to condone the harmful action; rather, it is a conscious decision to cut the emotional cord that binds us to the trauma. It requires us to drop our defensive walls and become __105__ enough to process the pain. As we let go of the __106__ directed at others, we simultaneously heal our own __107__ wounds. This shift in perspective provides a __108__ sense of relief. We realize that forgiveness is an act of supreme self-compassion. Ultimately, it grants us the absolute __109__ to __110__ the rest of our lives without the anchor of past grievances holding us back.",
+            questions: [
+                { id: "b_q_101", text: "101. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_102", text: "102. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_103", text: "103. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_104", text: "104. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_105", text: "105. 請選擇正確選項：", answer: "J", points: 2 },
+                { id: "b_q_106", text: "106. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_107", text: "107. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_108", text: "108. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_109", text: "109. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_110", text: "110. 請選擇正確選項：", answer: "D", points: 2 }
+            ]
+        },
+            {
+            id: "b_s_012",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) aesthetic  (B) explicit  (C) chaotic  (D) architecture  (E) pristine<br>(F) algorithms  (G) profound  (H) subjective  (I) obsolete  (J) principles<br><br>There is a deeply spiritual dimension to the art of writing clean code. In a digital environment that is increasingly __121__ and cluttered with redundant functions, maintaining a minimalist software __122__ requires intense discipline. A master programmer approaches their craft much like a Zen monk tending a dry landscape garden. Every single line of code must serve a highly __123__ purpose; anything that is unnecessary is mercilessly removed. This rigorous adherence to structural __124__ ensures that the system runs with absolute efficiency and minimal entropy. When an application is stripped of all __125__ bloatware and hidden trackers, what remains is an interface of __126__ clarity. This level of __127__ purity is not merely about visual appeal; it is a profound ethical statement. It respects the user's cognitive load and preserves their mental space. By open-sourcing such __128__ algorithms, developers offer a sanctuary of logic to the world. They understand that technology should not enslave human attention, but rather fade quietly into the background, supporting our lives without imposing its own __129__ agenda. In this way, coding transcends engineering and becomes a __130__ practice of mindfulness.",
+            questions: [
+                { id: "b_q_121", text: "121. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_122", text: "122. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "b_q_123", text: "123. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_124", text: "124. 請選擇正確選項：", answer: "J", points: 2 },
+                { id: "b_q_125", text: "125. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_126", text: "126. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_127", text: "127. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_128", text: "128. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_129", text: "129. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_130", text: "130. 請選擇正確選項：", answer: "G", points: 2 }
+            ]
+        },
+        // Set 10
+        {
+            id: "b_s_011",
+            optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+            article: "Option Pool:<br>(A) attachment  (B) essence  (C) inevitable  (D) perspective  (E) resistance<br>(F) gracefully  (G) profound  (H) clinging  (I) impermanence  (J) liberation<br><br>To understand the true nature of reality, one must deeply contemplate the concept of __111__. The universe is not a collection of static objects, but a continuous flow of changing events. Our suffering originates from a deep-rooted __112__ to things remaining exactly as they are. We fear aging, loss, and the __113__ decay of all physical forms. This psychological __114__ to change creates a constant underlying anxiety. The teachings of the awakened ones guide us to recognize that there is no fixed, independent __115__ in any phenomenon. When we stop __116__ to our ego and expectations, our worldview undergoes a radical shift in __117__. We begin to appreciate the fleeting beauty of a sunset precisely because it will not last. By accepting the fluid nature of life __118__, we break the chains of fear. This ultimate letting go is not a loss, but a __119__ state of absolute __120__ and peace.",
+            questions: [
+                { id: "b_q_111", text: "111. 請選擇正確選項：", answer: "I", points: 2 },
+                { id: "b_q_112", text: "112. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "b_q_113", text: "113. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "b_q_114", text: "114. 請選擇正確選項：", answer: "E", points: 2 },
+                { id: "b_q_115", text: "115. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "b_q_116", text: "116. 請選擇正確選項：", answer: "H", points: 2 },
+                { id: "b_q_117", text: "117. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "b_q_118", text: "118. 請選擇正確選項：", answer: "F", points: 2 },
+                { id: "b_q_119", text: "119. 請選擇正確選項：", answer: "G", points: 2 },
+                { id: "b_q_120", text: "120. 請選擇正確選項：", answer: "J", points: 2 }
+            ]
+        },
+
+  
             {
                 id: "b_s_002",
                 optionsList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
@@ -220,6 +480,110 @@ const QuestionBank = {
                 ]
             },
             {
+            id: "d_s_004",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) This phenomenon explains why we often feel mentally drained after attempting to juggle several tasks.<br>(B) Instead, it rapidly switches our focus back and forth between different activities.<br>(C) Multitasking is widely considered a necessary skill in today's fast-paced work environment.<br>(D) By focusing on one task at a time, we can significantly improve both the quality of our work and our mental well-being.<br><br>__41__ Many people pride themselves on their ability to answer emails, talk on the phone, and write reports simultaneously. However, neuroscientists have discovered that the human brain is not wired to perform multiple complex tasks at once. __42__ This constant context-switching consumes a tremendous amount of cognitive energy. __43__ Furthermore, it increases the likelihood of making errors and reduces overall productivity. The antidote to this modern exhaustion is single-tasking. __44__",
+            questions: [
+                { id: "d_q_45", text: "41. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_46", text: "42. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_47", text: "43. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "d_q_48", text: "44. 請選擇正確選項：", answer: "D", points: 2 }
+            ]
+        },
+            {
+            id: "d_s_005",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) This relentless pursuit of 'more' often leads to burnout and a deep sense of emptiness.<br>(B) By decluttering their physical spaces, they report feeling a profound sense of mental liberation.<br>(C) Minimalism, as a lifestyle choice, offers a powerful antidote to this modern disease.<br>(D) In contemporary society, success is frequently measured by material accumulation and busy schedules.<br><br>__49__ People are constantly bombarded with advertisements convincing them that buying the latest products will bring happiness. __50__ The tragedy is that once a goal is achieved, the satisfaction is fleeting, and the cycle begins anew. __51__ It is the intentional promotion of the things we most value and the removal of everything that distracts us from them. Many individuals who adopt this philosophy start by minimizing their possessions. __52__ Ultimately, minimalism is not about living with nothing, but about making room for what truly matters: inner peace, meaningful relationships, and personal growth.",
+            questions: [
+                { id: "d_q_49", text: "49. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "d_q_50", text: "50. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "d_q_51", text: "51. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_52", text: "52. 請選擇正確選項：", answer: "B", points: 2 }
+            ]
+        },
+            {
+            id: "d_s_006",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) It forces the practitioner to slow down and synchronize their breathing with their steps.<br>(B) Kinhin is traditionally practiced between long periods of seated meditation to relieve physical stiffness.<br>(C) This practice teaches us that meditation is not confined to sitting still on a cushion.<br>(D) Unlike a hurried walk to reach a destination, this movement has no goal other than the walking itself.<br><br>In Zen Buddhism, walking meditation, known as 'Kinhin,' is as essential as seated meditation. __53__ However, it is much more than just a physical stretch. __54__ Each step is taken with absolute mindfulness, feeling the heel, the arch, and the toes making contact with the ground. __55__ The mind is anchored completely in the physical sensation of movement. __56__ Ultimately, it demonstrates how everyday actions can be transformed into profound moments of spiritual awakening.",
+            questions: [
+                { id: "d_q_53", text: "53. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_54", text: "54. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "d_q_55", text: "55. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "d_q_56", text: "56. 請選擇正確選項：", answer: "C", points: 2 }
+            ]
+        },
+            {
+            id: "d_s_007",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) It is the profound realization that everything arises and passes away depending on conditions.<br>(B) Instead, it represents a state of limitless potential, free from rigid definitions.<br>(C) This philosophical concept is frequently misunderstood as a form of negative nihilism.<br>(D) Therefore, understanding this concept allows us to live with greater flexibility and compassion.<br><br>In Eastern philosophy, the concept of Śūnyatā, often translated as 'emptiness,' is central to understanding the nature of reality. __57__ Many people mistakenly believe it implies that nothing matters or that the universe is a dark, empty void. __58__ Because an empty cup has no fixed contents, it can hold anything; similarly, because phenomena have no fixed, independent essence, they are capable of continuous transformation. __59__ When we realize that our ego and our current circumstances are not permanent, we stop clinging to them. __60__",
+            questions: [
+                { id: "d_q_57", text: "57. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_58", text: "58. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_59", text: "59. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "d_q_60", text: "60. 請選擇正確選項：", answer: "D", points: 2 }
+            ]
+        },
+         
+        {
+            id: "d_s_008",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) It rewires our neural pathways to default to patience and focus rather than reactive panic.<br>(B) This philosophy can be directly applied to our interactions with digital technology.<br>(C) True discipline is the highest form of self-love, allowing us to protect our mental space.<br>(D) We often view discipline as a rigid constraint that severely limits our personal freedom.<br><br>__61__ We mistakenly believe that freedom means acting on every impulse and checking every notification immediately. However, yielding to every distraction actually makes us slaves to algorithms and external stimuli. __62__ By intentionally setting strict boundaries around our screen time, we free ourselves from the constant bombardment of information. __63__ Over time, this conscious restriction of choices paradoxically grants us an immense sense of internal liberty. __64__",
+            questions: [
+                { id: "d_q_61", text: "61. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "d_q_62", text: "62. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_63", text: "63. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_64", text: "64. 請選擇正確選項：", answer: "A", points: 2 }
+            ]
+        },
+        // Set 8
+        {
+            id: "d_s_009",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) It acknowledges that human health is inextricably linked to planetary health.<br>(B) This anthropocentric view has justified massive deforestation and ocean pollution.<br>(C) Recognizing this is the first step toward genuine ecological healing.<br>(D) For centuries, Western civilization has operated on the assumption that nature exists solely to be conquered and utilized.<br><br>__65__ We have built entire economies on the premise of extracting raw materials and treating the Earth as an infinite dumping ground. __66__ However, modern science and ancient indigenous wisdom are converging on a different truth: the illusion of separation. We are not external masters of the planet; we are completely embedded within its biological networks. __67__ Therefore, poisoning the soil is equivalent to poisoning our own bloodstream. __68__",
+            questions: [
+                { id: "d_q_65", text: "65. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "d_q_66", text: "66. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_67", text: "67. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "d_q_68", text: "68. 請選擇正確選項：", answer: "C", points: 2 }
+            ]
+        },
+        // Set 9
+        {
+            id: "d_s_010",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) This phenomenon explains why true empathy is so incredibly difficult to practice.<br>(B) Instead, they are listening solely to formulate their own counter-argument.<br>(C) The ego constantly seeks to defend its own position and validate its own existence.<br>(D) In a typical conversation, most people are not actually listening to understand the other person.<br><br>__69__ As the other person speaks, their mind is already racing ahead, waiting for a pause to jump in. __70__ This creates a superficial exchange where neither party feels genuinely heard or seen. __71__ It views differing opinions as threats rather than opportunities for growth. To break this cycle, one must learn to silence the internal monologue and offer the gift of pure, non-judgmental presence. __72__",
+            questions: [
+                { id: "d_q_69", text: "69. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "d_q_70", text: "70. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_71", text: "71. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_72", text: "72. 請選擇正確選項：", answer: "A", points: 2 }
+            ]
+        },
+        // Set 10
+        {
+            id: "d_s_011",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) It is the profound realization that everything arises and passes away depending on conditions.<br>(B) Instead, it represents a state of limitless potential, free from rigid definitions.<br>(C) This philosophical concept is frequently misunderstood as a form of negative nihilism.<br>(D) Therefore, understanding this concept allows us to live with greater flexibility and compassion.<br><br>In Eastern philosophy, the concept of Śūnyatā, often translated as 'emptiness,' is central to understanding the nature of reality. __73__ Many people mistakenly believe it implies that nothing matters or that the universe is a dark, empty void. __74__ Because an empty cup has no fixed contents, it can hold anything; similarly, because phenomena have no fixed, independent essence, they are capable of continuous transformation. __75__ When we realize that our ego and our current circumstances are not permanent, we stop clinging to them. __76__",
+            questions: [
+                { id: "d_q_73", text: "73. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_74", text: "74. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_75", text: "75. 請選擇正確選項：", answer: "A", points: 2 },
+                { id: "d_q_76", text: "76. 請選擇正確選項：", answer: "D", points: 2 }
+            ]
+        },
+            {
+            id: "d_s_012",
+            optionsList: ['A', 'B', 'C', 'D'],
+            article: "Option Pool:<br>(A) It is the complete dissolution of the artificial boundary separating the observer from the observed.<br>(B) This cognitive framework forces us to categorize every experience as either a victory or a defeat.<br>(C) True mastery, however, requires transcending this limited, dualistic perspective entirely.<br>(D) When the archer ceases to care about hitting the bullseye, their technique flows flawlessly.<br><br>The human mind is deeply conditioned to operate within a framework of dualities: success and failure, gain and loss, right and wrong. __77__ Such a mindset keeps us trapped in a perpetual state of anxiety, constantly striving for the former while desperately avoiding the latter. __78__ In the ancient philosophy of archery, for instance, the ultimate goal is not the target itself. __79__ The separation between the bow, the arrow, the target, and the self simply vanishes. __80__ In this state of absolute non-attachment, action happens spontaneously and perfectly, unhindered by the ego's fear of failure.",
+            questions: [
+                { id: "d_q_77", text: "77. 請選擇正確選項：", answer: "B", points: 2 },
+                { id: "d_q_78", text: "78. 請選擇正確選項：", answer: "C", points: 2 },
+                { id: "d_q_79", text: "79. 請選擇正確選項：", answer: "D", points: 2 },
+                { id: "d_q_80", text: "80. 請選擇正確選項：", answer: "A", points: 2 }
+            ]
+        },
+        
+            {
                 id: "d_s_002",
                 optionsList: ['A', 'B', 'C', 'D'],
                 article: "Option Pool:<br>(A) This phenomenon is known as the 'overview effect.'<br>(B) Suddenly, the conflicts that divide nations seem trivial and meaningless.<br>(C) From space, national borders are invisible, and the atmosphere looks incredibly thin.<br>(D) Many astronauts report a profound shift in their worldview after seeing Earth from orbit.<br><br>__1__ This cognitive shift happens when one views the planet from outer space. __2__ It highlights the vulnerability of our world and the interconnectedness of all life. Observers are struck by the realization that everyone they love exists on this fragile blue dot. __3__ Instead, a deep sense of unity and compassion emerges. __4__ Consequently, many return to Earth with a renewed commitment to environmental protection and global peace.",
@@ -244,6 +608,100 @@ const QuestionBank = {
                     { id: "r_q_38", text: "38. Which of the following best describes the author's tone toward The Ocean Cleanup project?", options: {A:"Pessimistic and highly critical.", B:"Objective and informative.", C:"Sarcastic and mocking.", D:"Indifferent and bored."}, answer: "B", points: 2 }
                 ]
             },
+            {
+            id: "r_s_004",
+            article: "The architectural design of traditional Japanese Zen gardens, or 'karesansui' (dry landscape gardens), is a masterpiece of minimalism and symbolism. Unlike Western gardens that burst with colorful flowers and symmetrical pathways, Zen gardens primarily utilize rocks, gravel, moss, and a few carefully pruned shrubs. The gravel is meticulously raked to represent the ripples of water, while the larger rocks symbolize islands or mountains. \n\nThe true purpose of a Zen garden is not simply visual enjoyment, but to serve as an aid to meditation. The absence of vibrant colors and complex structures eliminates visual clutter, allowing the mind to rest. When a monk rakes the gravel, it is considered an active form of meditation, requiring complete concentration and mindfulness. The asymmetrical arrangement of the rocks forces the observer's eye to wander, preventing the mind from fixating on a single point. This design principle mirrors the Buddhist philosophy of impermanence and the fluid nature of reality. By sitting quietly and observing the garden, one can cultivate a sense of inner tranquility and a deeper understanding of the self, proving that true beauty often lies in simplicity and emptiness.",
+            questions: [
+                { id: "r_q_13", text: "1. What is the primary purpose of a traditional Zen garden?", options: {A:"To showcase a wide variety of colorful flowers.", B:"To serve as a tool for meditation and inner reflection.", C:"To host large social gatherings and ceremonies.", D:"To demonstrate complex engineering techniques."}, answer: "B", points: 2 },
+                { id: "r_q_14", text: "2. In a Zen garden, what does the raked gravel typically represent?", options: {A:"Tall mountains", B:"Green forests", C:"Ripples of water", D:"Clouds in the sky"}, answer: "C", points: 2 },
+                { id: "r_q_15", text: "3. Why are the rocks in a Zen garden arranged asymmetrically?", options: {A:"To make the garden look more crowded.", B:"Because it is easier to build that way.", C:"To prevent the mind from fixating and to encourage contemplation.", D:"To follow strict Western architectural rules."}, answer: "C", points: 2 },
+                { id: "r_q_16", text: "4. Which word best describes the core design philosophy of a Zen garden?", options: {A:"Extravagance", B:"Minimalism", C:"Symmetry", D:"Chaos"}, answer: "B", points: 2 }
+            ]
+        },
+            {
+            id: "r_s_005",
+            article: "The concept of 'Iktsuarpok' is an Inuit word that describes the feeling of anticipation that leads you to keep looking outside to see if anyone is coming. While this specific emotion is tied to the harsh, isolated environments of the Arctic, the underlying psychology of anticipation is universal. In modern psychological terms, anticipation can be a double-edged sword. On one hand, anticipating a positive event, like a vacation or a reunion, releases dopamine in the brain, generating a sense of joy before the event even occurs.\n\nHowever, chronic anticipation—especially in the form of expecting bad news, worrying about the future, or constantly waiting for digital notifications—can trigger a prolonged state of anxiety. This state keeps the nervous system on high alert, elevating cortisol levels and preventing the mind from resting. Ancient contemplative traditions, such as Zen Buddhism, address this by emphasizing 'presence.' By training the mind to anchor itself entirely in the current moment, practitioners learn to detach from both the anxieties of the future and the regrets of the past. True peace, they argue, cannot be found in what is coming next, but only in a profound acceptance of what is happening right now.",
+            questions: [
+                { id: "r_q_17", text: "1. What does the Inuit word 'Iktsuarpok' describe?", options: {A:"The joy of experiencing a harsh winter.", B:"The feeling of anticipation that makes you look outside for a visitor.", C:"The release of dopamine in the human brain.", D:"A traditional form of Zen meditation."}, answer: "B", points: 2 },
+                { id: "r_q_18", text: "2. According to the passage, what is the negative effect of chronic anticipation?", options: {A:"It makes people travel more often.", B:"It prevents the release of dopamine entirely.", C:"It keeps the nervous system on high alert, causing anxiety.", D:"It causes people to forget their past regrets."}, answer: "C", points: 2 },
+                { id: "r_q_19", text: "3. How do ancient contemplative traditions like Zen Buddhism address the problem of anxiety?", options: {A:"By encouraging people to anticipate only positive events.", B:"By training the mind to focus entirely on the present moment.", C:"By analyzing the chemical makeup of cortisol.", D:"By completely isolating individuals from society."}, answer: "B", points: 2 },
+                { id: "r_q_20", text: "4. What is the author's main conclusion regarding true peace?", options: {A:"It is found in carefully planning for the future.", B:"It requires moving to isolated environments like the Arctic.", C:"It is achieved by constantly checking digital notifications.", D:"It is found in the profound acceptance of the present moment."}, answer: "D", points: 2 }
+            ]
+        },
+            {
+            id: "r_s_006",
+            article: "The psychological phenomenon known as 'The Hedonic Treadmill' explains why humanity's relentless pursuit of happiness often ends in frustration. According to this theory, people have a baseline level of happiness. When major positive or negative events occur—such as winning the lottery or suffering a severe injury—our happiness levels temporarily spike or plunge. However, humans are highly adaptable creatures. Over time, we habituate to our new circumstances, and our happiness inevitably returns to its original baseline. We are running on a treadmill: constantly moving, constantly acquiring, but remaining in the exact same emotional place.\n\nThis psychological mechanism reveals the fundamental flaw in consumerism, which preaches that the next purchase will bring lasting satisfaction. Ancient contemplative traditions recognized this trap thousands of years ago. They argued that desire itself is a bottomless pit. Therefore, the key to sustained well-being is not to upgrade our circumstances, but to upgrade our minds. Practices such as mindfulness and gratitude aim to detach our sense of contentment from external acquisitions. By learning to appreciate the mundane and cultivating peace from within, we can finally step off the hedonic treadmill and experience a stable, profound tranquility that external wealth can never provide.",
+            questions: [
+                { id: "r_q_21", text: "1. What does the 'Hedonic Treadmill' theory suggest about human happiness?", options: {A:"It constantly increases as we acquire more wealth.", B:"It returns to a baseline level after major life events.", C:"It is permanently destroyed by negative experiences.", D:"It can only be achieved through vigorous physical exercise."}, answer: "B", points: 2 },
+                { id: "r_q_22", text: "2. According to the passage, why is consumerism considered flawed?", options: {A:"It fails to recognize that human adaptability makes lasting satisfaction from purchases impossible.", B:"It does not produce enough high-quality goods to satisfy everyone.", C:"It focuses too much on ancient contemplative traditions.", D:"It permanently lowers our baseline level of happiness."}, answer: "A", points: 2 },
+                { id: "r_q_23", text: "3. How do ancient traditions suggest we achieve sustained well-being?", options: {A:"By continuously upgrading our living circumstances.", B:"By entirely giving up all forms of modern technology.", C:"By detaching contentment from external acquisitions and cultivating inner peace.", D:"By running faster on the hedonic treadmill."}, answer: "C", points: 2 },
+                { id: "r_q_24", text: "4. What is the author's primary attitude toward the pursuit of material wealth?", options: {A:"Highly enthusiastic.", B:"Deeply skeptical.", C:"Completely indifferent.", D:"Mildly supportive."}, answer: "B", points: 2 }
+            ]
+        },
+            {
+            id: "r_s_007",
+            article: "The digital landscape is increasingly dominated by algorithms designed to maximize user engagement. These systems are highly effective at capturing attention, but they often do so by exploiting human psychological vulnerabilities, promoting outrage, and reinforcing cognitive biases. In response to this, a movement of 'Ethical Tech Design' is emerging. This movement advocates for the creation of digital environments that respect human agency and prioritize psychological well-being over raw screen time.\n\nEthical developers approach coding not just as a technical task, but as a moral responsibility. They refuse to use 'dark patterns'—deceptive user interfaces designed to trick users into making unintended choices, such as subscribing to unwanted services. Instead, they champion systems that are transparent, ad-free, and respectful of privacy. By open-sourcing their code under Creative Commons (CC) licenses, these developers ensure that their tools remain a public good, free from corporate monopoly. This approach requires a tremendous amount of discipline and a willingness to accept that a system may never achieve a '100% perfect' monetization model. Yet, by intentionally leaving that 'one percent' of flaw or lack of profit, they maintain the purity of their creation. In doing so, they provide users with a sanctuary of logic and calm in an otherwise chaotic digital world.",
+            questions: [
+                { id: "r_q_25", text: "1. According to the passage, how do many engagement-driven algorithms capture user attention?", options: {A:"By providing deeply relaxing and meditative content.", B:"By exploiting psychological vulnerabilities and promoting outrage.", C:"By offering free, open-source educational courses.", D:"By completely removing all digital advertisements."}, answer: "B", points: 2 },
+                { id: "r_q_26", text: "2. What is a 'dark pattern' in the context of web design?", options: {A:"A minimalist aesthetic using dark colors.", B:"A deceptive interface designed to trick users.", C:"A secure method for encrypting personal data.", D:"An open-source license for sharing code freely."}, answer: "B", points: 2 },
+                { id: "r_q_27", text: "3. Why do ethical developers choose to open-source their code under CC licenses?", options: {A:"To ensure their tools remain a public good and prevent corporate monopoly.", B:"To hide their technical mistakes from other programmers.", C:"To force users to pay high subscription fees eventually.", D:"To exploit copyright laws for maximum personal profit."}, answer: "A", points: 2 },
+                { id: "r_q_28", text: "4. What does the author imply by 'intentionally leaving that one percent'?", options: {A:"Deliberately adding harmful viruses to the software.", B:"Accepting a lack of absolute perfection or maximum profit to maintain the project's purity.", C:"Refusing to finish the coding project entirely.", D:"Charging a very small fee of one percent to the users."}, answer: "B", points: 2 }
+            ]
+        },
+                {
+            id: "r_s_008",
+            article: "Neuroplasticity is the brain's remarkable ability to reorganize itself by forming new neural connections throughout life. For centuries, scientists believed that the adult brain was a static, hard-wired organ. We now know that every thought, emotion, and repetitive action literally sculpts the physical structure of our brain. This has profound implications for the practice of meditation and mindfulness. \n\nWhen a person consistently practices focusing their attention on the breath, they are essentially strengthening the neural pathways associated with concentration and emotional regulation. Brain imaging studies have shown that regular meditation increases the density of the prefrontal cortex—the area responsible for rational decision-making—while simultaneously shrinking the amygdala, the brain's primal fear and stress center. This means that mental calmness is not just a temporary feeling, but a structurally reinforced trait. However, neuroplasticity works both ways. If we constantly engage in negative thinking, scrolling through anxiety-inducing news, or multitasking, we strengthen the pathways of stress and distraction. Therefore, we bear a profound responsibility for our own cognitive architecture. By carefully curating the information we consume and intentionally practicing stillness, we can literally wire our brains for peace.",
+            questions: [
+                { id: "r_q_29", text: "1. What old scientific belief does neuroplasticity challenge?", options: {A:"That the brain requires oxygen to survive.", B:"That the adult brain is entirely static and hard-wired.", C:"That meditation causes permanent brain damage.", D:"That the amygdala is responsible for rational thought."}, answer: "B", points: 2 },
+                { id: "r_q_30", text: "2. According to brain imaging studies, how does regular meditation physically alter the brain?", options: {A:"It increases the size of the amygdala.", B:"It shrinks the prefrontal cortex completely.", C:"It increases the density of the prefrontal cortex and shrinks the amygdala.", D:"It disconnects the two hemispheres of the brain."}, answer: "C", points: 2 },
+                { id: "r_q_31", text: "3. What is the potential negative aspect of neuroplasticity mentioned in the text?", options: {A:"It makes learning new languages impossible.", B:"It can strengthen pathways of stress if we engage in negative habits.", C:"It causes the brain to consume too much physical energy.", D:"It only works effectively during early childhood."}, answer: "B", points: 2 },
+                { id: "r_q_32", text: "4. What is the author's main message regarding our cognitive architecture?", options: {A:"It is completely out of our control.", B:"We are entirely dependent on genetic factors for our mental state.", C:"We have a responsibility to actively shape it through intentional practices like stillness.", D:"We should rely solely on medication to alter our brain structure."}, answer: "C", points: 2 }
+            ]
+        },
+            
+        {
+            id: "r_s_009",
+            article: "Biomimicry is the practice of looking to nature for inspiration to solve complex human problems. For billions of years, plants, animals, and microbes have evolved highly efficient, sustainable ways to adapt and thrive. By studying these natural mechanisms, engineers and architects can create technologies that operate in harmony with the Earth, rather than depleting it.\n\nA classic example is the design of the Shinkansen, Japan's high-speed bullet train. Early models created a loud, disruptive sonic boom when exiting tunnels due to air pressure buildup. The chief engineer, a birdwatcher, observed how the kingfisher bird dives into water with barely a splash. By redesigning the train's nose to mimic the kingfisher's beak, they not only eliminated the sonic boom but also made the train 10% faster and 15% more energy-efficient. Furthermore, nature manufactures materials without toxic chemicals or immense heat. Spider silk, for instance, is pound-for-pound stronger than steel but is created at room temperature using water as a solvent. Biomimicry teaches a profound lesson in humility: the recognition that humanity does not need to conquer nature, but rather must sit as an eager student at its feet. True innovation lies in acknowledging that the natural world has already solved the problems we are currently struggling with.",
+            questions: [
+                { id: "r_q_33", text: "1. What is the fundamental concept of biomimicry?", options: {A:"Replacing natural ecosystems with artificial ones.", B:"Using nature's designs to solve human problems sustainably.", C:"Genetically modifying animals to serve human needs.", D:"Destroying natural habitats to build advanced technologies."}, answer: "B", points: 2 },
+                { id: "r_q_34", text: "2. How did the kingfisher bird inspire the design of the bullet train?", options: {A:"By providing a new aerodynamic shape for the train's nose.", B:"By showing engineers how to build tracks over water.", C:"By inspiring the color scheme of the train cars.", D:"By demonstrating a new method for generating electricity."}, answer: "A", points: 2 },
+                { id: "r_q_35", text: "3. Why is spider silk mentioned in the passage?", options: {A:"To warn against the dangers of venomous insects.", B:"To show that humans can easily synthesize natural proteins.", C:"To illustrate nature's ability to create strong materials without extreme heat or toxic chemicals.", D:"To prove that steel is an obsolete material in modern construction."}, answer: "C", points: 2 },
+                { id: "r_q_36", text: "4. What profound philosophical lesson does biomimicry teach according to the author?", options: {A:"Humans are the ultimate masters of the universe.", B:"Technology will inevitably destroy the natural world.", C:"We must approach nature with humility and learn from its ancient wisdom.", D:"Nature is fundamentally flawed and needs human intervention."}, answer: "C", points: 2 }
+            ]
+        },
+        // Set 9
+        {
+            id: "r_s_010",
+            article: "The psychological burden of holding a grudge is often vastly underestimated. When an individual refuses to forgive a perceived wrong, they trap themselves in a state of chronic physiological arousal. The brain repeatedly replays the offensive event, signaling the adrenal glands to release stress hormones like cortisol and adrenaline. Over time, this constant state of 'fight or flight' impairs the immune system, elevates blood pressure, and contributes to severe anxiety and depression.\n\nForgiveness, therefore, is not primarily a moral obligation to the offender; it is a vital act of self-preservation. Dr. Fred Luskin, founder of the Stanford University Forgiveness Projects, emphasizes that forgiveness does not mean condoning bad behavior, reconciling with a dangerous person, or forgetting the past. Instead, it is the deliberate decision to release feelings of resentment and vengeance. It is a shift in focus from the unchangeable past to the present moment. By relinquishing the demand that the past should have been different, individuals reclaim their personal power. In contemplative traditions, this release is seen as the ultimate form of letting go—a recognition that holding onto anger is akin to grasping a hot coal with the intent of throwing it at someone else; you are the only one who gets burned.",
+            questions: [
+                { id: "r_q_37", text: "1. What is the physiological impact of holding a chronic grudge?", options: {A:"It strengthens the immune system against future attacks.", B:"It keeps the body in a prolonged state of stress, damaging overall health.", C:"It decreases the production of cortisol and adrenaline.", D:"It significantly lowers blood pressure and promotes deep sleep."}, answer: "B", points: 2 },
+                { id: "r_q_38", text: "2. According to Dr. Fred Luskin, what does true forgiveness NOT require?", options: {A:"Releasing feelings of resentment.", B:"Shifting focus to the present moment.", C:"Condoning the bad behavior or reconciling with the offender.", D:"Reclaiming one's personal psychological power."}, answer: "C", points: 2 },
+                { id: "r_q_39", text: "3. How does the passage describe the act of demanding the past to be different?", options: {A:"As a useful strategy for preventing future mistakes.", B:"As a necessary step in the legal justice process.", C:"As a futile endeavor that drains personal power.", D:"As a primary technique in modern psychotherapy."}, answer: "C", points: 2 },
+                { id: "r_q_40", text: "4. What is the meaning of the 'hot coal' metaphor at the end of the text?", options: {A:"Anger is a useful fuel for achieving difficult goals.", B:"Holding onto anger ultimately harms yourself more than the person you are angry with.", C:"Forgiveness requires going through a painful burning process.", D:"Revenge is a dish best served hot."}, answer: "B", points: 2 }
+            ]
+        },
+        // Set 10
+        {
+            id: "r_s_011",
+            article: "At the heart of Buddhist psychology is the doctrine of Anatman, typically translated as 'No-Self.' To the Western mind, heavily influenced by individualistic philosophies, this concept sounds terrifying, akin to self-annihilation. However, Anatman does not deny the existence of a biological organism or a functioning personality. Rather, it challenges the deeply held illusion that there is a permanent, unchanging, independent 'I' residing behind our eyes, steering the ship of our lives.\n\nThrough intense meditative introspection, practitioners observe that what we call 'the self' is actually a dynamic compilation of five ever-shifting aggregates: physical form, sensations, perceptions, mental formations, and consciousness. None of these elements remain static for even a single second. Our thoughts arise and vanish like clouds; our cells completely regenerate over years. If we search for a permanent core, we find nothing but fluid relationships. Suffering (Dukkha) arises precisely because we desperately try to cling to this flowing river, attempting to freeze it into a solid block of identity. We defend our egos, our opinions, and our status, terrified of their inevitable dissolution. The profound realization of Anatman is the ultimate liberation. When we stop grasping for a solid self, we dissolve the boundaries between us and the universe, stepping into a state of absolute, unshakeable peace.",
+            questions: [
+                { id: "r_q_41", text: "1. How is the concept of Anatman (No-Self) often misinterpreted by the Western mind?", options: {A:"As the ultimate goal of capitalistic success.", B:"As a terrifying concept akin to self-annihilation.", C:"As a method for achieving physical immortality.", D:"As a strict set of dietary restrictions."}, answer: "B", points: 2 },
+                { id: "r_q_42", text: "2. According to Buddhist psychology, what constitutes 'the self'?", options: {A:"A permanent, unchanging soul.", B:"A dynamic compilation of five ever-shifting aggregates.", C:"An independent entity completely separated from the universe.", D:"A solid block of unchangeable identity."}, answer: "B", points: 2 },
+                { id: "r_q_43", text: "3. What is identified as the primary source of human suffering (Dukkha) in this context?", options: {A:"A lack of material wealth and social status.", B:"The failure to strictly follow religious rituals.", C:"The desperate attempt to freeze our fluid identity into something permanent.", D:"The realization that our cells regenerate over time."}, answer: "C", points: 2 },
+                { id: "r_q_44", text: "4. What is the ultimate result of profoundly realizing the truth of Anatman?", options: {A:"Severe depression and existential dread.", B:"An intense desire to defend one's ego and opinions.", C:"Absolute liberation and unshakeable peace by dissolving artificial boundaries.", D:"The complete loss of all biological functions."}, answer: "C", points: 2 }
+            ]
+        },
+            {
+            id: "r_s_012",
+            article: "The concept of 'Interbeing,' coined by Zen Master Thich Nhat Hanh, offers a profound paradigm shift in how we perceive existence. Western philosophy has historically emphasized individualism—the idea that a person, or any object, exists independently, possessing its own inherent, isolated essence. 'Interbeing' completely dismantles this notion by asserting that nothing can exist by itself alone; everything must 'inter-be' with everything else.\n\nTo illustrate this, Hanh uses the metaphor of a sheet of paper. If you look deeply into the paper, you can see the cloud floating in it. Without the cloud, there is no rain; without the rain, the trees cannot grow; and without the trees, we cannot make paper. The paper also contains the sunshine, the logger who cut the tree, the logger's daily bread, and even the logger's parents. If you remove any of these non-paper elements, the paper ceases to exist. Therefore, the paper is completely empty of an independent self, yet it is full of the entire cosmos. This is not merely a poetic observation; it aligns strikingly with the findings of modern quantum physics, which views the universe as a vast, undivided web of dynamic relationships rather than a collection of separate building blocks. Embracing the reality of Interbeing shatters the ego's illusion of isolation. It fosters a radical form of compassion, as harming any part of the web is fundamentally recognized as harming oneself.",
+            questions: [
+                { id: "r_q_45", text: "1. How does the concept of 'Interbeing' challenge traditional Western philosophy?", options: {A:"It proves that physical objects do not actually exist in reality.", B:"It dismantles the idea that any entity can exist independently with an isolated essence.", C:"It argues that individualism is the only way to achieve economic success.", D:"It suggests that clouds and rain are the only true forces in the universe."}, answer: "B", points: 2 },
+                { id: "r_q_46", text: "2. What is the purpose of the 'sheet of paper' metaphor in the passage?", options: {A:"To illustrate the complex environmental damage caused by the logging industry.", B:"To prove that paper is the most valuable material produced by human beings.", C:"To demonstrate that an object is made entirely of 'non-object' elements and cannot exist alone.", D:"To explain the complex chemical processes involved in manufacturing paper."}, answer: "C", points: 2 },
+                { id: "r_q_47", text: "3. According to the author, the concept of Interbeing aligns closely with which modern scientific field?", options: {A:"Quantum physics", B:"Classical mechanics", C:"Evolutionary biology", D:"Computer science"}, answer: "A", points: 2 },
+                { id: "r_q_48", text: "4. What is the ultimate ethical consequence of fully embracing the reality of Interbeing?", options: {A:"A desire to isolate oneself from the complexities of the modern world.", B:"A radical form of compassion arising from the realization that harming others harms oneself.", C:"A profound sense of despair regarding the fragile nature of the cosmos.", D:"A competitive drive to dominate the interconnected web of life."}, answer: "B", points: 2 }
+            ]
+        },
+            
             {
                 id: "r_s_002",
                 article: "The concept of 'Ikigai' is a Japanese philosophy that roughly translates to 'a reason for being.' It is often represented as the intersection of four elements: what you love, what you are good at, what the world needs, and what you can be paid for. Finding your Ikigai requires deep self-reflection and a willingness to explore different paths in life.<br><br>In Okinawa, Japan, which is known for its high number of centenarians, Ikigai is considered a crucial factor in their longevity. For many elderly Okinawans, their Ikigai might be as simple as tending to their garden, teaching traditions to their grandchildren, or participating in community activities. It provides them with a sense of purpose to get out of bed every morning. Unlike Western concepts of success that often focus solely on financial gain or career advancement, Ikigai emphasizes balance, joy in small things, and contributing to the well-being of others. It reminds us that a meaningful life is not necessarily a busy or wealthy one, but one anchored in purpose and peace.",
@@ -272,6 +730,135 @@ const QuestionBank = {
                     }
                 ]
             },
+            {
+            id: "e_s_004",
+            questions: [
+                { 
+                    id: "q_trans_04", text: "中譯英：與其不斷追求外在的物質財富，我們更應該專注於培養內在的平靜與智慧。(8分)", type: "translation",
+                    answer: "Instead of constantly pursuing external material wealth, we should focus more on cultivating inner peace and wisdom.", points: 8,
+                    keywords: ["Instead of", "pursuing", "material wealth", "cultivating"] 
+                },
+                { 
+                    id: "q_essay_04", text: "英文作文：請寫一篇約 120 字的文章。第一段描述一個能讓你感到完全放鬆與平靜的「避風港」（可以是一個實體空間，或是某個特定的活動）。第二段說明這個避風港如何幫助你面對生活中的挑戰。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：具體描寫該空間或活動的細節（視覺、聽覺等），並清楚說明其對心理狀態的正面影響。\n2. 組織連貫性：使用適當的轉折詞連結「平靜」與「面對挑戰」的因果關係。\n3. 詞彙與句法：精確使用如 sanctuary, unwind, recharge, resilience 等詞彙。", points: 20
+                }
+            ]
+        },
+            {
+            id: "e_s_005",
+            questions: [
+                { 
+                    id: "q_trans_05", text: "中譯英：與其僵硬地抗拒改變，我們必須學會像水一樣適應環境的起伏與無常。(8分)", type: "translation",
+                    answer: "Instead of rigidly resisting change, we must learn to adapt to the ups and downs and the impermanence of the environment like water.", points: 8,
+                    keywords: ["rigidly resisting", "adapt to", "ups and downs", "impermanence"] 
+                },
+                { 
+                    id: "q_essay_05", text: "英文作文：請寫一篇約 120 字的文章。第一段描述一次你曾經歷過的「失敗或不如預期」的經驗。第二段說明你如何透過改變心態（如接受無常、放下執著），從這段經驗中獲得成長與內心的平靜。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：是否真實且具體地描述了挫折經驗，以及心態轉變的過程（從執著到放下）。\n2. 組織連貫性：段落間是否展現了清晰的情感轉折與因果學習。\n3. 詞彙與句法：精確使用如 setback, attachment, impermanence, inner peace, let go 等詞彙。", points: 20
+                }
+            ]
+        },
+            {
+            id: "e_s_006",
+            questions: [
+                { 
+                    id: "q_trans_06", text: "中譯英：執著於過去的錯誤只會帶來痛苦；真正的智慧在於原諒自己並專注於當下的每一刻。(8分)", type: "translation",
+                    answer: "Clinging to past mistakes only brings suffering; true wisdom lies in forgiving oneself and focusing on every moment of the present.", points: 8,
+                    keywords: ["Clinging to", "suffering", "true wisdom lies in", "focusing on"] 
+                },
+                { 
+                    id: "q_essay_06", text: "英文作文：請寫一篇約 120 字的文章。現代社會節奏快速，許多人深受「錯失恐懼症」(FOMO - Fear Of Missing Out) 之苦。第一段說明 FOMO 如何影響人們的心理健康；第二段提出身為學生的你，如何透過「專注當下」(JOMO - Joy Of Missing Out) 來重獲心靈自由。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：精準描述 FOMO 的焦慮感（如一直滑手機怕錯過訊息），並清楚論述轉向 JOMO（享受錯過、獨處的喜悅）的實踐方法。\n2. 組織連貫性：前後段的對比必須強烈且自然。\n3. 詞彙與句法：精確使用如 anxiety, constant comparison, solitude, embrace, inner freedom 等詞彙。", points: 20
+                }
+            ]
+        },
+            {
+            id: "e_s_007",
+            questions: [
+                { 
+                    id: "q_trans_07", text: "中譯英：真正的自由並非隨心所欲，而是擁有自我約束的紀律，從而不受外在誘惑的控制。(8分)", type: "translation",
+                    answer: "True freedom is not doing whatever you want, but having the discipline of self-restraint, thereby not being controlled by external temptations.", points: 8,
+                    keywords: ["True freedom", "doing whatever you want", "discipline of self-restraint", "external temptations"] 
+                },
+                { 
+                    id: "q_essay_07", text: "英文作文：請寫一篇約 120 字的文章。如果今天你擁有開發一款應用程式(App)或網站的能力，請在第一段描述這個系統的核心功能與美學設計原則。第二段說明你為何選擇將它設定為「免費、無廣告且開源」，以及這對社會的意義。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：清晰描繪系統的用途與極簡美學（如 vector graphics, pure design），並深刻論述無私分享（open-source, ad-free）的價值。\n2. 組織連貫性：從技術設計平順過渡到哲學理念與社會貢獻。\n3. 詞彙與句法：精確使用如 aesthetics, open-source, non-profit, altruism, sanctuary 等詞彙。", points: 20
+                }
+            ]
+        },
+            {
+            id: "e_s_008",
+            questions: [
+                { 
+                    id: "q_trans_08", text: "中譯英：為了在充滿干擾的世界中保持內心的平靜，我們必須學會專注於當下，一次只做一件事。(8分)", type: "translation",
+                    answer: "In order to maintain inner peace in a world full of distractions, we must learn to focus on the present moment and do one thing at a time.", points: 8,
+                    keywords: ["maintain inner peace", "distractions", "focus on the present moment", "do one thing at a time"] 
+                },
+                { 
+                    id: "q_essay_08", text: "英文作文：請寫一篇約 120 字的文章。現代人常因「多工處理」(multitasking) 而感到疲憊。第一段請描述多工處理對你或周遭朋友造成的負面影響（如焦慮、效率低）。第二段請說明你如何透過實踐「單一任務」(single-tasking) 或「數位排毒」來找回專注力與心靈的寧靜。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：明確對比 multitasking 帶來的精神耗損與 single-tasking 帶來的安定感。\n2. 組織連貫性：能流暢描述從混亂到平靜的心境轉換過程。\n3. 詞彙與句法：精確使用 exhaustion, fragmented attention, intentional, mindful, tranquility 等詞彙。", points: 20
+                }
+            ]
+        },
+        // Set 8
+        {
+            id: "e_s_009",
+            questions: [
+                { 
+                    id: "q_trans_09", text: "中譯英：人類並非自然的主宰，而是這個精密生態網絡中相互依存的一部分。(8分)", type: "translation",
+                    answer: "Human beings are not the masters of nature, but an interdependent part of this delicate ecological web.", points: 8,
+                    keywords: ["masters of nature", "interdependent", "delicate", "ecological web"] 
+                },
+                { 
+                    id: "q_essay_09", text: "英文作文：請寫一篇約 120 字的文章。近年來極端氣候頻傳，第一段請描述你對地球環境現況的擔憂。第二段說明身為地球公民，我們在日常生活中可以採取哪些具體的「減法生活」（如減少消費、減少浪費），以展現對萬物的慈悲與尊重。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：將環保議題提升至對生命的「慈悲」層次，而非僅僅是回收。\n2. 組織連貫性：以生態危機為因，減法生活為果，邏輯嚴密。\n3. 詞彙與句法：精確使用 extreme weather, anthropocentric, minimalism, compassion, interconnectedness 等詞彙。", points: 20
+                }
+            ]
+        },
+        // Set 9
+        {
+            id: "e_s_010",
+            questions: [
+                { 
+                    id: "q_trans_10", text: "中譯英：真正的傾聽不需要急著回應，而是放空自我，全心全意地接納對方的感受。(8分)", type: "translation",
+                    answer: "True listening does not require rushing to respond, but rather emptying oneself and wholeheartedly accepting the other person's feelings.", points: 8,
+                    keywords: ["True listening", "rushing to respond", "emptying oneself", "wholeheartedly accepting"] 
+                },
+                { 
+                    id: "q_essay_10", text: "英文作文：請寫一篇約 120 字的文章。第一段分享一次你曾經因為「被深深傾聽與理解」而感到內心被治癒的經驗。第二段闡述你認為「放下自我中心」(letting go of the ego) 在建立真實人際連結中的重要性。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：真誠刻畫傾聽帶來的療癒力量，並點出 ego 是人際關係中最大阻礙的核心概念。\n2. 組織連貫性：能將個人經驗昇華至哲學層次的體悟。\n3. 詞彙與句法：精確使用 active listening, undivided attention, ego-driven, empathy, authentic connection 等詞彙。", points: 20
+                }
+            ]
+        },
+        // Set 10
+        {
+            id: "e_s_011",
+            questions: [
+                { 
+                    id: "q_trans_11", text: "中譯英：我們越是試圖緊抓著事物不放，就越會感到焦慮；唯有徹底放下，才能獲得真正的解脫。(8分)", type: "translation",
+                    answer: "The more we try to cling to things, the more anxious we feel; only by completely letting go can we achieve true liberation.", points: 8,
+                    keywords: ["cling to", "anxious", "completely letting go", "true liberation"] 
+                },
+                { 
+                    id: "q_essay_11", text: "英文作文：請寫一篇約 120 字的文章。這是一篇關於「無常與自由」的哲思。第一段請描述人們常因為害怕失去（如青春、名利、人際關係）而產生的痛苦。第二段說明我們如何透過擁抱「無常」(impermanence) 的真理，讓心靈獲得絕對的自由與寧靜。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：深刻剖析痛苦的根源在於對永恆的妄想，並說明接受無常即是解脫的途徑。\n2. 組織連貫性：以恐懼為起點，以寧靜為終點，展現心智蛻變的過程。\n3. 詞彙與句法：精確使用 attachment, illusion of permanence, inevitable, liberation, serenity 等高階哲學語彙。", points: 20
+                }
+            ]
+        },
+            {
+            id: "e_s_012",
+            questions: [
+                { 
+                    id: "q_trans_12", text: "中譯英：真正的智慧不在於累積無盡的知識，而在於有勇氣捨棄那些蒙蔽我們自性的偏見與執念。(8分)", type: "translation",
+                    answer: "True wisdom lies not in accumulating endless knowledge, but in having the courage to discard the prejudices and attachments that obscure our true nature.", points: 8,
+                    keywords: ["True wisdom lies not in", "accumulating", "discard", "prejudices and attachments", "obscure our true nature"] 
+                },
+                { 
+                    id: "q_essay_12", text: "英文作文：請寫一篇約 150 字的文章。這是一場語言與思想的終極淬鍊。第一段請探討「語言的局限性」：為什麼最深刻的真理與情感（如絕對的寧靜、無私的愛）往往無法用文字精確表達。第二段請說明在日常生活中，我們應如何超越文字的表象，用心去感知事物背後「不可言說」(ineffable) 的本質。(20分)", type: "composition",
+                    answer: "【官方評分標準】\n1. 內容完整性：能深刻論述語言作為工具的邊界，並提出「以心傳心」或「靜默感知」的實踐方式。\n2. 組織連貫性：展現出超越二元對立的哲學思維，邏輯推演極具深度。\n3. 詞彙與句法：精確且優美地使用如 ineffable, inadequacy of language, transcend, cognitive bias, intuitive awareness 等頂尖字彙。", points: 20
+                }
+            ]
+        },
             {
                 id: "e_s_002",
                 questions: [
