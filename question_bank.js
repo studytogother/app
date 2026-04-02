@@ -3124,8 +3124,7 @@ toefl: [
                 { word: "CHILL", meaning: "放鬆；冷靜點" }
             ]
         }
-    ]
-};
+    ],
 
 
 
