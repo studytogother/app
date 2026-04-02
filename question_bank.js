@@ -2642,6 +2642,160 @@ const QuestionBank = {
                 { word: "zenith", meaning: "n. 頂點；全盛時期", root: "semt (阿拉伯語：頭頂上的方向)", phonetic: "/ˈziː.nɪθ/" }
             ]
         },
+        // ==========================================
+    // 模組二：化生單字遊戲群組 - 終章大圓滿
+    // 真・Level 6 頂峰試煉 (100字 絕對無重複)
+    // ==========================================
+        {
+            id: "senior_L6_Final_01", title: "真・LV6 終極試煉 (A)",
+            words: [
+                { word: "abbreviate", meaning: "v. 縮寫；縮短", root: "ad (向) + brevis (短)", phonetic: "/əˈbriː.vi.eɪt/" },
+                { word: "abolish", meaning: "v. 廢除(制度/法律)", root: "ab (離開) + alere (生長) -> 摧毀", phonetic: "/əˈbɑː.lɪʃ/" },
+                { word: "accommodate", meaning: "v. 容納；迎合", root: "ad (向) + commodus (合適的)", phonetic: "/əˈkɑː.mə.deɪt/" },
+                { word: "acute", meaning: "adj. 敏銳的；劇烈的", root: "acus (針/尖銳)", phonetic: "/əˈkjuːt/" },
+                { word: "aesthetic", meaning: "adj. 美學的；審美的", root: "aisthanesthai (希臘語：感知)", phonetic: "/esˈθet̬.ɪk/" },
+                { word: "allocate", meaning: "v. 分配；撥出", root: "ad (向) + locus (地方) -> 放到指定位置", phonetic: "/ˈæl.ə.keɪt/" },
+                { word: "ambiguity", meaning: "n. 模稜兩可；意義不明", root: "ambi (兩邊) + agere (驅動)", phonetic: "/ˌæm.bɪˈɡjuː.ə.t̬i/" },
+                { word: "analogy", meaning: "n. 比喻；類推", root: "ana (根據) + logos (比例/邏輯)", phonetic: "/əˈnæl.ə.dʒi/" },
+                { word: "anonymous", meaning: "adj. 匿名的", root: "an (無) + onyma (名字)", phonetic: "/əˈnɑː.nə.məs/" },
+                { word: "arbitrary", meaning: "adj. 任意的；武斷的", root: "arbiter (裁判) -> 憑個人主觀決定的", phonetic: "/ˈɑːr.bə.trer.i/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_02", title: "真・LV6 終極試煉 (A-C)",
+            words: [
+                { word: "array", meaning: "n. 大批；陣列", root: "ad (向) + redare (準備) -> 準備好的陳列", phonetic: "/əˈreɪ/" },
+                { word: "attribute", meaning: "v. 歸因於 n. 特質", root: "ad (向) + tribuere (給予)", phonetic: "/ˈæt.rɪ.bjuːt/" },
+                { word: "autonomy", meaning: "n. 自治權；自主性", root: "autos (自己) + nomos (法律)", phonetic: "/ɑːˈtɑː.nə.mi/" },
+                { word: "bewilder", meaning: "v. 使迷惑；使不知所措", root: "be (徹底) + wilder (迷失方向)", phonetic: "/bɪˈwɪl.dɚ/" },
+                { word: "boycott", meaning: "v./n. 抵制；杯葛", root: "源自19世紀被抵制的愛爾蘭地主 Boycott", phonetic: "/ˈbɔɪ.kɑːt/" },
+                { word: "brutal", meaning: "adj. 殘忍的；野蠻的", root: "brutus (沉重/遲鈍的)", phonetic: "/ˈbruː.t̬əl/" },
+                { word: "bureaucracy", meaning: "n. 官僚體制；繁文縟節", root: "bureau (辦公桌) + cracy (統治)", phonetic: "/bjʊˈrɑː.krə.si/" },
+                { word: "catastrophe", meaning: "n. 大災難", root: "kata (向下) + strephein (轉動) -> 情況急轉直下", phonetic: "/kəˈtæs.trə.fi/" },
+                { word: "certainty", meaning: "n. 確定性；必然的事", root: "certus (確定的) + ty", phonetic: "/ˈsɝː.tən.ti/" },
+                { word: "chaos", meaning: "n. 混亂；混沌", root: "khaos (希臘語：深淵)", phonetic: "/ˈkeɪ.ɑːs/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_03", title: "真・LV6 終極試煉 (C)",
+            words: [
+                { word: "chronic", meaning: "adj. 慢性的；長期的", root: "khronos (時間)", phonetic: "/ˈkrɑː.nɪk/" },
+                { word: "clash", meaning: "n./v. 衝突；撞擊聲", root: "擬聲詞，結合 clap 與 dash", phonetic: "/klæʃ/" },
+                { word: "closure", meaning: "n. 關閉；了結(心願)", root: "claudere (關閉)", phonetic: "/ˈkloʊ.ʒɚ/" },
+                { word: "coincide", meaning: "v. 同時發生；巧合", root: "com (共同) + in (入) + cadere (落下)", phonetic: "/ˌkoʊ.ɪnˈsaɪd/" },
+                { word: "collaborate", meaning: "v. 合作；協作", root: "com (共同) + laborare (工作)", phonetic: "/kəˈlæb.ə.reɪt/" },
+                { word: "compatible", meaning: "adj. 兼容的；合得來的", root: "com (共同) + pati (忍受) -> 能共處的", phonetic: "/kəmˈpæt̬.ə.bəl/" },
+                { word: "comprise", meaning: "v. 包含；由...組成", root: "com (共同) + prehendere (抓住)", phonetic: "/kəmˈpraɪz/" },
+                { word: "compulsory", meaning: "adj. 強制的；必修的", root: "com (共同) + pellere (推)", phonetic: "/kəmˈpʌl.sɚ.i/" },
+                { word: "concede", meaning: "v. 讓步；勉強承認", root: "com (共同) + cedere (退讓)", phonetic: "/kənˈsiːd/" },
+                { word: "concise", meaning: "adj. 簡潔的", root: "com (完全) + caedere (切) -> 切除廢話", phonetic: "/kənˈsaɪs/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_04", title: "真・LV6 終極試煉 (C)",
+            words: [
+                { word: "condemn", meaning: "v. 譴責；判刑", root: "com (完全) + damnare (傷害/判罪)", phonetic: "/kənˈdem/" },
+                { word: "conform", meaning: "v. 遵守；順從", root: "com (共同) + formare (形成) -> 融入群體框架", phonetic: "/kənˈfɔːrm/" },
+                { word: "consensus", meaning: "n. 共識", root: "com (共同) + sentire (感覺)", phonetic: "/kənˈsen.səs/" },
+                { word: "contradict", meaning: "v. 反駁；與...矛盾", root: "contra (相反) + dicere (說)", phonetic: "/ˌkɑːn.trəˈdɪkt/" },
+                { word: "controversy", meaning: "n. 爭議", root: "contra (相反) + vertere (轉向) -> 意見相左", phonetic: "/ˈkɑːn.trə.vɝː.si/" },
+                { word: "coordinate", meaning: "v. 協調；統籌", root: "com (共同) + ordinare (排序)", phonetic: "/koʊˈɔːr.dən.eɪt/" },
+                { word: "corporate", meaning: "adj. 企業的；法人的", root: "corpus (身體/團體)", phonetic: "/ˈkɔːr.pɚ.ət/" },
+                { word: "corrupt", meaning: "adj. 腐敗的 v. 貪污", root: "com (完全) + rumpere (打破)", phonetic: "/kəˈrʌpt/" },
+                { word: "credibility", meaning: "n. 可信度", root: "credere (相信) + ibility", phonetic: "/ˌkred.əˈbɪl.ə.t̬i/" },
+                { word: "criterion", meaning: "n. 標準；準則", root: "kriterion (希臘語：判斷的方法)", phonetic: "/kraɪˈtɪr.i.ən/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_05", title: "真・LV6 終極試煉 (C-E)",
+            words: [
+                { word: "crucial", meaning: "adj. 決定性的；至關重要的", root: "crux (十字架) -> 關鍵的十字路口", phonetic: "/ˈkruː.ʃəl/" },
+                { word: "deliberate", meaning: "adj. 深思熟慮的；故意的", root: "de (向下) + librare (秤重) -> 在心中掂量", phonetic: "/dɪˈlɪb.ɚ.ət/" },
+                { word: "deprive", meaning: "v. 剝奪；使喪失", root: "de (徹底) + privare (使失去)", phonetic: "/dɪˈpraɪv/" },
+                { word: "deteriorate", meaning: "v. 惡化；退化", root: "deterior (更壞的)", phonetic: "/dɪˈtɪr.i.ə.reɪt/" },
+                { word: "diagnose", meaning: "v. 診斷", root: "dia (穿透) + gignoskein (知道)", phonetic: "/ˌdaɪ.əɡˈnoʊz/" },
+                { word: "dilemma", meaning: "n. 進退兩難", root: "di (兩者) + lemma (前提)", phonetic: "/dɪˈlem.ə/" },
+                { word: "diminish", meaning: "v. 減少；削弱", root: "di (分開) + minuere (變小)", phonetic: "/dɪˈmɪn.ɪʃ/" },
+                { word: "dismantle", meaning: "v. 拆卸；廢除", root: "dis (去除) + mantel (斗篷) -> 卸下裝備", phonetic: "/dɪˈsmæn.t̬əl/" },
+                { word: "eccentric", meaning: "adj. 古怪的；反常的", root: "ex (出) + kentron (中心) -> 偏離中心的", phonetic: "/ɪkˈsen.trɪk/" },
+                { word: "eloquent", meaning: "adj. 雄辯的；口才流利的", root: "ex (出) + loqui (說話)", phonetic: "/ˈel.ə.kwənt/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_06", title: "真・LV6 終極試煉 (E-H)",
+            words: [
+                { word: "empirical", meaning: "adj. 經驗主義的；實證的", root: "empeiria (希臘語：經驗)", phonetic: "/ɪmˈpɪr.ɪ.kəl/" },
+                { word: "eradicate", meaning: "v. 根除；消滅", root: "ex (出) + radix (根) -> 連根拔起", phonetic: "/ɪˈræd.ɪ.keɪt/" },
+                { word: "escalate", meaning: "v. 逐步升級；擴大", root: "scala (梯子) -> 像爬梯般上升", phonetic: "/ˈes.kə.leɪt/" },
+                { word: "explicit", meaning: "adj. 清楚明確的", root: "ex (出) + plicare (摺疊) -> 攤開來不隱藏", phonetic: "/ɪkˈsplɪs.ɪt/" },
+                { word: "fascinate", meaning: "v. 深深吸引；迷住", root: "fascinum (咒語/魅力)", phonetic: "/ˈfæs.ən.eɪt/" },
+                { word: "feasible", meaning: "adj. 可行的", root: "facere (做) -> 做得到的", phonetic: "/ˈfiː.zə.bəl/" },
+                { word: "fluctuate", meaning: "v. 波動；起伏", root: "fluere (流動)", phonetic: "/ˈflʌk.tʃu.eɪt/" },
+                { word: "formidable", meaning: "adj. 令人敬畏的；艱鉅的", root: "formido (恐懼)", phonetic: "/fɔːrˈmɪd.ə.bəl/" },
+                { word: "fragile", meaning: "adj. 脆弱的；易碎的", root: "frangere (打破)", phonetic: "/ˈfrædʒ.əl/" },
+                { word: "hierarchy", meaning: "n. 階級制度", root: "hieros (神聖) + archein (統治)", phonetic: "/ˈhaɪ.rɑːr.ki/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_07", title: "真・LV6 終極試煉 (H-M)",
+            words: [
+                { word: "hypocrisy", meaning: "n. 偽善；虛偽", root: "hypo (在下) + krinein (判斷) -> 戴著面具演戲", phonetic: "/hɪˈpɑː.krə.si/" },
+                { word: "hypothesis", meaning: "n. 假設；假說", root: "hypo (在下) + thesis (放置) -> 底層的立論", phonetic: "/haɪˈpɑː.θə.sɪs/" },
+                { word: "ideology", meaning: "n. 意識形態", root: "idea (思想) + logy (學問)", phonetic: "/ˌaɪ.diˈɑː.lə.dʒi/" },
+                { word: "illiterate", meaning: "adj. 文盲的", root: "in (無) + littera (字母)", phonetic: "/ɪˈlɪt̬.ɚ.ət/" },
+                { word: "impair", meaning: "v. 損害；削弱", root: "in (進入) + pejor (更壞) -> 使變糟", phonetic: "/ɪmˈper/" },
+                { word: "intrigue", meaning: "v. 引起興趣 n. 陰謀", root: "in (入) + tricae (詭計/糾纏)", phonetic: "/ɪnˈtriːɡ/" },
+                { word: "irony", meaning: "n. 諷刺；造化弄人", root: "eironeia (希臘語：假裝無知)", phonetic: "/ˈaɪ.rə.ni/" },
+                { word: "legible", meaning: "adj. 易讀的；字跡清楚的", root: "legere (閱讀)", phonetic: "/ˈledʒ.ə.bəl/" },
+                { word: "literal", meaning: "adj. 字面上的", root: "littera (字母)", phonetic: "/ˈlɪt̬.ɚ.əl/" },
+                { word: "militant", meaning: "adj. 好戰的；激進的", root: "militare (當兵)", phonetic: "/ˈmɪl.ə.tənt/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_08", title: "真・LV6 終極試煉 (M-P)",
+            words: [
+                { word: "monopoly", meaning: "n. 壟斷；獨占", root: "monos (單一) + polein (販賣)", phonetic: "/məˈnɑː.pəl.i/" },
+                { word: "mourn", meaning: "v. 哀悼；哀痛", root: "murnan (古英語：悲傷)", phonetic: "/mɝːn/" },
+                { word: "naive", meaning: "adj. 天真的；輕信的", root: "nativus (天生的/未受世俗影響的)", phonetic: "/naɪˈiːv/" },
+                { word: "notorious", meaning: "adj. 惡名昭彰的", root: "notus (出名的) -> 因壞事而出名", phonetic: "/noʊˈtɔːr.i.əs/" },
+                { word: "obligation", meaning: "n. 義務；責任", root: "ob (向) + ligare (綁) -> 被合約或道德綁住", phonetic: "/ˌɑː.bləˈɡeɪ.ʃən/" },
+                { word: "originate", meaning: "v. 發源；起因", root: "origo (起源)", phonetic: "/əˈrɪdʒ.ən.eɪt/" },
+                { word: "outbreak", meaning: "n. (疫情/戰爭)爆發", root: "out (外) + break (破裂)", phonetic: "/ˈaʊt.breɪk/" },
+                { word: "overwhelm", meaning: "v. 壓倒；使承受不了", root: "over (越過) + whelmen (翻覆)", phonetic: "/ˌoʊ.vɚˈhwelm/" },
+                { word: "preliminary", meaning: "adj. 初步的；預備的", root: "prae (前) + limen (門檻)", phonetic: "/prɪˈlɪm.ə.ner.i/" },
+                { word: "premature", meaning: "adj. 早產的；過早的", root: "prae (前) + maturus (成熟)", phonetic: "/ˌpriː.məˈtʃʊr/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_09", title: "真・LV6 終極試煉 (P-R)",
+            words: [
+                { word: "prevail", meaning: "v. 戰勝；盛行", root: "prae (前) + valere (強壯) -> 力量佔上風", phonetic: "/prɪˈveɪl/" },
+                { word: "priority", meaning: "n. 優先事項", root: "prior (先前的)", phonetic: "/praɪˈɔːr.ə.t̬i/" },
+                { word: "proficient", meaning: "adj. 精通的", root: "pro (向前) + facere (做) -> 進展神速", phonetic: "/prəˈfɪʃ.ənt/" },
+                { word: "prolong", meaning: "v. 延長", root: "pro (向前) + longus (長)", phonetic: "/prəˈlɑːŋ/" },
+                { word: "prominent", meaning: "adj. 突出的；卓越的", root: "pro (向前) + minere (突出)", phonetic: "/ˈprɑː.mə.nənt/" },
+                { word: "prone", meaning: "adj. 易於...的；俯伏的", root: "pronus (向前傾斜的)", phonetic: "/proʊn/" },
+                { word: "radical", meaning: "adj. 激進的；根本的", root: "radix (根) -> 拔本塞源的", phonetic: "/ˈræd.ɪ.kəl/" },
+                { word: "rational", meaning: "adj. 理性的；合理的", root: "ratio (理性/計算)", phonetic: "/ˈræʃ.ən.əl/" },
+                { word: "recruit", meaning: "v. 招募", root: "re (再) + crescere (成長) -> 補充新血", phonetic: "/rɪˈkruːt/" },
+                { word: "reluctant", meaning: "adj. 不情願的", root: "re (反對) + luctari (掙扎) -> 內心抗拒", phonetic: "/rɪˈlʌk.tənt/" }
+            ]
+        },
+        {
+            id: "senior_L6_Final_10", title: "真・LV6 終極試煉 (S-Z 大圓滿)",
+            words: [
+                { word: "scrutiny", meaning: "n. 仔細審查", root: "scrutari (翻搜垃圾) -> 查得一清二楚", phonetic: "/ˈskruː.t̬ən.i/" },
+                { word: "sneer", meaning: "v./n. 冷笑；嘲弄", root: "sniran (古英語：擺出輕蔑的臉)", phonetic: "/snɪr/" },
+                { word: "subordinate", meaning: "adj. 下屬的 n. 部屬", root: "sub (在下) + ordinare (排序)", phonetic: "/səˈbɔːr.dən.ət/" },
+                { word: "subtle", meaning: "adj. 微妙的；隱約的", root: "sub (在下) + tela (網) -> 織得很細密", phonetic: "/ˈsʌt̬.əl/" },
+                { word: "susceptible", meaning: "adj. 易受影響的", root: "sub (在下) + capere (拿取) -> 容易被拿下的", phonetic: "/səˈsep.tə.bəl/" },
+                { word: "synthetic", meaning: "adj. 合成的；人造的", root: "syn (共同) + tithenai (放置) -> 組合起來的", phonetic: "/sɪnˈθet̬.ɪk/" },
+                { word: "underestimate", meaning: "v. 低估", root: "under (在下) + aestimare (估價)", phonetic: "/ˌʌn.dɚˈes.tə.meɪt/" },
+                { word: "verify", meaning: "v. 證實；核對", root: "verus (真實) + facere (做)", phonetic: "/ˈver.ə.faɪ/" },
+                { word: "vibrant", meaning: "adj. 充滿活力的", root: "vibrare (震動) -> 頻率極高的", phonetic: "/ˈvaɪ.brənt/" },
+                { word: "zeal", meaning: "n. 熱忱；狂熱", root: "zelos (希臘語：熱烈的情感)", phonetic: "/ziːl/" }
+            ]
+        },
         
         {
             id: "senior_VWZ", title: "高中 7000 單字 (W-Z組)",
@@ -2736,8 +2890,158 @@ toefl: [
                 { word: "deduction", meaning: "n. 推論；演繹", root: "de (向下) + ducere (引導)", phonetic: "/dɪˈdʌk.ʃən/" }
             ]
         },
+    {
+            id: "toefl_6", title: "托福進階 (洞察與幻象)",
+            words: [
+                { word: "anomalous", meaning: "adj. 異常的；反常的", root: "a (不) + homos (相同) -> 與平常不同", phonetic: "/əˈnɑː.mə.ləs/" },
+                { word: "mirage", meaning: "n. 幻影；海市蜃樓", root: "mirari (驚嘆) -> 令人驚奇的虛幻景象", phonetic: "/mɪˈrɑːʒ/" },
+                { word: "elusive", meaning: "adj. 難以捉摸的", root: "e (出) + ludere (玩弄) -> 像溜走般難以抓住", phonetic: "/iˈluː.sɪv/" },
+                { word: "scrutinize", meaning: "v. 仔細檢查", root: "scrutari (翻搜垃圾) -> 查得一清二楚", phonetic: "/ˈskruː.t̬ən.aɪz/" },
+                { word: "lucid", meaning: "adj. 清楚易懂的；清醒的", root: "lux (光) -> 充滿光亮的", phonetic: "/ˈluː.sɪd/" },
+                { word: "deceptive", meaning: "adj. 欺騙性的", root: "de (向下) + capere (抓) -> 使人落入陷阱", phonetic: "/dɪˈsep.tɪv/" },
+                { word: "discern", meaning: "v. 辨別；看出", root: "dis (分開) + cernere (區分)", phonetic: "/dɪˈsɝːn/" },
+                { word: "ostensible", meaning: "adj. 表面的；假裝的", root: "ob (在...之前) + tendere (伸展) -> 展現給人看的", phonetic: "/ɑːˈsten.sə.bəl/" },
+                { word: "subtle", meaning: "adj. 微妙的；隱約的", root: "sub (在下) + tela (網) -> 織得極細密的", phonetic: "/ˈsʌt̬.əl/" },
+                { word: "verify", meaning: "v. 證實；核對", root: "verus (真實) + fy (使)", phonetic: "/ˈver.ə.faɪ/" }
+            ]
+        },
         {
-            id: "toefl_6", title: "托福核心 (宇宙與生態)",
+            id: "toefl_7", title: "托福進階 (堅韌與逆境)",
+            words: [
+                { word: "adversity", meaning: "n. 逆境；不幸", root: "ad (向) + vertere (轉) -> 轉向不利的一面", phonetic: "/ədˈvɝː.sə.t̬i/" },
+                { word: "tenacious", meaning: "adj. 堅韌的；固執的", root: "tenere (握住) -> 緊抓不放的", phonetic: "/təˈneɪ.ʃəs/" },
+                { word: "mitigate", meaning: "v. 減輕；緩和", root: "mitis (溫和) + agere (做)", phonetic: "/ˈmɪt̬.ə.ɡeɪt/" },
+                { word: "vulnerable", meaning: "adj. 脆弱的；易受傷的", root: "vulnus (傷口) + able", phonetic: "/ˈvʌl.nɚ.ə.bəl/" },
+                { word: "alleviate", meaning: "v. 減輕(痛苦)", root: "ad (向) + levis (輕) -> 使負擔變輕", phonetic: "/əˈliː.vi.eɪt/" },
+                { word: "hinder", meaning: "v. 阻礙；妨礙", root: "hind (在後) -> 拖在後面", phonetic: "/ˈhɪn.dɚ/" },
+                { word: "insurmountable", meaning: "adj. 難以克服的", root: "in (不) + surmonter (超越)", phonetic: "/ˌɪn.sɚˈmaʊn.t̬ə.bəl/" },
+                { word: "prevail", meaning: "v. 戰勝；盛行", root: "prae (前) + valere (強壯) -> 力量佔上風", phonetic: "/prɪˈveɪl/" },
+                { word: "stagnant", meaning: "adj. 停滯的；不景氣的", root: "stagnare (停滯)", phonetic: "/ˈstæɡ.nənt/" },
+                { word: "thrive", meaning: "v. 茁壯；繁榮", root: "thrifa (古諾斯語：抓取/獲利)", phonetic: "/θraɪv/" }
+            ]
+        },
+        {
+            id: "toefl_8", title: "托福進階 (流轉與演化)",
+            words: [
+                { word: "fluctuate", meaning: "v. 波動；起伏", root: "fluere (流動) -> 如水波般", phonetic: "/ˈflʌk.tʃu.eɪt/" },
+                { word: "metamorphosis", meaning: "n. 蛻變；質變", root: "meta (改變) + morphe (形態)", phonetic: "/ˌmet̬.əˈmɔːr.fə.sɪs/" },
+                { word: "mutable", meaning: "adj. 易變的", root: "mutare (改變) + able", phonetic: "/ˈmjuː.t̬ə.bəl/" },
+                { word: "sporadic", meaning: "adj. 偶發的；零星的", root: "spora (種子) -> 像種子般散落的", phonetic: "/spəˈræd.ɪk/" },
+                { word: "impetus", meaning: "n. 推動力；促進", root: "in (入) + petere (尋求/衝) -> 內在的衝力", phonetic: "/ˈɪm.pə.t̬əs/" },
+                { word: "proliferate", meaning: "v. 激增；迅速繁殖", root: "proles (後代) + ferre (帶來)", phonetic: "/prəˈlɪf.ə.reɪt/" },
+                { word: "diminish", meaning: "v. 減少；削弱", root: "dis (分開) + minuere (變小)", phonetic: "/dɪˈmɪn.ɪʃ/" },
+                { word: "erratic", meaning: "adj. 不穩定的；古怪的", root: "errare (漫遊/迷失)", phonetic: "/ɪˈræt̬.ɪk/" },
+                { word: "fossilize", meaning: "v. 僵化；成化石", root: "fossilis (挖出來的)", phonetic: "/ˈfɑː.səl.aɪz/" },
+                { word: "volatile", meaning: "adj. 易變的；不穩定的", root: "volare (飛) -> 隨時會飛走的", phonetic: "/ˈvɑː.lə.t̬əl/" }
+            ]
+        },
+        {
+            id: "toefl_9", title: "托福進階 (辯證與真理)",
+            words: [
+                { word: "empirical", meaning: "adj. 實證的；經驗主義的", root: "empeiria (希臘語：經驗)", phonetic: "/ɪmˈpɪr.ɪ.kəl/" },
+                { word: "plausible", meaning: "adj. 貌似有理的", root: "plaudere (鼓掌) -> 聽起來值得拍手的", phonetic: "/ˈplɑː.zə.bəl/" },
+                { word: "refute", meaning: "v. 駁斥；反駁", root: "re (反) + futare (打擊)", phonetic: "/rɪˈfjuːt/" },
+                { word: "postulate", meaning: "v. 假設；視為理所當然", root: "postulare (要求) -> 要求先承認的前提", phonetic: "/ˈpɑːs.tʃə.leɪt/" },
+                { word: "corroborate", meaning: "v. 證實；確證", root: "cor (共同) + roborare (加強)", phonetic: "/kəˈrɑː.bə.reɪt/" },
+                { word: "fallacy", meaning: "n. 謬誤；錯誤的觀念", root: "fallere (欺騙)", phonetic: "/ˈfæl.ə.si/" },
+                { word: "ambivalent", meaning: "adj. 矛盾的；心情複雜的", root: "ambi (兩者) + valere (力量) -> 兩股力量拉扯", phonetic: "/æmˈbɪv.ə.lənt/" },
+                { word: "paradigm", meaning: "n. 典範；範式", root: "para (在旁) + deiknunai (展示)", phonetic: "/ˈper.ə.daɪm/" },
+                { word: "substantiate", meaning: "v. 證實；證明", root: "sub (在下) + stare (站立) -> 給予底層支撐", phonetic: "/səbˈstæn.ʃi.eɪt/" },
+                { word: "legitimacy", meaning: "n. 合法性；正當性", root: "lex (法律) -> 符合法理的狀態", phonetic: "/ləˈdʒɪt̬.ə.mə.si/" }
+            ]
+        },
+        {
+            id: "toefl_10", title: "托福進階 (秩序與混亂)",
+            words: [
+                { word: "hierarchy", meaning: "n. 階級制度", root: "hieros (神聖) + archein (統治)", phonetic: "/ˈhaɪ.rɑːr.ki/" },
+                { word: "anarchy", meaning: "n. 無政府狀態；混亂", root: "an (無) + arkhos (統治者)", phonetic: "/ˈæn.ɚ.ki/" },
+                { word: "cohere", meaning: "v. 凝聚；連貫", root: "co (共同) + haerere (黏附)", phonetic: "/koʊˈhɪr/" },
+                { word: "disintegrate", meaning: "v. 瓦解；解體", root: "dis (分開) + integer (完整)", phonetic: "/dɪˈsɪn.t̬ə.ɡreɪt/" },
+                { word: "homogenous", meaning: "adj. 同質的", root: "homos (相同) + genos (種類)", phonetic: "/həˈmɑː.dʒə.nəs/" },
+                { word: "disparate", meaning: "adj. 迥然不同的", root: "dis (分開) + parare (準備)", phonetic: "/ˈdɪs.pɚ.ət/" },
+                { word: "symmetry", meaning: "n. 對稱；勻稱", root: "syn (共同) + metron (測量)", phonetic: "/ˈsɪm.ə.tri/" },
+                { word: "tumultuous", meaning: "adj. 混亂的；喧譁的", root: "tumultus (騷動)", phonetic: "/tuːˈmʌl.tʃu.əs/" },
+                { word: "stratify", meaning: "v. 使分層；使階級化", root: "stratum (層) + fy (使)", phonetic: "/ˈstræt̬.ə.faɪ/" },
+                { word: "pervasive", meaning: "adj. 普遍的；瀰漫的", root: "per (穿過) + vadere (走) -> 無所不在的", phonetic: "/pɚˈveɪ.sɪv/" }
+            ]
+        },
+        {
+            id: "toefl_11", title: "托福進階 (倫理與信仰)",
+            words: [
+                { word: "hypocrisy", meaning: "n. 偽善；虛偽", root: "hypo (在下) + krinein (判斷) -> 演戲", phonetic: "/hɪˈpɑː.krə.si/" },
+                { word: "integrity", meaning: "n. 正直；完整性", root: "integer (完整/未受損的)", phonetic: "/ɪnˈteɡ.rə.t̬i/" },
+                { word: "secular", meaning: "adj. 世俗的；非宗教的", root: "saeculum (時代/世俗)", phonetic: "/ˈsek.jə.lɚ/" },
+                { word: "dogmatic", meaning: "adj. 教條的；武斷的", root: "dogma (意見/教條)", phonetic: "/dɑːɡˈmæt̬.ɪk/" },
+                { word: "pious", meaning: "adj. 虔誠的", root: "pius (盡責的/敬神的)", phonetic: "/ˈpaɪ.əs/" },
+                { word: "venerate", meaning: "v. 尊崇；敬重", root: "venus (愛/渴望) -> 充滿敬意", phonetic: "/ˈven.ə.reɪt/" },
+                { word: "malevolent", meaning: "adj. 惡意的", root: "male (壞) + velle (意願)", phonetic: "/məˈlev.əl.ənt/" },
+                { word: "benevolent", meaning: "adj. 仁慈的", root: "bene (好) + velle (意願)", phonetic: "/bəˈnev.əl.ənt/" },
+                { word: "condemn", meaning: "v. 譴責；判刑", root: "con (完全) + damnare (傷害/定罪)", phonetic: "/kənˈdem/" },
+                { word: "vindicate", meaning: "v. 證明清白；維護", root: "vis (力量) + dicere (說) -> 用力辯護", phonetic: "/ˈvɪn.də.keɪt/" }
+            ]
+        },
+        {
+            id: "toefl_12", title: "托福進階 (繁榮與衰退)",
+            words: [
+                { word: "affluent", meaning: "adj. 富裕的", root: "ad (向) + fluere (流) -> 財富流入", phonetic: "/ˈæf.lu.ənt/" },
+                { word: "destitute", meaning: "adj. 貧困的；一無所有的", root: "de (離開) + statuere (放置) -> 失去依靠", phonetic: "/ˈdes.tə.tuːt/" },
+                { word: "lucrative", meaning: "adj. 獲利豐厚的", root: "lucrum (利潤)", phonetic: "/ˈluː.krə.t̬ɪv/" },
+                { word: "deplete", meaning: "v. 耗盡", root: "de (反) + plere (裝滿) -> 使變空", phonetic: "/dɪˈpliːt/" },
+                { word: "augment", meaning: "v. 擴增；提高", root: "augere (增加)", phonetic: "/ɑːɡˈment/" },
+                { word: "obsolete", meaning: "adj. 過時的；淘汰的", root: "ob (離開) + solere (習慣) -> 不再被習慣使用的", phonetic: "/ˌɑːb.səlˈiːt/" },
+                { word: "surplus", meaning: "n. 過剩；盈餘", root: "super (超過) + plus (更多)", phonetic: "/ˈsɝː.pləs/" },
+                { word: "deteriorate", meaning: "v. 惡化", root: "deterior (更壞的)", phonetic: "/dɪˈtɪr.i.ə.reɪt/" },
+                { word: "burgeon", meaning: "v. 迅速發展；發芽", root: "burjon (花苞/萌芽)", phonetic: "/ˈbɝː.dʒən/" },
+                { word: "desolate", meaning: "adj. 荒涼的；孤寂的", root: "de (徹底) + solus (孤獨)", phonetic: "/ˈdes.əl.ət/" }
+            ]
+        },
+        {
+            id: "toefl_13", title: "托福進階 (意識與感知)",
+            words: [
+                { word: "subliminal", meaning: "adj. 潛意識的", root: "sub (在下) + limen (門檻)", phonetic: "/ˌsʌbˈlɪm.ə.nəl/" },
+                { word: "tangible", meaning: "adj. 有形的；實際的", root: "tangere (觸摸) -> 摸得到的", phonetic: "/ˈtæn.dʒə.bəl/" },
+                { word: "imperceptible", meaning: "adj. 難以察覺的", root: "in (不) + percipere (感知)", phonetic: "/ˌɪm.pɚˈsep.tə.bəl/" },
+                { word: "cognition", meaning: "n. 認知", root: "co (共同) + gnoscere (知道)", phonetic: "/kɑːɡˈnɪʃ.ən/" },
+                { word: "hallucination", meaning: "n. 幻覺", root: "hallucinari (心智漫遊)", phonetic: "/həˌluː.səˈneɪ.ʃən/" },
+                { word: "introspective", meaning: "adj. 內省的", root: "intro (向內) + specere (看)", phonetic: "/ˌɪn.trəˈspek.tɪv/" },
+                { word: "manifest", meaning: "v. 顯現；表明", root: "manus (手) + festus (打擊) -> 具體呈現", phonetic: "/ˈmæn.ə.fest/" },
+                { word: "latent", meaning: "adj. 潛伏的；隱藏的", root: "latere (隱藏)", phonetic: "/ˈleɪ.tənt/" },
+                { word: "oblivious", meaning: "adj. 遺忘的；未察覺的", root: "oblivisci (忘記)", phonetic: "/əˈblɪv.i.əs/" },
+                { word: "reminisce", meaning: "v. 回憶；緬懷", root: "re (再) + mind (心智)", phonetic: "/ˌrem.əˈnɪs/" }
+            ]
+        },
+        {
+            id: "toefl_14", title: "托福進階 (本質與虛無)",
+            words: [
+                { word: "intrinsic", meaning: "adj. 固有的；本質的", root: "intra (在內) + secus (沿著)", phonetic: "/ɪnˈtrɪn.zɪk/" },
+                { word: "extraneous", meaning: "adj. 無關的；外來的", root: "extra (在...之外)", phonetic: "/ɪkˈstreɪ.ni.əs/" },
+                { word: "hollow", meaning: "adj. 空洞的；虛偽的", root: "holh (古英語：洞穴)", phonetic: "/ˈhɑː.loʊ/" },
+                { word: "quintessence", meaning: "n. 精華；典範", root: "quinta (第五) + essentia (元素)", phonetic: "/kwɪnˈtes.əns/" },
+                { word: "superficial", meaning: "adj. 表面的；膚淺的", root: "super (在...之上) + facies (臉)", phonetic: "/ˌsuː.pɚˈfɪʃ.əl/" },
+                { word: "astute", meaning: "adj. 機敏的；狡黠的", root: "astus (手腕/策略)", phonetic: "/əˈstuːt/" },
+                { word: "frivolous", meaning: "adj. 輕浮的；瑣碎的", root: "frivolus (愚蠢的)", phonetic: "/ˈfrɪv.əl.əs/" },
+                { word: "stark", meaning: "adj. 荒涼的；鮮明的對比", root: "stearc (僵硬的)", phonetic: "/stɑːrk/" },
+                { word: "amorphous", meaning: "adj. 無固定形狀的", root: "a (無) + morphe (形態)", phonetic: "/əˈmɔːr.fəs/" },
+                { word: "vacuum", meaning: "n. 真空；空白", root: "vacuus (空的)", phonetic: "/ˈvæk.juːm/" }
+            ]
+        },
+        {
+            id: "toefl_15", title: "托福進階 (極限與超越)",
+            words: [
+                { word: "finite", meaning: "adj. 有限的", root: "finis (邊界/結束)", phonetic: "/ˈfaɪ.naɪt/" },
+                { word: "infinite", meaning: "adj. 無限的", root: "in (不) + finis (邊界)", phonetic: "/ˈɪn.fə.nət/" },
+                { word: "surpass", meaning: "v. 超越；勝過", root: "sur (超過) + passer (經過)", phonetic: "/sɚˈpæs/" },
+                { word: "boundary", meaning: "n. 邊界；界線", root: "bound (限制)", phonetic: "/ˈbaʊn.dər.i/" },
+                { word: "culminate", meaning: "v. 達到頂點", root: "culmen (頂峰)", phonetic: "/ˈkʌl.mə.neɪt/" },
+                { word: "marginal", meaning: "adj. 邊緣的；微不足道的", root: "margo (邊緣)", phonetic: "/ˈmɑːr.dʒɪ.nəl/" },
+                { word: "paramount", meaning: "adj. 至高無上的；首要的", root: "par (藉由) + amont (向上)", phonetic: "/ˈper.ə.maʊnt/" },
+                { word: "subordinate", meaning: "adj. 次要的；下級的", root: "sub (在下) + ordinare (排序)", phonetic: "/səˈbɔːr.dən.ət/" },
+                { word: "pinnacle", meaning: "n. 頂峰；極點", root: "pinna (羽翼/尖端)", phonetic: "/ˈpɪn.ə.kəl/" },
+                { word: "emancipate", meaning: "v. 解放；解除束縛", root: "ex (出) + mancipum (奴隸) -> 脫離掌控", phonetic: "/iˈmæn.sə.peɪt/" }
+            ]
+        }
+        {
+            id: "toefl_16", title: "托福核心 (宇宙與生態)",
             words: [
                 { word: "cosmos", meaning: "n. 宇宙 (強調秩序)", root: "kosmos (秩序/世界)", phonetic: "/ˈkɑːz.moʊs/" },
                 { word: "symbiosis", meaning: "n. 共生關係", root: "syn (共同) + bioun (生活)", phonetic: "/ˌsɪm.baɪˈoʊ.sɪs/" },
