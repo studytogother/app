@@ -3039,7 +3039,7 @@ toefl: [
                 { word: "pinnacle", meaning: "n. 頂峰；極點", root: "pinna (羽翼/尖端)", phonetic: "/ˈpɪn.ə.kəl/" },
                 { word: "emancipate", meaning: "v. 解放；解除束縛", root: "ex (出) + mancipum (奴隸) -> 脫離掌控", phonetic: "/iˈmæn.sə.peɪt/" }
             ]
-        }
+        },
         {
             id: "toefl_16", title: "托福核心 (宇宙與生態)",
             words: [
