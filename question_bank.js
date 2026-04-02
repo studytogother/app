@@ -1678,6 +1678,991 @@ const QuestionBank = {
                 { word: "zealous", meaning: "adj. 熱忱的；狂熱的", root: "zelos (熱情) + ous", phonetic: "/ˈzel.əs/" }
             ]
         },
+        {
+            id: "senior_L46_Exp_A1", title: "千字擴充計畫 (L4-6 : A-1)",
+            words: [
+                { word: "abnormal", meaning: "adj. 反常的；異常的", root: "ab (偏離) + normal (正常) -> 偏離常態", phonetic: "/æbˈnɔːr.məl/" },
+                { word: "abrupt", meaning: "adj. 突然的；魯莽的", root: "ab (離開) + rumpere (打破) -> 突然斷裂", phonetic: "/əˈbrʌpt/" },
+                { word: "accessible", meaning: "adj. 易接近的；可理解的", root: "ad (向) + cedere (走) + ible -> 走得到的", phonetic: "/əkˈses.ə.bəl/" },
+                { word: "accumulate", meaning: "v. 累積；積聚", root: "ad (向) + cumulare (堆積)", phonetic: "/əˈkjuː.mjə.leɪt/" },
+                { word: "aggravate", meaning: "v. 加重；使惡化", root: "ad (向) + gravis (沉重) -> 負擔加重", phonetic: "/ˈæɡ.rə.veɪt/" },
+                { word: "anticipate", meaning: "v. 預期；期望", root: "ante (前) + capere (拿取) -> 提前在心中掌握", phonetic: "/ænˈtɪs.ə.peɪt/" },
+                { word: "apparatus", meaning: "n. 儀器；機構", root: "ad (向) + parare (準備) -> 準備好的工具", phonetic: "/ˌæp.əˈræt̬.əs/" },
+                { word: "arrogant", meaning: "adj. 傲慢的；自大的", root: "ad (向) + rogare (要求) -> 無理索求", phonetic: "/ˈer.ə.ɡənt/" },
+                { word: "ascertain", meaning: "v. 查明；確定", root: "ad (向) + certus (確定)", phonetic: "/ˌæs.ɚˈteɪn/" },
+                { word: "ascribe", meaning: "v. 歸因於", root: "ad (向) + scribere (寫) -> 記在...的名下", phonetic: "/əˈskraɪb/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_A2", title: "千字擴充計畫 (L4-6 : A-2)",
+            words: [
+                { word: "assault", meaning: "n./v. 攻擊；襲擊", root: "ad (向) + saltare (跳躍) -> 撲向", phonetic: "/əˈsɑːlt/" },
+                { word: "assess", meaning: "v. 評估；評定", root: "ad (向) + sedere (坐) -> 坐在旁邊估價", phonetic: "/əˈses/" },
+                { word: "asset", meaning: "n. 資產；寶貴的特質", root: "ad (向) + satis (足夠) -> 足以抵債之物", phonetic: "/ˈæs.et/" },
+                { word: "astray", meaning: "adv./adj. 迷路地；走偏的", root: "extra (在...之外) + vagari (漫遊)", phonetic: "/əˈstreɪ/" },
+                { word: "attain", meaning: "v. 達到；獲得", root: "ad (向) + tangere (觸摸) -> 碰觸到目標", phonetic: "/əˈteɪn/" },
+                { word: "attendant", meaning: "n. 服務員 adj. 伴隨的", root: "ad (向) + tendere (伸展/注意)", phonetic: "/əˈten.dənt/" },
+                { word: "authoritative", meaning: "adj. 權威的；官方的", root: "auctor (創造者/大師) + itative", phonetic: "/əˈθɔːr.ə.t̬ə.t̬ɪv/" },
+                { word: "auxiliary", meaning: "adj. 輔助的；備用的", root: "auxilium (幫助)", phonetic: "/ɑːɡˈzɪl.i.er.i/" },
+                { word: "awe", meaning: "n. 敬畏 v. 使敬畏", root: "源自古諾斯語 agi (恐懼/敬畏)", phonetic: "/ɑː/" },
+                { word: "axis", meaning: "n. 軸；核心", root: "源自拉丁語 axis (車軸)", phonetic: "/ˈæk.sɪs/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_B1", title: "千字擴充計畫 (L4-6 : B-1)",
+            words: [
+                { word: "backbone", meaning: "n. 脊椎；骨氣", root: "back (背) + bone (骨) -> 支撐一切的根本", phonetic: "/ˈbæk.boʊn/" },
+                { word: "ballot", meaning: "n. 選票；投票", root: "balla (球) -> 古代用小球投票", phonetic: "/ˈbæl.ət/" },
+                { word: "banish", meaning: "v. 放逐；驅逐", root: "ban (宣告/禁止) -> 宣告驅逐出境", phonetic: "/ˈbæn.ɪʃ/" },
+                { word: "barren", meaning: "adj. 貧瘠的；荒蕪的", root: "源自古法語 barhaigne (不孕的)", phonetic: "/ˈber.ən/" },
+                { word: "behalf", meaning: "n. 代表；利益", root: "by (在旁邊) + half (側/面)", phonetic: "/bɪˈhæf/" },
+                { word: "besiege", meaning: "v. 包圍；圍攻", root: "be (周圍) + siege (座位/封鎖)", phonetic: "/bɪˈsiːdʒ/" },
+                { word: "betray", meaning: "v. 背叛；無意中洩露", root: "be (徹底) + tradere (交出)", phonetic: "/bɪˈtreɪ/" },
+                { word: "bleak", meaning: "adj. 荒涼的；黯淡的", root: "源自古諾斯語 bleikr (蒼白的)", phonetic: "/bliːk/" },
+                { word: "blunder", meaning: "n. 大錯 v. 犯蠢錯", root: "源自古諾斯語 blundra (閉著眼睛走)", phonetic: "/ˈblʌn.dɚ/" },
+                { word: "blunt", meaning: "adj. 鈍的；直率的", root: "來源不明，可能與 blind (盲目) 同源", phonetic: "/blʌnt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_B2", title: "千字擴充計畫 (L4-6 : B-2)",
+            words: [
+                { word: "blur", meaning: "v. 使模糊 n. 模糊不清", root: "源自 blear (視線朦朧)", phonetic: "/blɝː/" },
+                { word: "bog", meaning: "n. 沼澤 v. 陷入泥沼", root: "源自愛爾蘭語 bogach (柔軟的地面)", phonetic: "/bɑːɡ/" },
+                { word: "bolster", meaning: "v. 支持；增強", root: "源自 bolster (長枕頭/墊子)", phonetic: "/ˈboʊl.stɚ/" },
+                { word: "bonus", meaning: "n. 獎金；紅利", root: "源自拉丁語 bonus (好的)", phonetic: "/ˈboʊ.nəs/" },
+                { word: "boom", meaning: "n./v. 繁榮；發出隆隆聲", root: "源自荷蘭語 bommen (嗡嗡作響)", phonetic: "/buːm/" },
+                { word: "bound", meaning: "adj. 準備前往...的；必然的", root: "源自古諾斯語 buinn (準備好的)", phonetic: "/baʊnd/" },
+                { word: "brink", meaning: "n. 邊緣", root: "源自古諾斯語 brekka (斜坡/懸崖邊)", phonetic: "/brɪŋk/" },
+                { word: "brisk", meaning: "adj. 輕快的；生氣勃勃的", root: "源自法語 brusque (活潑的)", phonetic: "/brɪsk/" },
+                { word: "bulk", meaning: "n. 體積；大部分", root: "源自古諾斯語 bulki (貨物)", phonetic: "/bʌlk/" },
+                { word: "bulletin", meaning: "n. 公告；新聞快報", root: "bulla (印章/公文)", phonetic: "/ˈbʊl.ə.t̬ɪn/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_C1", title: "千字擴充計畫 (L4-6 : C-1)",
+            words: [
+                { word: "calcium", meaning: "n. 鈣", root: "calx (石灰石) + ium", phonetic: "/ˈkæl.si.əm/" },
+                { word: "calculation", meaning: "n. 計算；深思熟慮", root: "calculare (用小石子計算)", phonetic: "/ˌkæl.kjəˈleɪ.ʃən/" },
+                { word: "calorie", meaning: "n. 卡路里", root: "calor (熱)", phonetic: "/ˈkæl.ɚ.i/" },
+                { word: "capsule", meaning: "n. 膠囊；太空艙", root: "capsa (盒子) -> 小盒子", phonetic: "/ˈkæp.səl/" },
+                { word: "captive", meaning: "n. 俘虜 adj. 被監禁的", root: "capere (抓取/拿) -> 被抓住的", phonetic: "/ˈkæp.tɪv/" },
+                { word: "carbohydrate", meaning: "n. 碳水化合物", root: "carbo (碳) + hydro (水)", phonetic: "/ˌkɑːr.boʊˈhaɪ.dreɪt/" },
+                { word: "cardinal", meaning: "adj. 主要的 n. 樞機主教", root: "cardo (門樞/關鍵)", phonetic: "/ˈkɑːr.dɪ.nəl/" },
+                { word: "casualty", meaning: "n. 傷亡人員", root: "casus (倒下/落下) -> 倒下的人", phonetic: "/ˈkæʒ.ju.əl.ti/" },
+                { word: "cater", meaning: "v. 迎合；提供飲食", root: "acatour (買手/承辦伙食者)", phonetic: "/ˈkeɪ.t̬ɚ/" },
+                { word: "cavity", meaning: "n. 洞；蛀牙", root: "cavus (中空的)", phonetic: "/ˈkæv.ə.t̬i/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_C2", title: "千字擴充計畫 (L4-6 : C-2)",
+            words: [
+                { word: "certify", meaning: "v. 證明；發放證書", root: "certus (確定) + fy (使) -> 使之確定", phonetic: "/ˈsɝː.t̬ə.faɪ/" },
+                { word: "characterize", meaning: "v. 描述...的特性", root: "character (特徵) + ize", phonetic: "/ˈker.ək.tɚ.aɪz/" },
+                { word: "charitable", meaning: "adj. 慈善的；寬容的", root: "caritas (愛/慈善) + able", phonetic: "/ˈtʃer.ə.t̬ə.bəl/" },
+                { word: "cholesterol", meaning: "n. 膽固醇", root: "chole (膽汁) + stereos (固體)", phonetic: "/kəˈles.tə.roʊl/" },
+                { word: "chuckle", meaning: "v./n. 輕聲笑；暗自發笑", root: "擬聲詞，源自 chuck (咯咯叫)", phonetic: "/ˈtʃʌk.əl/" },
+                { word: "circuit", meaning: "n. 電路；環行", root: "circum (環繞) + ire (走) -> 繞一圈", phonetic: "/ˈsɝː.kɪt/" },
+                { word: "civilize", meaning: "v. 使文明；教化", root: "civilis (公民的) + ize", phonetic: "/ˈsɪv.əl.aɪz/" },
+                { word: "clamor", meaning: "n./v. 喧鬧；大聲要求", root: "clamare (喊叫)", phonetic: "/ˈklæm.ɚ/" },
+                { word: "clan", meaning: "n. 宗族；氏族", root: "planta (後代/分支)", phonetic: "/klæn/" },
+                { word: "climax", meaning: "n. 頂點；高潮", root: "klimax (梯子) -> 爬到最高處", phonetic: "/ˈklaɪ.mæks/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_C3", title: "千字擴充計畫 (L4-6 : C-3)",
+            words: [
+                { word: "cling", meaning: "v. 緊抓；堅持；依戀", root: "源自古英語 clingan (黏附/收縮)", phonetic: "/klɪŋ/" },
+                { word: "clinical", meaning: "adj. 臨床的；冷靜客觀的", root: "kline (床) -> 在病床邊的", phonetic: "/ˈklɪn.ɪ.kəl/" },
+                { word: "clockwise", meaning: "adv./adj. 順時針的", root: "clock (時鐘) + wise (方向/方式)", phonetic: "/ˈklɑːk.waɪz/" },
+                { word: "clumsy", meaning: "adj. 笨拙的；不得體的", root: "clumse (凍僵的) -> 動作不靈活", phonetic: "/ˈklʌm.zi/" },
+                { word: "coalition", meaning: "n. 聯盟；聯合", root: "co (共同) + alescere (成長) -> 一起壯大", phonetic: "/ˌkoʊ.əˈlɪʃ.ən/" },
+                { word: "coarse", meaning: "adj. 粗糙的；粗俗的", root: "course (常規/平常的) -> 未經雕琢的", phonetic: "/kɔːrs/" },
+                { word: "coastal", meaning: "adj. 沿海的", root: "costa (肋骨/海岸) + al", phonetic: "/ˈkoʊ.stəl/" },
+                { word: "coax", meaning: "v. 哄勸；耐心地處理", root: "cokes (傻瓜) -> 把人當傻瓜般哄騙", phonetic: "/koʊks/" },
+                { word: "coherent", meaning: "adj. 有條理的；連貫的", root: "co (共同) + haerere (黏附) -> 緊密結合", phonetic: "/koʊˈhɪr.ənt/" },
+                { word: "collide", meaning: "v. 碰撞；衝突", root: "col (共同) + laedere (打擊)", phonetic: "/kəˈlaɪd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_C4", title: "千字擴充計畫 (L4-6 : C-4)",
+            words: [
+                { word: "combat", meaning: "n./v. 戰鬥；打擊", root: "com (共同) + battere (打)", phonetic: "/ˈkɑːm.bæt/" },
+                { word: "comet", meaning: "n. 彗星", root: "kometes (長髮的) -> 像長著尾巴的星", phonetic: "/ˈkɑː.mɪt/" },
+                { word: "commemorate", meaning: "v. 紀念", root: "com (共同) + memorare (記住)", phonetic: "/kəˈmem.ə.reɪt/" },
+                { word: "commence", meaning: "v. 開始；著手", root: "com (共同) + initiare (開始)", phonetic: "/kəˈmens/" },
+                { word: "commentary", meaning: "n. 評論；實況報導", root: "commentum (發明/解釋) + ary", phonetic: "/ˈkɑː.mən.ter.i/" },
+                { word: "commitment", meaning: "n. 承諾；奉獻", root: "com (完全) + mittere (交付) -> 全心投入", phonetic: "/kəˈmɪt.mənt/" },
+                { word: "commodity", meaning: "n. 商品；日用品", root: "commodus (方便的/合適的)", phonetic: "/kəˈmɑː.də.t̬i/" },
+                { word: "commonplace", meaning: "adj. 尋常的 n. 老生常談", root: "common (共同) + place (地方) -> 隨處可見", phonetic: "/ˈkɑː.mən.pleɪs/" },
+                { word: "commute", meaning: "v. 通勤；減刑", root: "com (互相) + mutare (改變/交換)", phonetic: "/kəˈmjuːt/" },
+                { word: "compact", meaning: "adj. 緊密的；小巧的 n. 契約", root: "com (共同) + pangere (固定)", phonetic: "/kəmˈpækt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_C5", title: "千字擴充計畫 (L4-6 : C-5)",
+            words: [
+                { word: "compel", meaning: "v. 強迫；驅使", root: "com (共同) + pellere (推)", phonetic: "/kəmˈpel/" },
+                { word: "competence", meaning: "n. 能力；勝任", root: "com (共同) + petere (尋求) -> 足以競爭的能力", phonetic: "/ˈkɑːm.pə.t̬əns/" },
+                { word: "compile", meaning: "v. 彙編；收集", root: "com (共同) + pilare (擠壓/堆積)", phonetic: "/kəmˈpaɪl/" },
+                { word: "complement", meaning: "v./n. 補充；互補物", root: "com (完全) + plere (填滿)", phonetic: "/ˈkɑːm.plə.ment/" },
+                { word: "complexion", meaning: "n. 膚色；氣色", root: "com (共同) + plectere (編織) -> 氣血交織的面貌", phonetic: "/kəmˈplek.ʃən/" },
+                { word: "complexity", meaning: "n. 複雜性", root: "complexus (編織在一起) + ity", phonetic: "/kəmˈplek.sə.t̬i/" },
+                { word: "complication", meaning: "n. 複雜化；併發症", root: "com (共同) + plicare (摺疊)", phonetic: "/ˌkɑːm.pləˈkeɪ.ʃən/" },
+                { word: "compliment", meaning: "v./n. 讚美；恭維", root: "complementum (完成) -> 使人滿足的話語", phonetic: "/ˈkɑːm.plə.mənt/" },
+                { word: "compromise", meaning: "v./n. 妥協；折衷", root: "com (共同) + promittere (承諾) -> 互相讓步達成協議", phonetic: "/ˈkɑːm.prə.maɪz/" },
+                { word: "conceal", meaning: "v. 隱藏；隱瞞", root: "con (完全) + celare (隱藏)", phonetic: "/kənˈsiːl/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_D1", title: "千字擴充計畫 (L4-6 : D-1)",
+            words: [
+                { word: "deduce", meaning: "v. 推論；演繹", root: "de (向下) + ducere (引導) -> 引導出結論", phonetic: "/dɪˈduːs/" },
+                { word: "deduct", meaning: "v. 扣除；減去", root: "de (向下) + ducere (引導) -> 往下拿走", phonetic: "/dɪˈdʌkt/" },
+                { word: "defect", meaning: "n. 缺點 v. 叛逃", root: "de (向下/離開) + facere (做) -> 沒做好", phonetic: "/ˈdiː.fekt/" },
+                { word: "deficit", meaning: "n. 赤字；不足額", root: "deficere (缺乏)", phonetic: "/ˈdef.ə.sɪt/" },
+                { word: "defy", meaning: "v. 反抗；公然藐視", root: "dis (分開) + fidus (信任) -> 拒絕效忠", phonetic: "/dɪˈfaɪ/" },
+                { word: "degenerate", meaning: "v. 惡化；退化", root: "de (向下) + genus (種類) -> 品質下降", phonetic: "/dɪˈdʒen.ə.reɪt/" },
+                { word: "degrade", meaning: "v. 降級；貶低；分解", root: "de (向下) + gradus (步/級)", phonetic: "/dɪˈɡreɪd/" },
+                { word: "delinquent", meaning: "n. 違法者 adj. 怠忽職守的", root: "de (完全) + linquere (離開) -> 離棄正道", phonetic: "/dɪˈlɪŋ.kwənt/" },
+                { word: "demographic", meaning: "adj. 人口統計的", root: "demos (人民) + graphein (寫)", phonetic: "/ˌdem.əˈɡræf.ɪk/" },
+                { word: "denounce", meaning: "v. 譴責；告發", root: "de (向下/反對) + nuntiare (宣告)", phonetic: "/dɪˈnaʊns/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_D2", title: "千字擴充計畫 (L4-6 : D-2)",
+            words: [
+                { word: "dense", meaning: "adj. 密集的；濃厚的", root: "densus (濃密/緊密)", phonetic: "/dens/" },
+                { word: "depict", meaning: "v. 描繪；描述", root: "de (向下) + pingere (畫) -> 畫下來", phonetic: "/dɪˈpɪkt/" },
+                { word: "derive", meaning: "v. 取得；源自", root: "de (向下) + rivus (河流) -> 引水流出", phonetic: "/dɪˈraɪv/" },
+                { word: "descend", meaning: "v. 下降；傳承", root: "de (向下) + scandere (攀登)", phonetic: "/dɪˈsend/" },
+                { word: "designate", meaning: "v. 指定；任命", root: "de (完全) + signare (標記) -> 畫上記號", phonetic: "/ˈdez.ɪɡ.neɪt/" },
+                { word: "detach", meaning: "v. 分開；拆下", root: "de (分開) + attacher (連接) -> 解除執著", phonetic: "/dɪˈtætʃ/" },
+                { word: "detain", meaning: "v. 拘留；扣留", root: "de (向下) + tenere (保持) -> 壓制住", phonetic: "/dɪˈteɪn/" },
+                { word: "deter", meaning: "v. 嚇阻；阻礙", root: "de (離開) + terrere (恐嚇) -> 讓人不敢靠近", phonetic: "/dɪˈtɝː/" },
+                { word: "devour", meaning: "v. 狼吞虎嚥；吞噬", root: "de (完全) + vorare (吞食)", phonetic: "/dɪˈvaʊ.ɚ/" },
+                { word: "dialect", meaning: "n. 方言", root: "dia (之間) + legein (說話) -> 特定人群的交流", phonetic: "/ˈdaɪ.ə.lekt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_D3", title: "千字擴充計畫 (L4-6 : D-3)",
+            words: [
+                { word: "dictate", meaning: "v. 口述；命令", root: "dictare (說/命令)", phonetic: "/ˈdɪk.teɪt/" },
+                { word: "diligence", meaning: "n. 勤奮；用功", root: "dis (分開) + legere (選擇) -> 專注於所選之事", phonetic: "/ˈdɪl.ə.dʒəns/" },
+                { word: "dilute", meaning: "v. 稀釋；削弱", root: "di (分開) + luere (洗) -> 沖淡", phonetic: "/daɪˈluːt/" },
+                { word: "dimension", meaning: "n. 尺寸；面向；維度", root: "dis (分開) + metiri (測量)", phonetic: "/ˌdaɪˈmen.ʃən/" },
+                { word: "directory", meaning: "n. 目錄；指南", root: "dirigere (引導) -> 指引方向的書", phonetic: "/dɪˈrek.tɚ.i/" },
+                { word: "discharge", meaning: "v./n. 排放；允許離開", root: "dis (去除) + carrus (車/負擔) -> 卸下重擔", phonetic: "/dɪsˈtʃɑːrdʒ/" },
+                { word: "disclose", meaning: "v. 揭露；公開", root: "dis (打開) + claudere (關閉) -> 不再隱藏", phonetic: "/dɪˈskloʊz/" },
+                { word: "discord", meaning: "n. 不和；紛爭", root: "dis (分開) + cor (心) -> 兩心相背", phonetic: "/ˈdɪs.kɔːrd/" },
+                { word: "discrepancy", meaning: "n. 差異；不一致", root: "dis (分開) + crepare (發出聲音) -> 雜音", phonetic: "/dɪˈskrep.ən.si/" },
+                { word: "discriminate", meaning: "v. 歧視；辨別", root: "dis (分開) + cernere (區分) -> 區別對待", phonetic: "/dɪˈskrɪm.ə.neɪt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_D4", title: "千字擴充計畫 (L4-6 : D-4)",
+            words: [
+                { word: "disgrace", meaning: "n./v. 恥辱；使丟臉", root: "dis (失去) + gratia (恩典/優雅)", phonetic: "/dɪsˈɡreɪs/" },
+                { word: "dismay", meaning: "n./v. 沮喪；使驚慌", root: "dis (完全) + magan (力量) -> 失去力量", phonetic: "/dɪˈsmeɪ/" },
+                { word: "dispatch", meaning: "v. 派遣；發送", root: "dis (分開) + pedicare (解開腳鐐) -> 迅速派出", phonetic: "/dɪˈspætʃ/" },
+                { word: "disperse", meaning: "v. 驅散；散播", root: "dis (分開) + spargere (散播)", phonetic: "/dɪˈspɝːs/" },
+                { word: "displace", meaning: "v. 取代；迫使離開", root: "dis (移開) + place (位置)", phonetic: "/dɪˈspleɪs/" },
+                { word: "disposal", meaning: "n. 處理；處置", root: "dis (分開) + ponere (放置) -> 安排妥當", phonetic: "/dɪˈspoʊ.zəl/" },
+                { word: "disrupt", meaning: "v. 擾亂；中斷", root: "dis (分開) + rumpere (打破) -> 使破裂", phonetic: "/dɪsˈrʌpt/" },
+                { word: "dissolve", meaning: "v. 溶解；解散", root: "dis (分開) + solvere (鬆開) -> 化為無形", phonetic: "/dɪˈzɑːlv/" },
+                { word: "distinct", meaning: "adj. 明顯的；截然不同的", root: "dis (分開) + stinguere (刺/標記) -> 標記清楚的", phonetic: "/dɪˈstɪŋkt/" },
+                { word: "distract", meaning: "v. 使分心", root: "dis (分開) + trahere (拉) -> 把注意力拉走", phonetic: "/dɪˈstrækt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_D5", title: "千字擴充計畫 (L4-6 : D-5)",
+            words: [
+                { word: "diversify", meaning: "v. 使多樣化", root: "diversus (不同的) + fy (使)", phonetic: "/dɪˈvɝː.sə.faɪ/" },
+                { word: "doctrine", meaning: "n. 教條；學說", root: "docere (教導)", phonetic: "/ˈdɑːk.trɪn/" },
+                { word: "domain", meaning: "n. 領域；領地", root: "dominus (主人) -> 主人管轄之地", phonetic: "/doʊˈmeɪn/" },
+                { word: "dome", meaning: "n. 圓頂", root: "domus (房屋)", phonetic: "/doʊm/" },
+                { word: "donate", meaning: "v. 捐贈", root: "donare (給予) -> 無私奉獻", phonetic: "/ˈdoʊ.neɪt/" },
+                { word: "drastic", meaning: "adj. 激烈的；徹底的", root: "drastikos (行動的/強烈的)", phonetic: "/ˈdræs.tɪk/" },
+                { word: "drawback", meaning: "n. 缺點；障礙", root: "draw (拉) + back (回) -> 拉後腿的事物", phonetic: "/ˈdrɑː.bæk/" },
+                { word: "dreary", meaning: "adj. 陰沉的；枯燥的", root: "源自古英語 dreorig (悲傷的/流血的)", phonetic: "/ˈdrɪr.i/" },
+                { word: "dwindle", meaning: "v. 逐漸減少", root: "源自古英語 dwinan (衰退/萎縮)", phonetic: "/ˈdwɪn.dəl/" },
+                { word: "ecstasy", meaning: "n. 狂喜；入迷", root: "ek (出) + stasis (站立) -> 靈魂出竅般的喜悅", phonetic: "/ˈek.stə.si/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_E1", title: "千字擴充計畫 (L4-6 : E-1)",
+            words: [
+                { word: "edible", meaning: "adj. 可食用的", root: "edere (吃) + ible", phonetic: "/ˈed.ə.bəl/" },
+                { word: "editorial", meaning: "n. 社論 adj. 編輯的", root: "editor (編輯) + ial", phonetic: "/ˌed.əˈtɔːr.i.əl/" },
+                { word: "elite", meaning: "n. 菁英 adj. 菁英的", root: "eligere (挑選) -> 被挑選出來的", phonetic: "/iˈliːt/" },
+                { word: "embark", meaning: "v. 登上(船/飛機)；開始", root: "em (進入) + barque (小船)", phonetic: "/ɪmˈbɑːrk/" },
+                { word: "embed", meaning: "v. 嵌入；深植", root: "em (進入) + bed (床/底座)", phonetic: "/ɪmˈbed/" },
+                { word: "embody", meaning: "v. 體現；具體表現", root: "em (進入) + body (身體) -> 賦予形體", phonetic: "/ɪmˈbɑː.di/" },
+                { word: "emigrate", meaning: "v. 移居國外", root: "e (出) + migrare (遷移)", phonetic: "/ˈem.ə.ɡreɪt/" },
+                { word: "emission", meaning: "n. 排放；散發物", root: "e (出) + mittere (發送/放出)", phonetic: "/iˈmɪʃ.ən/" },
+                { word: "emit", meaning: "v. 散發；發出(光/聲音)", root: "e (出) + mittere (發送)", phonetic: "/iˈmɪt/" },
+                { word: "endorse", meaning: "v. 背書；贊同", root: "en (在...上) + dorsum (背) -> 在背面簽名", phonetic: "/ɪnˈdɔːrs/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_E2", title: "千字擴充計畫 (L4-6 : E-2)",
+            words: [
+                { word: "endow", meaning: "v. 賦予；捐贈", root: "en (使) + dotare (給予) -> 給予天賦或財富", phonetic: "/ɪnˈdaʊ/" },
+                { word: "endurance", meaning: "n. 忍耐力；持久力", root: "en (使) + durus (堅硬) -> 使之堅韌持久", phonetic: "/ɪnˈdʊr.əns/" },
+                { word: "enforce", meaning: "v. 執行；強制", root: "en (使) + fortis (強壯) -> 以力量強制實施", phonetic: "/ɪnˈfɔːrs/" },
+                { word: "enrich", meaning: "v. 使豐富；使肥沃", root: "en (使) + rich (富有) -> 注入養分", phonetic: "/ɪnˈrɪtʃ/" },
+                { word: "enroll", meaning: "v. 註冊；入學", root: "en (進入) + roll (名冊) -> 列入名單", phonetic: "/ɪnˈroʊl/" },
+                { word: "enterprise", meaning: "n. 企業；冒險精神", root: "entre (之間) + prendre (拿) -> 承擔下來的事業", phonetic: "/ˈen.t̬ɚ.praɪz/" },
+                { word: "entitle", meaning: "v. 給予權利；命名", root: "en (給予) + title (頭銜) -> 賦予資格", phonetic: "/ɪnˈtaɪ.t̬əl/" },
+                { word: "entity", meaning: "n. 實體；獨立存在體", root: "ens (存在) + ity -> 具有本質的存在", phonetic: "/ˈen.t̬ə.t̬i/" },
+                { word: "epidemic", meaning: "n. 流行病 adj. 傳染的", root: "epi (在...之上) + demos (人民) -> 降臨在人群中的", phonetic: "/ˌep.əˈdem.ɪk/" },
+                { word: "episode", meaning: "n. 插曲；(影集的)一集", root: "epi (旁邊) + eisodos (進入) -> 穿插的事件", phonetic: "/ˈep.ə.soʊd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_E3", title: "千字擴充計畫 (L4-6 : E-3)",
+            words: [
+                { word: "equate", meaning: "v. 使相等；等同", root: "aequus (相等) + ate", phonetic: "/ɪˈkweɪt/" },
+                { word: "equation", meaning: "n. 方程式；等式", root: "aequus (相等) + ation", phonetic: "/ɪˈkweɪ.ʒən/" },
+                { word: "equivalent", meaning: "adj. 相等的 n. 等價物", root: "aequus (相等) + valere (價值) + ent", phonetic: "/ɪˈkwɪv.əl.ənt/" },
+                { word: "erect", meaning: "v. 建立；豎立", root: "e (出) + regere (引導/使直) -> 筆直升起", phonetic: "/ɪˈrekt/" },
+                { word: "erupt", meaning: "v. 爆發；噴出", root: "e (出) + rumpere (打破) -> 衝破而出", phonetic: "/ɪˈrʌpt/" },
+                { word: "escort", meaning: "v./n. 護送；護衛", root: "ex (出) + corrigere (引導) -> 一路引領", phonetic: "/ˈes.kɔːrt/" },
+                { word: "estate", meaning: "n. 地產；財產", root: "status (狀態/地位) -> 象徵地位的資產", phonetic: "/ɪˈsteɪt/" },
+                { word: "esteem", meaning: "n./v. 尊敬；尊重", root: "aestimare (估價) -> 給予極高的評價", phonetic: "/ɪˈstiːm/" },
+                { word: "ethics", meaning: "n. 倫理；道德學", root: "ethos (性格/道德)", phonetic: "/ˈeθ.ɪks/" },
+                { word: "evacuate", meaning: "v. 撤離；疏散", root: "e (出) + vacuus (空) + ate -> 使之淨空", phonetic: "/ɪˈvæk.ju.eɪt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_E4", title: "千字擴充計畫 (L4-6 : E-4)",
+            words: [
+                { word: "evoke", meaning: "v. 喚起；引起", root: "e (出) + vocare (呼喚) -> 召喚出來", phonetic: "/ɪˈvoʊk/" },
+                { word: "evolution", meaning: "n. 演化；發展", root: "e (出) + volvere (滾動) -> 漸進的展開", phonetic: "/ˌev.əˈluː.ʃən/" },
+                { word: "exceed", meaning: "v. 超過；勝過", root: "ex (出) + cedere (走) -> 走到了界線之外", phonetic: "/ɪkˈsiːd/" },
+                { word: "excel", meaning: "v. 擅長；突出", root: "ex (出) + cellere (升起) -> 高高升起", phonetic: "/ɪkˈsel/" },
+                { word: "exception", meaning: "n. 例外", root: "ex (出) + capere (拿取) + ion -> 被單獨拿出來的", phonetic: "/ɪkˈsep.ʃən/" },
+                { word: "excess", meaning: "n. 過量；過度", root: "ex (出) + cedere (走) -> 走過頭的狀態", phonetic: "/ɪkˈses/" },
+                { word: "exclusive", meaning: "adj. 獨家的；排外的", root: "ex (出) + claudere (關閉) + ive -> 把其他人關在外面", phonetic: "/ɪkˈskluː.sɪv/" },
+                { word: "execute", meaning: "v. 執行；處決", root: "ex (出) + sequi (跟隨) -> 跟隨指令到最後", phonetic: "/ˈek.sə.kjuːt/" },
+                { word: "executive", meaning: "n. 高階主管 adj. 執行的", root: "ex (出) + sequi (跟隨) + ive", phonetic: "/ɪɡˈzek.jə.t̬ɪv/" },
+                { word: "exempt", meaning: "adj. 被豁免的 v. 免除", root: "ex (出) + emere (買/拿) -> 拿出來不予計入", phonetic: "/ɪɡˈzempt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_E5", title: "千字擴充計畫 (L4-6 : E-5)",
+            words: [
+                { word: "exert", meaning: "v. 施加；運用(力量)", root: "ex (出) + serere (連接/放置) -> 將力量放出去", phonetic: "/ɪɡˈzɝːt/" },
+                { word: "exhaust", meaning: "v. 耗盡；使筋疲力盡", root: "ex (出) + haurire (抽水) -> 抽乾一滴不剩", phonetic: "/ɪɡˈzɑːst/" },
+                { word: "exile", meaning: "n./v. 流亡；放逐", root: "ex (出) + salire (跳躍/走) -> 走離故鄉", phonetic: "/ˈek.saɪl/" },
+                { word: "exotic", meaning: "adj. 異國的；奇特的", root: "exo (外面) + tic -> 來自外部世界的", phonetic: "/ɪɡˈzɑː.t̬ɪk/" },
+                { word: "expedition", meaning: "n. 遠征；探險", root: "ex (出) + ped (腳) + ition -> 邁開步伐走出去", phonetic: "/ˌek.spəˈdɪʃ.ən/" },
+                { word: "expel", meaning: "v. 驅逐；開除", root: "ex (出) + pellere (推) -> 強行推出去", phonetic: "/ɪkˈspel/" },
+                { word: "expertise", meaning: "n. 專業知識", root: "expertus (有經驗的) + ise", phonetic: "/ˌek.spɝːˈtiːz/" },
+                { word: "expire", meaning: "v. 到期；呼氣", root: "ex (出) + spirare (呼吸) -> 吐出最後一口氣", phonetic: "/ɪkˈspaɪr/" },
+                { word: "exploit", meaning: "v. 剝削；利用", root: "ex (出) + plicare (摺疊) -> 展開並榨取價值", phonetic: "/ɪkˈsplɔɪt/" },
+                { word: "export", meaning: "v./n. 出口；輸出", root: "ex (出) + portare (攜帶) -> 帶出港口", phonetic: "/ɪkˈspɔːrt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_E6_F1", title: "千字擴充計畫 (L4-6 : E-6/F-1)",
+            words: [
+                { word: "extend", meaning: "v. 延伸；擴大", root: "ex (出) + tendere (伸展) -> 向外拉伸", phonetic: "/ɪkˈstend/" },
+                { word: "exterior", meaning: "adj. 外部的 n. 外表", root: "exter (外面的) + ior", phonetic: "/ɪkˈstɪr.i.ɚ/" },
+                { word: "external", meaning: "adj. 外部的；客觀的", root: "exter (外面的) + nal", phonetic: "/ɪkˈstɝː.nəl/" },
+                { word: "extinct", meaning: "adj. 絕種的；熄滅的", root: "ex (出) + stinguere (刺/熄滅) -> 生命的火光消逝", phonetic: "/ɪkˈstɪŋkt/" },
+                { word: "extract", meaning: "v. 提取；摘錄", root: "ex (出) + trahere (拉) -> 拉出來", phonetic: "/ɪkˈstrækt/" },
+                { word: "faction", meaning: "n. 派系；小集團", root: "facere (做) + ion -> 形成各自做事的團體", phonetic: "/ˈfæk.ʃən/" },
+                { word: "flaw", meaning: "n. 瑕疵；缺點", root: "源自古諾斯語 flaga (石板/碎片) -> 破裂處", phonetic: "/flɑː/" },
+                { word: "fleet", meaning: "n. 艦隊；車隊", root: "源自古英語 fleot (船隻/漂浮)", phonetic: "/fliːt/" },
+                { word: "flourish", meaning: "v. 繁榮；茂盛", root: "flos (花) -> 如花朵般盛開", phonetic: "/ˈflɝː.ɪʃ/" },
+                { word: "fluid", meaning: "adj. 流體的；流動的", root: "fluere (流動) + id -> 形體不固定的", phonetic: "/ˈfluː.ɪd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_F2", title: "千字擴充計畫 (L4-6 : F-2)",
+            words: [
+                { word: "foil", meaning: "n. 箔；陪襯物 v. 阻撓", root: "folium (葉子) -> 薄如葉片", phonetic: "/fɔɪl/" },
+                { word: "foliage", meaning: "n. (植物的)葉子統稱", root: "folium (葉子)", phonetic: "/ˈfoʊ.li.ɪdʒ/" },
+                { word: "forbid", meaning: "v. 禁止；不許", root: "for (反對) + bid (命令) -> 下令不准", phonetic: "/fɚˈbɪd/" },
+                { word: "forecast", meaning: "v./n. 預測；預報", root: "fore (前) + cast (投擲) -> 提前拋出看法", phonetic: "/ˈfɔːr.kæst/" },
+                { word: "forge", meaning: "v. 鍛造；偽造", root: "fabrica (工坊) -> 在火爐中敲打成形", phonetic: "/fɔːrdʒ/" },
+                { word: "format", meaning: "n. 格式 v. 格式化", root: "forma (形狀)", phonetic: "/ˈfɔːr.mæt/" },
+                { word: "formulate", meaning: "v. 構想；制定", root: "forma (形狀) -> 使之成形", phonetic: "/ˈfɔːr.mjə.leɪt/" },
+                { word: "forsake", meaning: "v. 拋棄；遺棄", root: "for (完全) + sake (爭求) -> 放棄爭取", phonetic: "/fɚˈseɪk/" },
+                { word: "fortify", meaning: "v. 築防禦工事；強化", root: "fortis (強壯) + fy (使)", phonetic: "/ˈfɔːr.t̬ə.faɪ/" },
+                { word: "foster", meaning: "v. 促進；培養；收養", root: "fodor (餵養) -> 供給養分使之成長", phonetic: "/ˈfɑː.stɚ/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_F3", title: "千字擴充計畫 (L4-6 : F-3)",
+            words: [
+                { word: "foul", meaning: "adj. 惡臭的；犯規的", root: "ful (腐敗的/骯髒的)", phonetic: "/faʊl/" },
+                { word: "fraction", meaning: "n. 分數；小部分", root: "frangere (打破) -> 破裂後的一小塊", phonetic: "/ˈfræk.ʃən/" },
+                { word: "fracture", meaning: "n./v. 破裂；骨折", root: "frangere (打破) + ure", phonetic: "/ˈfræk.tʃɚ/" },
+                { word: "fragment", meaning: "n. 碎片；未完成的部分", root: "frangere (打破) + ment", phonetic: "/ˈfræɡ.mənt/" },
+                { word: "frantic", meaning: "adj. 發狂的；手忙腳亂的", root: "phrenitis (腦炎/狂亂) -> 失去理智的", phonetic: "/ˈfræn.t̬ɪk/" },
+                { word: "fraud", meaning: "n. 詐騙；騙子", root: "fraus (欺騙/傷害)", phonetic: "/frɑːd/" },
+                { word: "friction", meaning: "n. 摩擦；不和", root: "fricare (摩擦) + ion", phonetic: "/ˈfrɪk.ʃən/" },
+                { word: "frontier", meaning: "n. 邊疆；新領域", root: "frons (前額/前方) -> 面對未知的前線", phonetic: "/frʌnˈtɪr/" },
+                { word: "frustrate", meaning: "v. 挫敗；使感到灰心", root: "frustra (徒勞的) -> 努力卻落空", phonetic: "/ˈfrʌs.treɪt/" },
+                { word: "furious", meaning: "adj. 狂怒的；猛烈的", root: "furia (狂怒) + ous", phonetic: "/ˈfjʊr.i.əs/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_G1", title: "千字擴充計畫 (L4-6 : G-1)",
+            words: [
+                { word: "furnish", meaning: "v. 佈置；提供", root: "fournir (提供/裝備) -> 供應所需之物", phonetic: "/ˈfɝː.nɪʃ/" },
+                { word: "fury", meaning: "n. 狂怒；暴怒", root: "furia (狂怒/復仇女神)", phonetic: "/ˈfjʊr.i/" },
+                { word: "fuss", meaning: "n./v. 大驚小怪；忙亂", root: "來源不明，指無謂的擔憂與執著", phonetic: "/fʌs/" },
+                { word: "gasp", meaning: "v./n. 喘息；倒抽一口氣", root: "擬聲詞，模仿急速吸氣的聲音", phonetic: "/ɡæsp/" },
+                { word: "gauge", meaning: "v. 測量；判斷 n. 測量儀器", root: "jauge (古法語：測量桿)", phonetic: "/ɡeɪdʒ/" },
+                { word: "gear", meaning: "n. 齒輪；裝備 v. 使適應", root: "gervi (古諾斯語：裝備/準備)", phonetic: "/ɡɪr/" },
+                { word: "geometry", meaning: "n. 幾何學", root: "geo (土地) + metria (測量)", phonetic: "/dʒiˈɑː.mə.tri/" },
+                { word: "glare", meaning: "v./n. 怒視；刺眼的強光", root: "glær (古英語：閃耀/琥珀)", phonetic: "/ɡler/" },
+                { word: "gleam", meaning: "v./n. 閃爍；微光", root: "glæm (古英語：明亮的光)", phonetic: "/ɡliːm/" },
+                { word: "glide", meaning: "v./n. 滑行；悄悄地走", root: "glidan (古英語：平滑地移動)", phonetic: "/ɡlaɪd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_G2", title: "千字擴充計畫 (L4-6 : G-2)",
+            words: [
+                { word: "glimmer", meaning: "v./n. 閃爍；一絲(希望)", root: "gleam 的頻率動詞 -> 隱約閃動", phonetic: "/ˈɡlɪm.ɚ/" },
+                { word: "glimpse", meaning: "v./n. 瞥見；一瞥", root: "gleam 的變體 -> 短暫地看見", phonetic: "/ɡlɪmps/" },
+                { word: "glisten", meaning: "v. 閃閃發光(指濕潤或反光的表面)", root: "glisnian (古英語：閃耀)", phonetic: "/ˈɡlɪs.ən/" },
+                { word: "gloom", meaning: "n. 憂鬱；陰暗", root: "glom (古英語：昏暗/黃昏)", phonetic: "/ɡluːm/" },
+                { word: "gospel", meaning: "n. 福音；絕對真理", root: "good (好) + spell (消息) -> 好消息", phonetic: "/ˈɡɑː.spəl/" },
+                { word: "grace", meaning: "n. 優雅；恩典", root: "gratia (令人愉悅的特質)", phonetic: "/ɡreɪs/" },
+                { word: "gracious", meaning: "adj. 親切的；和藹的", root: "gratia (令人愉悅的) + ous", phonetic: "/ˈɡreɪ.ʃəs/" },
+                { word: "gravity", meaning: "n. 重力；嚴重性", root: "gravis (沉重) + ity", phonetic: "/ˈɡræv.ə.t̬i/" },
+                { word: "graze", meaning: "v. 吃草；擦傷", root: "grasian (古英語：吃草) -> 輕輕掠過表面", phonetic: "/ɡreɪz/" },
+                { word: "greed", meaning: "n. 貪婪", root: "grædig (古英語：渴望的/貪吃的)", phonetic: "/ɡriːd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_G3", title: "千字擴充計畫 (L4-6 : G-3)",
+            words: [
+                { word: "grief", meaning: "n. 悲傷；悲痛", root: "gravis (沉重) -> 內心承載的重擔", phonetic: "/ɡriːf/" },
+                { word: "grieve", meaning: "v. 感到悲傷；使悲痛", root: "gravis (沉重) -> 使心靈沉重", phonetic: "/ɡriːv/" },
+                { word: "grim", meaning: "adj. 嚴酷的；令人沮喪的", root: "grimm (古英語：凶猛的/嚴厲的)", phonetic: "/ɡrɪm/" },
+                { word: "grip", meaning: "v./n. 緊握；掌握", root: "gripan (古英語：抓)", phonetic: "/ɡrɪp/" },
+                { word: "groan", meaning: "v./n. 呻吟；抱怨", root: "granian (古英語：哀嘆)", phonetic: "/ɡroʊn/" },
+                { word: "grope", meaning: "v. 摸索；暗中探索", root: "grapian (古英語：觸摸) -> 盲目地尋找", phonetic: "/ɡroʊp/" },
+                { word: "gross", meaning: "adj. 總的；噁心的", root: "grossus (粗大的/整體的)", phonetic: "/ɡroʊs/" },
+                { word: "growl", meaning: "v./n. 咆哮；低吼", root: "擬聲詞，模仿動物發怒的低鳴", phonetic: "/ɡraʊl/" },
+                { word: "grumble", meaning: "v./n. 抱怨；發牢騷", root: "擬聲詞，指在喉嚨裡咕噥", phonetic: "/ˈɡrʌm.bəl/" },
+                { word: "gulf", meaning: "n. 海灣；巨大的鴻溝", root: "kolpos (海灣/懷抱) -> 難以跨越的隔閡", phonetic: "/ɡʌlf/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_H1", title: "千字擴充計畫 (L4-6 : H-1)",
+            words: [
+                { word: "handicap", meaning: "n. 障礙；不利條件", root: "hand in cap (古老的抽籤遊戲)", phonetic: "/ˈhæn.di.kæp/" },
+                { word: "haunt", meaning: "v. 縈繞；出沒", root: "hatch (經常去的地方) -> 揮之不去", phonetic: "/hɑːnt/" },
+                { word: "haven", meaning: "n. 避難所；港口", root: "haefen (古英語：港口/庇護所)", phonetic: "/ˈheɪ.vən/" },
+                { word: "havoc", meaning: "n. 大破壞；浩劫", root: "havot (古法語：掠奪/破壞)", phonetic: "/ˈhæv.ək/" },
+                { word: "hearty", meaning: "adj. 衷心的；豐盛的", root: "heart (心) + y -> 發自內心的", phonetic: "/ˈhɑːr.t̬i/" },
+                { word: "heir", meaning: "n. 繼承人", root: "heres (拉丁語：繼承者)", phonetic: "/er/" },
+                { word: "herald", meaning: "n. 先驅 v. 預示", root: "herwald (軍隊指揮官/傳令官)", phonetic: "/ˈher.əld/" },
+                { word: "heredity", meaning: "n. 遺傳", root: "heres (繼承人) -> 傳承下來的特質", phonetic: "/həˈred.ə.t̬i/" },
+                { word: "hijack", meaning: "v. 劫持", root: "來源不明，可能與攔路搶劫(high jack)有關", phonetic: "/ˈhaɪ.dʒæk/" },
+                { word: "hinder", meaning: "v. 阻礙；妨礙", root: "hind (在後) -> 拖在後面使之變慢", phonetic: "/ˈhɪn.dɚ/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_H2", title: "千字擴充計畫 (L4-6 : H-2)",
+            words: [
+                { word: "hinge", meaning: "n. 鉸鏈 v. 取決於", root: "hang (懸掛) -> 支撐轉動的關鍵", phonetic: "/hɪndʒ/" },
+                { word: "hoarse", meaning: "adj. 沙啞的", root: "has (古英語：嘶啞的)", phonetic: "/hɔːrs/" },
+                { word: "honk", meaning: "v./n. 按喇叭；雁鳴", root: "擬聲詞，模仿鵝或汽車喇叭聲", phonetic: "/hɑːŋk/" },
+                { word: "hormone", meaning: "n. 荷爾蒙；激素", root: "horman (希臘語：刺激/喚起)", phonetic: "/ˈhɔːr.moʊn/" },
+                { word: "hostage", meaning: "n. 人質", root: "hostis (陌生人/敵人) -> 押作抵押的人", phonetic: "/ˈhɑː.stɪdʒ/" },
+                { word: "hound", meaning: "n. 獵犬 v. 糾纏", root: "hund (古英語：狗) -> 像獵犬般追逐", phonetic: "/haʊnd/" },
+                { word: "hover", hovering: "v. 盤旋；徘徊", root: "hoven (中世紀英語：盤旋)", phonetic: "/ˈhʌv.ɚ/" },
+                { word: "howl", meaning: "v./n. 嚎叫", root: "擬聲詞，模仿風聲或狼嚎", phonetic: "/haʊl/" },
+                { word: "humiliate", meaning: "v. 羞辱；使丟臉", root: "humilis (卑微的/貼近泥土的)", phonetic: "/hjuːˈmɪl.i.eɪt/" },
+                { word: "hygiene", meaning: "n. 衛生", root: "hygies (希臘語：健康的)", phonetic: "/ˈhaɪ.dʒiːn/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_I1", title: "千字擴充計畫 (L4-6 : I-1)",
+            words: [
+                { word: "identical", meaning: "adj. 完全相同的", root: "idem (相同) + tical", phonetic: "/aɪˈden.t̬ə.kəl/" },
+                { word: "idiom", meaning: "n. 慣用語；成語", root: "idio (私人的/特有的) -> 特定語言的獨特表達", phonetic: "/ˈɪd.i.əm/" },
+                { word: "ignite", meaning: "v. 點燃；激起", root: "ignis (火) + ite", phonetic: "/ɪɡˈnaɪt/" },
+                { word: "illuminate", meaning: "v. 照亮；闡明", root: "in (入) + lumen (光) -> 引入光線", phonetic: "/ɪˈluː.mə.neɪt/" },
+                { word: "immune", meaning: "adj. 免疫的；免除的", root: "in (無) + munia (公共服務) -> 免除勞役或疾病", phonetic: "/ɪˈmjuːn/" },
+                { word: "implement", meaning: "v. 實施 n. 工具", root: "in (入) + plere (填滿) -> 執行以達到圓滿", phonetic: "/ˈɪm.plə.ment/" },
+                { word: "implicit", meaning: "adj. 暗示的；含蓄的", root: "in (入) + plicare (摺疊) -> 摺疊在內的", phonetic: "/ɪmˈplɪs.ɪt/" },
+                { word: "imply", meaning: "v. 暗示；意味著", root: "in (入) + plicare (摺疊) -> 隱含", phonetic: "/ɪmˈplaɪ/" },
+                { word: "impose", meaning: "v. 強加；課稅", root: "in (入) + ponere (放置) -> 強行放上去", phonetic: "/ɪmˈpoʊz/" },
+                { word: "impulse", meaning: "n. 衝動；脈衝", root: "in (入) + pellere (推) -> 內在的推力", phonetic: "/ˈɪm.pʌls/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_I2", title: "千字擴充計畫 (L4-6 : I-2)",
+            words: [
+                { word: "incentive", meaning: "n. 誘因；動機", root: "in (入) + canere (唱/施咒) -> 鼓舞人心的事物", phonetic: "/ɪnˈsen.t̬ɪv/" },
+                { word: "incident", meaning: "n. 事件；插曲", root: "in (入) + cadere (落下) -> 掉下來的事", phonetic: "/ˈɪn.sɪ.dənt/" },
+                { word: "incline", meaning: "v. 傾斜；傾向於", root: "in (向) + clinare (彎曲) -> 心意偏向", phonetic: "/ɪnˈklaɪn/" },
+                { word: "incorporate", meaning: "v. 包含；將...併入", root: "in (入) + corpus (身體) -> 成為共同體", phonetic: "/ɪnˈkɔːr.pɚ.eɪt/" },
+                { word: "index", meaning: "n. 索引；指標", root: "indicare (指出) -> 指引方向的標記", phonetic: "/ˈɪn.deks/" },
+                { word: "indicate", meaning: "v. 指示；表明", root: "in (向) + dicare (宣告/指出)", phonetic: "/ˈɪn.də.keɪt/" },
+                { word: "indifferent", meaning: "adj. 漠不關心的", root: "in (不) + different (不同) -> 覺得沒有差別", phonetic: "/ɪnˈdɪf.ɚ.ənt/" },
+                { word: "indigenous", meaning: "adj. 本土的", root: "indu (在內) + gignere (產生) -> 內部生成的", phonetic: "/ɪnˈdɪdʒ.ə.nəs/" },
+                { word: "indispensable", meaning: "adj. 不可或缺的", root: "in (不) + dispense (免除) + able -> 無法省去的", phonetic: "/ˌɪn.dɪˈspen.sə.bəl/" },
+                { word: "induce", meaning: "v. 引起；誘使", root: "in (入) + ducere (引導) -> 導入某種狀態", phonetic: "/ɪnˈduːs/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_I3", title: "千字擴充計畫 (L4-6 : I-3)",
+            words: [
+                { word: "indulge", meaning: "v. 沉溺於；縱容", root: "in (入) + longus (長) -> 放任慾望變長", phonetic: "/ɪnˈdʌldʒ/" },
+                { word: "inevitable", meaning: "adj. 不可避免的", root: "in (不) + e (出) + vitare (避開) -> 躲不掉的", phonetic: "/ˌɪnˈev.ə.t̬ə.bəl/" },
+                { word: "infant", meaning: "n. 嬰兒", root: "in (不) + fari (說話) -> 還不會說話的孩子", phonetic: "/ˈɪn.fənt/" },
+                { word: "infect", meaning: "v. 感染；傳染", root: "in (入) + facere (做) -> 染上(疾病)", phonetic: "/ɪnˈfekt/" },
+                { word: "infer", meaning: "v. 推論；推斷", root: "in (入) + ferre (帶來) -> 從證據中帶出結論", phonetic: "/ɪnˈfɝː/" },
+                { word: "inferior", meaning: "adj. 次等的；下級的", root: "inferus (在下的)", phonetic: "/ɪnˈfɪr.i.ɚ/" },
+                { word: "infinite", meaning: "adj. 無限的；極大的", root: "in (無) + finis (邊界) -> 沒有盡頭的", phonetic: "/ˈɪn.fə.nət/" },
+                { word: "inflict", meaning: "v. 施加(傷害/打擊)", root: "in (入) + fligere (打擊) -> 把痛苦打入", phonetic: "/ɪnˈflɪkt/" },
+                { word: "inherent", meaning: "adj. 固有的；與生俱來的", root: "in (入) + haerere (黏附) -> 緊緊相連的", phonetic: "/ɪnˈhɪr.ənt/" },
+                { word: "inherit", meaning: "v. 繼承", root: "in (入) + heres (繼承人)", phonetic: "/ɪnˈher.ɪt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_I4", title: "千字擴充計畫 (L4-6 : I-4)",
+            words: [
+                { word: "initiate", meaning: "v. 開始；發起", root: "in (入) + ire (走) -> 走入起點", phonetic: "/ɪˈnɪʃ.i.eɪt/" },
+                { word: "inject", meaning: "v. 注射；注入", root: "in (入) + jacere (投擲) -> 打入液體或資金", phonetic: "/ɪnˈdʒekt/" },
+                { word: "injustice", meaning: "n. 不公義", root: "in (不) + justice (正義)", phonetic: "/ɪnˈdʒʌs.tɪs/" },
+                { word: "innovate", meaning: "v. 創新；改革", root: "in (入) + novus (新) -> 引入新事物", phonetic: "/ˈɪn.ə.veɪt/" },
+                { word: "inquire", meaning: "v. 詢問；調查", root: "in (入) + quaerere (尋求)", phonetic: "/ɪnˈkwaɪr/" },
+                { word: "insane", meaning: "adj. 瘋狂的；精神錯亂的", root: "in (不) + sanus (健康的) -> 心智不健康的", phonetic: "/ɪnˈseɪn/" },
+                { word: "insight", meaning: "n. 洞察力；深刻見解", root: "in (入) + sight (看) -> 看透事物內部的能力", phonetic: "/ˈɪn.saɪt/" },
+                { word: "inspect", meaning: "v. 檢查；視察", root: "in (入) + specere (看) -> 往裡面仔細看", phonetic: "/ɪnˈspekt/" },
+                { word: "inspire", meaning: "v. 啟發；鼓舞", root: "in (入) + spirare (呼吸) -> 注入靈氣與活力", phonetic: "/ɪnˈspaɪr/" },
+                { word: "install", meaning: "v. 安裝；安置", root: "in (入) + stall (位置) -> 放到就位", phonetic: "/ɪnˈstɑːl/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_I5", title: "千字擴充計畫 (L4-6 : I-5)",
+            words: [
+                { word: "instinct", meaning: "n. 本能；直覺", root: "in (入) + stinguere (刺) -> 內在的驅動力", phonetic: "/ˈɪn.stɪŋkt/" },
+                { word: "institute", meaning: "n. 機構 v. 建立", root: "in (入) + statuere (建立) -> 設立起來的組織", phonetic: "/ˈɪn.stə.tuːt/" },
+                { word: "instruct", meaning: "v. 指導；指示", root: "in (入) + struere (建造) -> 幫人建立知識架構", phonetic: "/ɪnˈstrʌkt/" },
+                { word: "instrument", meaning: "n. 儀器；樂器", root: "in (入) + struere (建造) + ment -> 構成事物的工具", phonetic: "/ˈɪn.strə.mənt/" },
+                { word: "intact", meaning: "adj. 完好如初的", root: "in (未) + tactus (觸摸) -> 沒被碰壞的", phonetic: "/ɪnˈtækt/" },
+                { word: "integral", meaning: "adj. 不可或缺的；整體的", root: "integer (完整的) -> 構成整體必需的", phonetic: "/ˈɪn.t̬ə.ɡrəl/" },
+                { word: "integrate", meaning: "v. 整合；融入", root: "integer (完整的) + ate -> 使之成為一體", phonetic: "/ˈɪn.t̬ə.ɡreɪt/" },
+                { word: "intellect", meaning: "n. 智力；才智", root: "inter (之間) + legere (選擇) -> 能明辨是非的腦力", phonetic: "/ˈɪn.t̬əl.ekt/" },
+                { word: "intend", meaning: "v. 打算；意圖", root: "in (向) + tendere (伸展) -> 心意伸向某處", phonetic: "/ɪnˈtend/" },
+                { word: "intense", meaning: "adj. 強烈的；極度的", root: "in (向) + tendere (伸展) -> 緊繃的/強度的", phonetic: "/ɪnˈtens/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_I6", title: "千字擴充計畫 (L4-6 : I-6)",
+            words: [
+                { word: "interact", meaning: "v. 互動；互相影響", root: "inter (之間) + act (行動)", phonetic: "/ˌɪn.t̬ɚˈækt/" },
+                { word: "interfere", meaning: "v. 干涉；妨礙", root: "inter (之間) + ferire (打擊) -> 從中作梗", phonetic: "/ˌɪn.t̬ɚˈfɪr/" },
+                { word: "interior", meaning: "adj. 內部的 n. 內部", root: "inter (在內) + ior (比較級)", phonetic: "/ɪnˈtɪr.i.ɚ/" },
+                { word: "intermediate", meaning: "adj. 中級的；中間的", root: "inter (之間) + medius (中間)", phonetic: "/ˌɪn.t̬ɚˈmiː.di.ət/" },
+                { word: "internal", meaning: "adj. 內部的；體內的", root: "internus (在內的)", phonetic: "/ɪnˈtɝː.nəl/" },
+                { word: "interpret", meaning: "v. 解釋；口譯", root: "interpres (翻譯者/經紀人)", phonetic: "/ɪnˈtɝː.prət/" },
+                { word: "interval", meaning: "n. 間隔；休息時間", root: "inter (之間) + vallum (牆) -> 兩牆之間的空隙", phonetic: "/ˈɪn.t̬ɚ.vəl/" },
+                { word: "intimate", meaning: "adj. 親密的；私人的", root: "intimus (最裡面的)", phonetic: "/ˈɪn.t̬ə.mət/" },
+                { word: "intimidate", meaning: "v. 威嚇；脅迫", root: "in (使) + timidus (害怕) -> 使人心生恐懼", phonetic: "/ɪnˈtɪm.ə.deɪt/" },
+                { word: "invade", meaning: "v. 入侵；侵犯", root: "in (入) + vadere (走) -> 強行走進去", phonetic: "/ɪnˈveɪd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_J", title: "千字擴充計畫 (L4-6 : J)",
+            words: [
+                { word: "jeer", meaning: "v./n. 嘲笑；戲弄", root: "來源不明，可能為擬聲詞", phonetic: "/dʒɪr/" },
+                { word: "jeopardy", meaning: "n. 危險；風險", root: "jeu parti (法語：均等的遊戲/風險)", phonetic: "/ˈdʒep.ɚ.di/" },
+                { word: "jerk", meaning: "v./n. 猛然一拉；混蛋", root: "來源不明，可能為擬聲詞", phonetic: "/dʒɝːk/" },
+                { word: "journal", meaning: "n. 期刊；日誌", root: "diurnus (每日的)", phonetic: "/ˈdʒɝː.nəl/" },
+                { word: "judicial", meaning: "adj. 司法的；法庭的", root: "judex (法官)", phonetic: "/dʒuːˈdɪʃ.əl/" },
+                { word: "junction", meaning: "n. 交叉口；連接", root: "jungere (連接)", phonetic: "/ˈdʒʌŋk.ʃən/" },
+                { word: "justify", meaning: "v. 證明...為正當；為...辯護", root: "justus (正義) + fy (使)", phonetic: "/ˈdʒʌs.tə.faɪ/" },
+                { word: "juvenile", meaning: "adj. 少年的 n. 青少年", root: "juvenis (年輕的)", phonetic: "/ˈdʒuː.və.nəl/" },
+                { word: "jolt", meaning: "v./n. 猛烈搖晃；顛簸", root: "來源不明，類似 jerk", phonetic: "/dʒoʊlt/" },
+                { word: "jurisdiction", meaning: "n. 司法權；管轄範圍", root: "jus (法律) + dicere (說) -> 依法宣判之權", phonetic: "/ˌdʒʊr.ɪsˈdɪk.ʃən/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_K", title: "千字擴充計畫 (L4-6 : K)",
+            words: [
+                { word: "kidnap", meaning: "v. 綁架", root: "kid (小孩) + nap (抓取)", phonetic: "/ˈkɪd.næp/" },
+                { word: "kidney", meaning: "n. 腎臟", root: "kid (子宮) + ney (蛋) -> 形狀如蛋的器官", phonetic: "/ˈkɪd.ni/" },
+                { word: "kindle", meaning: "v. 點燃；激起", root: "cand (發光/變白)", phonetic: "/ˈkɪn.dəl/" },
+                { word: "kinetic", meaning: "adj. 動力的；運動的", root: "kinein (希臘語：移動)", phonetic: "/kɪˈnet̬.ɪk/" },
+                { word: "knack", meaning: "n. 訣竅；本領", root: "knak (中古英語：靈巧的手法)", phonetic: "/næk/" },
+                { word: "kneel", meaning: "v. 跪下", root: "cneow (古英語：膝蓋)", phonetic: "/niːl/" },
+                { word: "knight", meaning: "n. 騎士", root: "cniht (古英語：男孩/僕人) -> 君王的侍衛", phonetic: "/naɪt/" },
+                { word: "knit", meaning: "v. 編織；緊密結合", root: "cnyttan (古英語：打結)", phonetic: "/nɪt/" },
+                { word: "knob", meaning: "n. 圓形門把；旋鈕", root: "knobbe (中世紀低地德語：疙瘩/結)", phonetic: "/nɑːb/" },
+                { word: "knot", meaning: "n. 結；難題 v. 打結", root: "cnotta (古英語：繩結)", phonetic: "/nɑːt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_L1", title: "千字擴充計畫 (L4-6 : L-1)",
+            words: [
+                { word: "laborious", meaning: "adj. 費力的；辛勤的", root: "labor (勞動) + ious", phonetic: "/ləˈbɔːr.i.əs/" },
+                { word: "lateral", meaning: "adj. 側面的；橫向的", root: "latus (側面) + al", phonetic: "/ˈlæt̬.ɚ.əl/" },
+                { word: "launch", meaning: "v. 發射；發起", root: "lancea (長矛) -> 如投擲長矛般射出", phonetic: "/lɑːntʃ/" },
+                { word: "lavish", meaning: "adj. 奢華的；揮霍的", root: "lavare (洗/流) -> 如流水般毫不吝惜", phonetic: "/ˈlæv.ɪʃ/" },
+                { word: "layout", meaning: "n. 佈局；設計", root: "lay (放置) + out (出來)", phonetic: "/ˈleɪ.aʊt/" },
+                { word: "legacy", meaning: "n. 遺產；傳承", root: "legare (委派) -> 委託傳交之物", phonetic: "/ˈleɡ.ə.si/" },
+                { word: "legislation", meaning: "n. 立法；法規", root: "lex (法律) + latio (提出)", phonetic: "/ˌledʒ.əˈsleɪ.ʃən/" },
+                { word: "legitimate", meaning: "adj. 合法的；正當的", root: "lex (法律) + itimate", phonetic: "/ləˈdʒɪt̬.ə.mət/" },
+                { word: "liable", meaning: "adj. 負有法律責任的", root: "ligare (綁) + able -> 被法律責任綁住", phonetic: "/ˈlaɪ.ə.bəl/" },
+                { word: "liberate", meaning: "v. 解放；使自由", root: "liber (自由) + ate", phonetic: "/ˈlɪb.ə.reɪt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_L2", title: "千字擴充計畫 (L4-6 : L-2)",
+            words: [
+                { word: "limp", meaning: "v./n. 跛行 adj. 軟弱的", root: "源自古英語 lemp-halt (跛腳的)", phonetic: "/lɪmp/" },
+                { word: "linger", meaning: "v. 逗留；徘徊", root: "leng (長) -> 拉長時間停留", phonetic: "/ˈlɪŋ.ɡɚ/" },
+                { word: "linguistics", meaning: "n. 語言學", root: "lingua (舌頭/語言) + istics", phonetic: "/lɪŋˈɡwɪs.tɪks/" },
+                { word: "literate", meaning: "adj. 識字的；有文化的", root: "littera (字母/文字) + ate", phonetic: "/ˈlɪt̬.ɚ.ət/" },
+                { word: "longevity", meaning: "n. 長壽；壽命", root: "longus (長) + aevum (年齡/時代)", phonetic: "/lɑːnˈdʒev.ə.t̬i/" },
+                { word: "magnitude", meaning: "n. 巨大；重要性；規模", root: "magnus (大) + itude (狀態)", phonetic: "/ˈmæɡ.nə.tuːd/" },
+                { word: "majestic", meaning: "adj. 宏偉的；莊嚴的", root: "majus (偉大/崇高) + tic", phonetic: "/məˈdʒes.tɪk/" },
+                { word: "mandatory", meaning: "adj. 強制的；義務的", root: "mandare (命令) + ory", phonetic: "/ˈmæn.də.tɔːr.i/" },
+                { word: "maneuver", meaning: "n./v. 演習；巧妙操縱", root: "manus (手) + operari (工作) -> 純熟的手法", phonetic: "/məˈnuː.vɚ/" },
+                { word: "manifest", meaning: "v. 顯示 adj. 明顯的", root: "manus (手) + festus (打擊) -> 手可觸及的", phonetic: "/ˈmæn.ə.fest/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_M1", title: "千字擴充計畫 (L4-6 : M-1)",
+            words: [
+                { word: "manipulate", meaning: "v. 操縱；巧妙處理", root: "manus (手) + plere (填滿) -> 用手熟練操作", phonetic: "/məˈnɪp.jə.leɪt/" },
+                { word: "manuscript", meaning: "n. 手稿；原稿", root: "manus (手) + scribere (寫)", phonetic: "/ˈmæn.jə.skrɪpt/" },
+                { word: "marginal", meaning: "adj. 邊緣的；微小的", root: "margo (邊界) + al", phonetic: "/ˈmɑːr.dʒɪ.nəl/" },
+                { word: "marine", meaning: "adj. 海洋的 n. 海軍陸戰隊", root: "mare (海) + ine", phonetic: "/məˈriːn/" },
+                { word: "martial", meaning: "adj. 軍事的；尚武的", root: "Mars (羅馬戰神馬爾斯) + ial", phonetic: "/ˈmɑːr.ʃəl/" },
+                { word: "marvel", meaning: "n./v. 奇蹟；感到驚訝", root: "mirus (奇妙的)", phonetic: "/ˈmɑːr.vəl/" },
+                { word: "massacre", meaning: "n./v. 大屠殺", root: "源自古法語 maçacre (屠宰場)", phonetic: "/ˈmæs.ə.kɚ/" },
+                { word: "massive", meaning: "adj. 巨大的；大量的", root: "massa (塊/團) + ive", phonetic: "/ˈmæs.ɪv/" },
+                { word: "masterpiece", meaning: "n. 傑作；名著", root: "master (大師) + piece (作品)", phonetic: "/ˈmæs.tɚ.piːs/" },
+                { word: "maternal", meaning: "adj. 母親的；母性的", root: "mater (母親) + nal", phonetic: "/məˈtɝː.nəl/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_M2", title: "千字擴充計畫 (L4-6 : M-2)",
+            words: [
+                { word: "mechanism", meaning: "n. 機械裝置；機制", root: "mechanos (機器/工具) + ism", phonetic: "/ˈmek.ə.nɪ.zəm/" },
+                { word: "mediate", meaning: "v. 調停；斡旋", root: "medius (中間) + ate -> 居中協調", phonetic: "/ˈmiː.di.eɪt/" },
+                { word: "medieval", meaning: "adj. 中世紀的", root: "medius (中間) + aevum (時代)", phonetic: "/ˌmed.iˈiː.vəl/" },
+                { word: "melancholy", meaning: "n./adj. 憂鬱(的)；愁思", root: "melan (黑) + chole (膽汁) -> 古代體液學說", phonetic: "/ˈmel.ən.kɑː.li/" },
+                { word: "mellow", meaning: "adj. 柔和的；圓潤的 v. 變成熟", root: "melwa (古英語：熟透的)", phonetic: "/ˈmel.oʊ/" },
+                { word: "menace", meaning: "n./v. 威脅；恐嚇", root: "minari (威脅)", phonetic: "/ˈmen.əs/" },
+                { word: "mentality", meaning: "n. 心態；思想方法", root: "mens (心智) + ality", phonetic: "/menˈtæl.ə.t̬i/" },
+                { word: "merchandise", meaning: "n. 商品；貨物 v. 推銷", root: "merc (交易/商人) + andise", phonetic: "/ˈmɝː.tʃən.daɪz/" },
+                { word: "merge", meaning: "v. 合併；融合", root: "mergere (浸入/沉沒) -> 溶為一體", phonetic: "/mɝːdʒ/" },
+                { word: "metaphor", meaning: "n. 隱喻；暗喻", root: "meta (跨越) + pherein (攜帶) -> 轉移意義", phonetic: "/ˈmet̬.ə.fɔːr/" }
+            ]
+        },
+
+    // ==========================================
+    // 模組二：化生單字遊戲群組 - 1000字終極擴充計畫
+    // 嚴格比對，無重複 Level 4-6 (第八批次 N - P)
+    // ==========================================
+        {
+            id: "senior_L46_Exp_N1", title: "千字擴充計畫 (L4-6 : N-1)",
+            words: [
+                { word: "narrate", meaning: "v. 敘述；作旁白", root: "narrare (講述/使知道)", phonetic: "/ˈner.eɪt/" },
+                { word: "narrative", meaning: "n. 故事；敘事 adj. 敘事的", root: "narrare (講述) + ive", phonetic: "/ˈner.ə.t̬ɪv/" },
+                { word: "navigate", meaning: "v. 導航；航行", root: "navis (船) + agere (駕駛)", phonetic: "/ˈnæv.ə.ɡeɪt/" },
+                { word: "nominal", meaning: "adj. 名義上的；微不足道的", root: "nomen (名字) + al -> 只有名字的", phonetic: "/ˈnɑː.mə.nəl/" },
+                { word: "notable", meaning: "adj. 顯著的；著名的", root: "notare (標記) + able -> 值得標記的", phonetic: "/ˈnoʊ.t̬ə.bəl/" },
+                { word: "notify", meaning: "v. 通知；告知", root: "notus (已知) + fy (使) -> 使人知道", phonetic: "/ˈnoʊ.t̬ə.faɪ/" },
+                { word: "notion", meaning: "n. 觀念；概念", root: "noscere (知道) + ion", phonetic: "/ˈnoʊ.ʃən/" },
+                { word: "novelty", meaning: "n. 新奇(的事物)", root: "novus (新) + elty", phonetic: "/ˈnɑː.vəl.t̬i/" },
+                { word: "nucleus", meaning: "n. 核心；原子核", root: "nux (堅果) -> 內核", phonetic: "/ˈnuː.kli.əs/" },
+                { word: "objective", meaning: "n. 目標 adj. 客觀的", root: "ob (向) + jacere (投擲) -> 投射在前方的標的", phonetic: "/əbˈdʒek.tɪv/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_O1", title: "千字擴充計畫 (L4-6 : O-1)",
+            words: [
+                { word: "obscure", meaning: "adj. 模糊的 v. 遮蔽", root: "ob (在上方) + scurus (覆蓋)", phonetic: "/əbˈskjʊr/" },
+                { word: "obsession", meaning: "n. 執著；癡迷", root: "ob (在對面) + sedere (坐) -> 圍困/揮之不去", phonetic: "/əbˈseʃ.ən/" },
+                { word: "offset", meaning: "v./n. 抵銷；彌補", root: "off (離開) + set (放置) -> 放在對立面以平衡", phonetic: "/ˈɑːf.set/" },
+                { word: "offspring", meaning: "n. 後代；子嗣", root: "off (離開) + spring (跳出) -> 繁衍出來的生命", phonetic: "/ˈɑːf.sprɪŋ/" },
+                { word: "option", meaning: "n. 選擇；選項", root: "optare (選擇) + ion", phonetic: "/ˈɑːp.ʃən/" },
+                { word: "orthodox", meaning: "adj. 正統的；傳統的", root: "orthos (正確的) + doxa (意見)", phonetic: "/ˈɔːr.θə.dɑːks/" },
+                { word: "outrage", meaning: "n./v. 憤怒；激怒", root: "ultra (超越) -> 越界的暴力行為", phonetic: "/ˈaʊt.reɪdʒ/" },
+                { word: "paradox", meaning: "n. 悖論；自相矛盾的說法", root: "para (相反) + doxa (意見)", phonetic: "/ˈper.ə.dɑːks/" },
+                { word: "paralyze", meaning: "v. 使癱瘓；使麻痺", root: "para (旁邊) + lyein (解開) -> 失去控制力", phonetic: "/ˈper.ə.laɪz/" },
+                { word: "partial", meaning: "adj. 局部的；偏袒的", root: "pars (部分) + ial -> 只看局部的", phonetic: "/ˈpɑːr.ʃəl/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_P1", title: "千字擴充計畫 (L4-6 : P-1)",
+            words: [
+                { word: "participate", meaning: "v. 參加；參與", root: "pars (部分) + capere (拿取) -> 佔有一份", phonetic: "/pɑːrˈtɪs.ə.peɪt/" },
+                { word: "passionate", meaning: "adj. 熱情的；狂熱的", root: "passio (受苦/強烈情感) + ate", phonetic: "/ˈpæʃ.ən.ət/" },
+                { word: "patent", meaning: "n. 專利 adj. 明顯的", root: "patere (打開/敞開) -> 公開的文件", phonetic: "/ˈpæt.ənt/" },
+                { word: "pathetic", meaning: "adj. 可悲的；引起憐憫的", root: "pathos (情感/痛苦) + tic", phonetic: "/pəˈθet̬.ɪk/" },
+                { word: "patrol", meaning: "v./n. 巡邏", root: "patouiller (在泥水中走) -> 踩踏巡視", phonetic: "/pəˈtroʊl/" },
+                { word: "patron", meaning: "n. 贊助者；老顧客", root: "pater (父親) -> 像父親般的保護者", phonetic: "/ˈpeɪ.trən/" },
+                { word: "penalty", meaning: "n. 處罰；罰款", root: "poena (懲罰) + alty", phonetic: "/ˈpen.əl.ti/" },
+                { word: "penetrate", meaning: "v. 穿透；滲透", root: "penitus (在內部) -> 深入其中", phonetic: "/ˈpen.ə.treɪt/" },
+                { word: "perceive", meaning: "v. 察覺；感知；理解", root: "per (完全) + capere (拿取) -> 用心智完全掌握", phonetic: "/pɚˈsiːv/" },
+                { word: "perception", meaning: "n. 認知；感覺；洞察力", root: "per (完全) + capere (拿取) + tion", phonetic: "/pɚˈsep.ʃən/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_P2", title: "千字擴充計畫 (L4-6 : P-2)",
+            words: [
+                { word: "peril", meaning: "n. 巨大的危險", root: "periculum (嘗試/危險)", phonetic: "/ˈper.əl/" },
+                { word: "perish", meaning: "v. 毀滅；死亡；腐爛", root: "per (完全) + ire (走) -> 走到了盡頭", phonetic: "/ˈper.ɪʃ/" },
+                { word: "permeate", meaning: "v. 滲透；瀰漫", root: "per (穿過) + meare (通過)", phonetic: "/ˈpɝː.mi.eɪt/" },
+                { word: "persevere", meaning: "v. 堅持不懈", root: "per (始終) + severus (嚴格) -> 嚴格貫徹到底", phonetic: "/ˌpɝː.səˈvɪr/" },
+                { word: "persist", meaning: "v. 堅持；持續", root: "per (始終) + sistere (站立) -> 一直站立不搖", phonetic: "/pɚˈsɪst/" },
+                { word: "perspective", meaning: "n. 觀點；視角；透視法", root: "per (穿透) + specere (看) -> 看透事物的角度", phonetic: "/pɚˈspek.tɪv/" },
+                { word: "pessimistic", meaning: "adj. 悲觀的", root: "pessimus (最壞的) + istic", phonetic: "/ˌpes.əˈmɪs.tɪk/" },
+                { word: "phase", meaning: "n. 階段；時期", root: "phasis (顯現/星相) -> 呈現的過程", phonetic: "/feɪz/" },
+                { word: "philosophy", meaning: "n. 哲學；人生觀", root: "philos (愛) + sophia (智慧)", phonetic: "/fɪˈlɑː.sə.fi/" },
+                { word: "pierce", meaning: "v. 刺穿；穿透", root: "pertundere (穿透)", phonetic: "/pɪrs/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_P3_Q", title: "千字擴充計畫 (L4-6 : P-3 / Q)",
+            words: [
+                { word: "piety", meaning: "n. 虔誠；孝順", root: "pius (盡責的/虔敬的)", phonetic: "/ˈpaɪ.ə.t̬i/" },
+                { word: "pioneer", meaning: "n. 先驅 v. 開拓", root: "pedo (步兵) -> 走在最前線的人", phonetic: "/ˌpaɪ.əˈnɪr/" },
+                { word: "plausible", meaning: "adj. 貌似真實的；有道理的", root: "plaudere (鼓掌) -> 值得拍手稱是的", phonetic: "/ˈplɑː.zə.bəl/" },
+                { word: "ponder", meaning: "v. 沉思；仔細考慮", root: "pondus (重量) -> 在心中仔細掂量", phonetic: "/ˈpɑːn.dɚ/" },
+                { word: "portray", meaning: "v. 描繪；詮釋", root: "pro (向前) + trahere (拉) -> 將形象拉現出來", phonetic: "/pɔːrˈtreɪ/" },
+                { word: "potential", meaning: "adj. 潛在的 n. 潛力", root: "potens (力量) + ial", phonetic: "/poʊˈten.ʃəl/" },
+                { word: "pragmatic", meaning: "adj. 務實的；實用主義的", root: "pragma (行為/事實) + tic", phonetic: "/præɡˈmæt̬.ɪk/" },
+                { word: "precede", meaning: "v. 在...之前；早於", root: "pre (前) + cedere (走)", phonetic: "/priˈsiːd/" },
+                { word: "preclude", meaning: "v. 排除；阻止", root: "pre (前) + claudere (關閉) -> 提前關上門", phonetic: "/prɪˈkluːd/" },
+                { word: "qualify", meaning: "v. 使具有資格；限制", root: "qualis (何種類型) + fy (使)", phonetic: "/ˈkwɑː.lə.faɪ/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R1", title: "千字擴充計畫 (L4-6 : R-1)",
+            words: [
+                { word: "radiate", meaning: "v. 輻射；散發", root: "radius (光線/輪輻) + ate -> 向外發散", phonetic: "/ˈreɪ.di.eɪt/" },
+                { word: "rally", meaning: "v./n. 集合；重振", root: "re (再) + allier (結合) -> 重新聚集力量", phonetic: "/ˈræl.i/" },
+                { word: "realm", meaning: "n. 領域；王國", root: "regimen (統治) -> 權力所及的範圍", phonetic: "/relm/" },
+                { word: "reap", meaning: "v. 收割；獲得(報酬)", root: "ripan (古英語：切割/收穫)", phonetic: "/riːp/" },
+                { word: "rear", meaning: "n. 後部 adj. 後面的", root: "hrere (古英語：背後)", phonetic: "/rɪr/" },
+                { word: "reassure", meaning: "v. 使安心；再保證", root: "re (再) + assure (保證) -> 消除疑慮", phonetic: "/ˌriː.əˈʃʊr/" },
+                { word: "rebel", meaning: "v. 造反；反抗", root: "re (反) + bellum (戰爭) -> 舉起反旗", phonetic: "/ˈreb.əl/" },
+                { word: "recede", meaning: "v. 退去；逐漸遠去", root: "re (回) + cedere (走) -> 向後退", phonetic: "/rɪˈsiːd/" },
+                { word: "receipt", meaning: "n. 收據；收到", root: "re (回) + capere (拿) -> 拿回來的憑證", phonetic: "/rɪˈsiːt/" },
+                { word: "reception", meaning: "n. 接收；接待(處)", root: "re (回) + capere (拿) + ion", phonetic: "/rɪˈsep.ʃən/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R2", title: "千字擴充計畫 (L4-6 : R-2)",
+            words: [
+                { word: "recession", meaning: "n. 經濟衰退；後退", root: "re (回) + cedere (走) + ion", phonetic: "/rɪˈseʃ.ən/" },
+                { word: "recipient", meaning: "n. 接受者", root: "re (回) + capere (拿) + ent", phonetic: "/rɪˈsɪp.i.ənt/" },
+                { word: "reckon", meaning: "v. 認為；計算", root: "gerecenian (古英語：解釋/敘述)", phonetic: "/ˈrek.ən/" },
+                { word: "reclaim", meaning: "v. 取回；開墾", root: "re (回) + clamare (喊叫) -> 呼喚回來", phonetic: "/rɪˈkleɪm/" },
+                { word: "recur", meaning: "v. 再發生；重現", root: "re (再) + currere (跑) -> 再次跑來", phonetic: "/rɪˈkɝː/" },
+                { word: "refine", meaning: "v. 提煉；改良", root: "re (再) + fine (精細) -> 使之更純粹", phonetic: "/rɪˈfaɪn/" },
+                { word: "reflective", meaning: "adj. 反射的；深思的", root: "re (回) + flectere (彎曲) + ive", phonetic: "/rɪˈflek.tɪv/" },
+                { word: "refrain", meaning: "v. 克制；忍住", root: "re (回) + frenare (勒住馬韁)", phonetic: "/rɪˈfreɪn/" },
+                { word: "refuge", meaning: "n. 避難所；庇護", root: "re (回) + fugere (逃跑) -> 逃往安全處", phonetic: "/ˈref.juːdʒ/" },
+                { word: "refund", meaning: "n./v. 退款", root: "re (回) + fundere (倒/流) -> 把錢倒回去", phonetic: "/ˈriː.fʌnd/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R3", title: "千字擴充計畫 (L4-6 : R-3)",
+            words: [
+                { word: "regime", meaning: "n. 政權；管理體制", root: "regere (統治) -> 統治的系統", phonetic: "/reɪˈʒiːm/" },
+                { word: "reign", meaning: "n./v. 統治；支配", root: "regere (統治)", phonetic: "/reɪn/" },
+                { word: "rejoice", meaning: "v. 欣喜；高興", root: "re (再) + gaudere (喜悅)", phonetic: "/rɪˈdʒɔɪs/" },
+                { word: "relay", meaning: "v. 轉達 n. 接力賽", root: "re (再) + lay (放置) -> 接續傳遞", phonetic: "/ˈriː.leɪ/" },
+                { word: "reliance", meaning: "n. 依賴；信賴", root: "re (回) + ligare (綁) -> 依靠在某物上", phonetic: "/rɪˈlaɪ.əns/" },
+                { word: "relic", meaning: "n. 遺跡；遺物", root: "relinquere (留下/放棄) -> 留存下來的物品", phonetic: "/ˈrel.ɪk/" },
+                { word: "relinquish", meaning: "v. 放棄；交出", root: "re (回) + linquere (離開) -> 鬆手放開", phonetic: "/rɪˈlɪŋ.kwɪʃ/" },
+                { word: "relish", meaning: "v. 享受；喜愛", root: "reles (古法語：餘味/味道)", phonetic: "/ˈrel.ɪʃ/" },
+                { word: "remainder", meaning: "n. 剩餘物；其餘的人", root: "re (回) + manere (停留) -> 留下來的部分", phonetic: "/rɪˈmeɪn.dɚ/" },
+                { word: "remedy", meaning: "n. 療法；補救辦法", root: "re (再) + mederi (治療)", phonetic: "/ˈrem.ə.di/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R4", title: "千字擴充計畫 (L4-6 : R-4)",
+            words: [
+                { word: "remnant", meaning: "n. 殘餘；零頭", root: "re (回) + manere (停留) -> 剩下的片段", phonetic: "/ˈrem.nənt/" },
+                { word: "render", meaning: "v. 使得；給予", root: "re (回) + dare (給予) -> 交還/呈現", phonetic: "/ˈren.dɚ/" },
+                { word: "renew", meaning: "v. 更新；恢復", root: "re (再) + new (新) -> 使再次如新", phonetic: "/rɪˈnuː/" },
+                { word: "renown", meaning: "n. 名聲；聲譽", root: "re (再) + nomer (命名) -> 名字被反覆傳頌", phonetic: "/rɪˈnaʊn/" },
+                { word: "repel", meaning: "v. 擊退；使反感", root: "re (反) + pellere (推) -> 推開", phonetic: "/rɪˈpel/" },
+                { word: "repent", meaning: "v. 悔悟；懺悔", root: "re (再) + paenitere (使後悔)", phonetic: "/rɪˈpent/" },
+                { word: "replenish", meaning: "v. 補充；把...裝滿", root: "re (再) + plenus (滿的) -> 再次注滿", phonetic: "/rɪˈplen.ɪʃ/" },
+                { word: "repress", meaning: "v. 壓抑；鎮壓", root: "re (回) + pressare (壓) -> 往下壓制", phonetic: "/rɪˈpres/" },
+                { word: "reproach", meaning: "v./n. 責備；斥責", root: "re (反) + prope (靠近) -> 帶著敵意靠近", phonetic: "/rɪˈproʊtʃ/" },
+                { word: "reproduce", meaning: "v. 繁殖；複製", root: "re (再) + produce (生產) -> 再次製造", phonetic: "/ˌriː.prəˈduːs/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R5", title: "千字擴充計畫 (L4-6 : R-5)",
+            words: [
+                { word: "reptile", meaning: "n. 爬蟲類", root: "repere (爬行)", phonetic: "/ˈrep.taɪl/" },
+                { word: "repudiate", meaning: "v. 駁斥；拒絕接受", root: "re (反) + pudere (感到羞恥) -> 劃清界線", phonetic: "/rɪˈpjuː.di.eɪt/" },
+                { word: "resemble", meaning: "v. 像；與...相似", root: "re (再) + simulare (使相似)", phonetic: "/rɪˈzem.bəl/" },
+                { word: "resent", meaning: "v. 怨恨；對...感到不滿", root: "re (反) + sentire (感覺) -> 懷有反感情緒", phonetic: "/rɪˈzent/" },
+                { word: "reserve", meaning: "v. 保留；預訂", root: "re (回) + servare (保持)", phonetic: "/rɪˈzɝːv/" },
+                { word: "reside", meaning: "v. 居住；駐在", root: "re (回) + sedere (坐) -> 安坐於此", phonetic: "/rɪˈzaɪd/" },
+                { word: "resign", meaning: "v. 辭職；放棄", root: "re (反) + signare (簽名) -> 註銷合約", phonetic: "/rɪˈzaɪn/" },
+                { word: "resolve", meaning: "v. 解決；下定決心", root: "re (再) + solvere (鬆開/解開) -> 解開難題", phonetic: "/rɪˈzɑːlv/" },
+                { word: "resort", meaning: "v. 訴諸 n. 渡假勝地", root: "re (再) + sortir (出去) -> 頻繁前往之處", phonetic: "/rɪˈzɔːrt/" },
+                { word: "respective", meaning: "adj. 各自的；分別的", root: "respectus (回顧/考量) + ive", phonetic: "/rɪˈspek.tɪv/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R6", title: "千字擴充計畫 (L4-6 : R-6)",
+            words: [
+                { word: "restore", meaning: "v. 恢復；修復", root: "re (再) + staurare (建立) -> 重新立起", phonetic: "/rɪˈstɔːr/" },
+                { word: "restrain", meaning: "v. 限制；抑制", root: "re (回) + stringere (綁緊) -> 往回拉住", phonetic: "/rɪˈstreɪn/" },
+                { word: "restrict", meaning: "v. 限制；約束", root: "re (回) + stringere (綁緊)", phonetic: "/rɪˈstrɪkt/" },
+                { word: "resume", meaning: "v. 恢復；重新開始", root: "re (再) + sumere (拿取) -> 再次拿起", phonetic: "/rɪˈzuːm/" },
+                { word: "retail", meaning: "n./v. 零售", root: "re (再) + tailler (切) -> 切成小塊販售", phonetic: "/ˈriː.teɪl/" },
+                { word: "retain", meaning: "v. 保留；保持", root: "re (回) + tenere (握住) -> 握在手中不放", phonetic: "/rɪˈteɪn/" },
+                { word: "retaliate", meaning: "v. 報復；回擊", root: "re (回) + talis (同樣的) -> 以牙還牙", phonetic: "/rɪˈtæl.i.eɪt/" },
+                { word: "retreat", meaning: "v./n. 撤退；靜修", root: "re (回) + trahere (拉) -> 向後拉開距離", phonetic: "/rɪˈtriːt/" },
+                { word: "retrieve", meaning: "v. 找回；檢索", root: "re (再) + trouver (找到)", phonetic: "/rɪˈtriːv/" },
+                { word: "retrospect", meaning: "n. 回顧；追溯", root: "retro (向後) + specere (看) -> 往回看", phonetic: "/ˈret.roʊ.spekt/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R7", title: "千字擴充計畫 (L4-6 : R-7)",
+            words: [
+                { word: "revere", meaning: "v. 尊崇；敬畏", root: "re (加強) + vereri (敬畏)", phonetic: "/rɪˈvɪr/" },
+                { word: "reverse", meaning: "v. 倒轉 adj. 相反的", root: "re (回) + vertere (轉) -> 轉向反面", phonetic: "/rɪˈvɝːs/" },
+                { word: "revive", meaning: "v. 使復甦；復興", root: "re (再) + vivere (活) -> 再次活過來", phonetic: "/rɪˈvaɪv/" },
+                { word: "revolt", meaning: "v./n. 叛亂；反抗", root: "re (反) + volvere (滾動) -> 推翻現狀", phonetic: "/rɪˈvoʊlt/" },
+                { word: "revolve", meaning: "v. 旋轉；圍繞", root: "re (再) + volvere (滾動) -> 不斷繞圈", phonetic: "/rɪˈvɑːlv/" },
+                { word: "rigid", meaning: "adj. 堅硬的；死板的", root: "rigere (僵硬)", phonetic: "/ˈrɪdʒ.ɪd/" },
+                { word: "rigorous", meaning: "adj. 嚴格的；嚴密的", root: "rigere (僵硬) -> 毫不通融的", phonetic: "/ˈrɪɡ.ɚ.əs/" },
+                { word: "rim", meaning: "n. 邊緣；框", root: "rima (古英語：邊緣/裂縫)", phonetic: "/rɪm/" },
+                { word: "riot", meaning: "n./v. 暴動；喧鬧", root: "riote (古法語：爭論/喧嘩)", phonetic: "/ˈraɪ.ət/" },
+                { word: "ripple", meaning: "n./v. 漣漪；起漣漪", root: "rimpan (古英語：起皺紋)", phonetic: "/ˈrɪp.əl/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_R8_S1", title: "千字擴充計畫 (L4-6 : R-8 / S-1)",
+            words: [
+                { word: "roam", meaning: "v. 漫遊；閒逛", root: "ramen (中古英語：漫遊/徘徊)", phonetic: "/roʊm/" },
+                { word: "robust", meaning: "adj. 強健的；堅固的", root: "robur (橡木/力量) -> 如橡木般結實", phonetic: "/roʊˈbʌst/" },
+                { word: "rot", meaning: "v. 腐爛；腐敗", root: "rotian (古英語：腐壞)", phonetic: "/rɑːt/" },
+                { word: "rotate", meaning: "v. 旋轉；輪替", root: "rota (輪子) + ate", phonetic: "/ˈroʊ.teɪt/" },
+                { word: "rouse", meaning: "v. 喚起；激醒", root: "來源不明，可能與 raise 有關", phonetic: "/raʊz/" },
+                { word: "rubbish", meaning: "n. 垃圾；廢話", root: "rubbous (盎格魯-諾曼語：碎石/廢物)", phonetic: "/ˈrʌb.ɪʃ/" },
+                { word: "ruthless", meaning: "adj. 無情的；冷酷的", root: "ruth (憐憫) + less (無) -> 沒有絲毫慈悲", phonetic: "/ˈruːθ.ləs/" },
+                { word: "sacred", meaning: "adj. 神聖的；莊嚴的", root: "sacer (神聖的)", phonetic: "/ˈseɪ.krɪd/" },
+                { word: "saddle", meaning: "n. 馬鞍 v. 使負擔", root: "sadol (古英語：馬鞍)", phonetic: "/ˈsæd.əl/" },
+                { word: "sag", meaning: "v. 下垂；凹陷", root: "sacke (中世紀低地德語：下沉)", phonetic: "/sæɡ/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_S2", title: "千字擴充計畫 (L4-6 : S-2)",
+            words: [
+                { word: "saint", meaning: "n. 聖人；道德高尚者", root: "sanctus (神聖的/被祝聖的)", phonetic: "/seɪnt/" },
+                { word: "sake", meaning: "n. 緣故；理由", root: "sacu (古英語：法律訴訟/爭端)", phonetic: "/seɪk/" },
+                { word: "salute", meaning: "v. 向...致敬；行禮", root: "salus (健康/平安) -> 祝人平安", phonetic: "/səˈluːt/" },
+                { word: "salvage", meaning: "v./n. 搶救；打撈", root: "salvare (拯救)", phonetic: "/ˈsæl.vɪdʒ/" },
+                { word: "salvation", meaning: "n. 救贖；拯救", root: "salvare (拯救) + ation", phonetic: "/sælˈveɪ.ʃən/" },
+                { word: "sanctuary", meaning: "n. 避難所；聖所", root: "sanctus (神聖的) + ary -> 神聖不可侵犯之地", phonetic: "/ˈsæŋk.tʃu.er.i/" },
+                { word: "sane", meaning: "adj. 神智正常的；明智的", root: "sanus (健康的/理智的)", phonetic: "/seɪn/" },
+                { word: "sanitation", meaning: "n. 衛生設施；環境衛生", root: "sanitas (健康) + ation", phonetic: "/ˌsæn.əˈteɪ.ʃən/" },
+                { word: "sarcasm", meaning: "n. 挖苦；諷刺", root: "sarkazein (希臘語：撕裂血肉) -> 尖酸刻薄的話", phonetic: "/ˈsɑːr.kæz.əm/" },
+                { word: "savage", meaning: "adj. 野蠻的；殘暴的", root: "silva (森林) -> 生活在森林裡的", phonetic: "/ˈsæv.ɪdʒ/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_S3", title: "千字擴充計畫 (L4-6 : S-3)",
+            words: [
+                { word: "scan", meaning: "v. 掃描；粗略地看", root: "scandere (攀登/逐字閱讀)", phonetic: "/skæn/" },
+                { word: "scandal", meaning: "n. 醜聞；令人震驚的事", root: "skandalon (希臘語：陷阱/絆腳石)", phonetic: "/ˈskæn.dəl/" },
+                { word: "scar", meaning: "n. 疤痕 v. 留下傷疤", root: "eschara (希臘語：爐灶/燒傷的痕跡)", phonetic: "/skɑːr/" },
+                { word: "scarce", meaning: "adj. 缺乏的；罕見的", root: "excerpere (挑出) -> 稀少難得的", phonetic: "/skers/" },
+                { word: "scatter", meaning: "v. 散播；驅散", root: "源自中古英語 scateren (散開)", phonetic: "/ˈskæt̬.ɚ/" },
+                { word: "scent", meaning: "n. 氣味；香味", root: "sentire (感覺) -> 嗅覺感知", phonetic: "/sent/" },
+                { word: "scope", meaning: "n. 範圍；視野", root: "skopos (希臘語：目標/觀察者)", phonetic: "/skoʊp/" },
+                { word: "scorn", meaning: "n./v. 輕蔑；鄙視", root: "escharner (古法語：嘲笑)", phonetic: "/skɔːrn/" },
+                { word: "scramble", meaning: "v. 攀爬；爭奪", root: "源自 scramb (用爪子抓)", phonetic: "/ˈskræm.bəl/" },
+                { word: "scrape", meaning: "v. 刮；擦傷", root: "scrapian (古英語：刮擦)", phonetic: "/skreɪp/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_S4", title: "千字擴充計畫 (L4-6 : S-4)",
+            words: [
+                { word: "sequence", meaning: "n. 順序；一連串", root: "sequi (跟隨) -> 接續發生的事物", phonetic: "/ˈsiː.kwəns/" },
+                { word: "shrewd", meaning: "adj. 精明的；敏銳的", root: "schrewe (中古英語：惡棍) -> 演變為機靈狡黠", phonetic: "/ʃruːd/" },
+                { word: "simultaneous", meaning: "adj. 同時發生的", root: "simul (同時) + taneous", phonetic: "/ˌsaɪ.məlˈteɪ.ni.əs/" },
+                { word: "skeptical", meaning: "adj. 懷疑的", root: "skeptesthai (希臘語：觀察/思考)", phonetic: "/ˈskep.tɪ.kəl/" },
+                { word: "slump", meaning: "v./n. 暴跌；衰退", root: "slumpa (挪威語：掉落)", phonetic: "/slʌmp/" },
+                { word: "smash", meaning: "v./n. 粉碎；打破", root: "擬聲詞，模仿物品碎裂的聲音", phonetic: "/smæʃ/" },
+                { word: "smother", meaning: "v. 使窒息；掩蓋", root: "smorian (古英語：窒息)", phonetic: "/ˈsmʌð.ɚ/" },
+                { word: "snatch", meaning: "v./n. 奪取；迅速抓住", root: "snacchen (中古英語：猛咬/攫取)", phonetic: "/snætʃ/" },
+                { word: "sneak", meaning: "v. 偷偷地走；溜", root: "snican (古英語：爬行)", phonetic: "/sniːk/" },
+                { word: "soar", meaning: "v. 高飛；猛增", root: "ex (出) + aura (空氣) -> 升入高空", phonetic: "/sɔːr/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_S5", title: "千字擴充計畫 (L4-6 : S-5)",
+            words: [
+                { word: "sober", meaning: "adj. 清醒的；嚴肅的", root: "se (無) + ebrius (醉的)", phonetic: "/ˈsoʊ.bɚ/" },
+                { word: "solitary", meaning: "adj. 孤獨的；獨自的", root: "solus (單獨) + ary", phonetic: "/ˈsɑː.lə.ter.i/" },
+                { word: "soothe", meaning: "v. 撫慰；減輕", root: "soth (古英語：真實) -> 說真話/好話安慰人", phonetic: "/suːð/" },
+                { word: "sophisticated", meaning: "adj. 複雜的；世故的；精密的", root: "sophia (智慧) -> 具備深度經驗的", phonetic: "/səˈfɪs.tə.keɪ.t̬ɪd/" },
+                { word: "sovereign", meaning: "n. 君主 adj. 至高無上的", root: "super (在...之上)", phonetic: "/ˈsɑːv.rən/" },
+                { word: "speculate", meaning: "v. 推測；投機", root: "specere (看/觀察) -> 觀察局勢", phonetic: "/ˈspek.jə.leɪt/" },
+                { word: "sphere", meaning: "n. 球體；領域", root: "sphaira (希臘語：球)", phonetic: "/sfɪr/" },
+                { word: "spontaneous", meaning: "adj. 自發的；非出於強制的", root: "sponte (自願) + ous", phonetic: "/spɑːnˈteɪ.ni.əs/" },
+                { word: "stabilize", meaning: "v. 使穩定", root: "stare (站立) -> 使穩固站立", phonetic: "/ˈsteɪ.bə.laɪz/" },
+                { word: "stalk", meaning: "v. 悄悄跟蹤 n. 莖", root: "stealcian (古英語：輕步走)", phonetic: "/stɑːk/" }
+            ]
+        },
+
+    // ==========================================
+    // 模組二：化生單字遊戲群組 - 1000字終極擴充計畫
+    // 嚴格比對，無重複 Level 4-6 (第十一批次 T1 - T2)
+    // ==========================================
+        {
+            id: "senior_L46_Exp_T1", title: "千字擴充計畫 (L4-6 : T-1)",
+            words: [
+                { word: "tackle", meaning: "v. 處理；對付", root: "taken (中古英語：抓取) -> 著手解決", phonetic: "/ˈtæk.əl/" },
+                { word: "tact", meaning: "n. 機智；圓滑", root: "tangere (觸摸) -> 觸覺靈敏/有分寸", phonetic: "/tækt/" },
+                { word: "tactics", meaning: "n. 戰術；策略", root: "tassein (希臘語：排列/佈署)", phonetic: "/ˈtæk.tɪks/" },
+                { word: "tangible", meaning: "adj. 有形的；實質的", root: "tangere (觸摸) + ible -> 摸得到的", phonetic: "/ˈtæn.dʒə.bəl/" },
+                { word: "tedious", meaning: "adj. 乏味的；冗長的", root: "taedium (厭煩) + ous", phonetic: "/ˈtiː.di.əs/" },
+                { word: "temperament", meaning: "n. 氣質；性情", root: "temperare (混合/調和) -> 體液調和的狀態", phonetic: "/ˈtem.pɚ.ə.mənt/" },
+                { word: "tempt", meaning: "v. 引誘；吸引", root: "temptare (嘗試/試探)", phonetic: "/tempt/" },
+                { word: "tentative", meaning: "adj. 暫時的；猶豫的", root: "tentare (嘗試) + ive -> 試探性的", phonetic: "/ˈten.t̬ə.t̬ɪv/" },
+                { word: "terminate", meaning: "v. 終止；結束", root: "terminus (邊界/終點) + ate", phonetic: "/ˈtɝː.mə.neɪt/" },
+                { word: "theology", meaning: "n. 神學", root: "theos (神) + logy (學問)", phonetic: "/θiˈɑː.lə.dʒi/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_T2", title: "千字擴充計畫 (L4-6 : T-2)",
+            words: [
+                { word: "theoretical", meaning: "adj. 理論上的", root: "theorein (觀察/沉思)", phonetic: "/ˌθiː.əˈret̬.ɪ.kəl/" },
+                { word: "therapy", meaning: "n. 治療；療法", root: "therapeuein (醫治/服侍)", phonetic: "/ˈθer.ə.pi/" },
+                { word: "threshold", meaning: "n. 門檻；開端", root: "threscan (古英語：踩踏)", phonetic: "/ˈθreʃ.hoʊld/" },
+                { word: "thrive", meaning: "v. 繁榮；茁壯", root: "thrifa (古諾斯語：抓取/獲利)", phonetic: "/θraɪv/" },
+                { word: "toll", meaning: "n. 通行費；傷亡人數", root: "telonium (拉丁語：收費站)", phonetic: "/toʊl/" },
+                { word: "topple", meaning: "v. 推翻；倒塌", root: "top (頂部) -> 從頂端跌落", phonetic: "/ˈtɑː.pəl/" },
+                { word: "torment", meaning: "n./v. 折磨；痛苦", root: "torquere (扭曲)", phonetic: "/ˈtɔːr.ment/" },
+                { word: "toxic", meaning: "adj. 有毒的", root: "toxikon (希臘語：塗在箭上的毒藥)", phonetic: "/ˈtɑːk.sɪk/" },
+                { word: "trait", meaning: "n. 特徵；特點", root: "tractus (拉/畫出的線) -> 勾勒出的輪廓", phonetic: "/treɪt/" },
+                { word: "tranquil", meaning: "adj. 寧靜的；平靜的", root: "trans (超越) + quies (安靜) -> 極致的安寧", phonetic: "/ˈtræŋ.kwɪl/" }
+            ]
+        },
+
+    // ==========================================
+    // 模組二：化生單字遊戲群組 - 1000字終極擴充計畫
+    // 嚴格比對，無重複 Level 4-6 (第十二批次 T3 - U)
+    // ==========================================
+        {
+            id: "senior_L46_Exp_T3_U1", title: "千字擴充計畫 (L4-6 : T-3 / U-1)",
+            words: [
+                { word: "transaction", meaning: "n. 交易；處理", root: "trans (跨越) + agere (驅動/做) -> 跨越雙方的行動", phonetic: "/trænˈzæk.ʃən/" },
+                { word: "transcend", meaning: "v. 超越", root: "trans (跨越) + scandere (攀登)", phonetic: "/trænˈsend/" },
+                { word: "transition", meaning: "n. 轉變；過渡", root: "trans (跨越) + ire (走) -> 轉換的過程", phonetic: "/trænˈzɪʃ.ən/" },
+                { word: "transparent", meaning: "adj. 透明的；清澈的", root: "trans (穿過) + parere (出現) -> 光線能穿過", phonetic: "/trænsˈper.ənt/" },
+                { word: "trauma", meaning: "n. 創傷", root: "trauma (希臘語：傷口)", phonetic: "/ˈtrɑː.mə/" },
+                { word: "trivial", meaning: "adj. 瑣碎的；微不足道的", root: "tri (三) + via (路) -> 三岔路口的尋常事物", phonetic: "/ˈtrɪv.i.əl/" },
+                { word: "turmoil", meaning: "n. 動亂；混亂", root: "turba (人群/混亂)", phonetic: "/ˈtɝː.mɔɪl/" },
+                { word: "ultimate", meaning: "adj. 最終的；極致的", root: "ultimus (最後的)", phonetic: "/ˈʌl.tə.mət/" },
+                { word: "unanimous", meaning: "adj. 意見一致的", root: "unus (一) + animus (心) -> 同心同德", phonetic: "/juːˈnæn.ə.məs/" },
+                { word: "undergo", meaning: "v. 經歷；承受", root: "under (在下) + go (走)", phonetic: "/ˌʌn.dɚˈɡoʊ/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_U2", title: "千字擴充計畫 (L4-6 : U-2)",
+            words: [
+                { word: "undermine", meaning: "v. 暗中破壞；削弱", root: "under (在下) + mine (挖礦) -> 挖空地基", phonetic: "/ˌʌn.dɚˈmaɪn/" },
+                { word: "undertake", meaning: "v. 承擔；著手做", root: "under (在下) + take (拿)", phonetic: "/ˌʌn.dɚˈteɪk/" },
+                { word: "unfold", meaning: "v. 展開；顯露", root: "un (打開) + fold (摺疊)", phonetic: "/ʌnˈfoʊld/" },
+                { word: "unify", meaning: "v. 統一；整合", root: "unus (一) + fy (使)", phonetic: "/ˈjuː.nə.faɪ/" },
+                { word: "upgrade", meaning: "v./n. 升級", root: "up (向上) + gradus (步/級)", phonetic: "/ˈʌp.ɡreɪd/" },
+                { word: "uphold", meaning: "v. 維護；支持", root: "up (向上) + hold (抓住)", phonetic: "/ʌpˈhoʊld/" },
+                { word: "utility", meaning: "n. 效用；實用", root: "uti (使用) + ity", phonetic: "/juːˈtɪl.ə.t̬i/" },
+                { word: "utilize", meaning: "v. 利用；應用", root: "uti (使用) + ize", phonetic: "/ˈjuː.t̬əl.aɪz/" },
+                { word: "utmost", meaning: "adj. 極度的 n. 極限", root: "ut (外面) + most (最) -> 最極端的", phonetic: "/ˈʌt.moʊst/" },
+                { word: "utter", meaning: "adj. 完全的 v. 發出聲音", root: "ut (外面) -> 說出來/徹底展露", phonetic: "/ˈʌt̬.ɚ/" }
+            ]
+        },
+
+    // ==========================================
+    // 模組二：化生單字遊戲群組 - 1000字終極擴充計畫
+    // 嚴格比對，無重複 Level 4-6 (第十三批次 V)
+    // ==========================================
+        {
+            id: "senior_L46_Exp_V1", title: "千字擴充計畫 (L4-6 : V-1)",
+            words: [
+                { word: "vacant", meaning: "adj. 空的；空缺的", root: "vacare (空)", phonetic: "/ˈveɪ.kənt/" },
+                { word: "vague", meaning: "adj. 模糊的；含糊的", root: "vagari (漫遊) -> 游移不定的", phonetic: "/veɪɡ/" },
+                { word: "valid", meaning: "adj. 有效的；有根據的", root: "valere (強壯/有力量)", phonetic: "/ˈvæl.ɪd/" },
+                { word: "vanish", meaning: "v. 消失；絕跡", root: "vanus (空的) -> 化為烏有", phonetic: "/ˈvæn.ɪʃ/" },
+                { word: "vanity", meaning: "n. 虛榮；空虛", root: "vanus (空的) + ity -> 虛無的榮耀", phonetic: "/ˈvæn.ə.t̬i/" },
+                { word: "variable", meaning: "adj. 多變的 n. 變數", root: "variare (改變) + able", phonetic: "/ˈver.i.ə.bəl/" },
+                { word: "velocity", meaning: "n. 速度；速率", root: "velox (迅速的) + ity", phonetic: "/vəˈlɑː.sə.t̬i/" },
+                { word: "vengeance", meaning: "n. 報仇；復仇", root: "vindicare (報復/伸張正義)", phonetic: "/ˈven.dʒəns/" },
+                { word: "venture", meaning: "n./v. 冒險；風險企業", root: "adventura (即將發生的事)", phonetic: "/ˈven.tʃɚ/" },
+                { word: "versatile", meaning: "adj. 多才多藝的；多功能的", root: "vertere (轉動) -> 能靈活轉向各領域", phonetic: "/ˈvɝː.sə.t̬əl/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_V2", title: "千字擴充計畫 (L4-6 : V-2)",
+            words: [
+                { word: "veteran", meaning: "n. 老手；退伍軍人", root: "vetus (老的)", phonetic: "/ˈvet.ɚ.ən/" },
+                { word: "veto", meaning: "n./v. 否決", root: "veto (拉丁語：我禁止)", phonetic: "/ˈviː.t̬oʊ/" },
+                { word: "vibrate", meaning: "v. 震動；顫動", root: "vibrare (搖擺)", phonetic: "/ˈvaɪ.breɪt/" },
+                { word: "vicious", meaning: "adj. 邪惡的；惡毒的", root: "vitium (缺點/罪惡) + ous", phonetic: "/ˈvɪʃ.əs/" },
+                { word: "vigor", meaning: "n. 活力；精力", root: "vigere (活潑/強壯)", phonetic: "/ˈvɪɡ.ɚ/" },
+                { word: "violate", meaning: "v. 違反；侵犯", root: "violare (施暴)", phonetic: "/ˈvaɪ.ə.leɪt/" },
+                { word: "virtual", meaning: "adj. 虛擬的；實質上的", root: "virtus (力量/效能) -> 具備實質效應的", phonetic: "/ˈvɝː.tʃu.əl/" },
+                { word: "vital", meaning: "adj. 極其重要的；充滿活力的", root: "vita (生命) -> 與生存攸關的", phonetic: "/ˈvaɪ.t̬əl/" },
+                { word: "voluntary", meaning: "adj. 自願的", root: "voluntas (意志)", phonetic: "/ˈvɑː.lən.ter.i/" },
+                { word: "vulnerable", meaning: "adj. 易受傷的；脆弱的", root: "vulnus (傷口) + able", phonetic: "/ˈvʌl.nɚ.ə.bəl/" }
+            ]
+        },
+
+    // ==========================================
+    // 模組二：化生單字遊戲群組 - 1000字終極擴充計畫
+    // 嚴格比對，無重複 Level 4-6 (第十四批次 W - Z，終章)
+    // ==========================================
+        {
+            id: "senior_L46_Exp_W1", title: "千字擴充計畫 (L4-6 : W-1)",
+            words: [
+                { word: "wail", meaning: "v./n. 哀嚎；慟哭", root: "擬聲詞 (源自古諾斯語 vaela)", phonetic: "/weɪl/" },
+                { word: "warrant", meaning: "n. 搜索票；保證 v. 使正當", root: "guarant (古法語：保護/擔保)", phonetic: "/ˈwɔːr.ənt/" },
+                { word: "wary", meaning: "adj. 謹慎的；警惕的", root: "waer (古英語：小心/留意)", phonetic: "/ˈwer.i/" },
+                { word: "weary", meaning: "adj. 疲倦的", root: "werig (古英語：疲勞)", phonetic: "/ˈwɪr.i/" },
+                { word: "weave", meaning: "v. 編織", root: "wefan (古英語：交織)", phonetic: "/wiːv/" },
+                { word: "welfare", meaning: "n. 福祉；社會福利", root: "well (好) + fare (走/過活) -> 過得好", phonetic: "/ˈwel.fer/" },
+                { word: "whirl", meaning: "v./n. 旋轉；迴旋", root: "hvirfla (古諾斯語：轉動)", phonetic: "/wɝːl/" },
+                { word: "wholesome", meaning: "adj. 有益健康的", root: "whole (完整/健康) + some", phonetic: "/ˈhoʊl.səm/" },
+                { word: "wicked", meaning: "adj. 邪惡的", root: "wicca (巫師/施法者)", phonetic: "/ˈwɪk.ɪd/" },
+                { word: "widespread", meaning: "adj. 廣泛的", root: "wide (寬) + spread (散播)", phonetic: "/ˈwaɪd.spred/" }
+            ]
+        },
+        {
+            id: "senior_L46_Exp_W2_Z", title: "千字擴充計畫 (L4-6 : W-Z 終章)",
+            words: [
+                { word: "withdraw", meaning: "v. 撤退；收回", root: "with (向後/反對) + draw (拉)", phonetic: "/wɪðˈdrɑː/" },
+                { word: "wither", meaning: "v. 枯萎；凋謝", root: "wederen (中古英語：暴露在天氣中)", phonetic: "/ˈwɪð.ɚ/" },
+                { word: "withhold", meaning: "v. 保留；隱瞞", root: "with (向後) + hold (抓住) -> 扣留不給", phonetic: "/wɪðˈhoʊld/" },
+                { word: "withstand", meaning: "v. 經得起；抵抗", root: "with (反對) + stand (站立) -> 挺立對抗", phonetic: "/wɪðˈstænd/" },
+                { word: "witness", meaning: "n. 證人 v. 目擊", root: "wit (知識) + ness -> 知道真相的人", phonetic: "/ˈwɪt.nəs/" },
+                { word: "wreck", meaning: "n./v. 破壞；船難", root: "wrec (盎格魯-諾曼語：被水沖上岸的殘骸)", phonetic: "/rek/" },
+                { word: "yearn", meaning: "v. 渴望；盼望", root: "giernan (古英語：強烈渴望)", phonetic: "/jɝːn/" },
+                { word: "yield", meaning: "v. 產生；屈服 n. 產量", root: "gieldan (古英語：支付/回報)", phonetic: "/jiːld/" },
+                { word: "zealous", meaning: "adj. 熱忱的；狂熱的", root: "zelos (熱情) + ous", phonetic: "/ˈzel.əs/" },
+                { word: "zenith", meaning: "n. 頂點；全盛時期", root: "semt (阿拉伯語：頭頂上的方向)", phonetic: "/ˈziː.nɪθ/" }
+            ]
+        }
         
         {
             id: "senior_VWZ", title: "高中 7000 單字 (W-Z組)",
