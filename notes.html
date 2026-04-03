@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>淨息流 ． 琉璃方便貼</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #FDFDFD, #F5F2EF);
+            --note-bg: rgba(255, 255, 255, 0.85);
+            --note-border: rgba(193, 165, 131, 0.3);
+            --accent-amber: #C1A583;
+            --text-main: #58504A;
+        }
+
+        * { box-sizing: border-box; touch-action: none; }
+        body { 
+            margin: 0; padding: 0; width: 100vw; height: 100vh; 
+            background: var(--bg-gradient); overflow: hidden; 
+            font-family: -apple-system, sans-serif;
+        }
+
+        /* --- 頂部控制欄 --- */
+        .controls {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 15px; z-index: 1000;
+        }
+        .btn-add {
+            width: 50px; height: 50px; background: var(--text-main); color: white;
+            border-radius: 50%; border: none; font-size: 1.5rem; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;
+        }
+
+        /* --- 方便貼樣式 --- */
+        .note {
+            position: absolute; width: 220px; min-height: 220px;
+            background: var(--note-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--note-border); border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(160, 155, 150, 0.1);
+            padding: 15px; cursor: move; display: flex; flex-direction: column;
+            animation: popIn 0.3s ease;
+        }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        .note-header { 
+            display: flex; justify-content: space-between; margin-bottom: 10px; 
+            border-bottom: 0.5px solid rgba(0,0,0,0.05); padding-bottom: 5px;
+        }
+        .note-close { cursor: pointer; color: var(--accent-amber); font-size: 0.8rem; }
+
+        /* 打字區域 */
+        .note-text { 
+            width: 100%; border: none; outline: none; background: transparent;
+            font-size: 0.95rem; color: var(--text-main); line-height: 1.5;
+            min-height: 50px; margin-bottom: 10px;
+        }
+
+        /* 手寫繪圖區域 */
+        .note-canvas {
+            width: 100%; height: 120px; background: rgba(255,255,255,0.3);
+            border-radius: 8px; cursor: crosshair; touch-action: none;
+        }
+
+        .hint { position: fixed; bottom: 20px; width: 100%; text-align: center; font-size: 0.7rem; color: #CCC; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button class="btn-add" onclick="createNote()">+</button>
+    </div>
+
+    <div id="board" style="width: 100%; height: 100%;"></div>
+
+    <div class="hint">識智合一 ． 隨手即法 ． 2026</div>
+
+    <script>
+        const board = document.getElementById('board');
+        let noteCounter = 0;
+
+        // --- 創建方便貼 ---
+        function createNote(x = 100, y = 100, savedData = null) {
+            noteCounter++;
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.id = `note-${Date.now()}`;
+            note.style.left = savedData ? savedData.x + 'px' : (x + (noteCounter * 20)) + 'px';
+            note.style.top = savedData ? savedData.y + 'px' : (y + (noteCounter * 20)) + 'px';
+
+            note.innerHTML = `
+                <div class="note-header">
+                    <span style="font-size:0.6rem; color:#AAA;">#${noteCounter}</span>
+                    <span class="note-close" onclick="this.parentElement.parentElement.remove(); saveAll();">✕</span>
+                </div>
+                <div class="note-text" contenteditable="true" oninput="saveAll()">${savedData ? savedData.text : '點擊打字...'}</div>
+                <canvas class="note-canvas"></canvas>
+            `;
+
+            board.appendChild(note);
+            initCanvas(note.querySelector('canvas'), savedData ? savedData.drawing : null);
+            makeDraggable(note);
+            saveAll();
+        }
+
+        // --- 手寫邏輯 (Canvas) ---
+        function initCanvas(canvas, savedDrawing) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            ctx.strokeStyle = '#C1A583'; // 流金色
+            ctx.lineWidth = 1.5;
+            ctx.lineCap = 'round';
+
+            if (savedDrawing) {
+                const img = new Image();
+                img.src = savedDrawing;
+                img.onload = () => ctx.drawImage(img, 0, 0);
+            }
+
+            let drawing = false;
+            canvas.onpointerdown = (e) => { drawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); };
+            canvas.onpointermove = (e) => { if (drawing) { ctx.lineTo(e.offsetX, e.offsetY); ctx.stroke(); } };
+            canvas.onpointerup = () => { drawing = false; saveAll(); };
+        }
+
+        // --- 拖動邏輯 ---
+        function makeDraggable(el) {
+            let offsetX, offsetY;
+            el.onpointerdown = (e) => {
+                if (e.target.className === 'note-canvas' || e.target.contentEditable === 'true') return;
+                offsetX = e.clientX - el.offsetLeft;
+                offsetY = e.clientY - el.offsetTop;
+                el.style.zIndex = 1000;
+                
+                document.onpointermove = (ev) => {
+                    el.style.left = (ev.clientX - offsetX) + 'px';
+                    el.style.top = (ev.clientY - offsetY) + 'px';
+                };
+                document.onpointerup = () => {
+                    document.onpointermove = null;
+                    el.style.zIndex = 1;
+                    saveAll();
+                };
+            };
+        }
+
+        // --- 本地保存 (金剛藏邏輯) ---
+        function saveAll() {
+            const notesData = [];
+            document.querySelectorAll('.note').forEach(n => {
+                notesData.push({
+                    x: parseInt(n.style.left),
+                    y: parseInt(n.style.top),
+                    text: n.querySelector('.note-text').innerText,
+                    drawing: n.querySelector('canvas').toDataURL()
+                });
+            });
+            localStorage.setItem('prajna_sticky_notes', JSON.stringify(notesData));
+        }
+
+        // --- 載入歷史 ---
+        window.onload = () => {
+            const saved = JSON.parse(localStorage.getItem('prajna_sticky_notes'));
+            if (saved && saved.length > 0) {
+                saved.forEach(data => createNote(0, 0, data));
+            }
+        };
+    </script>
+</body>
+</html>
