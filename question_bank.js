@@ -3355,6 +3355,201 @@ toefl: [
                 { word: "verdict", meaning: "n. 判決", root: "vere (真實) + dictum (說話)", phonetic: "/ˈvɝː.dɪkt/" }
             ]
         },
+    {
+            id: "toefl_38", title: "托福核心 (人類學與文化)",
+            words: [
+                { word: "ethnography", meaning: "n. 人種誌；民族誌", root: "ethnos (民族) + graphein (寫)", phonetic: "/eθˈnɑː.ɡrə.fi/" },
+                { word: "kinship", meaning: "n. 親屬關係", root: "kin (親屬) + ship (狀態)", phonetic: "/ˈkɪn.ʃɪp/" },
+                { word: "lineage", meaning: "n. 血統；家系", root: "linea (線/血脈)", phonetic: "/ˈlɪn.i.ɪdʒ/" },
+                { word: "indigenous", meaning: "adj. 本土的；土著的", root: "indu (在內) + gignere (產生)", phonetic: "/ɪnˈdɪdʒ.ə.nəs/" },
+                { word: "ritual", meaning: "n. 儀式；典禮", root: "ritus (宗教儀式)", phonetic: "/ˈrɪtʃ.u.əl/" },
+                { word: "artifact", meaning: "n. 人造物品；文物", root: "arte (技巧) + factum (做)", phonetic: "/ˈɑːr.t̬ə.fækt/" },
+                { word: "acculturation", meaning: "n. 文化適應；同化", root: "ad (向) + cultura (文化)", phonetic: "/əˌkʌl.tʃəˈreɪ.ʃən/" },
+                { word: "nomadic", meaning: "adj. 遊牧的", root: "nomas (尋找牧場者)", phonetic: "/noʊˈmæd.ɪk/" },
+                { word: "agrarian", meaning: "adj. 土地的；農業的", root: "ager (田地)", phonetic: "/əˈɡrer.i.ən/" },
+                { word: "folkway", meaning: "n. 民俗；社會習俗", root: "folk (人民) + way (方式)", phonetic: "/ˈfoʊk.weɪ/" }
+            ]
+        },
+        {
+            id: "toefl_39", title: "托福核心 (海洋學與水文)",
+            words: [
+                { word: "aquatic", meaning: "adj. 水生的；水上的", root: "aqua (水)", phonetic: "/əˈkwæt̬.ɪk/" },
+                { word: "salinity", meaning: "n. 鹽度", root: "sal (鹽) + inity", phonetic: "/səˈlɪn.ə.t̬i/" },
+                { word: "current", meaning: "n. 水流；電流", root: "currere (跑/流動)", phonetic: "/ˈkɝː.ənt/" },
+                { word: "sediment", meaning: "n. 沉澱物", root: "sedere (坐/沉降)", phonetic: "/ˈsed.ə.mənt/" },
+                { word: "plankton", meaning: "n. 浮游生物", root: "planktos (漂流者)", phonetic: "/ˈplæŋk.tən/" },
+                { word: "ecosystem", meaning: "n. 生態系統", root: "oikos (環境) + system", phonetic: "/ˈiː.koʊˌsɪs.təm/" },
+                { word: "tide", meaning: "n. 潮汐", root: "tiz (時間/潮汐)", phonetic: "/taɪd/" },
+                { word: "submerge", meaning: "v. 淹沒；潛入水中", root: "sub (下) + mergere (浸入)", phonetic: "/səbˈmɝːdʒ/" },
+                { word: "estuary", meaning: "n. 河口；港灣", root: "aestus (潮汐/熱)", phonetic: "/ˈes.tu.er.i/" },
+                { word: "maritime", meaning: "adj. 海事的；沿海的", root: "mare (海)", phonetic: "/ˈmer.ə.taɪm/" }
+            ]
+        },
+        {
+            id: "toefl_40", title: "托福核心 (植物學與生態)",
+            words: [
+                { word: "photosynthesis", meaning: "n. 光合作用", root: "photo (光) + synthesis (合成)", phonetic: "/ˌfoʊ.t̬oʊˈsɪn.θə.sɪs/" },
+                { word: "germination", meaning: "/n. 發芽", root: "germen (種子/芽)", phonetic: "/ˌdʒɝː.məˈneɪ.ʃən/" },
+                { word: "chlorophyll", meaning: "n. 葉綠素", root: "khloros (綠) + phyllon (葉)", phonetic: "/ˈklɔːr.ə.fɪl/" },
+                { word: "pollination", meaning: "n. 授粉", root: "pollen (細粉)", phonetic: "/ˌpɑː.ləˈneɪ.ʃən/" },
+                { word: "deciduous", meaning: "adj. 落葉性的", root: "de (下) + cadere (掉落)", phonetic: "/dɪˈsɪdʒ.u.əs/" },
+                { word: "evergreen", meaning: "adj. 常綠的", root: "ever (總是) + green (綠)", phonetic: "/ˈev.ɚ.ɡriːn/" },
+                { word: "botany", meaning: "n. 植物學", root: "botane (草/植物)", phonetic: "/ˈbɑː.t̬ən.i/" },
+                { word: "vascular", meaning: "adj. 脈管的；維管束的", root: "vasculum (小容器)", phonetic: "/ˈvæs.kjə.lɚ/" },
+                { word: "habitat", meaning: "n. 棲息地", root: "habitare (居住)", phonetic: "/ˈhæb.ə.tæt/" },
+                { word: "biodiversity", meaning: "n. 生物多樣性", root: "bio (生命) + diversity", phonetic: "/ˌbaɪ.oʊ.dɪˈvɝː.sə.t̬i/" }
+            ]
+        },
+        {
+            id: "toefl_41", title: "托福核心 (物理與能量)",
+            words: [
+                { word: "velocity", meaning: "n. 速度；速率", root: "velox (快)", phonetic: "/vəˈlɑː.sə.t̬i/" },
+                { word: "gravity", meaning: "n. 重力；嚴重性", root: "gravis (重)", phonetic: "/ˈɡræv.ə.t̬i/" },
+                { word: "friction", meaning: "n. 摩擦力", root: "fricare (擦)", phonetic: "/ˈfrɪk.ʃən/" },
+                { word: "inertia", meaning: "n. 慣性；惰性", root: "in (不) + ars (技術/動)", phonetic: "/ˌɪnˈɝː.ʃə/" },
+                { word: "thermodynamics", meaning: "n. 熱力學", root: "therme (熱) + dynamis (力)", phonetic: "/ˌθɝː.moʊ.daɪˈnæm.ɪks/" },
+                { word: "kinetic", meaning: "adj. 動能的", root: "kinein (移動)", phonetic: "/kɪˈnet̬.ɪk/" },
+                { word: "radiation", meaning: "n. 輻射", root: "radius (光線)", phonetic: "/ˌreɪ.diˈeɪ.ʃən/" },
+                { word: "vacuum", meaning: "n. 真空", root: "vacuus (空的)", phonetic: "/ˈvæk.juːm/" },
+                { word: "resonance", meaning: "n. 共鳴；共振", root: "re (再) + sonare (響)", phonetic: "/ˈrez.ən.əns/" },
+                { word: "optics", meaning: "n. 光學", root: "optikos (視覺的)", phonetic: "/ˈɑːp.tɪks/" }
+            ]
+        },
+        {
+            id: "toefl_42", title: "托福核心 (化學與材料)",
+            words: [
+                { word: "molecule", meaning: "n. 分子", root: "moles (量) + cule (小)", phonetic: "/ˈmɑː.lɪ.kjuːl/" },
+                { word: "catalyst", meaning: "n. 催化劑", root: "cata (下) + lyein (解開)", phonetic: "/ˈkæt̬.əl.ɪst/" },
+                { word: "compound", meaning: "n. 化合物", root: "com (共) + ponere (放)", phonetic: "/ˈkɑːm.paʊnd/" },
+                { word: "isotope", meaning: "n. 同位素", root: "isos (等) + topos (地)", phonetic: "/ˈaɪ.sə.toʊp/" },
+                { word: "viscosity", meaning: "n. 黏度", root: "viscum (黏膠)", phonetic: "/vɪˈskɑː.sə.t̬i/" },
+                { word: "synthetic", meaning: "adj. 合成的", root: "syn (共) + tithenai (放)", phonetic: "/sɪnˈθet̬.ɪk/" },
+                { word: "acidic", meaning: "adj. 酸性的", root: "acidus (酸)", phonetic: "/əˈsɪd.ɪk/" },
+                { word: "alkaline", meaning: "adj. 鹼性的", root: "alkali (灰)", phonetic: "/ˈæl.kə.laɪn/" },
+                { word: "distillation", meaning: "n. 蒸餾", root: "de (下) + stillare (滴)", phonetic: "/ˌdɪs.tɪˈleɪ.ʃən/" },
+                { word: "element", meaning: "n. 元素", root: "elementum (第一原理)", phonetic: "/ˈel.ə.mənt/" }
+            ]
+        },
+        {
+            id: "toefl_43", title: "托福核心 (經濟與金融)",
+            words: [
+                { word: "monopoly", meaning: "n. 壟斷", root: "monos (單一) + polein (賣)", phonetic: "/məˈnɑː.pəl.i/" },
+                { word: "inflation", meaning: "n. 通貨膨脹", root: "in (入) + flare (吹)", phonetic: "/ɪnˈfleɪ.ʃən/" },
+                { word: "subsidy", meaning: "n. 補助金", root: "sub (下) + sedere (坐)", phonetic: "/ˈsʌb.sə.di/" },
+                { word: "commodity", meaning: "n. 商品", root: "commodus (便利)", phonetic: "/kəˈmɑː.də.t̬i/" },
+                { word: "deficit", meaning: "n. 赤字", root: "de (下) + facere (做) -> 欠缺", phonetic: "/ˈdef.ə.sɪt/" },
+                { word: "revenue", meaning: "n. 收益", root: "re (再) + venire (來)", phonetic: "/ˈrev.ən.juː/" },
+                { word: "fiscal", meaning: "adj. 財政的", root: "fiscus (錢袋)", phonetic: "/ˈfɪs.kəl/" },
+                { word: "currency", meaning: "n. 貨幣", root: "currere (跑/流通)", phonetic: "/ˈkɝː.ən.si/" },
+                { word: "recession", meaning: "n. 經濟衰退", root: "re (回) + cedere (走)", phonetic: "/rɪˈseʃ.ən/" },
+                { word: "equilibrium", meaning: "n. 平衡", root: "aequus (等) + libra (秤)", phonetic: "/ˌiː.kwəˈlɪb.ri.əm/" }
+            ]
+        },
+        {
+            id: "toefl_44", title: "托福核心 (社會學與人口)",
+            words: [
+                { word: "urbanization", meaning: "n. 都市化", root: "urbs (城市)", phonetic: "/ˌɝː.bə.nəˈzeɪ.ʃən/" },
+                { word: "demographics", meaning: "n. 人口統計數據", root: "demos (人民) + graph", phonetic: "/ˌdem.əˈɡræf.ɪks/" },
+                { word: "stratification", meaning: "n. 階層化", root: "stratum (層) + facere", phonetic: "/ˌstræt̬.ə.fəˈkeɪ.ʃən/" },
+                { word: "migration", meaning: "n. 遷移", root: "migrare (移居)", phonetic: "/maɪˈɡreɪ.ʃən/" },
+                { word: "bureaucracy", meaning: "n. 官僚制度", root: "bureau (辦公桌) + cracy", phonetic: "/bjʊˈrɑː.krə.si/" },
+                { word: "norm", meaning: "n. 規範；基準", root: "norma (標準)", phonetic: "/nɔːrm/" },
+                { word: "deviance", meaning: "n. 偏差行為", root: "de (離) + via (路)", phonetic: "/ˈdiː.vi.əns/" },
+                { word: "metropolitan", meaning: "adj. 大都市的", root: "meter (母) + polis (城)", phonetic: "/ˌmet.rəˈpɑː.lɪ.tən/" },
+                { word: "globalization", meaning: "n. 全球化", root: "global + ization", phonetic: "/ˌɡloʊ.bəl.əˈzeɪ.ʃən/" },
+                { word: "assimilation", meaning: "n. 同化", root: "ad (向) + similis (相同)", phonetic: "/əˌsɪm.əˈleɪ.ʃən/" }
+            ]
+        },
+        {
+            id: "toefl_45", title: "托福核心 (心理學與行為)",
+            words: [
+                { word: "cognition", meaning: "n. 認知", root: "cognoscere (知道)", phonetic: "/kɑːɡˈnɪʃ.ən/" },
+                { word: "stimulus", meaning: "n. 刺激", root: "stimulus (刺棒)", phonetic: "/ˈstɪm.jə.ləs/" },
+                { word: "subconscious", meaning: "n. 潛意識", root: "sub (下) + conscious", phonetic: "/ˌsʌbˈkɑːn.ʃəs/" },
+                { word: "empathy", meaning: "n. 同理心", root: "en (入) + pathos (感情)", phonetic: "/ˈem.pə.θi/" },
+                { word: "reinforcement", meaning: "n. 強化", root: "re (再) + in + force", phonetic: "/ˌriː.ɪnˈfɔːrs.mənt/" },
+                { word: "temperament", meaning: "n. 氣質", root: "temperare (混合)", phonetic: "/ˈtem.prə.mənt/" },
+                { word: "perception", meaning: "n. 知覺", root: "per (完) + capere (抓)", phonetic: "/pɚˈsep.ʃən/" },
+                { word: "projection", meaning: "n. 投射", root: "pro (前) + jacere (丟)", phonetic: "/prəˈdʒek.ʃən/" },
+                { word: "amnesia", meaning: "n. 健忘症", root: "a (不) + mnasthai (記得)", phonetic: "/æmˈniː.ʒə/" },
+                { word: "behaviorism", meaning: "n. 行為主義", root: "behavior + ism", phonetic: "/bɪˈheɪ.vjɚ.ɪ.zəm/" }
+            ]
+        },
+        {
+            id: "toefl_46", title: "托福核心 (哲學與邏輯)",
+            words: [
+                { word: "premise", meaning: "n. 前提", root: "prae (前) + mittere (送)", phonetic: "/ˈprem.ɪs/" },
+                { word: "syllogism", meaning: "n. 三段論", root: "syn (共) + logos", phonetic: "/ˈsɪl.ə.dʒɪ.zəm/" },
+                { word: "fallacy", meaning: "n. 謬誤", root: "fallere (欺騙)", phonetic: "/ˈfæl.ə.si/" },
+                { word: "validity", meaning: "n. 有效性", root: "valere (強健/值)", phonetic: "/vəˈlɪd.ə.t̬i/" },
+                { word: "paradox", meaning: "n. 悖論", root: "para (旁) + doxa (見解)", phonetic: "/ˈper.ə.dɑːks/" },
+                { word: "dialectic", meaning: "n. 辯證法", root: "dia (穿) + legein (說)", phonetic: "/ˌdaɪ.əˈlek.tɪk/" },
+                { word: "axiom", meaning: "n. 公理", root: "axios (值得)", phonetic: "/ˈæk.si.əm/" },
+                { word: "deductive", meaning: "adj. 演繹的", root: "de (下) + ducere (引)", phonetic: "/dɪˈdʌk.tɪv/" },
+                { word: "inductive", meaning: "adj. 歸納的", root: "in (入) + ducere", phonetic: "/ɪnˈdʌk.tɪv/" },
+                { word: "empirical", meaning: "adj. 實證的", root: "en (在) + peira (試)", phonetic: "/emˈpɪr.ɪ.kəl/" }
+            ]
+        },
+        {
+            id: "toefl_47", title: "托福核心 (建築與都市設計)",
+            words: [
+                { word: "infrastructure", meaning: "n. 基礎建設", root: "infra (下) + structure", phonetic: "/ˈɪn.frəˌstrʌk.tʃɚ/" },
+                { word: "facade", meaning: "n. 建築正面", root: "faccia (臉)", phonetic: "/fəˈsɑːd/" },
+                { word: "aesthetic", meaning: "adj. 審美的", root: "aisthanesthai (感知)", phonetic: "/esˈθet̬.ɪk/" },
+                { word: "monumental", meaning: "adj. 不朽的；雄偉的", root: "monere (提醒)", phonetic: "/ˌmɑː.njəˈmen.t̬əl/" },
+                { word: "sustainable", meaning: "adj. 永續的", root: "sus (下) + tenere (持)", phonetic: "/səˌsteɪ.nəˈbɪl.ə.t̬i/" },
+                { word: "zoning", meaning: "n. 都市區域規劃", root: "zone (區域)", phonetic: "/ˈzoʊ.nɪŋ/" },
+                { word: "renovation", meaning: "n. 翻新", root: "re (再) + novus (新)", phonetic: "/ˌren.əˈveɪ.ʃən/" },
+                { word: "blueprint", meaning: "n. 藍圖", root: "blue + print", phonetic: "/ˈbluː.prɪnt/" },
+                { word: "spatial", meaning: "adj. 空間的", root: "spatium (空間)", phonetic: "/ˈspeɪ.ʃəl/" },
+                { word: "skyscraper", meaning: "n. 摩天大樓", root: "sky + scraper", phonetic: "/ˈskaɪˌskreɪ.pɚ/" }
+            ]
+        },
+        {
+            id: "toefl_48", title: "托福核心 (科技與通訊)",
+            words: [
+                { word: "algorithm", meaning: "n. 演算法", root: "al-Khwarizmi (數學家名)", phonetic: "/ˈæl.ɡə.rɪ.ðəm/" },
+                { word: "encryption", meaning: "n. 加密", root: "en (入) + kruptos (隱藏)", phonetic: "/ɪnˈkrɪp.ʃən/" },
+                { word: "protocol", meaning: "n. 協議；禮儀", root: "protos (首) + kolla (膠)", phonetic: "/ˈproʊ.t̬ə.kɑːl/" },
+                { word: "transmission", meaning: "n. 傳輸", root: "trans (跨) + mittere (送)", phonetic: "/trænzˈmɪʃ.ən/" },
+                { word: "bandwidth", meaning: "n. 頻寬", root: "band + width", phonetic: "/ˈbænd.wɪtθ/" },
+                { word: "interface", meaning: "n. 介面", root: "inter (間) + face", phonetic: "/ˈɪn.t̬ɚ.feɪs/" },
+                { word: "automation", meaning: "n. 自動化", root: "autos (自我) + matos (動作)", phonetic: "/ˌɑː.t̬əˈmeɪ.ʃən/" },
+                { word: "binary", meaning: "adj. 二進位的", root: "bi (二)", phonetic: "/ˈbaɪ.nə.ri/" },
+                { word: "database", meaning: "n. 資料庫", root: "data + base", phonetic: "/ˈdeɪ.t̬ə.beɪs/" },
+                { word: "optimization", meaning: "n. 優化", root: "optimus (最好)", phonetic: "/ˌɑːp.tə.məˈzeɪ.ʃən/" }
+            ]
+        },
+        {
+            id: "toefl_49", title: "托福核心 (媒體與大眾傳播)",
+            words: [
+                { word: "broadcast", meaning: "v. 廣播", root: "broad (寬) + cast (擲)", phonetic: "/ˈbrɑːd.kæst/" },
+                { word: "journalism", meaning: "n. 新聞業", root: "journal (日誌)", phonetic: "/ˈdʒɝː.nə.lɪ.zəm/" },
+                { word: "censorship", meaning: "n. 審查制度", root: "censere (評估)", phonetic: "/ˈsen.sɚ.ʃɪp/" },
+                { word: "propaganda", meaning: "n. 宣傳；洗腦教育", root: "propagare (繁衍/傳播)", phonetic: "/ˌprɑː.pəˈɡæn.də/" },
+                { word: "mainstream", meaning: "n. 主流", root: "main + stream", phonetic: "/ˈmeɪn.striːm/" },
+                { word: "persuasion", meaning: "n. 說服", root: "per (完) + suadere (勸)", phonetic: "/pɚˈsweɪ.ʒən/" },
+                { word: "coverage", meaning: "n. 新聞報導範圍", root: "cover + age", phonetic: "/ˈkʌv.ɚ.ɪdʒ/" },
+                { word: "sensationalism", meaning: "n. 聳人聽聞；煽情", root: "sensation + al + ism", phonetic: "/senˈseɪ.ʃən.əl.ɪ.zəm/" },
+                { word: "bias", meaning: "n. 偏見", root: "biais (傾斜)", phonetic: "/ˈbaɪ.əs/" },
+                { word: "literacy", meaning: "n. 識字；素養", root: "littera (字母)", phonetic: "/ˈlɪt̬.ɚ.ə.si/" }
+            ]
+        },
+        {
+            id: "toefl_50", title: "托福核心 (終極：意識與覺察)",
+            words: [
+                { word: "sentient", meaning: "adj. 有知覺的；有情的", root: "sentire (感覺)", phonetic: "/ˈsen.ʃənt/" },
+                { word: "equanimity", meaning: "n. 平靜；鎮定", root: "aequus (等) + animus (心)", phonetic: "/ˌek.wəˈnɪm.ə.t̬i/" },
+                { word: "transcendence", meaning: "n. 超越", root: "trans (跨) + scandere (爬)", phonetic: "/trænˈsen.dəns/" },
+                { word: "contemplation", meaning: "n. 沉思", root: "con (共) + templum (觀察處)", phonetic: "/ˌkɑːn.t̬əmˈpleɪ.ʃən/" },
+                { word: "discernment", meaning: "n. 洞察力；識別", root: "dis (分) + cernere (看)", phonetic: "/dɪˈsɝːn.mənt/" },
+                { word: "intrinsic", meaning: "adj. 本質的；內在的", root: "intra (內) + sequi (跟)", phonetic: "/ɪnˈtrɪn.zɪk/" },
+                { word: "manifestation", meaning: "n. 顯現；示現", root: "manus (手) + festus (抓)", phonetic: "/ˌmæn.ə.fesˈteɪ.ʃən/" },
+                { word: "infinite", meaning: "adj. 無限的", root: "in (不) + finis (界限)", phonetic: "/ˈɪn.fə.nət/" },
+                { word: "interconnected", meaning: "adj. 相互連結的", root: "inter (間) + connect", phonetic: "/ˌɪn.t̬ɚ.kəˈnek.tɪd/" },
+                { word: "enlightenment", meaning: "n. 啟蒙；覺悟", root: "en (入) + light + en", phonetic: "/ɪnˈlaɪ.t̬ən.mənt/" }
+            ]
+        },
         {
             id: "toefl_16", title: "托福核心 (宇宙與生態)",
             words: [
@@ -3688,6 +3883,426 @@ toefl: [
                 { word: "COMMERCIAL", meaning: "商業廣告" },
                 { word: "EXPOSURE", meaning: "曝光" },
                 { word: "CAMPAIGN", meaning: "行銷活動" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十三)",
+            words: [
+                { word: "PHOTOCOPIER", meaning: "影印機" },
+                { word: "STATIONERY", meaning: "文具" },
+                { word: "CARTRIDGE", meaning: "墨水匣" },
+                { word: "SHREDDER", meaning: "碎紙機" },
+                { word: "STAPLER", meaning: "訂書機" },
+                { word: "FOLDER", meaning: "文件夾" },
+                { word: "CLIPBOARD", meaning: "寫字夾板" },
+                { word: "CABINET", meaning: "檔案櫃" },
+                { word: "BULLETIN", meaning: "公告；告示" },
+                { word: "MEMORANDUM", meaning: "備忘錄" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十四)",
+            words: [
+                { word: "RECRUITMENT", meaning: "招聘；徵才" },
+                { word: "HEADHUNTER", meaning: "獵頭公司" },
+                { word: "ORIENTATION", meaning: "新人培訓；定向" },
+                { word: "TURNOVER", meaning: "離職率；營業額" },
+                { word: "VACANCY", meaning: "職位空缺" },
+                { word: "REFERENCE", meaning: "推薦信；參考資料" },
+                { word: "QUALIFICATION", meaning: "資格；學識" },
+                { word: "APPOINTMENT", meaning: "任命；預約" },
+                { word: "RESIGNATION", meaning: "辭職" },
+                { word: "RETAIN", meaning: "留住；保有" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十五)",
+            words: [
+                { word: "REMUNERATION", meaning: "報酬；酬金" },
+                { word: "ALLOWANCE", meaning: "津貼；補貼" },
+                { word: "COMMISSION", meaning: "佣金" },
+                { word: "PENSION", meaning: "退休金" },
+                { word: "OVERTIME", meaning: "加班" },
+                { word: "REIMBURSE", meaning: "核銷；報帳" },
+                { word: "PAYROLL", meaning: "發薪名單" },
+                { word: "BONUS", meaning: "獎金" },
+                { word: "SUBSIDY", meaning: "補助金" },
+                { word: "INSURANCE", meaning: "保險" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十六)",
+            words: [
+                { word: "HEADQUARTERS", meaning: "總部" },
+                { word: "SUBSIDIARY", meaning: "子公司" },
+                { word: "AFFILIATE", meaning: "關係企業；分會" },
+                { word: "DIVISION", meaning: "部門" },
+                { word: "BOARD", meaning: "董事會" },
+                { word: "SUPERVISOR", meaning: "主管；監督者" },
+                { word: "EXECUTIVE", meaning: "高階主管" },
+                { word: "DIRECTOR", meaning: "董事；經理" },
+                { word: "SHAREHOLDER", meaning: "股東" },
+                { word: "MERGER", meaning: "合併" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十七)",
+            words: [
+                { word: "AGENDA", meaning: "議程" },
+                { word: "CONFERENCE", meaning: "正式會議" },
+                { word: "WORKSHOP", meaning: "工作坊" },
+                { word: "MINUTES", meaning: "會議紀錄" },
+                { word: "QUORUM", meaning: "法定人數" },
+                { word: "SYMPOSIUM", meaning: "專題討論會" },
+                { word: "PRESENTATION", meaning: "簡報；呈現" },
+                { word: "ADJOURN", meaning: "休會；延期" },
+                { word: "UNANIMOUS", meaning: "一致通過的" },
+                { word: "FACILITATOR", meaning: "會議引導者" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十八)",
+            words: [
+                { word: "TRANSACTION", meaning: "交易" },
+                { word: "INVOICE", meaning: "發票；帳單" },
+                { word: "RECEIPT", meaning: "收據" },
+                { word: "STATEMENT", meaning: "對帳單；聲明" },
+                { word: "DEBIT", meaning: "借方" },
+                { word: "CREDIT", meaning: "貸方" },
+                { word: "BALANCE", meaning: "餘額" },
+                { word: "OVERDUE", meaning: "逾期的" },
+                { word: "REMITTANCE", meaning: "匯款" },
+                { word: "INSTALLMENT", meaning: "分期付款" }
+            ]
+        },
+        {
+            title: "多益必考核心 (二十九)",
+            words: [
+                { word: "AUDIT", meaning: "審計；查帳" },
+                { word: "FISCAL", meaning: "財政的" },
+                { word: "ASSET", meaning: "資產" },
+                { word: "LIABILITY", meaning: "負債" },
+                { word: "BUDGET", meaning: "預算" },
+                { word: "EXPENSE", meaning: "費用；支出" },
+                { word: "PROFIT", meaning: "利潤" },
+                { word: "REVENUE", meaning: "營收" },
+                { word: "DIVIDEND", meaning: "股息" },
+                { word: "SURPLUS", meaning: "盈餘" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十)",
+            words: [
+                { word: "REPRESENTATIVE", meaning: "代表；專員" },
+                { word: "INQUIRY", meaning: "詢問；查詢" },
+                { word: "COMPLAINT", meaning: "投訴；抱怨" },
+                { word: "SATISFACTION", meaning: "滿意度" },
+                { word: "LOYALTY", meaning: "忠誠度" },
+                { word: "FEEDBACK", meaning: "回饋" },
+                { word: "WARRANTY", meaning: "保固" },
+                { word: "REFUND", meaning: "退款" },
+                { word: "EXCHANGE", meaning: "更換；兌換" },
+                { word: "ASSISTANCE", meaning: "協助" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十一)",
+            words: [
+                { word: "LOGISTICS", meaning: "物流" },
+                { word: "SHIPMENT", meaning: "貨運物" },
+                { word: "CARRIER", meaning: "運送業者" },
+                { word: "CONSIGNMENT", meaning: "委託貨物" },
+                { word: "FREIGHT", meaning: "貨物運費" },
+                { word: "COURIER", meaning: "快遞員" },
+                { word: "WAREHOUSE", meaning: "倉庫" },
+                { word: "DISTRIBUTION", meaning: "分銷；分配" },
+                { word: "TRACKING", meaning: "追蹤" },
+                { word: "EXPEDITE", meaning: "加速處理" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十二)",
+            words: [
+                { word: "PROCUREMENT", meaning: "採購" },
+                { word: "VENDOR", meaning: "供應商" },
+                { word: "INVENTORY", meaning: "存貨盤點" },
+                { word: "PURCHASE", meaning: "購買" },
+                { word: "BULK", meaning: "大宗；大量的" },
+                { word: "ESTIMATE", meaning: "估價單" },
+                { word: "BID", meaning: "投標" },
+                { word: "SPECIFICATION", meaning: "規格說明" },
+                { word: "ACQUISITION", meaning: "收購；取得" },
+                { word: "OUTSOURCE", meaning: "外包" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十三)",
+            words: [
+                { word: "MANUFACTURING", meaning: "製造業" },
+                { word: "ASSEMBLY", meaning: "組裝" },
+                { word: "CAPACITY", meaning: "產能" },
+                { word: "DEFECT", meaning: "瑕疵；缺陷" },
+                { word: "INSPECTION", meaning: "檢查" },
+                { word: "AUTOMATION", meaning: "自動化" },
+                { word: "MAINTENANCE", meaning: "維修；保養" },
+                { word: "EFFICIENT", meaning: "效率高的" },
+                { word: "OUTPUT", meaning: "產量" },
+                { word: "DOWNTIME", meaning: "停機時間" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十四)",
+            words: [
+                { word: "INNOVATION", meaning: "創新" },
+                { word: "PROTOTYPE", meaning: "原型；雛型" },
+                { word: "PATENT", meaning: "專利" },
+                { word: "DEVELOPMENT", meaning: "開發" },
+                { word: "BREAKTHROUGH", meaning: "突破" },
+                { word: "LABORATORY", meaning: "實驗室" },
+                { word: "FEASIBILITY", meaning: "可行性" },
+                { word: "MODIFICATION", meaning: "修改" },
+                { word: "TECHNICAL", meaning: "技術的" },
+                { word: "ANALYSIS", meaning: "分析" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十五)",
+            words: [
+                { word: "CONTRACT", meaning: "合約" },
+                { word: "CLAUSE", meaning: "條款" },
+                { word: "STIPULATE", meaning: "規定" },
+                { word: "BREACH", meaning: "違約" },
+                { word: "BINDING", meaning: "有約束力的" },
+                { word: "TERMINATE", meaning: "終止" },
+                { word: "RENEWAL", meaning: "續約" },
+                { word: "SIGNATURE", meaning: "簽署" },
+                { word: "NEGOTIATE", meaning: "談判" },
+                { word: "LIABILITY", meaning: "法律責任" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十六)",
+            words: [
+                { word: "HARDWARE", meaning: "硬體" },
+                { word: "SOFTWARE", meaning: "軟體" },
+                { word: "DATABASE", meaning: "資料庫" },
+                { word: "NETWORK", meaning: "網路" },
+                { word: "COMPATIBLE", meaning: "相容的" },
+                { word: "CONFIGURE", meaning: "配置" },
+                { word: "UPGRADE", meaning: "升級" },
+                { word: "BACKUP", meaning: "備份" },
+                { word: "TROUBLESHOOT", meaning: "疑難排解" },
+                { word: "SECURITY", meaning: "安全性" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十七)",
+            words: [
+                { word: "FACILITY", meaning: "設施；場所" },
+                { word: "RENOVATION", meaning: "整修" },
+                { word: "PREMISES", meaning: "營業場所" },
+                { word: "ESTATE", meaning: "地產" },
+                { word: "LEASE", meaning: "租約" },
+                { word: "TENANT", meaning: "承租人" },
+                { word: "UTILITY", meaning: "公共設施" },
+                { word: "MAINTENANCE", meaning: "保養" },
+                { word: "BLUEPRINT", meaning: "藍圖" },
+                { word: "OCCUPANCY", meaning: "佔用；居住" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十八)",
+            words: [
+                { word: "ITINERARY", meaning: "行程表" },
+                { word: "RESERVATION", meaning: "預約" },
+                { word: "ACCOMMODATION", meaning: "住宿" },
+                { word: "TRANSFER", meaning: "轉機；接駁" },
+                { word: "CONFIRMATION", meaning: "確認函" },
+                { word: "DEPARTURE", meaning: "出發" },
+                { word: "DESTINATION", meaning: "目的地" },
+                { word: "IMMIGRATION", meaning: "移民局；入出境" },
+                { word: "VOUCHER", meaning: "兌換券" },
+                { word: "CONCIERGE", meaning: "禮賓部" }
+            ]
+        },
+        {
+            title: "多益必考核心 (三十九)",
+            words: [
+                { word: "HOSPITALITY", meaning: "餐旅業；款待" },
+                { word: "RECEPTION", meaning: "接待處" },
+                { word: "CATERING", meaning: "外燴" },
+                { word: "BEVERAGE", meaning: "飲料" },
+                { word: "CUISINE", meaning: "料理" },
+                { word: "SPECIALTY", meaning: "招牌菜" },
+                { word: "COMPLIMENTARY", meaning: "贈送的" },
+                { word: "BANQUET", meaning: "宴會" },
+                { word: "DELICACY", meaning: "佳餚" },
+                { word: "RESERVATION", meaning: "訂位" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十)",
+            words: [
+                { word: "PHYSICAL", meaning: "身體的；體檢" },
+                { word: "SYMPTOM", meaning: "症狀" },
+                { word: "PHARMACY", meaning: "藥局" },
+                { word: "PRESCRIPTION", meaning: "處方箋" },
+                { word: "CLINIC", meaning: "診所" },
+                { word: "TREATMENT", meaning: "治療" },
+                { word: "NUTRITION", meaning: "營養" },
+                { word: "BENEFIT", meaning: "保險給付；福利" },
+                { word: "THERAPY", meaning: "療法" },
+                { word: "WELLNESS", meaning: "健康管理" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十一)",
+            words: [
+                { word: "DIGITALIZATION", meaning: "數位化" },
+                { word: "CLOUD-COMPUTING", meaning: "雲端運算" },
+                { word: "ALGORITHM", meaning: "演算法" },
+                { word: "DATA-MINING", meaning: "資料探勘" },
+                { word: "CYBERSECURITY", meaning: "網路安全" },
+                { word: "INFRASTRUCTURE", meaning: "基礎建設" },
+                { word: "VIRTUALIZATION", meaning: "虛擬化" },
+                { word: "IMPLEMENTATION", meaning: "實施；啟用" },
+                { word: "SCALABILITY", meaning: "可擴展性" },
+                { word: "AUTOMATION", meaning: "自動化" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十二)",
+            words: [
+                { word: "ARBITRATION", meaning: "仲裁" },
+                { word: "LITIGATION", meaning: "訴訟" },
+                { word: "JURISDICTION", meaning: "管轄權" },
+                { word: "SETTLEMENT", meaning: "和解；結算" },
+                { word: "AFFIDAVIT", meaning: "宣誓書" },
+                { word: "LIABILITY", meaning: "法律責任" },
+                { word: "COMPLIANCE", meaning: "合規" },
+                { word: "INTELLECTUAL", meaning: "知識的；智力的" },
+                { word: "PATENT", meaning: "專利" },
+                { word: "INFRINGEMENT", meaning: "侵權" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十三)",
+            words: [
+                { word: "PREMIUM", meaning: "保費；高級的" },
+                { word: "COVERAGE", meaning: "保險範圍" },
+                { word: "CLAIM", meaning: "理賠申請" },
+                { word: "BENEFICIARY", meaning: "受益人" },
+                { word: "POLICY", meaning: "保險單；政策" },
+                { word: "UNDERWRITE", meaning: "承保；簽署" },
+                { word: "DEDUCTIBLE", meaning: "自負額" },
+                { word: "REIMBURSEMENT", meaning: "核銷；賠償" },
+                { word: "INDEMNITY", meaning: "補償；賠償" },
+                { word: "EXPIRATION", meaning: "期滿；終止" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十四)",
+            words: [
+                { word: "LEASE", meaning: "租約" },
+                { word: "MORTGAGE", meaning: "抵押貸款" },
+                { word: "APPRAISAL", meaning: "估價；評價" },
+                { word: "TENANT", meaning: "承租人" },
+                { word: "LANDLORD", meaning: "房東" },
+                { word: "REAL-ESTATE", meaning: "不動產" },
+                { word: "PREMISES", meaning: "經營場址；房屋" },
+                { word: "RENOVATION", meaning: "裝修" },
+                { word: "FACILITY", meaning: "設施" },
+                { word: "ZONING", meaning: "分區規劃" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十五)",
+            words: [
+                { word: "PROCUREMENT", meaning: "採購" },
+                { word: "OUTSOURCING", meaning: "委外；外包" },
+                { word: "DISTRIBUTION", meaning: "分配；分銷" },
+                { word: "LOGISTICS", meaning: "物流" },
+                { word: "SUPPLIER", meaning: "供應商" },
+                { word: "CONSIGNMENT", meaning: "寄售" },
+                { word: "EXPEDITE", meaning: "加速處理" },
+                { word: "FREIGHT", meaning: "貨運" },
+                { word: "WAREHOUSE", meaning: "倉庫" },
+                { word: "INVENTORY", meaning: "存貨" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十六)",
+            words: [
+                { word: "SPOKESPERSON", meaning: "發言人" },
+                { word: "PUBLICITY", meaning: "宣傳；曝光" },
+                { word: "BRANDING", meaning: "品牌化" },
+                { word: "ENDORSEMENT", meaning: "代言；背書" },
+                { word: "COMMERCIAL", meaning: "廣告" },
+                { word: "CIRCULATION", meaning: "發行量" },
+                { word: "BROADCAST", meaning: "廣播；播放" },
+                { word: "SUBSCRIBER", meaning: "訂閱者" },
+                { word: "SEGMENT", meaning: "市場區隔" },
+                { word: "DEMOGRAPHICS", meaning: "人口統計數據" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十七)",
+            words: [
+                { word: "SUSTAINABILITY", meaning: "永續性" },
+                { word: "RENEWABLE", meaning: "可再生的" },
+                { word: "CONSERVATION", meaning: "保護；節約" },
+                { word: "EMISSION", meaning: "排放" },
+                { word: "CARBON-FOOTPRINT", meaning: "碳足跡" },
+                { word: "ECOLOGICAL", meaning: "生態的" },
+                { word: "BIODEGRADABLE", meaning: "可生物分解的" },
+                { word: "EFFICIENCY", meaning: "效率" },
+                { word: "GOVERNANCE", meaning: "治理" },
+                { word: "REGULATION", meaning: "規章" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十八)",
+            words: [
+                { word: "PROTOTYPE", meaning: "原型；雛型" },
+                { word: "MANUFACTURING", meaning: "製造業" },
+                { word: "ASSEMBLY", meaning: "組裝" },
+                { word: "BLUEPRINT", meaning: "藍圖" },
+                { word: "SPECIFICATION", meaning: "規格" },
+                { word: "INSPECTION", meaning: "檢查" },
+                { word: "DOWNTIME", meaning: "停機時間" },
+                { word: "OUTPUT", meaning: "產量" },
+                { word: "DEFECT", meaning: "瑕疵" },
+                { word: "MAINTENANCE", meaning: "維修" }
+            ]
+        },
+        {
+            title: "多益必考核心 (四十九)",
+            words: [
+                { word: "WHOLESALE", meaning: "批發" },
+                { word: "RETAIL", meaning: "零售" },
+                { word: "DISCOUNT", meaning: "折扣" },
+                { word: "REFUND", meaning: "退款" },
+                { word: "EXCHANGE", meaning: "交換" },
+                { word: "REBATE", meaning: "回扣；退還款" },
+                { word: "TRANSACTION", meaning: "交易" },
+                { word: "MERCHANDISE", meaning: "商品" },
+                { word: "VENDOR", meaning: "小販；賣主" },
+                { word: "PURCHASE", meaning: "購買" }
+            ]
+        },
+        {
+            title: "多益必考核心 (五十)",
+            words: [
+                { word: "LEADERSHIP", meaning: "領導力" },
+                { word: "VISIONARY", meaning: "有遠見的" },
+                { word: "INTEGRITY", meaning: "正直；誠信" },
+                { word: "STRATEGIC", meaning: "戰略性的" },
+                { word: "SYNERGY", meaning: "綜效" },
+                { word: "DIVERSITY", meaning: "多樣性" },
+                { word: "INCLUSION", meaning: "包容" },
+                { word: "MINDFULNESS", meaning: "正念；覺察" },
+                { word: "COMPASSIONATE", meaning: "慈悲的；有同理心的" },
+                { word: "EQUANIMITY", meaning: "平靜；鎮定" }
             ]
         },
         {
@@ -4037,6 +4652,411 @@ toefl: [
                 { word: "SOLULU", meaning: "解決方案" },
                 { word: "COKED", meaning: "完蛋了" },
                 { word: "AURA", meaning: "氣場/個人魅力值" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二十四)",
+            words: [
+                { word: "ATE", meaning: "表現極好；完勝" },
+                { word: "LEFT NO CRUMBS", meaning: "完美無缺；不留一點碎屑" },
+                { word: "MOTHER", meaning: "標竿人物；非常有魅力的女性" },
+                { word: "SERVED", meaning: "造型或表現極具亮點" },
+                { word: "SLAY", meaning: "做得好；棒極了" },
+                { word: "REAL", meaning: "真實；深有同感" },
+                { word: "POOKIE", meaning: "親愛的；可愛的人" },
+                { word: "BESTIE", meaning: "最好的朋友" },
+                { word: "STAN", meaning: "死忠粉絲；瘋狂追隨者" },
+                { word: "MAIN CHARACTER", meaning: "主角光環；自我中心的人" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二十五)",
+            words: [
+                { word: "RIZZLER", meaning: "魅力十足的人 (來自 Rizz)" },
+                { word: "GYATT", meaning: "看到驚人身材時的驚嘆詞" },
+                { word: "OHIO", meaning: "古怪的；詭異的 (迷因梗)" },
+                { word: "LOOKSMAXING", meaning: "瘋狂提升外在吸引力的行為" },
+                { word: "CHUD", meaning: "外貌欠佳且思想保守的人" },
+                { word: "NEPO BABY", meaning: "靠關係出名的星二代" },
+                { word: "GATEKEEP", meaning: "資訊封鎖；獨佔資源" },
+                { word: "GIRLBOSS", meaning: "成功的女性領導者" },
+                { word: "MANIFEST", meaning: "顯化；心想事成" },
+                { word: "SLOW LIVING", meaning: "慢生活；拒絕內耗" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二十六)",
+            words: [
+                { word: "SITUATIONSHIP", meaning: "曖昧不明且非正式的關係" },
+                { word: "RED FLAG", meaning: "危險警訊；危險信號" },
+                { word: "BEIGE FLAG", meaning: "無聊但無害的人格特徵" },
+                { word: "GREEN FLAG", meaning: "值得信任的優點" },
+                { word: "BENCHING", meaning: "將某人列為感情備胎" },
+                { word: "BREADCRUMBING", meaning: "給點甜頭但不給承諾 (灑麵包屑)" },
+                { word: "GHOSTING", meaning: "不告而別；人間蒸發" },
+                { word: "SOFT LAUNCH", meaning: "低調官宣 (如只拍一半的手)" },
+                { word: "HARD LAUNCH", meaning: "正式且高調宣布戀情" },
+                { word: "ORBITING", meaning: "分手後仍持續關注對方社群" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二十七)",
+            words: [
+                { word: "DOOMSCROLLING", meaning: "欲罷不能地刷負面新聞" },
+                { word: "RATIOED", meaning: "留言互動數遠超原文 (表示被打臉)" },
+                { word: "CHRONICALLY ONLINE", meaning: "整天泡在網上且脫離現實的人" },
+                { word: "TOUCH GRASS", meaning: "回歸現實吧 (別整天待在網上)" },
+                { word: "NPC", meaning: "路人甲；沒主見的人" },
+                { word: "MAIN CHARACTER ENERGY", meaning: "自帶主角氣場的人" },
+                { word: "VIBE CHECK", meaning: "氣氛檢測；當下感受確認" },
+                { word: "RENT FREE", meaning: "揮之不去；常駐腦海" },
+                { word: "RECEIPTS", meaning: "證據 (尤指截圖證明事實)" },
+                { word: "TEA", meaning: "八卦；真相" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二十八)",
+            words: [
+                { word: "SALTY", meaning: "惱羞成怒；酸葡萄心理" },
+                { word: "SHOOK", meaning: "震驚的；嚇壞了" },
+                { word: "PRESSED", meaning: "感到壓力的；煩躁的" },
+                { word: "BUMMER", meaning: "掃興的事；令人失望的事" },
+                { word: "CRINGE", meaning: "尷尬；覺得肉麻" },
+                { word: "YIKES", meaning: "表示驚訝或擔憂的感嘆詞" },
+                { word: "OOF", meaning: "表示同情、尷尬或被打擊的聲音" },
+                { word: "BIG MAD", meaning: "非常生氣" },
+                { word: "SAUCY", meaning: "俏皮的；帶點挑釁的" },
+                { word: "GAGGED", meaning: "被震驚到說不出話來" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (二十九)",
+            words: [
+                { word: "NO CAP", meaning: "不說謊；不吹牛" },
+                { word: "FACTS", meaning: "事實；表示完全同意" },
+                { word: "PERIODT", meaning: "強調結束；沒什麼好說的了" },
+                { word: "FOR REAL", meaning: "真的嗎？表示認真" },
+                { word: "FR FR", meaning: "真心不騙 (For Real For Real)" },
+                { word: "BET", meaning: "好啊；沒問題" },
+                { word: "WORD", meaning: "表示同意或了解" },
+                { word: "SAY LESS", meaning: "懂了；不必多說" },
+                { word: "ON GOD", meaning: "發誓；對天發誓" },
+                { word: "LOWKEY", meaning: "低調地；有點偷偷地" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十)",
+            words: [
+                { word: "SUS", meaning: "可疑的 (Suspicious 縮寫)" },
+                { word: "SHADY", meaning: "鬼鬼祟祟的；不可靠的" },
+                { word: "SKETCHY", meaning: "詭異的；不太安全的" },
+                { word: "SIDE EYE", meaning: "鄙視或懷疑的斜眼目光" },
+                { word: "SNATCHED", meaning: "極好的；完美無瑕的" },
+                { word: "CLOUT", meaning: "影響力；權勢" },
+                { word: "STAN", meaning: "死忠粉絲" },
+                { word: "SHIP", meaning: "支持某兩人的感情發展" },
+                { word: "CANCEL", meaning: "抵制；取消關注" },
+                { word: "WOKE", meaning: "覺醒的；對社會正義敏感的" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十一)",
+            words: [
+                { word: "FLEX", meaning: "炫耀；展現優勢" },
+                { word: "BREAD", meaning: "金錢；生計" },
+                { word: "GUAP", meaning: "大量的錢" },
+                { word: "DRIP", meaning: "很有個人風格的穿搭" },
+                { word: "ICE", meaning: "昂貴的珠寶首飾" },
+                { word: "GLOW UP", meaning: "變美或變成功的蛻變" },
+                { word: "HUSTLE", meaning: "拚搏；奮鬥" },
+                { word: "GRIND", meaning: "辛勤工作" },
+                { word: "BLESSED", meaning: "感到蒙受恩寵的" },
+                { word: "FINNA", meaning: "打算去做 (Fixing to)" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十二)",
+            words: [
+                { word: "FUMBLE", meaning: "搞砸；錯失良機" },
+                { word: "L", meaning: "輸了；失敗 (Loss)" },
+                { word: "W", meaning: "贏了；成功 (Win)" },
+                { word: "COOKED", meaning: "完蛋了；徹底毀了" },
+                { word: "FLAKE", meaning: "放鴿子的人" },
+                { word: "BOUNCE", meaning: "離開；閃人" },
+                { word: "YEET", meaning: "用力丟擲；表示興奮" },
+                { word: "LIT", meaning: "超讚的；超嗨的" },
+                { word: "FIRE", meaning: "很酷；很棒" },
+                { word: "DOPE", meaning: "超酷的" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十三)",
+            words: [
+                { word: "CLEAN GIRL", meaning: "清新簡約風格的女生" },
+                { word: "SOFT GIRL", meaning: "甜美溫柔風格的女生" },
+                { word: "TRADWIFE", meaning: "傳統全職家庭主婦" },
+                { word: "GORPCORE", meaning: "戶外機能穿搭風格" },
+                { word: "COTTAGECORE", meaning: "鄉村田園風格" },
+                { word: "COQUETTE", meaning: "復古甜美浪漫風格" },
+                { word: "PREPPY", meaning: "學院派風格" },
+                { word: "INDIE", meaning: "獨立原創風格" },
+                { word: "VINTAGE", meaning: "古著風格" },
+                { word: "AESTHETIC", meaning: "有審美感的；獨特風格的" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十四)",
+            words: [
+                { word: "ROMAN EMPIRE", meaning: "常駐腦海、揮之不去的人事物" },
+                { word: "IYKYK", meaning: "懂的人就懂 (If You Know You Know)" },
+                { word: "IMO", meaning: "在我看來 (In My Opinion)" },
+                { word: "NGL", meaning: "說實話 (Not Gonna Lie)" },
+                { word: "TBT", meaning: "回顧往事 (Throwback Thursday)" },
+                { word: "FOMO", meaning: "錯失恐懼症" },
+                { word: "JOMO", meaning: "錯失的快樂 (享受獨處)" },
+                { word: "BAE", meaning: "心愛的人 (Before Anyone Else)" },
+                { word: "GOAT", meaning: "史上最強 (Greatest of All Time)" },
+                { word: "CAP", meaning: "吹牛；說謊" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十五)",
+            words: [
+                { word: "CHILL", meaning: "冷靜點；放鬆" },
+                { word: "VIBING", meaning: "享受氛圍；沉浸其中" },
+                { word: "MOOD", meaning: "心情寫照；深有感觸" },
+                { word: "DEAD", meaning: "笑死我了" },
+                { word: "WEAK", meaning: "笑到全身沒力" },
+                { word: "HIGHKEY", meaning: "高調地；明顯地" },
+                { word: "HYPED", meaning: "興奮的；被炒作的" },
+                { word: "EXTRA", meaning: "表現過度；浮誇" },
+                { word: "BASIC", meaning: "平淡無奇；老套" },
+                { word: "BOP", meaning: "超好聽的歌" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十六)",
+            words: [
+                { word: "ROAST", meaning: "無情吐槽；嘲諷" },
+                { word: "BURN", meaning: "犀利的挖苦" },
+                { word: "SHADE", meaning: "隱晦的攻擊或影射" },
+                { word: "SPILL THE BEANS", meaning: "洩漏秘密" },
+                { word: "KUDOS", meaning: "讚許；稱讚" },
+                { word: "PROPS", meaning: "尊敬；讚賞" },
+                { word: "RESPECT", meaning: "致敬" },
+                { word: "ASSIGNMENT", meaning: "表現得非常到位 (Understood it)" },
+                { word: "SMASH", meaning: "極具吸引力" },
+                { word: "PASS", meaning: "沒興趣；跳過" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十七)",
+            words: [
+                { word: "MID", meaning: "平庸的；普通到不行的" },
+                { word: "TRASH", meaning: "垃圾；很爛" },
+                { word: "GAS", meaning: "超棒的；非常有能量的" },
+                { word: "PEAK", meaning: "頂點；絕佳狀態" },
+                { word: "ICONIC", meaning: "具代表性的；經典的" },
+                { word: "LEGENDARY", meaning: "傳奇般的" },
+                { word: "UNREAL", meaning: "難以置信的" },
+                { word: "WILD", meaning: "瘋狂的；荒唐的" },
+                { word: "BET", meaning: "好的；一言為定" },
+                { word: "W", meaning: "勝利 (Win)" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十八)",
+            words: [
+                { word: "QUIET QUITTING", meaning: "安靜離職 (只做分內事)" },
+                { word: "BURNOUT", meaning: "身心俱疲；過勞" },
+                { word: "SIDE HUSTLE", meaning: "斜槓；副業" },
+                { word: "GRINDSET", meaning: "拚搏心態" },
+                { word: "NETWORKING", meaning: "建立人脈" },
+                { word: "LINKEDIN LUNATIC", meaning: "領英狂熱者 (過度吹捧職場的人)" },
+                { word: "CORPORATE", meaning: "公司化的；企業的" },
+                { word: "REMOTE", meaning: "遠端工作的" },
+                { word: "OFFICE", meaning: "辦公室" },
+                { word: "COMMUTE", meaning: "通勤" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (三十九)",
+            words: [
+                { word: "CHAT", meaning: "聊天室觀眾 (統稱)" },
+                { word: "STREAMER", meaning: "實況主" },
+                { word: "DONO", meaning: "贊助 (Donation)" },
+                { word: "LURK", meaning: "潛水 (看直播不發言)" },
+                { word: "MOD", meaning: "管理員 (Moderator)" },
+                { word: "SUB", meaning: "訂閱者 (Subscriber)" },
+                { word: "EMOTE", meaning: "貼圖；表情符號" },
+                { word: "CLIP", meaning: "精彩片段" },
+                { word: "VIRAL", meaning: "爆紅的；瘋傳的" },
+                { word: "ALGORITHM", meaning: "演算法" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十)",
+            words: [
+                { word: "VIBES", meaning: "氣氛；感覺" },
+                { word: "ENERGY", meaning: "能量；活力" },
+                { word: "SPIRIT", meaning: "精神" },
+                { word: "SOUL", meaning: "靈魂" },
+                { word: "ESSENCE", meaning: "本質" },
+                { word: "CORE", meaning: "核心風格 (如 Gorpcore)" },
+                { word: "TRUTH", meaning: "真相" },
+                { word: "PEACE", meaning: "平靜；再見" },
+                { word: "VALID", meaning: "合理的；被認可的" },
+                { word: "CHILL", meaning: "放鬆" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十一)",
+            words: [
+                { word: "CANON", meaning: "正統設定；官方公認的事實" },
+                { word: "FANON", meaning: "粉絲圈公認的非官方設定" },
+                { word: "CHARACTER ARC", meaning: "人格成長曲線" },
+                { word: "PLOT ARMOR", meaning: "主角光環 (死不了的設定)" },
+                { word: "LORE", meaning: "背景故事；深層設定" },
+                { word: "EASTER EGG", meaning: "隱藏彩蛋" },
+                { word: "RECAP", meaning: "重點回顧" },
+                { word: "GLITCH", meaning: "系統小故障；違和感" },
+                { word: "CLIPPED", meaning: "被剪輯捕捉到的精彩瞬間" },
+                { word: "HARDWARE", meaning: "硬體；指代人的身體素質" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十二)",
+            words: [
+                { word: "BASED", meaning: "有主見的；不畏他人眼光的真理" },
+                { word: "DUB", meaning: "大獲全勝 (Win 的縮寫)" },
+                { word: "COPE", meaning: "自我安慰；試圖合理化失敗" },
+                { word: "MALDING", meaning: "氣急敗壞 (氣到變禿頭)" },
+                { word: "LACKING", meaning: "疏忽大意；準備不足" },
+                { word: "CLUTCH", meaning: "關鍵時刻的發揮" },
+                { word: "CHOKE", meaning: "關鍵時刻失誤" },
+                { word: "DOWN BAD", meaning: "極度渴望；處境慘淡" },
+                { word: "BRUH", meaning: "無語；老兄你認真的嗎" },
+                { word: "YESSIR", meaning: "沒問題；肯定" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十三)",
+            words: [
+                { word: "ON SIGHT", meaning: "見面即發生 (通常指立即衝突或行動)" },
+                { word: "PULL UP", meaning: "現身；開車抵達現場" },
+                { word: "NO SHOT", meaning: "絕無可能" },
+                { word: "DEADASS", meaning: "認真的；不開玩笑" },
+                { word: "SHEESH", meaning: "驚訝或讚嘆的長音驚嘆詞" },
+                { word: "ONG", meaning: "對天發誓 (On God)" },
+                { word: "SLIDE", meaning: "順道拜訪；過來" },
+                { word: "SPIN", meaning: "巡邏；繞一圈" },
+                { word: "OP", meaning: "強大對手；敵對者" },
+                { word: "STEEZE", meaning: "風格魅力 (Style + Ease)" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十四)",
+            words: [
+                { word: "BLUEPRINT", meaning: "經典標竿；藍圖" },
+                { word: "ROADMAP", meaning: "未來路線規劃" },
+                { word: "MILESTONE", meaning: "里程碑；重要成就" },
+                { word: "FLOW", meaning: "流動感；流暢度" },
+                { word: "SYNERGY", meaning: "綜效；協同作用" },
+                { word: "ALIGN", meaning: "對齊；契合" },
+                { word: "SCALE", meaning: "擴展規模" },
+                { word: "PIVOT", meaning: "華麗轉身；關鍵轉型" },
+                { word: "LEGACY", meaning: "留給世人的精神遺產" },
+                { word: "PRIME", meaning: "全盛時期" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十五)",
+            words: [
+                { word: "BLUE PILL", meaning: "安於現狀；拒絕面對現實" },
+                { word: "RED PILL", meaning: "覺醒；直面殘酷的真相" },
+                { word: "SIMULATION", meaning: "虛擬世界；擬真" },
+                { word: "MATRIX", meaning: "母體；社會束縛的系統" },
+                { word: "SYNCHRONICITY", meaning: "共時性；奇妙的巧合" },
+                { word: "ALIGNMENT", meaning: "內在與外在的契合" },
+                { word: "FREQUENCY", meaning: "頻率；共鳴" },
+                { word: "RADIANT", meaning: "散發光輝的" },
+                { word: "RESONANT", meaning: "產生深度共鳴的" },
+                { word: "SERENE", meaning: "寧靜詳和的" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十六)",
+            words: [
+                { word: "MAIN", meaning: "主要使用的帳號或角色" },
+                { word: "ALT", meaning: "備用帳號；分身" },
+                { word: "AVATAR", meaning: "數位化身；頭像" },
+                { word: "SKIN", meaning: "外觀皮膚；個性化裝扮" },
+                { word: "XP", meaning: "經驗值" },
+                { word: "BUFF", meaning: "獲得強化狀態" },
+                { word: "NERF", meaning: "被削弱力量" },
+                { word: "BOT", meaning: "像機器人般運作的人" },
+                { word: "MOB", meaning: "雜魚；普通群眾" },
+                { word: "TIER LIST", meaning: "等級排名清單" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十七)",
+            words: [
+                { word: "FRESH", meaning: "清爽新穎的風格" },
+                { word: "CLEAN", meaning: "簡約俐落的" },
+                { word: "ELITE", meaning: "頂尖精英的" },
+                { word: "SHARP", meaning: "反應靈敏；穿搭利落" },
+                { word: "CLASSIC", meaning: "永恆的經典" },
+                { word: "TIMELESS", meaning: "不受時間影響的" },
+                { word: "MINIMAL", meaning: "極簡的" },
+                { word: "SLEEK", meaning: "流線型；圓滑的" },
+                { word: "BOLD", meaning: "大膽無畏的" },
+                { word: "ULTIMATE", meaning: "最終的；究極的" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十八)",
+            words: [
+                { word: "WANDERLUST", meaning: "對旅行與探索的渴望" },
+                { word: "ZEN", meaning: "進入禪定的冷靜狀態" },
+                { word: "MINDFUL", meaning: "有覺知的；留心的" },
+                { word: "PRESENCE", meaning: "臨在感；氣場" },
+                { word: "HARMONY", meaning: "和諧共生" },
+                { word: "FLOW STATE", meaning: "物我兩忘的心流狀態" },
+                { word: "BALANCE", meaning: "平衡之道" },
+                { word: "SOULFUL", meaning: "深情且動人的" },
+                { word: "RADIANCE", meaning: "由內而外的光芒" },
+                { word: "VIBRANT", meaning: "充滿生機的" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (四十九)",
+            words: [
+                { word: "HUMBLE", meaning: "謙卑自守" },
+                { word: "PERSPECTIVE", meaning: "視角；觀點" },
+                { word: "WISDOM", meaning: "智慧" },
+                { word: "PATH", meaning: "修行之道" },
+                { word: "SOURCE", meaning: "萬物源頭" },
+                { word: "ETERNITY", meaning: "永恆" },
+                { word: "UNITY", meaning: "不二；統一" },
+                { word: "VOID", meaning: "真空；妙有" },
+                { word: "LIGHT", meaning: "光與覺知" },
+                { word: "INTENTION", meaning: "發心；初衷" }
+            ]
+        },
+        {
+            title: "道地美式俚語 (五十 - 般若圓滿)",
+            words: [
+                { word: "NINETY-NINE", meaning: "九十九分；永遠留一分謙卑" },
+                { word: "AMITABHA", meaning: "無量光；彌陀系統核心" },
+                { word: "PURE LAND", meaning: "清淨領域；淨土" },
+                { word: "BODHI", meaning: "覺悟之智" },
+                { word: "DHARMA", meaning: "正法；自然法則" },
+                { word: "COMPASSION", meaning: "慈悲與利他" },
+                { word: "EQUANIMITY", meaning: "平等心與鎮定" },
+                { word: "MINDFULNESS", meaning: "覺察當下" },
+                { word: "ONE", meaning: "萬物合一" },
+                { word: "PEACE", meaning: "究竟和平；圓滿" }
             ]
         },
         {
